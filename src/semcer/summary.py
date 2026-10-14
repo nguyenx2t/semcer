@@ -99,4 +99,71 @@ def summarize(rows: Iterable[dict], *, allow_mixed: bool = False) -> dict[str, A
     return out
 
 
-__all__ = ["MixedSignatureError", "signature_key", "summarize"]
+def _micro(rows: list[dict]) -> tuple[float, float]:
+    n_ref = sum(r["n_ref_graphemes"] for r in rows)
+    return math.fsum(_numerator(r) for r in rows) / n_ref, sum(r["n_edits"] for r in rows) / n_ref
+
+
+def compare(rows_a: Iterable[dict], rows_b: Iterable[dict], *, samples: int = 1000, seed: int = 0) -> dict[str, Any]:
+    """Compare two systems scored on the same references.
+
+    The rows are matched by ``id``; a line counts only when both systems have a
+    semcer value for it, and the references must agree. Returns each system's
+    corpus semcer and CER on those lines, the difference ``a - b`` with a 95%
+    paired bootstrap interval (lines resampled together, or documents when every
+    row carries ``document_id``; each replicate recomputes the ratio of sums),
+    and the lines on which the two systems' semcer differs most.
+    """
+    import random
+
+    a, b = ({r["id"]: r for r in rows} for rows in (rows_a, rows_b))
+    if len(a) == 0 or set(a) != set(b):
+        raise ValueError(f"the two files do not score the same ids ({len(a)} and {len(b)} rows)")
+    ids = [i for i in a if _in_population(a[i]) and _in_population(b[i])]
+    for i in ids:
+        same_text = a[i].get("reference") == b[i].get("reference")
+        if a[i]["n_ref_graphemes"] != b[i]["n_ref_graphemes"] or not same_text:
+            raise ValueError(f"id {i!r} has a different reference in the two files")
+    if not ids:
+        raise ValueError("no line has a semcer value in both files")
+    clustered = all(a[i].get("document_id") is not None for i in ids)
+    groups: dict[Any, list] = defaultdict(list)
+    for i in ids:
+        groups[a[i]["document_id"] if clustered else i].append(i)
+    units = list(groups.values())
+
+    def diff(lines: list) -> tuple[float, float]:
+        (sa, ca), (sb, cb) = _micro([a[i] for i in lines]), _micro([b[i] for i in lines])
+        return sa - sb, ca - cb
+
+    rng = random.Random(seed)
+    draws = sorted(diff([i for unit in rng.choices(units, k=len(units)) for i in unit])[0] for _ in range(samples))
+    (sem_a, cer_a), (sem_b, cer_b) = _micro([a[i] for i in ids]), _micro([b[i] for i in ids])
+    lo, hi = (draws[int(q * (samples - 1))] for q in (0.025, 0.975)) if samples else (None, None)
+    per_line = sorted(ids, key=lambda i: -abs(a[i]["semcer"] - b[i]["semcer"]))
+    return {
+        "n_lines": len(ids),
+        "n_excluded": len(a) - len(ids),
+        "resampled": "documents" if clustered else "lines",
+        "a": {"semcer_micro": sem_a, "cer_micro": cer_a},
+        "b": {"semcer_micro": sem_b, "cer_micro": cer_b},
+        "semcer_difference": sem_a - sem_b,
+        "semcer_difference_ci95": [lo, hi],
+        "cer_difference": cer_a - cer_b,
+        "lines_a_better": sum(a[i]["semcer"] < b[i]["semcer"] for i in ids),
+        "lines_b_better": sum(a[i]["semcer"] > b[i]["semcer"] for i in ids),
+        "lines_tied": sum(a[i]["semcer"] == b[i]["semcer"] for i in ids),
+        "largest_differences": [
+            {
+                "id": i,
+                "semcer_a": a[i]["semcer"],
+                "semcer_b": b[i]["semcer"],
+                "cer_a": a[i]["cer"],
+                "cer_b": b[i]["cer"],
+            }
+            for i in per_line[:10]
+        ],
+    }
+
+
+__all__ = ["MixedSignatureError", "compare", "signature_key", "summarize"]

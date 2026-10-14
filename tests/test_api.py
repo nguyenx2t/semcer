@@ -190,3 +190,32 @@ def test_module_level_score_uses_the_default_and_clears(tiny_bundle, monkeypatch
     finally:
         semcer.clear_cache()
     assert "scorer" not in semcer._DEFAULT
+
+
+def test_batch_size_can_be_set_and_does_not_change_scores(tiny_bundle, scorer, pairs):
+    sub = [p for p in pairs if p["reference"] != p["hypothesis"]][:10]
+    refs, hyps = [p["reference"] for p in sub], [p["hypothesis"] for p in sub]
+    small = SemCER(tiny_bundle, batch_size=2)
+    assert small.batch_size == 2 and scorer.batch_size == 8
+    for a, b in zip(scorer.score_batch(refs, hyps), small.score_batch(refs, hyps)):
+        assert a.semcer == pytest.approx(b.semcer, abs=1e-6)
+    assert small.stats.max_forward_rows <= 2
+    with pytest.raises(ValueError, match="batch_size"):
+        SemCER(tiny_bundle, batch_size=0)
+
+
+def test_html_view_marks_every_edit_and_escapes_text(scorer):
+    r = scorer.score(reference="a <b> cat sat", hypothesis="a <b> cut sat!")
+    html = r._repr_html_()
+    assert html.count('<span style="background') >= r.n_edits + 3  # every edit, plus the three-level key
+    assert "&lt;b&gt;" in html and "<b> cat" not in html  # text is escaped
+    assert "severity" in html and "REF" in html and "HYP" in html
+    assert "<pre>" in scorer.score(reference="abc", hypothesis="abd", details="scores")._repr_html_()
+
+
+def test_library_is_silent_by_default_and_progress_is_opt_in(tiny_bundle, capfd):
+    s = SemCER(tiny_bundle)
+    s.score_batch(["a cat", "hello"], ["a cut", "hello"])
+    assert capfd.readouterr() == ("", "")
+    s.score_batch(["a cat", "hello"], ["a cut", "hello"], progress=True)
+    assert "semcer" in capfd.readouterr().err

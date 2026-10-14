@@ -22,6 +22,7 @@ The values equal the pair-by-pair ones within the fp32 tolerance (1e-6).
 
 from __future__ import annotations
 
+import logging
 import sys
 import unicodedata
 from collections.abc import Iterable, Iterator
@@ -40,9 +41,22 @@ from semcer.result import EditRecord, PairResult, display_spans
 
 __all__ = ["SemCER", "PairResult", "EditRecord", "UnscorableEditError", "UndefinedMetricError"]
 
+logger = logging.getLogger("semcer")
+
 DETAILS = ("edits", "scores", "distributions")
 UNSCORED_POLICIES = ("partial", "impute_one", "raise")
 EMPTY_REFERENCE_POLICIES = ("raise", "null")
+#: Engine settings ``SemCER`` accepts by keyword, with their defaults (``None``:
+#: taken from the model or the device).
+ADVANCED = {
+    "batch_pairs": None,  # lines prepared and scored together (1 on CPU, 64 on a GPU)
+    "max_length": None,  # input window in tokens (the model's own, 2,048)
+    "max_batch_tokens": 4096,  # padded tokens per model call
+    "chunk_edits": 256,  # edits rendered and tokenized at a time within a line
+    "cache_prefix": True,  # reuse the line's encoding across its edits
+    "cache_op_header": True,  # a second cache level per operation (single-line path)
+    "cell_budget": DEFAULT_CELL_BUDGET,  # alignment table cells before a line is refused
+}
 
 
 class UnscorableEditError(RuntimeError):
@@ -78,24 +92,33 @@ class SemCER:
         revision: str | None = None,
         device: str = "auto",
         dtype: str = "fp32",
-        local_files_only: bool = False,
-        max_length: int | None = None,
-        max_batch_tokens: int = 4096,
-        max_batch_edits: int | None = None,
-        batch_pairs: int | None = None,
-        chunk_edits: int = 256,
-        cache_prefix: bool = True,
-        cache_op_header: bool = True,
+        batch_size: int | None = None,
         unscored: str = "partial",
         empty_reference: str = "raise",
-        cell_budget: int | None = DEFAULT_CELL_BUDGET,
+        local_files_only: bool = False,
+        **advanced,
     ):
         """Load the model and get ready to score.
 
-        ``model`` is a bundle directory or a Hub id; with none, ``$SEMCER_MODEL``
-        or the released model, which is downloaded once and cached. ``device`` is
-        ``"auto"`` (CUDA when available, else CPU), ``"cpu"``, or ``"cuda[:N]"``.
+        model             a bundle directory or a Hub id; with none, ``$SEMCER_MODEL``
+                          or the released model, downloaded once and cached
+        revision          Hub commit, branch or tag of ``model``
+        device            ``"auto"`` (CUDA when available, else CPU), ``"cpu"``, ``"cuda[:N]"``
+        dtype             ``"fp32"`` or ``"bf16"``
+        batch_size        edits per model call (default 8 on CPU; 16 or 32 on a GPU
+                          by its memory); lower it if a GPU runs out of memory
+        unscored          ``"partial"``, ``"impute_one"`` or ``"raise"`` (module doc)
+        empty_reference   ``"raise"`` or ``"null"``
+        local_files_only  never touch the network
+
+        Engine settings that rarely need changing are accepted by keyword too:
+        see :data:`ADVANCED`.
         """
+        unknown = sorted(set(advanced) - set(ADVANCED))
+        if unknown:
+            raise TypeError(f"unexpected argument(s) {unknown}; advanced settings are {sorted(ADVANCED)}")
+        adv = {**ADVANCED, **advanced}
+        max_length, batch_pairs, cell_budget = adv["max_length"], adv["batch_pairs"], adv["cell_budget"]
         from semcer._convpatch import conv_path, gdn_path
         from semcer._engine import Engine, EngineConfig
         from semcer._loader import load_bundle, resolve_device
@@ -121,9 +144,12 @@ class SemCER:
         self.empty_reference = empty_reference
         self.cell_budget = cell_budget
         on_cpu = str(device).startswith("cpu")
-        if max_batch_edits is None:
+        if batch_size is None:
             # Larger CPU batches spill the caches (each row carries recurrent state).
-            max_batch_edits = 8 if on_cpu else _gpu_batch_edits(device)
+            batch_size = 8 if on_cpu else _gpu_batch_edits(device)
+        if batch_size < 1:
+            raise ValueError(f"batch_size must be >= 1, got {batch_size}")
+        self.batch_size = int(batch_size)
         if batch_pairs is None:
             # On CPU each pair runs alone, so its score does not depend on its
             # neighbours even at the 1e-7 level (batch_pairs=32 is 1.5x faster).
@@ -138,11 +164,11 @@ class SemCER:
             device,
             EngineConfig(
                 max_length=self.max_length,
-                max_batch_tokens=max_batch_tokens,
-                max_batch_edits=max_batch_edits,
-                chunk_edits=chunk_edits,
-                cache_prefix=cache_prefix,
-                cache_op_header=cache_op_header,
+                max_batch_tokens=adv["max_batch_tokens"],
+                max_batch_edits=self.batch_size,
+                chunk_edits=adv["chunk_edits"],
+                cache_prefix=adv["cache_prefix"],
+                cache_op_header=adv["cache_op_header"],
             ),
         )
         import torch
@@ -176,6 +202,15 @@ class SemCER:
             "unscored": unscored,
             "empty_reference": empty_reference,
         }
+
+        logger.info(
+            "model %s on %s (%s), batch size %d, %d line(s) per window",
+            source,
+            device,
+            dtype,
+            self.batch_size,
+            self.batch_pairs,
+        )
 
     @property
     def _cross_pair(self) -> bool:
@@ -212,8 +247,12 @@ class SemCER:
         ids: list | None = None,
         languages: list[str | None] | None = None,
         details: str = "edits",
+        progress: bool = False,
     ) -> list[PairResult]:
-        """Score positional pairs; results come back in input order."""
+        """Score positional pairs; results come back in input order.
+
+        ``progress=True`` shows a progress bar.
+        """
         if len(references) != len(hypotheses):
             raise ValueError(f"references and hypotheses differ in length: {len(references)} != {len(hypotheses)}")
         for name, seq in (("ids", ids), ("languages", languages)):
@@ -225,7 +264,12 @@ class SemCER:
             if languages is not None and languages[n] is not None:
                 rec["language"] = languages[n]
             records.append(rec)
-        return list(self.score_iter(records, details=details))
+        results = self.score_iter(records, details=details)
+        if progress:
+            from tqdm.auto import tqdm
+
+            results = tqdm(results, total=len(records), desc="semcer", unit="line")
+        return list(results)
 
     def score_iter(
         self, records: Iterable[dict], *, details: str = "edits", on_error: str = "raise"

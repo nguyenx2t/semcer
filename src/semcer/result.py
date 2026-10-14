@@ -228,6 +228,34 @@ class PairResult:
         )
 
     # -- human-readable views --------------------------------------------------
+    def to_html(self) -> str:
+        """The pair as HTML: reference and hypothesis with each edit coloured by its
+        level (hover for the severity). Needs per-edit detail."""
+        from html import escape
+
+        if self.edits is None or self.reference is None:
+            return f"<pre>{escape(self.explain())}</pre>"
+        sem = "n/a" if self.semcer is None else f"{self.semcer:.4f}"
+        ref = _marked(self.reference, [(*e.ref_char_span, e) for e in self.edits if e.op != "INS"])
+        hyp = _marked(self.hypothesis, [(*e.hyp_char_span, e) for e in self.edits if e.op != "DEL"])
+        key = " ".join(
+            f'<span style="background:{_HTML[level]};border-radius:3px">&nbsp;{level}&nbsp;</span>'
+            for level in ("harmless", "partially recoverable", "meaning lost")
+        )
+        return (
+            '<div style="font-family:monospace;line-height:1.7">'
+            f"<div><b>semcer {sem}</b> &nbsp; CER {self.cer:.4f} &nbsp; {self.n_edits} edit(s) &nbsp; {key}</div>"
+            f'<div><span style="color:#888">REF</span> {ref}</div>'
+            f'<div><span style="color:#888">HYP</span> {hyp}</div></div>'
+        )
+
+    def _repr_html_(self) -> str:  # Jupyter and Colab display
+        if self.status in ("undefined", "error"):
+            from html import escape
+
+            return f"<pre>{escape(self.explain())}</pre>"
+        return self.to_html()
+
     def explain(self, k: int | None = None, *, color: bool = False) -> str:
         """Text account of the score and its edits (the ``k`` worst if given).
 
@@ -258,6 +286,25 @@ class PairResult:
                 f"{e.hyp_grapheme!r}  severity {sev}"
             )
         return "\n".join(lines)
+
+
+_HTML = {"harmless": "#d9ead3", "partially recoverable": "#ffe599", "meaning lost": "#f4b6b6", None: "#dddddd"}
+
+
+def _marked(text: str, spans: list[tuple[int, int, EditRecord]]) -> str:
+    """``text`` as HTML with each ``(start, end, edit)`` span coloured by the edit's level."""
+    from html import escape
+
+    out, at = [], 0
+    for start, end, e in sorted(spans, key=lambda x: x[:2]):
+        sev = "unscored" if e.severity is None else f"{e.severity:.2f} ({e.level})"
+        out.append(escape(text[at:start]))
+        out.append(
+            f'<span style="background:{_HTML[e.level]};border-radius:3px" title="{e.op} severity {sev}">'
+            f"{escape(text[start:end]) or '&#8203;'}</span>"
+        )
+        at = end
+    return "".join(out) + escape(text[at:])
 
 
 _ANSI = {"harmless": "32", "partially recoverable": "33", "meaning lost": "31", None: "2"}

@@ -47,7 +47,7 @@ def main(argv: list[str] | None = None) -> None:
     ap.add_argument("--pairs", type=int, default=400, help="synthetic pairs")
     ap.add_argument("--dense", type=int, nargs="*", default=[300], help="edit counts of extra dense pairs")
     ap.add_argument("--batch-pairs", type=int)
-    ap.add_argument("--max-batch-edits", type=int)
+    ap.add_argument("--batch-size", type=int)
     ap.add_argument("--no-cross-pair", action="store_true", help="score pair by pair on any device")
     ap.add_argument("--repeat", type=int, default=1, help="timed passes after one warm-up pass")
     ap.add_argument("--warmup", type=int, default=16, help="pairs scored before timing")
@@ -69,8 +69,8 @@ def main(argv: list[str] | None = None) -> None:
         kwargs["batch_pairs"] = 1
     elif args.batch_pairs:
         kwargs["batch_pairs"] = args.batch_pairs
-    if args.max_batch_edits:
-        kwargs["max_batch_edits"] = args.max_batch_edits
+    if args.batch_size:
+        kwargs["batch_size"] = args.batch_size
     t0 = time.perf_counter()
     scorer = SemCER.from_pretrained(
         args.model, revision=args.revision, device=args.device, dtype=args.dtype, unscored="impute_one", **kwargs
@@ -110,7 +110,7 @@ def main(argv: list[str] | None = None) -> None:
         "n_scored_edits": n_scored,
         "signature": scorer.signature,
         "batch_pairs": scorer.batch_pairs,
-        "max_batch_edits": scorer._engine.config.max_batch_edits,
+        "batch_size": scorer.batch_size,
         "machine": {
             "platform": platform.platform(),
             "processor": platform.processor(),

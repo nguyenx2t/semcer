@@ -39,6 +39,7 @@ __all__ = [
     "cer",
     "cer_stats",
     "clear_cache",
+    "enable_logging",
     "graphemes",
     "nfc",
     "normalize",
@@ -62,6 +63,22 @@ def score(reference: str, hypothesis: str, **kwargs) -> PairResult:
 
         scorer = _DEFAULT["scorer"] = SemCER()
     return scorer.score(reference, hypothesis, **kwargs)
+
+
+def enable_logging(level: str = "INFO") -> None:
+    """Print semcer's log messages (model download, device, batch size) to stderr.
+
+    The library is silent by default. It logs to the standard ``"semcer"`` logger,
+    so ``logging`` configuration works as well.
+    """
+    import logging
+
+    logger = logging.getLogger("semcer")
+    logger.setLevel(level.upper())
+    if not logger.handlers:
+        handler = logging.StreamHandler()
+        handler.setFormatter(logging.Formatter("semcer: %(message)s"))
+        logger.addHandler(handler)
 
 
 def clear_cache() -> None:

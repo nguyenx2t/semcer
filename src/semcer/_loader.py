@@ -10,11 +10,13 @@ which is validated before any weight is read.
 from __future__ import annotations
 
 import json
+import logging
 import os
-import sys
 from dataclasses import dataclass
 from pathlib import Path
 from typing import Any
+
+logger = logging.getLogger("semcer")
 
 #: Bundle format versions this package can read.
 SUPPORTED_BUNDLE_VERSIONS = frozenset({1})
@@ -118,13 +120,22 @@ def resolve_bundle(
 
     other = "model.safetensors" if dtype == "bf16" else "model.bf16.safetensors"
     fetch = dict(repo_id=str(name_or_path), revision=revision, ignore_patterns=[other])
+    from huggingface_hub.utils import are_progress_bars_disabled, disable_progress_bars, enable_progress_bars
+
+    bars_were_off = are_progress_bars_disabled()
+    disable_progress_bars()  # a cache lookup needs no progress bar
     try:
         local = snapshot_download(local_files_only=True, **fetch)
-    except Exception:  # not cached yet
+    except Exception as exc:  # not cached yet
+        local, miss = None, exc
+    finally:
+        if not bars_were_off:
+            enable_progress_bars()
+    if local is None:
         if local_files_only:
-            raise
+            raise miss
         size = "1.5 GB" if dtype == "bf16" else "3 GB"
-        print(f"semcer: downloading the model {name_or_path} ({size}), once", file=sys.stderr, flush=True)
+        logger.info("downloading the model %s (%s), once", name_or_path, size)
         local = snapshot_download(**fetch)
     local = Path(local)
     return local, str(name_or_path), local.name  # snapshot dirs are named by commit

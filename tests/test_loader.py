@@ -149,7 +149,7 @@ def test_label_reaches_the_signature(tiny_bundle, tmp_path):
     assert s.score("abc", "abd").signature["label"] == "example label, not a release"
 
 
-def test_first_download_says_so_once_and_a_cached_model_is_silent(tiny_bundle, monkeypatch, capsys):
+def test_first_download_is_logged_once_and_nothing_is_printed(tiny_bundle, monkeypatch, capsys, caplog):
     import huggingface_hub
 
     calls = []
@@ -161,11 +161,15 @@ def test_first_download_says_so_once_and_a_cached_model_is_silent(tiny_bundle, m
         return str(tiny_bundle)
 
     monkeypatch.setattr(huggingface_hub, "snapshot_download", fake)
-    _loader.resolve_bundle("someone/some-model")
+    with caplog.at_level("INFO", logger="semcer"):
+        _loader.resolve_bundle("someone/some-model")
     assert calls == [True, False]
-    assert "downloading the model someone/some-model (3 GB), once" in capsys.readouterr().err
-    _loader.resolve_bundle("someone/some-model")
-    assert calls == [True, False, True] and capsys.readouterr().err == ""
+    assert "downloading the model someone/some-model (3 GB), once" in caplog.text
+    caplog.clear()
+    with caplog.at_level("INFO", logger="semcer"):
+        _loader.resolve_bundle("someone/some-model")
+    assert calls == [True, False, True] and caplog.text == ""
+    assert capsys.readouterr() == ("", "")  # the library itself prints nothing
     calls.clear()
     with pytest.raises(FileNotFoundError):
         _loader.resolve_bundle("someone/some-model", local_files_only=True)

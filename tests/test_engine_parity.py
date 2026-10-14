@@ -111,7 +111,7 @@ def test_scalar_batch_and_stream_agree(scorer, pairs):
 
 
 def test_micro_batch_caps_do_not_change_scores(tiny_bundle, scorer, pairs):
-    small = SemCER.from_pretrained(tiny_bundle, max_batch_edits=3, max_batch_tokens=64, chunk_edits=5)
+    small = SemCER.from_pretrained(tiny_bundle, batch_size=3, max_batch_tokens=64, chunk_edits=5)
     sub = [p for p in pairs if p["reference"] != p["hypothesis"]][:25]
     a = scorer.score_batch([p["reference"] for p in sub], [p["hypothesis"] for p in sub])
     b = small.score_batch([p["reference"] for p in sub], [p["hypothesis"] for p in sub])
@@ -177,7 +177,7 @@ def test_runaway_pair_streams_with_bounded_batches(tiny_bundle):
     from _pairs import dense_pair
 
     ref, hyp = dense_pair(900)
-    s = SemCER.from_pretrained(tiny_bundle, max_length=8192, max_batch_edits=8, max_batch_tokens=1024, chunk_edits=64)
+    s = SemCER.from_pretrained(tiny_bundle, max_length=8192, batch_size=8, max_batch_tokens=1024, chunk_edits=64)
     proc = psutil.Process()
     rss0 = proc.memory_info().rss
     r = s.score(ref, hyp, details="scores")

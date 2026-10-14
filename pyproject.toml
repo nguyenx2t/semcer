@@ -4,7 +4,7 @@ build-backend = "setuptools.build_meta"
 
 [project]
 name = "semcer"
-version = "0.1.2"
+version = "0.1.3"
 description = "semcer: a character error rate for OCR that weights each edit by its severity, scored by a local model."
 readme = "README.md"
 requires-python = ">=3.10"
@@ -33,6 +33,7 @@ dependencies = [
     # File loading and download only; they cannot change a score.
     "safetensors>=0.4",
     "huggingface-hub>=0.24",
+    "tqdm",
 ]
 
 [project.optional-dependencies]

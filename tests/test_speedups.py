@@ -96,7 +96,7 @@ def test_gdn_patch_is_installed_on_cpu_and_recorded(scorer):
 
 def test_cpu_batch_default(tiny_bundle):
     assert SemCER.from_pretrained(tiny_bundle)._engine.config.max_batch_edits == 8
-    assert SemCER.from_pretrained(tiny_bundle, max_batch_edits=3)._engine.config.max_batch_edits == 3
+    assert SemCER.from_pretrained(tiny_bundle, batch_size=3)._engine.config.max_batch_edits == 3
 
 
 def _cache_tensors(cache):

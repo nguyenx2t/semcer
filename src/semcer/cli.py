@@ -3,6 +3,8 @@
     semcer score --reference "The total is 15" --hypothesis "The total is 75" --model DIR
     semcer score --input pairs.jsonl --output scores.jsonl [--resume | --overwrite]
     semcer score --references refs.txt --hypotheses hyps.txt --output scores.jsonl
+    semcer score --input pairs.csv --output scores.jsonl
+    semcer compare system_a.jsonl system_b.jsonl
     semcer summarize --input scores.jsonl [--output summary.json]
     semcer inspect --input scores.jsonl --id example-001
 
@@ -131,8 +133,8 @@ def _color() -> bool:
 
 
 class Progress:
-    def __init__(self, total: int | None, every: float = 2.0, stream=sys.stderr):
-        self.total, self.every, self.stream = total, every, stream
+    def __init__(self, total: int | None, every: float = 2.0, stream=sys.stderr, enabled: bool = True):
+        self.total, self.every, self.stream = total, every if enabled else float("inf"), stream
         self.done = self.errors = self.skipped = 0
         self.t0 = self.last = time.monotonic()
 
@@ -170,14 +172,21 @@ def _add_model_args(p: argparse.ArgumentParser) -> None:
     g.add_argument("--dtype", default="fp32", choices=["fp32", "bf16"])
     g.add_argument("--unscored", default="partial", choices=["partial", "impute_one", "raise"])
     g.add_argument("--max-batch-tokens", type=int, default=4096, help="padded tokens per forward")
-    g.add_argument("--max-batch-edits", type=int, default=None, help="edits per forward (default 8 on CPU, 32 on CUDA)")
+    g.add_argument(
+        "--batch-size",
+        type=int,
+        default=None,
+        help="edits per model call (default 8 on CPU; 16 or 32 on a GPU by its memory)",
+    )
+    g.add_argument(
+        "--batch-pairs", type=int, default=None, help="lines prepared together (default 1 on CPU, 64 on GPU)"
+    )
     g.add_argument("--cell-budget", type=int, default=25_000_000, help="DP cells before too_large")
 
 
 def _load_scorer(args, *, empty_reference: str):
     from semcer.metric import SemCER
 
-    print("semcer: loading model ...", file=sys.stderr, flush=True)
     return SemCER.from_pretrained(
         args.model,
         revision=args.revision,
@@ -186,7 +195,8 @@ def _load_scorer(args, *, empty_reference: str):
         local_files_only=args.local_files_only,
         unscored=args.unscored,
         max_batch_tokens=args.max_batch_tokens,
-        max_batch_edits=args.max_batch_edits,
+        batch_size=args.batch_size,
+        batch_pairs=args.batch_pairs,
         cell_budget=args.cell_budget,
         empty_reference=empty_reference,
     )
@@ -216,7 +226,30 @@ def _text_files_to_jsonl(references: Path, hypotheses: Path, output: Path) -> Pa
     return paired
 
 
+def _table_to_jsonl(table: Path, output: Path) -> Path:
+    """A CSV or TSV file with ``reference`` and ``hypothesis`` columns (and
+    optionally ``id``, ``language``, ``system``, ``document_id``) as ``<output>.input.jsonl``."""
+    import csv
+
+    if not table.is_file():
+        raise UsageError(f"input {table} does not exist")
+    paired = output.with_name(output.name + ".input.jsonl")
+    paired.parent.mkdir(parents=True, exist_ok=True)
+    with open(table, encoding="utf-8", newline="") as src, open(paired, "w", encoding="utf-8") as dst:
+        reader = csv.DictReader(src, delimiter="\t" if table.suffix.lower() == ".tsv" else ",")
+        missing = {"reference", "hypothesis"} - set(reader.fieldnames or ())
+        if missing:
+            raise UsageError(f"{table} needs the columns {sorted(missing)}")
+        for n, row in enumerate(reader, 1):
+            rec = {"id": row.get("id") or n, "reference": row["reference"], "hypothesis": row["hypothesis"]}
+            rec.update({k: row[k] for k in ("language", "system", "document_id") if row.get(k)})
+            dst.write(json.dumps(rec, ensure_ascii=False) + "\n")
+    return paired
+
+
 def cmd_score(args) -> int:
+    if args.input and Path(args.input).suffix.lower() in (".csv", ".tsv") and args.output:
+        args.input = str(_table_to_jsonl(Path(args.input), Path(args.output)))
     if args.references or args.hypotheses:
         if not (args.references and args.hypotheses and args.output) or args.input:
             raise UsageError("--references and --hypotheses go together, with --output and without --input")
@@ -287,7 +320,7 @@ def cmd_score(args) -> int:
     }
     _write_json(manifest_path, manifest)
 
-    progress = Progress(n_total)
+    progress = Progress(n_total, enabled=not args.quiet)
     todo = (rec for rec in iter_records(inp) if rec["id"] not in kept)
     for _ in kept:
         progress.tick(skipped=True)
@@ -320,11 +353,12 @@ def cmd_score(args) -> int:
     if args.summary:
         _write_json(Path(args.summary), summary)
     sem = summary["semcer_micro"]
-    print(
-        f"semcer: {len(rows)}/{n_total} rows; status {summary['status_counts']}; "
-        f"semcer(micro)={'n/a' if sem is None else f'{sem:.4f}'} over {summary['n_population']} rows",
-        file=sys.stderr,
-    )
+    if not args.quiet:
+        print(
+            f"semcer: {len(rows)}/{n_total} rows; status {summary['status_counts']}; "
+            f"semcer(micro)={'n/a' if sem is None else f'{sem:.4f}'} over {summary['n_population']} rows",
+            file=sys.stderr,
+        )
     return EXIT_PARTIAL if (interrupted or n_error or len(rows) < n_total) else EXIT_OK
 
 
@@ -359,6 +393,36 @@ def cmd_summarize(args) -> int:
     return EXIT_OK
 
 
+def cmd_compare(args) -> int:
+    from semcer.summary import compare
+
+    rows_a, rows_b = (read_output_rows(Path(p))[0] for p in (args.a, args.b))
+    try:
+        result = compare(rows_a, rows_b, samples=args.samples, seed=args.seed)
+    except ValueError as exc:
+        raise UsageError(str(exc)) from exc
+    if args.json:
+        print(json.dumps(result, indent=2, ensure_ascii=False, allow_nan=False))
+        return EXIT_OK
+    lo, hi = result["semcer_difference_ci95"]
+    print(f"{result['n_lines']} lines scored by both ({result['n_excluded']} excluded)")
+    print(f"{'':<12}{'semcer':>10}{'CER':>10}")
+    for name, key in ((args.a, "a"), (args.b, "b")):
+        print(f"{Path(name).stem[:11]:<12}{result[key]['semcer_micro']:>10.4f}{result[key]['cer_micro']:>10.4f}")
+    print(
+        f"difference  {result['semcer_difference']:>+10.4f}{result['cer_difference']:>+10.4f}"
+        f"   semcer 95% interval [{lo:+.4f}, {hi:+.4f}], {result['resampled']} resampled"
+    )
+    print(
+        f"lower semcer on {result['lines_a_better']} lines for the first, "
+        f"{result['lines_b_better']} for the second, {result['lines_tied']} tied"
+    )
+    print("largest differences (id, semcer first, semcer second):")
+    for d in result["largest_differences"][: args.top]:
+        print(f"  {d['id']!s:<24}{d['semcer_a']:>8.4f}{d['semcer_b']:>8.4f}")
+    return EXIT_OK
+
+
 def cmd_inspect(args) -> int:
     from semcer.result import PairResult
 
@@ -385,13 +449,15 @@ def build_parser() -> argparse.ArgumentParser:
     p.add_argument("--hypothesis")
     p.add_argument("--references", help="text file, one reference per line")
     p.add_argument("--hypotheses", help="text file, one hypothesis per line")
-    p.add_argument("--input", help="JSONL file with id, reference, hypothesis")
+    p.add_argument("--input", help="JSONL, CSV or TSV file with reference and hypothesis (and id)")
     p.add_argument("--output", help="JSONL file of results")
     p.add_argument("--summary", help="also write the corpus summary JSON here")
     p.add_argument("--details", default="edits", choices=["edits", "scores", "distributions"])
     p.add_argument("--resume", action="store_true")
     p.add_argument("--overwrite", action="store_true")
     p.add_argument("--json", action="store_true", help="single pair: print the JSON record")
+    p.add_argument("--quiet", action="store_true", help="no progress or status messages")
+    p.add_argument("--verbose", action="store_true", help="more detailed messages")
     _add_model_args(p)
     p.set_defaults(func=cmd_score)
 
@@ -400,6 +466,15 @@ def build_parser() -> argparse.ArgumentParser:
     p.add_argument("--output")
     p.add_argument("--allow-mixed", action="store_true", help="allow rows from different signatures")
     p.set_defaults(func=cmd_summarize)
+
+    p = sub.add_parser("compare", help="compare two systems scored on the same references")
+    p.add_argument("a", help="scores JSONL of the first system")
+    p.add_argument("b", help="scores JSONL of the second system")
+    p.add_argument("--samples", type=int, default=1000, help="bootstrap draws for the interval")
+    p.add_argument("--seed", type=int, default=0)
+    p.add_argument("--top", type=int, default=10, help="lines to list")
+    p.add_argument("--json", action="store_true", help="print the full result as JSON")
+    p.set_defaults(func=cmd_compare)
 
     p = sub.add_parser("inspect", help="explain one scored pair")
     p.add_argument("--input", required=True)
@@ -411,6 +486,11 @@ def build_parser() -> argparse.ArgumentParser:
 def main(argv: list[str] | None = None) -> int:
     ap = build_parser()
     args = ap.parse_args(argv)
+    from semcer import enable_logging
+
+    enable_logging(
+        "WARNING" if getattr(args, "quiet", False) else "DEBUG" if getattr(args, "verbose", False) else "INFO"
+    )
     try:
         return args.func(args)
     except UsageError as exc:

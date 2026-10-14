@@ -60,6 +60,7 @@ instead of stopping the run. `details="scores"` drops the per-edit records and
 
 ```bash
 semcer score --references refs.txt --hypotheses hyps.txt --output scores.jsonl
+semcer score --input pairs.csv --output scores.jsonl
 semcer score --input pairs.jsonl --output scores.jsonl --summary summary.json
 semcer score --input pairs.jsonl --output scores.jsonl --resume
 semcer summarize --input scores.jsonl
@@ -67,8 +68,9 @@ semcer inspect --input scores.jsonl --id line-0042
 semcer score --reference "The total is 15" --hypothesis "The total is 75"
 ```
 
-With two text files, row `n` of the output is line `n` of each file. A JSONL
-input needs `id`, `reference` and `hypothesis` on each line; `language`, `system`,
+With two text files, row `n` of the output is line `n` of each file. A CSV or
+TSV file needs `reference` and `hypothesis` columns. A JSONL input needs `id`,
+`reference` and `hypothesis` on each line; `language`, `system`,
 `document_id` and `metadata` are carried through, and the summary breaks scores
 down by language and system. `--resume` keeps every finished row whose text has
 not changed and refuses to continue under a different model or settings. The
@@ -77,6 +79,20 @@ rows are errors, and 2 for invalid input.
 
 Corpus scores are ratios of sums, `sum(severity_sum) / sum(n_ref_graphemes)`,
 not means of per-line scores. The summary reports both.
+
+## Comparing two systems
+
+Score each system's output against the same references, then:
+
+```bash
+semcer compare system_a.jsonl system_b.jsonl
+```
+
+This prints each system's corpus semcer and CER, their difference with a 95%
+paired bootstrap interval, how many lines each system wins, and the lines where
+they differ most. Lines are resampled together, or documents when the rows
+carry `document_id`. `--json` prints the full result, and
+`semcer.summary.compare(rows_a, rows_b)` does the same from Python.
 
 ## CER without the model
 
@@ -103,14 +119,31 @@ available, else CPU), `"cpu"` or `"cuda"`.
 - **GPU batches.** On a GPU the scorer prepares `batch_pairs` lines at a time
   (default 64) and shares model calls across them, so pass a corpus to
   `score_batch`, `score_iter` or the CLI rather than calling `score` per line.
-- **GPU memory.** A 2,000-line corpus peaked at 15 GB on an A100 40 GB with the
-  defaults. `max_batch_edits` defaults to 32 on a card with 24 GB or more and
-  16 on a smaller one.
+- **Batch size.** `SemCER(batch_size=...)` or `--batch-size` sets the number of
+  edits per model call. The default is 8 on CPU, 16 on a GPU with less than
+  24 GB and 32 on a larger one. Lower it if a GPU runs out of memory; a
+  2,000-line corpus peaked at 15 GB on an A100 40 GB with 32.
 - **Precision.** `dtype="bf16"` is faster and smaller, and moves a severity by
   up to about 0.006.
 - **CPU.** Each line is scored on its own, so a score does not depend on the
   lines around it. `batch_pairs=32` is about 1.5 times faster and changes
   scores by less than 1e-06.
+
+## Messages and progress
+
+The library prints nothing by default. To see what it is doing (model download,
+device, batch size):
+
+```python
+semcer.enable_logging()                       # or configure the "semcer" logger yourself
+scorer.score_batch(refs, hyps, progress=True) # a progress bar
+```
+
+The CLI shows status and progress by default; `--quiet` turns them off and
+`--verbose` adds detail.
+
+In Jupyter or Colab a result displays as the two texts with each edit coloured
+by its level; `result.to_html()` returns that HTML.
 
 ## Models and offline use
 

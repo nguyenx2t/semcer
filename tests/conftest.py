@@ -52,3 +52,14 @@ def pairs():
 def load_golden(name: str) -> dict:
     """A JSON of the reference implementation's outputs on ``tiny_bundle``."""
     return json.loads((FIXTURES / name).read_text(encoding="utf-8"))
+
+
+@pytest.fixture(autouse=True)
+def _quiet_semcer_logger():
+    """The CLI turns logging on for the process; start every test from the library's silent default."""
+    import logging
+
+    logger = logging.getLogger("semcer")
+    logger.handlers.clear()
+    logger.setLevel(logging.NOTSET)
+    yield

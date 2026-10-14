@@ -40,7 +40,7 @@ def tiny_bundle() -> Path:
 def scorer(tiny_bundle):
     from semcer import SemCER
 
-    return SemCER.from_pretrained(tiny_bundle)
+    return SemCER(tiny_bundle, batch_pairs=1)  # the single-line path; tests/test_cross_pair.py covers the default
 
 
 @pytest.fixture(scope="session")

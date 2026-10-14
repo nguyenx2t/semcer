@@ -116,21 +116,20 @@ These load no model and import no tensor library.
 `SemCER(device=...)` and `--device` take `"auto"` (the default: CUDA when
 available, else CPU), `"cpu"` or `"cuda"`.
 
-- **GPU batches.** On a GPU the scorer prepares `batch_pairs` lines at a time
-  and shares model calls across them, so pass a corpus to `score_batch`,
-  `score_iter` or the CLI rather than calling `score` per line.
 - **Batch size.** `SemCER(batch_size=...)` or `--batch-size` sets the number of
   edits per model call. Defaults follow the card's memory: 16 edits and 64
   lines below 24 GB, 32 and 64 from 24 GB, 64 and 256 from 32 GB (18 GB peak on
-  short lines). On CPU they are 8 and 1. Lower `batch_size` if a GPU runs out
+  short lines). On CPU they are 8 and 32. Lower `batch_size` if a GPU runs out
   of memory.
 - **Precision.** `dtype="bf16"` is about twice as fast on an A100 (374 against
   193 edits per second on 1,000 lines), halves the download, and moves a
   severity by up to about 0.006. fp32 is the default because it gives the same
   scores on every device.
-- **CPU.** Each line is scored on its own, so a score does not depend on the
-  lines around it. `batch_pairs=32` is about 1.5 times faster and changes
-  scores by less than 1e-06.
+- **Lines share model calls.** `score_batch`, `score_iter` and the CLI prepare
+  `batch_pairs` lines at a time and batch their edits together, so pass a
+  corpus to them rather than calling `score` per line. Which lines share a call
+  moves a severity by less than 1e-06; `batch_pairs=1` scores each line on its
+  own, as `score` always does.
 
 ## Messages and progress
 
@@ -167,8 +166,7 @@ Every result carries a signature: package version, model revision and weights
 hash, input template and alignment versions, device, precision, and the versions
 of torch, transformers, tokenizers and regex. transformers, tokenizers and regex
 are pinned exactly, because each can change a score; torch 2.11 to 2.13 give
-identical scores. Report the signature with your
-numbers:
+identical scores. Report the signature with your numbers:
 
 ```python
 scorer.signature_string()

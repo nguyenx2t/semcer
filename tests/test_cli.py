@@ -71,7 +71,8 @@ def test_jsonl_run_resume_equals_uninterrupted(tiny_bundle, records, tmp_path):
     assert (tmp_path / "part.jsonl.bak").is_file()
     s1 = json.loads((tmp_path / "s1.json").read_text())
     s2 = json.loads((tmp_path / "s2.json").read_text())
-    assert s1["semcer_micro"] == pytest.approx(s2["semcer_micro"], abs=1e-12)
+    # Lines share model calls, so a resumed run batches them differently: equal within fp32 rounding.
+    assert s1["semcer_micro"] == pytest.approx(s2["semcer_micro"], abs=1e-6)
     assert s1["status_counts"] == s2["status_counts"]
     assert json.loads((tmp_path / "part.jsonl.manifest.json").read_text())["completed"] is True
 

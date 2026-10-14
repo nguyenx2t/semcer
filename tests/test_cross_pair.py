@@ -144,4 +144,4 @@ def test_device_auto_resolves_to_an_available_device(tiny_bundle):
     assert s.device == ("cuda" if torch.cuda.is_available() else "cpu")
     assert s.signature["device"] == s.device
     if s.device == "cpu":
-        assert s.batch_pairs == 1  # a CPU scores pair by pair
+        assert s.batch_pairs == 32

@@ -53,7 +53,7 @@ semcer score --references refs.txt --hypotheses hyps.txt --output scores.jsonl
 
 | Device | Precision | Edits/s | Lines/s |
 |---|---|---|---|
-| CPU (12-vCPU Xeon, 2.2 GHz) | fp32 | 5.2 | 0.63 |
+| CPU (Apple M1 Pro laptop) | fp32 | 11.5 | 1.39 |
 | NVIDIA T4 16 GB (free Colab) | fp32 | 46 | 5.5 |
 | NVIDIA A100 40 GB | fp32 | 174 | 20.9 |
 | NVIDIA A100 40 GB | bf16 (`dtype="bf16"`) | 286 | 34.5 |

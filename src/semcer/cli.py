@@ -175,7 +175,7 @@ def _add_model_args(p: argparse.ArgumentParser) -> None:
         help="edits per model call (default 8 on CPU; 16 to 64 on a GPU by its memory)",
     )
     g.add_argument(
-        "--batch-pairs", type=int, default=None, help="lines prepared together (default 1 on CPU; 64 or 256 on a GPU)"
+        "--batch-pairs", type=int, default=None, help="lines prepared together (default 32 on CPU; 64 or 256 on a GPU)"
     )
     g.add_argument("--cell-budget", type=int, default=None, help="alignment table cells before a line is refused")
 

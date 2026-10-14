@@ -58,8 +58,8 @@ def test_unverified_split_falls_back_to_full_tokenization(tiny_bundle, scorer, m
 
 def test_op_header_level_is_used_and_exact(tiny_bundle, pairs):
     sub = [p for p in pairs if p["reference"] != p["hypothesis"]][:30]
-    on = SemCER.from_pretrained(tiny_bundle)
-    off = SemCER.from_pretrained(tiny_bundle, cache_op_header=False)
+    on = SemCER(tiny_bundle, batch_pairs=1)  # the header level belongs to the single-line path
+    off = SemCER(tiny_bundle, batch_pairs=1, cache_op_header=False)
     a = on.score_batch([p["reference"] for p in sub], [p["hypothesis"] for p in sub])
     b = off.score_batch([p["reference"] for p in sub], [p["hypothesis"] for p in sub])
     assert on.stats.header_forwards > 0 and on.stats.header_rows > 0

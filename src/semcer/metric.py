@@ -14,7 +14,7 @@ Policies (recorded in every result's signature):
 ``empty_reference`` ``"raise"`` (default) or ``"null"`` (status ``undefined``,
                     metrics null).
 
-With ``batch_pairs > 1`` (the default on a GPU), ``score_batch`` and
+With ``batch_pairs > 1`` (the default), ``score_batch`` and
 ``score_iter`` prepare that many pairs at a time and share forwards across them
 (:meth:`semcer._engine.Engine.score_pairs`); results come back in input order.
 The values equal the pair-by-pair ones within the fp32 tolerance (1e-6).
@@ -50,7 +50,7 @@ EMPTY_REFERENCE_POLICIES = ("raise", "null")
 #: Engine settings ``SemCER`` accepts by keyword, with their defaults (``None``:
 #: taken from the model or the device).
 ADVANCED = {
-    "batch_pairs": None,  # lines prepared and scored together (1 on CPU; 64 or 256 on a GPU)
+    "batch_pairs": None,  # lines prepared and scored together (32 on CPU; 64 or 256 on a GPU)
     "max_length": None,  # input window in tokens (the model's own, 2,048)
     "max_batch_tokens": 4096,  # padded tokens per model call (single-line path only)
     "chunk_edits": 256,  # edits tokenized at a time within a line (single-line path only)
@@ -151,10 +151,9 @@ class SemCER:
             raise ValueError(f"batch_size must be >= 1, got {batch_size}")
         self.batch_size = int(batch_size)
         if batch_pairs is None:
-            # On CPU each pair runs alone, so its score does not depend on its
-            # neighbours even at the 1e-7 level (batch_pairs=32 is 1.5x faster).
-            # A GPU is launch-bound at these shapes and needs rows from many pairs.
-            batch_pairs = 1 if on_cpu else _gpu_batches(device)[1]
+            # Sharing model calls across lines is 1.8x faster on CPU (7.1 to 13.0
+            # edits/s, Apple M-series) and moves a severity by at most 7e-7.
+            batch_pairs = 32 if on_cpu else _gpu_batches(device)[1]
         if batch_pairs < 1:
             raise ValueError(f"batch_pairs must be >= 1, got {batch_pairs}")
         self.batch_pairs = int(batch_pairs)

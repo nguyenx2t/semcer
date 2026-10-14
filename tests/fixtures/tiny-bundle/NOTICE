@@ -1,0 +1,18 @@
+semcer severity model
+=====================
+
+Copyright (c) 2026 semcer authors.
+
+These weights are a modified version of Qwen/Qwen3.5-0.8B-Base (text model only; the
+vision tower is not included), Copyright the Qwen team, Alibaba Cloud, licensed
+under the Apache License, Version 2.0. Modifications: the language-model
+weights were fine-tuned to predict a five-way edit-severity distribution, and a
+span readout with a small MLP head was added. The bundled config.json and
+tokenizer files originate from https://huggingface.co/Qwen/Qwen3.5-0.8B-Base at revision
+dc7cdfe2ee4154fa7e30f5b51ca41bfa40174e68.
+
+The weights are distributed under the Apache License, Version 2.0 (see
+LICENSE).
+
+The training targets are severity distributions produced by an LLM judge
+(DeepSeek). They are AI-generated labels, not human annotations.

@@ -1,0 +1,397 @@
+"""``semcer`` command line.
+
+    semcer score --reference "The total is 15" --hypothesis "The total is 75" --model DIR
+    semcer score --input pairs.jsonl --output scores.jsonl --model DIR [--resume | --overwrite]
+    semcer summarize --input scores.jsonl [--output summary.json]
+    semcer inspect --input scores.jsonl --id example-001
+
+JSONL in, JSONL out. Input rows need ``id``, ``reference`` and ``hypothesis``
+(strings; whitespace is meaningful); ``language``, ``document_id``, ``system`` and
+``metadata`` are carried through. IDs must be unique within a run.
+
+Output rows are written and flushed one at a time. ``<output>.manifest.json``
+records the scoring configuration; ``--resume`` requires the same configuration,
+keeps every completed row whose input text hash still matches, re-scores changed
+or missing ones, and recovers an incomplete trailing line (the original file is
+kept as ``<output>.bak``). Progress goes to stderr and never echoes text.
+
+Exit codes: 0 all rows scored without error; 1 interrupted or some rows are
+``error``; 2 invalid usage, configuration or input (before any scoring).
+"""
+
+from __future__ import annotations
+
+import argparse
+import hashlib
+import json
+import os
+import shutil
+import sys
+import time
+from collections import deque
+from pathlib import Path
+from typing import Any
+
+EXIT_OK, EXIT_PARTIAL, EXIT_USAGE = 0, 1, 2
+
+
+class UsageError(Exception):
+    pass
+
+
+# -- helpers -------------------------------------------------------------------
+def input_hash(reference: str, hypothesis: str) -> str:
+    return hashlib.sha256(
+        json.dumps([reference, hypothesis], ensure_ascii=False).encode("utf-8")
+    ).hexdigest()
+
+
+def read_jsonl_records(path: Path) -> list[tuple[Any, str]]:
+    """First pass over the input: validate every record and return ``[(id, hash)]``.
+
+    Raises :class:`UsageError` on invalid UTF-8, JSON, fields or duplicate IDs.
+    """
+    seen: set = set()
+    out: list[tuple[Any, str]] = []
+    with open(path, "rb") as f:
+        for n, raw in enumerate(f, 1):
+            try:
+                line = raw.decode("utf-8")
+            except UnicodeDecodeError as exc:
+                raise UsageError(f"{path}:{n}: not valid UTF-8 ({exc})") from exc
+            if not line.strip():
+                continue
+            try:
+                rec = json.loads(line)
+            except json.JSONDecodeError as exc:
+                raise UsageError(f"{path}:{n}: not valid JSON ({exc})") from exc
+            if not isinstance(rec, dict):
+                raise UsageError(f"{path}:{n}: each line must be a JSON object")
+            if "id" not in rec or not isinstance(rec["id"], (str, int)) or isinstance(rec["id"], bool):
+                raise UsageError(f"{path}:{n}: 'id' (string or integer) is required")
+            for key in ("reference", "hypothesis"):
+                if not isinstance(rec.get(key), str):
+                    raise UsageError(f"{path}:{n}: {key!r} must be a string (null is rejected)")
+            if rec["id"] in seen:
+                raise UsageError(f"{path}:{n}: duplicate id {rec['id']!r}; ids must be unique per run")
+            seen.add(rec["id"])
+            out.append((rec["id"], input_hash(rec["reference"], rec["hypothesis"])))
+    return out
+
+
+def iter_records(path: Path):
+    with open(path, encoding="utf-8") as f:
+        for line in f:
+            if line.strip():
+                yield json.loads(line)
+
+
+def read_output_rows(path: Path) -> tuple[list[dict], bool]:
+    """Complete rows of an existing output, and whether a broken tail was dropped."""
+    rows: list[dict] = []
+    broken = False
+    data = path.read_bytes()
+    lines = data.split(b"\n")
+    for k, raw in enumerate(lines):
+        if not raw.strip():
+            continue
+        last = k == len(lines) - 1  # no trailing newline: the write was cut off
+        try:
+            row = json.loads(raw.decode("utf-8"))
+        except (UnicodeDecodeError, json.JSONDecodeError):
+            if last:
+                broken = True
+                continue
+            raise UsageError(f"{path}: line {k + 1} is corrupt (not the trailing line); refusing to resume")
+        if last:
+            broken = True  # parseable but unterminated: treat as incomplete
+            continue
+        rows.append(row)
+    return rows, broken
+
+
+def config_hash(signature: dict, details: str) -> str:
+    from semcer.summary import signature_key
+
+    return hashlib.sha256((signature_key(signature) + "|" + details).encode()).hexdigest()
+
+
+def _manifest_path(output: Path) -> Path:
+    return output.with_name(output.name + ".manifest.json")
+
+
+def _write_json(path: Path, obj: Any) -> None:
+    tmp = path.with_name(path.name + ".tmp")
+    tmp.write_text(json.dumps(obj, indent=2, ensure_ascii=False, allow_nan=False) + "\n", encoding="utf-8")
+    os.replace(tmp, path)
+
+
+def _color() -> bool:
+    """Color terminal output unless it is piped or ``NO_COLOR`` is set."""
+    return sys.stdout.isatty() and "NO_COLOR" not in os.environ
+
+
+class Progress:
+    def __init__(self, total: int | None, every: float = 2.0, stream=sys.stderr):
+        self.total, self.every, self.stream = total, every, stream
+        self.done = self.errors = self.skipped = 0
+        self.t0 = self.last = time.monotonic()
+
+    def tick(self, status: str | None = None, *, skipped: bool = False) -> None:
+        if skipped:
+            self.skipped += 1
+        else:
+            self.done += 1
+            if status == "error":
+                self.errors += 1
+        now = time.monotonic()
+        if now - self.last >= self.every:
+            self.last = now
+            rate = self.done / max(now - self.t0, 1e-9)
+            of = f"/{self.total}" if self.total is not None else ""
+            print(
+                f"semcer: scored {self.done + self.skipped}{of} "
+                f"(resumed {self.skipped}, errors {self.errors}) {rate:.2f} pairs/s",
+                file=self.stream,
+                flush=True,
+            )
+
+
+# -- model options -------------------------------------------------------------
+def _add_model_args(p: argparse.ArgumentParser) -> None:
+    g = p.add_argument_group("model")
+    g.add_argument("--model", help="bundle directory or Hub id (default: $SEMCER_MODEL / release)")
+    g.add_argument("--revision", help="Hub revision (commit) to pin")
+    g.add_argument("--local-files-only", action="store_true", help="never touch the network")
+    g.add_argument("--device", default="auto", help="auto (CUDA when available, else CPU), cpu or cuda[:N]")
+    g.add_argument("--dtype", default="fp32", choices=["fp32", "bf16"])
+    g.add_argument("--unscored", default="partial", choices=["partial", "impute_one", "raise"])
+    g.add_argument("--max-batch-tokens", type=int, default=4096, help="padded tokens per forward")
+    g.add_argument(
+        "--max-batch-edits", type=int, default=None, help="edits per forward (default 8 on CPU, 32 on CUDA)"
+    )
+    g.add_argument("--cell-budget", type=int, default=25_000_000, help="DP cells before too_large")
+
+
+def _load_scorer(args, *, empty_reference: str):
+    from semcer.metric import SemCER
+
+    print("semcer: loading model ...", file=sys.stderr, flush=True)
+    return SemCER.from_pretrained(
+        args.model,
+        revision=args.revision,
+        device=args.device,
+        dtype=args.dtype,
+        local_files_only=args.local_files_only,
+        unscored=args.unscored,
+        max_batch_tokens=args.max_batch_tokens,
+        max_batch_edits=args.max_batch_edits,
+        cell_budget=args.cell_budget,
+        empty_reference=empty_reference,
+    )
+
+
+# -- commands ------------------------------------------------------------------
+def cmd_score(args) -> int:
+    if args.input is None:
+        if args.reference is None or args.hypothesis is None:
+            raise UsageError("give --reference and --hypothesis, or --input FILE.jsonl")
+        scorer = _load_scorer(args, empty_reference="null")
+        r = scorer.score(args.reference, args.hypothesis, details=args.details)
+        print(r.to_json() if args.json else r.explain(color=_color()))
+        return EXIT_OK if r.status != "error" else EXIT_PARTIAL
+    if args.output is None:
+        raise UsageError("--input needs --output")
+    if args.resume and args.overwrite:
+        raise UsageError("--resume and --overwrite are exclusive")
+    inp, out = Path(args.input), Path(args.output)
+    if not inp.is_file():
+        raise UsageError(f"input {inp} does not exist")
+    manifest_path = _manifest_path(out)
+    if out.exists() and not (args.resume or args.overwrite):
+        raise UsageError(f"{out} exists; pass --resume to continue it or --overwrite to replace it")
+
+    index = read_jsonl_records(inp)  # validates everything before scoring
+    n_total = len(index)
+    scorer = _load_scorer(args, empty_reference="null")
+    chash = config_hash(scorer.signature, args.details)
+
+    kept: dict[Any, dict] = {}
+    if out.exists() and args.resume:
+        if not manifest_path.is_file():
+            raise UsageError(f"cannot resume: {manifest_path} is missing")
+        manifest = json.loads(manifest_path.read_text())
+        if manifest.get("config_hash") != chash:
+            raise UsageError(
+                "cannot resume: the scoring configuration differs from the one that wrote "
+                f"{out} (model, precision, policies or details); use --overwrite or a new output"
+            )
+        rows, broken = read_output_rows(out)
+        want = dict(index)
+        for row in rows:
+            if row.get("id") in want and row.get("input_sha256") == want[row.get("id")]:
+                kept[row["id"]] = row
+        if broken or len(kept) != len(rows):
+            shutil.copy(out, out.with_name(out.name + ".bak"))
+            if broken:
+                print("semcer: recovered an incomplete trailing record", file=sys.stderr)
+        tmp = out.with_name(out.name + ".tmp")
+        with open(tmp, "w", encoding="utf-8") as f:
+            for row in rows:
+                if row.get("id") in kept and kept[row["id"]] is row:
+                    f.write(json.dumps(row, ensure_ascii=False, allow_nan=False) + "\n")
+        os.replace(tmp, out)
+    else:
+        out.parent.mkdir(parents=True, exist_ok=True)
+        out.write_text("", encoding="utf-8")
+
+    manifest = {
+        "schema_version": "1",
+        "config_hash": chash,
+        "details": args.details,
+        "signature": scorer.signature,
+        "input": str(inp),
+        "n_input_records": n_total,
+        "started": time.strftime("%Y-%m-%dT%H:%M:%SZ", time.gmtime()),
+        "completed": False,
+    }
+    _write_json(manifest_path, manifest)
+
+    progress = Progress(n_total)
+    todo = (rec for rec in iter_records(inp) if rec["id"] not in kept)
+    for _ in kept:
+        progress.tick(skipped=True)
+    interrupted = False
+    n_error = sum(1 for r in kept.values() if r.get("status") == "error")
+    try:
+        with open(out, "a", encoding="utf-8") as f:
+            for rec, row in _score_stream(scorer, todo, args.details):
+                row["input_sha256"] = input_hash(rec["reference"], rec["hypothesis"])
+                f.write(json.dumps(row, ensure_ascii=False, allow_nan=False) + "\n")
+                f.flush()
+                n_error += row["status"] == "error"
+                progress.tick(row["status"])
+    except KeyboardInterrupt:
+        interrupted = True
+        print("semcer: interrupted; completed rows are kept, rerun with --resume", file=sys.stderr)
+    try:
+        rows, _ = read_output_rows(out)
+    except UsageError:
+        rows = []
+    from semcer.summary import summarize
+
+    summary = summarize(rows, allow_mixed=True)
+    manifest.update(
+        completed=not interrupted,
+        n_output_rows=len(rows),
+        finished=time.strftime("%Y-%m-%dT%H:%M:%SZ", time.gmtime()),
+    )
+    _write_json(manifest_path, manifest)
+    if args.summary:
+        _write_json(Path(args.summary), summary)
+    sem = summary["semcer_micro"]
+    print(
+        f"semcer: {len(rows)}/{n_total} rows; status {summary['status_counts']}; "
+        f"semcer(micro)={'n/a' if sem is None else f'{sem:.4f}'} over {summary['n_population']} rows",
+        file=sys.stderr,
+    )
+    return EXIT_PARTIAL if (interrupted or n_error or len(rows) < n_total) else EXIT_OK
+
+
+def _score_stream(scorer, records, details):
+    """``(record, row)`` pairs in input order; a failing record becomes an ``error`` row."""
+    pending: deque = deque()
+
+    def feed():
+        for rec in records:
+            pending.append(rec)
+            yield rec
+
+    for result in scorer.score_iter(feed(), details=details, on_error="record"):
+        yield pending.popleft(), result.to_dict()
+
+
+def cmd_summarize(args) -> int:
+    from semcer.summary import MixedSignatureError, summarize
+
+    rows, broken = read_output_rows(Path(args.input))
+    if broken:
+        print("semcer: ignoring an incomplete trailing record", file=sys.stderr)
+    try:
+        summary = summarize(rows, allow_mixed=args.allow_mixed)
+    except MixedSignatureError as exc:
+        raise UsageError(str(exc)) from exc
+    text = json.dumps(summary, indent=2, ensure_ascii=False, allow_nan=False)
+    if args.output:
+        Path(args.output).write_text(text + "\n", encoding="utf-8")
+    else:
+        print(text)
+    return EXIT_OK
+
+
+def cmd_inspect(args) -> int:
+    from semcer.result import PairResult
+
+    rows, _ = read_output_rows(Path(args.input))
+    match = [r for r in rows if str(r.get("id")) == str(args.id)]
+    if not match:
+        raise UsageError(f"id {args.id!r} not found in {args.input}")
+    result = PairResult.from_dict(match[0])
+    if result.edits is None:
+        raise UsageError(
+            f"{args.input} was scored with --details scores; inspection needs per-edit detail "
+            "(rescore with --details edits)"
+        )
+    print(result.explain(color=_color()))
+    return EXIT_OK
+
+
+def build_parser() -> argparse.ArgumentParser:
+    ap = argparse.ArgumentParser(prog="semcer", description="semcer: recoverability-weighted CER.")
+    sub = ap.add_subparsers(dest="command", required=True)
+
+    p = sub.add_parser("score", help="score one pair or a JSONL file")
+    p.add_argument("--reference")
+    p.add_argument("--hypothesis")
+    p.add_argument("--input")
+    p.add_argument("--output")
+    p.add_argument("--summary", help="also write the corpus summary JSON here")
+    p.add_argument("--details", default="edits", choices=["edits", "scores", "distributions"])
+    p.add_argument("--resume", action="store_true")
+    p.add_argument("--overwrite", action="store_true")
+    p.add_argument("--json", action="store_true", help="single pair: print the JSON record")
+    _add_model_args(p)
+    p.set_defaults(func=cmd_score)
+
+    p = sub.add_parser("summarize", help="corpus summary of a scores JSONL")
+    p.add_argument("--input", required=True)
+    p.add_argument("--output")
+    p.add_argument("--allow-mixed", action="store_true", help="allow rows from different signatures")
+    p.set_defaults(func=cmd_summarize)
+
+    p = sub.add_parser("inspect", help="explain one scored pair")
+    p.add_argument("--input", required=True)
+    p.add_argument("--id", required=True)
+    p.set_defaults(func=cmd_inspect)
+    return ap
+
+
+def main(argv: list[str] | None = None) -> int:
+    ap = build_parser()
+    args = ap.parse_args(argv)
+    try:
+        return args.func(args)
+    except UsageError as exc:
+        print(f"semcer: error: {exc}", file=sys.stderr)
+        return EXIT_USAGE
+    except (ValueError, FileNotFoundError) as exc:
+        from semcer._loader import BundleError
+
+        if isinstance(exc, (BundleError, FileNotFoundError)) or "dtype" in str(exc):
+            print(f"semcer: error: {exc}", file=sys.stderr)
+            return EXIT_USAGE
+        raise
+
+
+if __name__ == "__main__":  # pragma: no cover
+    sys.exit(main())

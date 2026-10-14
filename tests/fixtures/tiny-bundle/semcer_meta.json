@@ -1,0 +1,22 @@
+{
+  "alignment_version": "nfc_egc_wf_sub>del>ins/1",
+  "backbone": "Qwen/Qwen3.5-0.8B-Base",
+  "backbone_revision": "dc7cdfe2ee4154fa7e30f5b51ca41bfa40174e68",
+  "bundle_version": 1,
+  "dev_checkpoint": true,
+  "digit_order": [
+    0,
+    1,
+    2,
+    3,
+    4
+  ],
+  "head_hidden": 256,
+  "head_type": "distribution",
+  "input_template_version": "pair_layer+nn+edit_context_w10/1",
+  "max_length": 2048,
+  "readout": "span2_last",
+  "source_checkpoint_sha256": "ae445ee55e39b67941693221f71d725fcb7b2a7b31290b8171b506deef819019",
+  "training_commit": null,
+  "weights": "state_dict[model] (EMA off)"
+}

@@ -1,0 +1,9 @@
+semcer
+Copyright 2026 semcer authors
+
+This product is licensed under the Apache License, Version 2.0 (see LICENSE).
+
+Model weights are not part of this package. Each model bundle is distributed
+separately and carries its own LICENSE and NOTICE. The release model is a
+modified version of Qwen/Qwen3.5-0.8B-Base (Copyright Alibaba Cloud, Apache
+License 2.0).

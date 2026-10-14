@@ -1,0 +1,62 @@
+[build-system]
+requires = ["setuptools>=77"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "semcer"
+version = "0.1.1"
+description = "semcer: a character error rate for OCR that weights each edit by its severity, scored by a local model."
+readme = "README.md"
+requires-python = ">=3.10"
+license = "Apache-2.0"
+license-files = ["LICENSE", "NOTICE"]
+authors = [{ name = "Nguyen Nguyen" }, { name = "Yongyi Zang" }]
+keywords = ["ocr", "evaluation", "metric", "cer", "semcer"]
+classifiers = [
+    "Development Status :: 4 - Beta",
+    "Intended Audience :: Science/Research",
+    "Programming Language :: Python :: 3",
+    "Topic :: Scientific/Engineering :: Artificial Intelligence",
+    "Topic :: Text Processing :: Linguistic",
+]
+dependencies = [
+    # torch 2.11, 2.12 and 2.13 give identical scores on the released model
+    # (tools/bench.py --compare); widen the range only after that check.
+    "torch>=2.11,<2.14",
+    # Pinned exactly: each can change a score. The engine uses transformers 5.15
+    # cache internals, tokenizers builds the model input, and regex's Unicode
+    # tables define the grapheme clusters that are the edit units and the
+    # denominator. The versions in use are recorded in every result's signature.
+    "transformers==5.15.0",
+    "tokenizers==0.22.2",
+    "regex==2026.9.10",
+    # File loading and download only; they cannot change a score.
+    "safetensors>=0.4",
+    "huggingface-hub>=0.24",
+]
+
+[project.optional-dependencies]
+test = ["pytest>=7.0", "pytest-xdist", "hypothesis", "psutil"]
+
+[project.urls]
+Repository = "https://github.com/nguyenx2t/semcer"
+Issues = "https://github.com/nguyenx2t/semcer/issues"
+
+[project.scripts]
+semcer = "semcer.cli:main"
+
+[tool.setuptools.packages.find]
+where = ["src"]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+markers = [
+    "t1: needs a real-size bundle (set SEMCER_T1_BUNDLE)",
+]
+
+[tool.ruff]
+line-length = 120
+target-version = "py310"
+
+[tool.ruff.lint]
+select = ["E", "F", "W", "I", "UP"]

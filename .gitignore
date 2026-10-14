@@ -1,0 +1,15 @@
+.venv/
+uv.lock
+__pycache__/
+*.pyc
+*.egg-info/
+build/
+dist/
+.pytest_cache/
+# model artifacts (bundles and checkpoints are distributed separately)
+*.safetensors
+*.pt
+*.so
+*.pyd
+# ...except the tiny test bundle the golden fixtures were computed on
+!tests/fixtures/tiny-bundle/*.safetensors

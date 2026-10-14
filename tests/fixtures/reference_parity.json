@@ -1,0 +1,4910 @@
+{
+"pairs": [
+{
+"id": "en-000",
+"reference": "He said: \"don't wait\".",
+"hypothesis": "He said: \"don't wait\".",
+"records": [],
+"severities": [],
+"semcer_impute_one": 0.0,
+"n_dropped": 0
+},
+{
+"id": "de-001",
+"reference": "Das Ergebnis ist nicht klar. Die Größe beträgt 12 Meter. Straße und Übung für Anfänger.",
+"hypothesis": "",
+"records": [
+[
+"REFERENCE:\nDas Ergebnis ist nicht klar. Die Größe beträgt 12 Meter. Straße und Übung für Anfänger.\n\nHYPOTHESIS:\n\n\nOperation: DEL\nREF: [D]as Ergebni...\nHYP: []\n",
+[
+134,
+137
+],
+[
+156,
+158
+]
+],
+[
+"REFERENCE:\nDas Ergebnis ist nicht klar. Die Größe beträgt 12 Meter. Straße und Übung für Anfänger.\n\nHYPOTHESIS:\n\n\nOperation: DEL\nREF: D[a]s Ergebnis...\nHYP: []\n",
+[
+135,
+138
+],
+[
+157,
+159
+]
+],
+[
+"REFERENCE:\nDas Ergebnis ist nicht klar. Die Größe beträgt 12 Meter. Straße und Übung für Anfänger.\n\nHYPOTHESIS:\n\n\nOperation: DEL\nREF: Da[s] Ergebnis ...\nHYP: []\n",
+[
+136,
+139
+],
+[
+158,
+160
+]
+],
+[
+"REFERENCE:\nDas Ergebnis ist nicht klar. Die Größe beträgt 12 Meter. Straße und Übung für Anfänger.\n\nHYPOTHESIS:\n\n\nOperation: DEL\nREF: Das[ ]Ergebnis i...\nHYP: []\n",
+[
+137,
+140
+],
+[
+159,
+161
+]
+],
+[
+"REFERENCE:\nDas Ergebnis ist nicht klar. Die Größe beträgt 12 Meter. Straße und Übung für Anfänger.\n\nHYPOTHESIS:\n\n\nOperation: DEL\nREF: Das [E]rgebnis is...\nHYP: []\n",
+[
+138,
+141
+],
+[
+160,
+162
+]
+],
+[
+"REFERENCE:\nDas Ergebnis ist nicht klar. Die Größe beträgt 12 Meter. Straße und Übung für Anfänger.\n\nHYPOTHESIS:\n\n\nOperation: DEL\nREF: Das E[r]gebnis ist...\nHYP: []\n",
+[
+139,
+142
+],
+[
+161,
+163
+]
+],
+[
+"REFERENCE:\nDas Ergebnis ist nicht klar. Die Größe beträgt 12 Meter. Straße und Übung für Anfänger.\n\nHYPOTHESIS:\n\n\nOperation: DEL\nREF: Das Er[g]ebnis ist ...\nHYP: []\n",
+[
+140,
+143
+],
+[
+162,
+164
+]
+],
+[
+"REFERENCE:\nDas Ergebnis ist nicht klar. Die Größe beträgt 12 Meter. Straße und Übung für Anfänger.\n\nHYPOTHESIS:\n\n\nOperation: DEL\nREF: Das Erg[e]bnis ist n...\nHYP: []\n",
+[
+141,
+144
+],
+[
+163,
+165
+]
+],
+[
+"REFERENCE:\nDas Ergebnis ist nicht klar. Die Größe beträgt 12 Meter. Straße und Übung für Anfänger.\n\nHYPOTHESIS:\n\n\nOperation: DEL\nREF: Das Erge[b]nis ist ni...\nHYP: []\n",
+[
+142,
+145
+],
+[
+164,
+166
+]
+],
+[
+"REFERENCE:\nDas Ergebnis ist nicht klar. Die Größe beträgt 12 Meter. Straße und Übung für Anfänger.\n\nHYPOTHESIS:\n\n\nOperation: DEL\nREF: Das Ergeb[n]is ist nic...\nHYP: []\n",
+[
+143,
+146
+],
+[
+165,
+167
+]
+],
+[
+"REFERENCE:\nDas Ergebnis ist nicht klar. Die Größe beträgt 12 Meter. Straße und Übung für Anfänger.\n\nHYPOTHESIS:\n\n\nOperation: DEL\nREF: Das Ergebn[i]s ist nich...\nHYP: []\n",
+[
+144,
+147
+],
+[
+166,
+168
+]
+],
+[
+"REFERENCE:\nDas Ergebnis ist nicht klar. Die Größe beträgt 12 Meter. Straße und Übung für Anfänger.\n\nHYPOTHESIS:\n\n\nOperation: DEL\nREF: ...as Ergebni[s] ist nicht...\nHYP: []\n",
+[
+147,
+150
+],
+[
+169,
+171
+]
+],
+[
+"REFERENCE:\nDas Ergebnis ist nicht klar. Die Größe beträgt 12 Meter. Straße und Übung für Anfänger.\n\nHYPOTHESIS:\n\n\nOperation: DEL\nREF: ...s Ergebnis[ ]ist nicht ...\nHYP: []\n",
+[
+147,
+150
+],
+[
+169,
+171
+]
+],
+[
+"REFERENCE:\nDas Ergebnis ist nicht klar. Die Größe beträgt 12 Meter. Straße und Übung für Anfänger.\n\nHYPOTHESIS:\n\n\nOperation: DEL\nREF: ... Ergebnis [i]st nicht k...\nHYP: []\n",
+[
+147,
+150
+],
+[
+169,
+171
+]
+],
+[
+"REFERENCE:\nDas Ergebnis ist nicht klar. Die Größe beträgt 12 Meter. Straße und Übung für Anfänger.\n\nHYPOTHESIS:\n\n\nOperation: DEL\nREF: ...Ergebnis i[s]t nicht kl...\nHYP: []\n",
+[
+147,
+150
+],
+[
+169,
+171
+]
+],
+[
+"REFERENCE:\nDas Ergebnis ist nicht klar. Die Größe beträgt 12 Meter. Straße und Übung für Anfänger.\n\nHYPOTHESIS:\n\n\nOperation: DEL\nREF: ...rgebnis is[t] nicht kla...\nHYP: []\n",
+[
+147,
+150
+],
+[
+169,
+171
+]
+],
+[
+"REFERENCE:\nDas Ergebnis ist nicht klar. Die Größe beträgt 12 Meter. Straße und Übung für Anfänger.\n\nHYPOTHESIS:\n\n\nOperation: DEL\nREF: ...gebnis ist[ ]nicht klar...\nHYP: []\n",
+[
+147,
+150
+],
+[
+169,
+171
+]
+],
+[
+"REFERENCE:\nDas Ergebnis ist nicht klar. Die Größe beträgt 12 Meter. Straße und Übung für Anfänger.\n\nHYPOTHESIS:\n\n\nOperation: DEL\nREF: ...ebnis ist [n]icht klar....\nHYP: []\n",
+[
+147,
+150
+],
+[
+169,
+171
+]
+],
+[
+"REFERENCE:\nDas Ergebnis ist nicht klar. Die Größe beträgt 12 Meter. Straße und Übung für Anfänger.\n\nHYPOTHESIS:\n\n\nOperation: DEL\nREF: ...bnis ist n[i]cht klar. ...\nHYP: []\n",
+[
+147,
+150
+],
+[
+169,
+171
+]
+],
+[
+"REFERENCE:\nDas Ergebnis ist nicht klar. Die Größe beträgt 12 Meter. Straße und Übung für Anfänger.\n\nHYPOTHESIS:\n\n\nOperation: DEL\nREF: ...nis ist ni[c]ht klar. D...\nHYP: []\n",
+[
+147,
+150
+],
+[
+169,
+171
+]
+],
+[
+"REFERENCE:\nDas Ergebnis ist nicht klar. Die Größe beträgt 12 Meter. Straße und Übung für Anfänger.\n\nHYPOTHESIS:\n\n\nOperation: DEL\nREF: ...is ist nic[h]t klar. Di...\nHYP: []\n",
+[
+147,
+150
+],
+[
+169,
+171
+]
+],
+[
+"REFERENCE:\nDas Ergebnis ist nicht klar. Die Größe beträgt 12 Meter. Straße und Übung für Anfänger.\n\nHYPOTHESIS:\n\n\nOperation: DEL\nREF: ...s ist nich[t] klar. Die...\nHYP: []\n",
+[
+147,
+150
+],
+[
+169,
+171
+]
+],
+[
+"REFERENCE:\nDas Ergebnis ist nicht klar. Die Größe beträgt 12 Meter. Straße und Übung für Anfänger.\n\nHYPOTHESIS:\n\n\nOperation: DEL\nREF: ... ist nicht[ ]klar. Die ...\nHYP: []\n",
+[
+147,
+150
+],
+[
+169,
+171
+]
+],
+[
+"REFERENCE:\nDas Ergebnis ist nicht klar. Die Größe beträgt 12 Meter. Straße und Übung für Anfänger.\n\nHYPOTHESIS:\n\n\nOperation: DEL\nREF: ...ist nicht [k]lar. Die G...\nHYP: []\n",
+[
+147,
+150
+],
+[
+169,
+171
+]
+],
+[
+"REFERENCE:\nDas Ergebnis ist nicht klar. Die Größe beträgt 12 Meter. Straße und Übung für Anfänger.\n\nHYPOTHESIS:\n\n\nOperation: DEL\nREF: ...st nicht k[l]ar. Die Gr...\nHYP: []\n",
+[
+147,
+150
+],
+[
+169,
+171
+]
+],
+[
+"REFERENCE:\nDas Ergebnis ist nicht klar. Die Größe beträgt 12 Meter. Straße und Übung für Anfänger.\n\nHYPOTHESIS:\n\n\nOperation: DEL\nREF: ...t nicht kl[a]r. Die Grö...\nHYP: []\n",
+[
+147,
+150
+],
+[
+169,
+171
+]
+],
+[
+"REFERENCE:\nDas Ergebnis ist nicht klar. Die Größe beträgt 12 Meter. Straße und Übung für Anfänger.\n\nHYPOTHESIS:\n\n\nOperation: DEL\nREF: ... nicht kla[r]. Die Größ...\nHYP: []\n",
+[
+147,
+150
+],
+[
+169,
+171
+]
+],
+[
+"REFERENCE:\nDas Ergebnis ist nicht klar. Die Größe beträgt 12 Meter. Straße und Übung für Anfänger.\n\nHYPOTHESIS:\n\n\nOperation: DEL\nREF: ...nicht klar[.] Die Größe...\nHYP: []\n",
+[
+147,
+150
+],
+[
+169,
+171
+]
+],
+[
+"REFERENCE:\nDas Ergebnis ist nicht klar. Die Größe beträgt 12 Meter. Straße und Übung für Anfänger.\n\nHYPOTHESIS:\n\n\nOperation: DEL\nREF: ...icht klar.[ ]Die Größe ...\nHYP: []\n",
+[
+147,
+150
+],
+[
+169,
+171
+]
+],
+[
+"REFERENCE:\nDas Ergebnis ist nicht klar. Die Größe beträgt 12 Meter. Straße und Übung für Anfänger.\n\nHYPOTHESIS:\n\n\nOperation: DEL\nREF: ...cht klar. [D]ie Größe b...\nHYP: []\n",
+[
+147,
+150
+],
+[
+169,
+171
+]
+],
+[
+"REFERENCE:\nDas Ergebnis ist nicht klar. Die Größe beträgt 12 Meter. Straße und Übung für Anfänger.\n\nHYPOTHESIS:\n\n\nOperation: DEL\nREF: ...ht klar. D[i]e Größe be...\nHYP: []\n",
+[
+147,
+150
+],
+[
+169,
+171
+]
+],
+[
+"REFERENCE:\nDas Ergebnis ist nicht klar. Die Größe beträgt 12 Meter. Straße und Übung für Anfänger.\n\nHYPOTHESIS:\n\n\nOperation: DEL\nREF: ...t klar. Di[e] Größe bet...\nHYP: []\n",
+[
+147,
+150
+],
+[
+169,
+171
+]
+],
+[
+"REFERENCE:\nDas Ergebnis ist nicht klar. Die Größe beträgt 12 Meter. Straße und Übung für Anfänger.\n\nHYPOTHESIS:\n\n\nOperation: DEL\nREF: ... klar. Die[ ]Größe betr...\nHYP: []\n",
+[
+147,
+150
+],
+[
+169,
+171
+]
+],
+[
+"REFERENCE:\nDas Ergebnis ist nicht klar. Die Größe beträgt 12 Meter. Straße und Übung für Anfänger.\n\nHYPOTHESIS:\n\n\nOperation: DEL\nREF: ...klar. Die [G]röße beträ...\nHYP: []\n",
+[
+147,
+150
+],
+[
+169,
+171
+]
+],
+[
+"REFERENCE:\nDas Ergebnis ist nicht klar. Die Größe beträgt 12 Meter. Straße und Übung für Anfänger.\n\nHYPOTHESIS:\n\n\nOperation: DEL\nREF: ...lar. Die G[r]öße beträg...\nHYP: []\n",
+[
+147,
+150
+],
+[
+169,
+171
+]
+],
+[
+"REFERENCE:\nDas Ergebnis ist nicht klar. Die Größe beträgt 12 Meter. Straße und Übung für Anfänger.\n\nHYPOTHESIS:\n\n\nOperation: DEL\nREF: ...ar. Die Gr[ö]ße beträgt...\nHYP: []\n",
+[
+147,
+150
+],
+[
+169,
+171
+]
+],
+[
+"REFERENCE:\nDas Ergebnis ist nicht klar. Die Größe beträgt 12 Meter. Straße und Übung für Anfänger.\n\nHYPOTHESIS:\n\n\nOperation: DEL\nREF: ...r. Die Grö[ß]e beträgt ...\nHYP: []\n",
+[
+147,
+150
+],
+[
+169,
+171
+]
+],
+[
+"REFERENCE:\nDas Ergebnis ist nicht klar. Die Größe beträgt 12 Meter. Straße und Übung für Anfänger.\n\nHYPOTHESIS:\n\n\nOperation: DEL\nREF: .... Die Größ[e] beträgt 1...\nHYP: []\n",
+[
+147,
+150
+],
+[
+169,
+171
+]
+],
+[
+"REFERENCE:\nDas Ergebnis ist nicht klar. Die Größe beträgt 12 Meter. Straße und Übung für Anfänger.\n\nHYPOTHESIS:\n\n\nOperation: DEL\nREF: ... Die Größe[ ]beträgt 12...\nHYP: []\n",
+[
+147,
+150
+],
+[
+169,
+171
+]
+],
+[
+"REFERENCE:\nDas Ergebnis ist nicht klar. Die Größe beträgt 12 Meter. Straße und Übung für Anfänger.\n\nHYPOTHESIS:\n\n\nOperation: DEL\nREF: ...Die Größe [b]eträgt 12 ...\nHYP: []\n",
+[
+147,
+150
+],
+[
+169,
+171
+]
+],
+[
+"REFERENCE:\nDas Ergebnis ist nicht klar. Die Größe beträgt 12 Meter. Straße und Übung für Anfänger.\n\nHYPOTHESIS:\n\n\nOperation: DEL\nREF: ...ie Größe b[e]trägt 12 M...\nHYP: []\n",
+[
+147,
+150
+],
+[
+169,
+171
+]
+],
+[
+"REFERENCE:\nDas Ergebnis ist nicht klar. Die Größe beträgt 12 Meter. Straße und Übung für Anfänger.\n\nHYPOTHESIS:\n\n\nOperation: DEL\nREF: ...e Größe be[t]rägt 12 Me...\nHYP: []\n",
+[
+147,
+150
+],
+[
+169,
+171
+]
+],
+[
+"REFERENCE:\nDas Ergebnis ist nicht klar. Die Größe beträgt 12 Meter. Straße und Übung für Anfänger.\n\nHYPOTHESIS:\n\n\nOperation: DEL\nREF: ... Größe bet[r]ägt 12 Met...\nHYP: []\n",
+[
+147,
+150
+],
+[
+169,
+171
+]
+],
+[
+"REFERENCE:\nDas Ergebnis ist nicht klar. Die Größe beträgt 12 Meter. Straße und Übung für Anfänger.\n\nHYPOTHESIS:\n\n\nOperation: DEL\nREF: ...Größe betr[ä]gt 12 Mete...\nHYP: []\n",
+[
+147,
+150
+],
+[
+169,
+171
+]
+],
+[
+"REFERENCE:\nDas Ergebnis ist nicht klar. Die Größe beträgt 12 Meter. Straße und Übung für Anfänger.\n\nHYPOTHESIS:\n\n\nOperation: DEL\nREF: ...röße beträ[g]t 12 Meter...\nHYP: []\n",
+[
+147,
+150
+],
+[
+169,
+171
+]
+],
+[
+"REFERENCE:\nDas Ergebnis ist nicht klar. Die Größe beträgt 12 Meter. Straße und Übung für Anfänger.\n\nHYPOTHESIS:\n\n\nOperation: DEL\nREF: ...öße beträg[t] 12 Meter....\nHYP: []\n",
+[
+147,
+150
+],
+[
+169,
+171
+]
+],
+[
+"REFERENCE:\nDas Ergebnis ist nicht klar. Die Größe beträgt 12 Meter. Straße und Übung für Anfänger.\n\nHYPOTHESIS:\n\n\nOperation: DEL\nREF: ...ße beträgt[ ]12 Meter. ...\nHYP: []\n",
+[
+147,
+150
+],
+[
+169,
+171
+]
+],
+[
+"REFERENCE:\nDas Ergebnis ist nicht klar. Die Größe beträgt 12 Meter. Straße und Übung für Anfänger.\n\nHYPOTHESIS:\n\n\nOperation: DEL\nREF: ...e beträgt [1]2 Meter. S...\nHYP: []\n",
+[
+147,
+150
+],
+[
+169,
+171
+]
+],
+[
+"REFERENCE:\nDas Ergebnis ist nicht klar. Die Größe beträgt 12 Meter. Straße und Übung für Anfänger.\n\nHYPOTHESIS:\n\n\nOperation: DEL\nREF: ... beträgt 1[2] Meter. St...\nHYP: []\n",
+[
+147,
+150
+],
+[
+169,
+171
+]
+],
+[
+"REFERENCE:\nDas Ergebnis ist nicht klar. Die Größe beträgt 12 Meter. Straße und Übung für Anfänger.\n\nHYPOTHESIS:\n\n\nOperation: DEL\nREF: ...beträgt 12[ ]Meter. Str...\nHYP: []\n",
+[
+147,
+150
+],
+[
+169,
+171
+]
+],
+[
+"REFERENCE:\nDas Ergebnis ist nicht klar. Die Größe beträgt 12 Meter. Straße und Übung für Anfänger.\n\nHYPOTHESIS:\n\n\nOperation: DEL\nREF: ...eträgt 12 [M]eter. Stra...\nHYP: []\n",
+[
+147,
+150
+],
+[
+169,
+171
+]
+],
+[
+"REFERENCE:\nDas Ergebnis ist nicht klar. Die Größe beträgt 12 Meter. Straße und Übung für Anfänger.\n\nHYPOTHESIS:\n\n\nOperation: DEL\nREF: ...trägt 12 M[e]ter. Straß...\nHYP: []\n",
+[
+147,
+150
+],
+[
+169,
+171
+]
+],
+[
+"REFERENCE:\nDas Ergebnis ist nicht klar. Die Größe beträgt 12 Meter. Straße und Übung für Anfänger.\n\nHYPOTHESIS:\n\n\nOperation: DEL\nREF: ...rägt 12 Me[t]er. Straße...\nHYP: []\n",
+[
+147,
+150
+],
+[
+169,
+171
+]
+],
+[
+"REFERENCE:\nDas Ergebnis ist nicht klar. Die Größe beträgt 12 Meter. Straße und Übung für Anfänger.\n\nHYPOTHESIS:\n\n\nOperation: DEL\nREF: ...ägt 12 Met[e]r. Straße ...\nHYP: []\n",
+[
+147,
+150
+],
+[
+169,
+171
+]
+],
+[
+"REFERENCE:\nDas Ergebnis ist nicht klar. Die Größe beträgt 12 Meter. Straße und Übung für Anfänger.\n\nHYPOTHESIS:\n\n\nOperation: DEL\nREF: ...gt 12 Mete[r]. Straße u...\nHYP: []\n",
+[
+147,
+150
+],
+[
+169,
+171
+]
+],
+[
+"REFERENCE:\nDas Ergebnis ist nicht klar. Die Größe beträgt 12 Meter. Straße und Übung für Anfänger.\n\nHYPOTHESIS:\n\n\nOperation: DEL\nREF: ...t 12 Meter[.] Straße un...\nHYP: []\n",
+[
+147,
+150
+],
+[
+169,
+171
+]
+],
+[
+"REFERENCE:\nDas Ergebnis ist nicht klar. Die Größe beträgt 12 Meter. Straße und Übung für Anfänger.\n\nHYPOTHESIS:\n\n\nOperation: DEL\nREF: ... 12 Meter.[ ]Straße und...\nHYP: []\n",
+[
+147,
+150
+],
+[
+169,
+171
+]
+],
+[
+"REFERENCE:\nDas Ergebnis ist nicht klar. Die Größe beträgt 12 Meter. Straße und Übung für Anfänger.\n\nHYPOTHESIS:\n\n\nOperation: DEL\nREF: ...12 Meter. [S]traße und ...\nHYP: []\n",
+[
+147,
+150
+],
+[
+169,
+171
+]
+],
+[
+"REFERENCE:\nDas Ergebnis ist nicht klar. Die Größe beträgt 12 Meter. Straße und Übung für Anfänger.\n\nHYPOTHESIS:\n\n\nOperation: DEL\nREF: ...2 Meter. S[t]raße und Ü...\nHYP: []\n",
+[
+147,
+150
+],
+[
+169,
+171
+]
+],
+[
+"REFERENCE:\nDas Ergebnis ist nicht klar. Die Größe beträgt 12 Meter. Straße und Übung für Anfänger.\n\nHYPOTHESIS:\n\n\nOperation: DEL\nREF: ... Meter. St[r]aße und Üb...\nHYP: []\n",
+[
+147,
+150
+],
+[
+169,
+171
+]
+],
+[
+"REFERENCE:\nDas Ergebnis ist nicht klar. Die Größe beträgt 12 Meter. Straße und Übung für Anfänger.\n\nHYPOTHESIS:\n\n\nOperation: DEL\nREF: ...Meter. Str[a]ße und Übu...\nHYP: []\n",
+[
+147,
+150
+],
+[
+169,
+171
+]
+],
+[
+"REFERENCE:\nDas Ergebnis ist nicht klar. Die Größe beträgt 12 Meter. Straße und Übung für Anfänger.\n\nHYPOTHESIS:\n\n\nOperation: DEL\nREF: ...eter. Stra[ß]e und Übun...\nHYP: []\n",
+[
+147,
+150
+],
+[
+169,
+171
+]
+],
+[
+"REFERENCE:\nDas Ergebnis ist nicht klar. Die Größe beträgt 12 Meter. Straße und Übung für Anfänger.\n\nHYPOTHESIS:\n\n\nOperation: DEL\nREF: ...ter. Straß[e] und Übung...\nHYP: []\n",
+[
+147,
+150
+],
+[
+169,
+171
+]
+],
+[
+"REFERENCE:\nDas Ergebnis ist nicht klar. Die Größe beträgt 12 Meter. Straße und Übung für Anfänger.\n\nHYPOTHESIS:\n\n\nOperation: DEL\nREF: ...er. Straße[ ]und Übung ...\nHYP: []\n",
+[
+147,
+150
+],
+[
+169,
+171
+]
+],
+[
+"REFERENCE:\nDas Ergebnis ist nicht klar. Die Größe beträgt 12 Meter. Straße und Übung für Anfänger.\n\nHYPOTHESIS:\n\n\nOperation: DEL\nREF: ...r. Straße [u]nd Übung f...\nHYP: []\n",
+[
+147,
+150
+],
+[
+169,
+171
+]
+],
+[
+"REFERENCE:\nDas Ergebnis ist nicht klar. Die Größe beträgt 12 Meter. Straße und Übung für Anfänger.\n\nHYPOTHESIS:\n\n\nOperation: DEL\nREF: .... Straße u[n]d Übung fü...\nHYP: []\n",
+[
+147,
+150
+],
+[
+169,
+171
+]
+],
+[
+"REFERENCE:\nDas Ergebnis ist nicht klar. Die Größe beträgt 12 Meter. Straße und Übung für Anfänger.\n\nHYPOTHESIS:\n\n\nOperation: DEL\nREF: ... Straße un[d] Übung für...\nHYP: []\n",
+[
+147,
+150
+],
+[
+169,
+171
+]
+],
+[
+"REFERENCE:\nDas Ergebnis ist nicht klar. Die Größe beträgt 12 Meter. Straße und Übung für Anfänger.\n\nHYPOTHESIS:\n\n\nOperation: DEL\nREF: ...Straße und[ ]Übung für ...\nHYP: []\n",
+[
+147,
+150
+],
+[
+169,
+171
+]
+],
+[
+"REFERENCE:\nDas Ergebnis ist nicht klar. Die Größe beträgt 12 Meter. Straße und Übung für Anfänger.\n\nHYPOTHESIS:\n\n\nOperation: DEL\nREF: ...traße und [Ü]bung für A...\nHYP: []\n",
+[
+147,
+150
+],
+[
+169,
+171
+]
+],
+[
+"REFERENCE:\nDas Ergebnis ist nicht klar. Die Größe beträgt 12 Meter. Straße und Übung für Anfänger.\n\nHYPOTHESIS:\n\n\nOperation: DEL\nREF: ...raße und Ü[b]ung für An...\nHYP: []\n",
+[
+147,
+150
+],
+[
+169,
+171
+]
+],
+[
+"REFERENCE:\nDas Ergebnis ist nicht klar. Die Größe beträgt 12 Meter. Straße und Übung für Anfänger.\n\nHYPOTHESIS:\n\n\nOperation: DEL\nREF: ...aße und Üb[u]ng für Anf...\nHYP: []\n",
+[
+147,
+150
+],
+[
+169,
+171
+]
+],
+[
+"REFERENCE:\nDas Ergebnis ist nicht klar. Die Größe beträgt 12 Meter. Straße und Übung für Anfänger.\n\nHYPOTHESIS:\n\n\nOperation: DEL\nREF: ...ße und Übu[n]g für Anfä...\nHYP: []\n",
+[
+147,
+150
+],
+[
+169,
+171
+]
+],
+[
+"REFERENCE:\nDas Ergebnis ist nicht klar. Die Größe beträgt 12 Meter. Straße und Übung für Anfänger.\n\nHYPOTHESIS:\n\n\nOperation: DEL\nREF: ...e und Übun[g] für Anfän...\nHYP: []\n",
+[
+147,
+150
+],
+[
+169,
+171
+]
+],
+[
+"REFERENCE:\nDas Ergebnis ist nicht klar. Die Größe beträgt 12 Meter. Straße und Übung für Anfänger.\n\nHYPOTHESIS:\n\n\nOperation: DEL\nREF: ... und Übung[ ]für Anfäng...\nHYP: []\n",
+[
+147,
+150
+],
+[
+169,
+171
+]
+],
+[
+"REFERENCE:\nDas Ergebnis ist nicht klar. Die Größe beträgt 12 Meter. Straße und Übung für Anfänger.\n\nHYPOTHESIS:\n\n\nOperation: DEL\nREF: ...und Übung [f]ür Anfänge...\nHYP: []\n",
+[
+147,
+150
+],
+[
+169,
+171
+]
+],
+[
+"REFERENCE:\nDas Ergebnis ist nicht klar. Die Größe beträgt 12 Meter. Straße und Übung für Anfänger.\n\nHYPOTHESIS:\n\n\nOperation: DEL\nREF: ...nd Übung f[ü]r Anfänger...\nHYP: []\n",
+[
+147,
+150
+],
+[
+169,
+171
+]
+],
+[
+"REFERENCE:\nDas Ergebnis ist nicht klar. Die Größe beträgt 12 Meter. Straße und Übung für Anfänger.\n\nHYPOTHESIS:\n\n\nOperation: DEL\nREF: ...d Übung fü[r] Anfänger.\nHYP: []\n",
+[
+147,
+150
+],
+[
+166,
+168
+]
+],
+[
+"REFERENCE:\nDas Ergebnis ist nicht klar. Die Größe beträgt 12 Meter. Straße und Übung für Anfänger.\n\nHYPOTHESIS:\n\n\nOperation: DEL\nREF: ... Übung für[ ]Anfänger.\nHYP: []\n",
+[
+147,
+150
+],
+[
+165,
+167
+]
+],
+[
+"REFERENCE:\nDas Ergebnis ist nicht klar. Die Größe beträgt 12 Meter. Straße und Übung für Anfänger.\n\nHYPOTHESIS:\n\n\nOperation: DEL\nREF: ...Übung für [A]nfänger.\nHYP: []\n",
+[
+147,
+150
+],
+[
+164,
+166
+]
+],
+[
+"REFERENCE:\nDas Ergebnis ist nicht klar. Die Größe beträgt 12 Meter. Straße und Übung für Anfänger.\n\nHYPOTHESIS:\n\n\nOperation: DEL\nREF: ...bung für A[n]fänger.\nHYP: []\n",
+[
+147,
+150
+],
+[
+163,
+165
+]
+],
+[
+"REFERENCE:\nDas Ergebnis ist nicht klar. Die Größe beträgt 12 Meter. Straße und Übung für Anfänger.\n\nHYPOTHESIS:\n\n\nOperation: DEL\nREF: ...ung für An[f]änger.\nHYP: []\n",
+[
+147,
+150
+],
+[
+162,
+164
+]
+],
+[
+"REFERENCE:\nDas Ergebnis ist nicht klar. Die Größe beträgt 12 Meter. Straße und Übung für Anfänger.\n\nHYPOTHESIS:\n\n\nOperation: DEL\nREF: ...ng für Anf[ä]nger.\nHYP: []\n",
+[
+147,
+150
+],
+[
+161,
+163
+]
+],
+[
+"REFERENCE:\nDas Ergebnis ist nicht klar. Die Größe beträgt 12 Meter. Straße und Übung für Anfänger.\n\nHYPOTHESIS:\n\n\nOperation: DEL\nREF: ...g für Anfä[n]ger.\nHYP: []\n",
+[
+147,
+150
+],
+[
+160,
+162
+]
+],
+[
+"REFERENCE:\nDas Ergebnis ist nicht klar. Die Größe beträgt 12 Meter. Straße und Übung für Anfänger.\n\nHYPOTHESIS:\n\n\nOperation: DEL\nREF: ... für Anfän[g]er.\nHYP: []\n",
+[
+147,
+150
+],
+[
+159,
+161
+]
+],
+[
+"REFERENCE:\nDas Ergebnis ist nicht klar. Die Größe beträgt 12 Meter. Straße und Übung für Anfänger.\n\nHYPOTHESIS:\n\n\nOperation: DEL\nREF: ...für Anfäng[e]r.\nHYP: []\n",
+[
+147,
+150
+],
+[
+158,
+160
+]
+],
+[
+"REFERENCE:\nDas Ergebnis ist nicht klar. Die Größe beträgt 12 Meter. Straße und Übung für Anfänger.\n\nHYPOTHESIS:\n\n\nOperation: DEL\nREF: ...ür Anfänge[r].\nHYP: []\n",
+[
+147,
+150
+],
+[
+157,
+159
+]
+],
+[
+"REFERENCE:\nDas Ergebnis ist nicht klar. Die Größe beträgt 12 Meter. Straße und Übung für Anfänger.\n\nHYPOTHESIS:\n\n\nOperation: DEL\nREF: ...r Anfänger[.]\nHYP: []\n",
+[
+147,
+150
+],
+[
+156,
+158
+]
+]
+],
+"severities": [
+0.45629391074180603,
+0.4837453067302704,
+0.46676623821258545,
+0.4772360026836395,
+0.47096776962280273,
+0.4688382148742676,
+0.47082728147506714,
+0.477295458316803,
+0.4789670407772064,
+0.4810102880001068,
+0.4729369878768921,
+0.4716483950614929,
+0.47940462827682495,
+0.4597688317298889,
+0.46719759702682495,
+0.47461244463920593,
+0.4778980016708374,
+0.47625070810317993,
+0.4729887843132019,
+0.46745413541793823,
+0.48460105061531067,
+0.4741557836532593,
+0.4792604446411133,
+0.4559875428676605,
+0.4779930114746094,
+0.486544668674469,
+0.47170591354370117,
+0.4703627824783325,
+0.4766232967376709,
+0.45486924052238464,
+0.4760420322418213,
+0.4766489863395691,
+0.4834356904029846,
+0.4587628245353699,
+0.4749778211116791,
+0.44756096601486206,
+0.4741067588329315,
+0.4765438735485077,
+0.4778601825237274,
+0.459337055683136,
+0.4778638482093811,
+0.47261855006217957,
+0.4716888666152954,
+0.46491071581840515,
+0.47538840770721436,
+0.47427767515182495,
+0.48052990436553955,
+0.4583987593650818,
+0.4687848389148712,
+0.4811702072620392,
+0.4532324969768524,
+0.48107439279556274,
+0.47389113903045654,
+0.4774267077445984,
+0.472103476524353,
+0.4743216931819916,
+0.4771919250488281,
+0.44591277837753296,
+0.4765889048576355,
+0.46860140562057495,
+0.4805571138858795,
+0.4737761616706848,
+0.47776973247528076,
+0.47939082980155945,
+0.4511929154396057,
+0.48327428102493286,
+0.480694979429245,
+0.47622549533843994,
+0.4736407399177551,
+0.47592079639434814,
+0.47147881984710693,
+0.4820215106010437,
+0.4702342748641968,
+0.47665607929229736,
+0.4583972096443176,
+0.4842680096626282,
+0.4737836420536041,
+0.4805859923362732,
+0.4621785283088684,
+0.4859546422958374,
+0.47361212968826294,
+0.4661920368671417,
+0.48364758491516113,
+0.47220513224601746,
+0.48285213112831116,
+0.47364991903305054,
+0.4738277196884155
+],
+"semcer_impute_one": 0.47286727647671756,
+"n_dropped": 0
+},
+{
+"id": "fr-002",
+"reference": "Élève numéro 7, classe B. Où est la bibliothèque ?",
+"hypothesis": "Élève numéro 7, classe B. Où est la bibliothèque ? Élève nu",
+"records": [
+[
+"REFERENCE:\nÉlève numéro 7, classe B. Où est la bibliothèque ?\n\nHYPOTHESIS:\nÉlève numéro 7, classe B. Où est la bibliothèque ? Élève nu\n\nOperation: INS\nREF: ...iothèque ?[]\nHYP: ...iothèque ?[ ]Élève nu\n",
+[
+169,
+171
+],
+[
+190,
+193
+]
+],
+[
+"REFERENCE:\nÉlève numéro 7, classe B. Où est la bibliothèque ?\n\nHYPOTHESIS:\nÉlève numéro 7, classe B. Où est la bibliothèque ? Élève nu\n\nOperation: INS\nREF: ...iothèque ?[]\nHYP: ...othèque ? [É]lève nu\n",
+[
+169,
+171
+],
+[
+190,
+193
+]
+],
+[
+"REFERENCE:\nÉlève numéro 7, classe B. Où est la bibliothèque ?\n\nHYPOTHESIS:\nÉlève numéro 7, classe B. Où est la bibliothèque ? Élève nu\n\nOperation: INS\nREF: ...iothèque ?[]\nHYP: ...thèque ? É[l]ève nu\n",
+[
+169,
+171
+],
+[
+190,
+193
+]
+],
+[
+"REFERENCE:\nÉlève numéro 7, classe B. Où est la bibliothèque ?\n\nHYPOTHESIS:\nÉlève numéro 7, classe B. Où est la bibliothèque ? Élève nu\n\nOperation: INS\nREF: ...iothèque ?[]\nHYP: ...hèque ? Él[è]ve nu\n",
+[
+169,
+171
+],
+[
+190,
+193
+]
+],
+[
+"REFERENCE:\nÉlève numéro 7, classe B. Où est la bibliothèque ?\n\nHYPOTHESIS:\nÉlève numéro 7, classe B. Où est la bibliothèque ? Élève nu\n\nOperation: INS\nREF: ...iothèque ?[]\nHYP: ...èque ? Élè[v]e nu\n",
+[
+169,
+171
+],
+[
+190,
+193
+]
+],
+[
+"REFERENCE:\nÉlève numéro 7, classe B. Où est la bibliothèque ?\n\nHYPOTHESIS:\nÉlève numéro 7, classe B. Où est la bibliothèque ? Élève nu\n\nOperation: INS\nREF: ...iothèque ?[]\nHYP: ...que ? Élèv[e] nu\n",
+[
+169,
+171
+],
+[
+190,
+193
+]
+],
+[
+"REFERENCE:\nÉlève numéro 7, classe B. Où est la bibliothèque ?\n\nHYPOTHESIS:\nÉlève numéro 7, classe B. Où est la bibliothèque ? Élève nu\n\nOperation: INS\nREF: ...iothèque ?[]\nHYP: ...ue ? Élève[ ]nu\n",
+[
+169,
+171
+],
+[
+190,
+193
+]
+],
+[
+"REFERENCE:\nÉlève numéro 7, classe B. Où est la bibliothèque ?\n\nHYPOTHESIS:\nÉlève numéro 7, classe B. Où est la bibliothèque ? Élève nu\n\nOperation: INS\nREF: ...iothèque ?[]\nHYP: ...e ? Élève [n]u\n",
+[
+169,
+171
+],
+[
+190,
+193
+]
+],
+[
+"REFERENCE:\nÉlève numéro 7, classe B. Où est la bibliothèque ?\n\nHYPOTHESIS:\nÉlève numéro 7, classe B. Où est la bibliothèque ? Élève nu\n\nOperation: INS\nREF: ...iothèque ?[]\nHYP: ... ? Élève n[u]\n",
+[
+169,
+171
+],
+[
+190,
+193
+]
+]
+],
+"severities": [
+0.4997708797454834,
+0.4856455624103546,
+0.49969667196273804,
+0.4786951541900635,
+0.48304861783981323,
+0.4993705153465271,
+0.4990197420120239,
+0.4862668216228485,
+0.4851047992706299
+],
+"semcer_impute_one": 0.08833237528800965,
+"n_dropped": 0
+},
+{
+"id": "es-003",
+"reference": "¿Dónde está la estación? Mañana llegará el tren. El niño tiene 5 años.",
+"hypothesis": "¿?Dóde est7á la estaciós? Mañaana lcga4rá el tren.El ániño.tien-75 añ6",
+"records": [
+[
+"REFERENCE:\n¿Dónde está la estación? Mañana llegará el tren. El niño tiene 5 años.\n\nHYPOTHESIS:\n¿?Dóde est7á la estaciós? Mañaana lcga4rá el tren.El ániño.tien-75 añ6\n\nOperation: INS\nREF: ¿[]Dónde está...\nHYP: ¿[?]Dóde est7á...\n",
+[
+188,
+190
+],
+[
+210,
+213
+]
+],
+[
+"REFERENCE:\n¿Dónde está la estación? Mañana llegará el tren. El niño tiene 5 años.\n\nHYPOTHESIS:\n¿?Dóde est7á la estaciós? Mañaana lcga4rá el tren.El ániño.tien-75 añ6\n\nOperation: DEL\nREF: ¿Dó[n]de está la...\nHYP: ¿?Dó[]de est7á l...\n",
+[
+190,
+193
+],
+[
+216,
+218
+]
+],
+[
+"REFERENCE:\n¿Dónde está la estación? Mañana llegará el tren. El niño tiene 5 años.\n\nHYPOTHESIS:\n¿?Dóde est7á la estaciós? Mañaana lcga4rá el tren.El ániño.tien-75 añ6\n\nOperation: INS\nREF: ¿Dónde est[]á la estac...\nHYP: ¿?Dóde est[7]á la estac...\n",
+[
+197,
+199
+],
+[
+228,
+231
+]
+],
+[
+"REFERENCE:\n¿Dónde está la estación? Mañana llegará el tren. El niño tiene 5 años.\n\nHYPOTHESIS:\n¿?Dóde est7á la estaciós? Mañaana lcga4rá el tren.El ániño.tien-75 añ6\n\nOperation: SUB\nREF: ...la estació[n]? Mañana l...\nHYP: ...la estació[s]? Mañaana ...\n",
+[
+200,
+203
+],
+[
+235,
+238
+]
+],
+[
+"REFERENCE:\n¿Dónde está la estación? Mañana llegará el tren. El niño tiene 5 años.\n\nHYPOTHESIS:\n¿?Dóde est7á la estaciós? Mañaana lcga4rá el tren.El ániño.tien-75 añ6\n\nOperation: INS\nREF: ...ación? Mañ[]ana llegar...\nHYP: ...aciós? Mañ[a]ana lcga4r...\n",
+[
+200,
+202
+],
+[
+234,
+237
+]
+],
+[
+"REFERENCE:\n¿Dónde está la estación? Mañana llegará el tren. El niño tiene 5 años.\n\nHYPOTHESIS:\n¿?Dóde est7á la estaciós? Mañaana lcga4rá el tren.El ániño.tien-75 añ6\n\nOperation: DEL\nREF: ...n? Mañana [l]legará el ...\nHYP: ...? Mañaana []lcga4rá el...\n",
+[
+200,
+203
+],
+[
+235,
+237
+]
+],
+[
+"REFERENCE:\n¿Dónde está la estación? Mañana llegará el tren. El niño tiene 5 años.\n\nHYPOTHESIS:\n¿?Dóde est7á la estaciós? Mañaana lcga4rá el tren.El ániño.tien-75 añ6\n\nOperation: SUB\nREF: ... Mañana ll[e]gará el tr...\nHYP: ... Mañaana l[c]ga4rá el t...\n",
+[
+200,
+203
+],
+[
+235,
+238
+]
+],
+[
+"REFERENCE:\n¿Dónde está la estación? Mañana llegará el tren. El niño tiene 5 años.\n\nHYPOTHESIS:\n¿?Dóde est7á la estaciós? Mañaana lcga4rá el tren.El ániño.tien-75 añ6\n\nOperation: INS\nREF: ...ñana llega[]rá el tren...\nHYP: ...ñaana lcga[4]rá el tren...\n",
+[
+200,
+202
+],
+[
+234,
+237
+]
+],
+[
+"REFERENCE:\n¿Dónde está la estación? Mañana llegará el tren. El niño tiene 5 años.\n\nHYPOTHESIS:\n¿?Dóde est7á la estaciós? Mañaana lcga4rá el tren.El ániño.tien-75 añ6\n\nOperation: DEL\nREF: ...á el tren.[ ]El niño ti...\nHYP: ...á el tren.[]El ániño.t...\n",
+[
+200,
+203
+],
+[
+235,
+237
+]
+],
+[
+"REFERENCE:\n¿Dónde está la estación? Mañana llegará el tren. El niño tiene 5 años.\n\nHYPOTHESIS:\n¿?Dóde est7á la estaciós? Mañaana lcga4rá el tren.El ániño.tien-75 añ6\n\nOperation: INS\nREF: ... tren. El []niño tiene...\nHYP: ...l tren.El [á]niño.tien-...\n",
+[
+200,
+202
+],
+[
+234,
+237
+]
+],
+[
+"REFERENCE:\n¿Dónde está la estación? Mañana llegará el tren. El niño tiene 5 años.\n\nHYPOTHESIS:\n¿?Dóde est7á la estaciós? Mañaana lcga4rá el tren.El ániño.tien-75 añ6\n\nOperation: SUB\nREF: ...n. El niño[ ]tiene 5 añ...\nHYP: ...n.El ániño[.]tien-75 añ...\n",
+[
+200,
+203
+],
+[
+235,
+238
+]
+],
+[
+"REFERENCE:\n¿Dónde está la estación? Mañana llegará el tren. El niño tiene 5 años.\n\nHYPOTHESIS:\n¿?Dóde est7á la estaciós? Mañaana lcga4rá el tren.El ániño.tien-75 añ6\n\nOperation: SUB\nREF: ... niño tien[e] 5 años.\nHYP: ...ániño.tien[-]75 añ6\n",
+[
+200,
+203
+],
+[
+230,
+233
+]
+],
+[
+"REFERENCE:\n¿Dónde está la estación? Mañana llegará el tren. El niño tiene 5 años.\n\nHYPOTHESIS:\n¿?Dóde est7á la estaciós? Mañaana lcga4rá el tren.El ániño.tien-75 añ6\n\nOperation: SUB\nREF: ...niño tiene[ ]5 años.\nHYP: ...niño.tien-[7]5 añ6\n",
+[
+200,
+203
+],
+[
+229,
+232
+]
+],
+[
+"REFERENCE:\n¿Dónde está la estación? Mañana llegará el tren. El niño tiene 5 años.\n\nHYPOTHESIS:\n¿?Dóde est7á la estaciós? Mañaana lcga4rá el tren.El ániño.tien-75 añ6\n\nOperation: DEL\nREF: ...tiene 5 añ[o]s.\nHYP: ...tien-75 añ[]6\n",
+[
+200,
+203
+],
+[
+224,
+226
+]
+],
+[
+"REFERENCE:\n¿Dónde está la estación? Mañana llegará el tren. El niño tiene 5 años.\n\nHYPOTHESIS:\n¿?Dóde est7á la estaciós? Mañaana lcga4rá el tren.El ániño.tien-75 añ6\n\nOperation: DEL\nREF: ...iene 5 año[s].\nHYP: ....tien-75 a[]ñ6\n",
+[
+200,
+203
+],
+[
+223,
+225
+]
+],
+[
+"REFERENCE:\n¿Dónde está la estación? Mañana llegará el tren. El niño tiene 5 años.\n\nHYPOTHESIS:\n¿?Dóde est7á la estaciós? Mañaana lcga4rá el tren.El ániño.tien-75 añ6\n\nOperation: SUB\nREF: ...ene 5 años[.]\nHYP: ...tien-75 añ[6]\n",
+[
+200,
+203
+],
+[
+222,
+225
+]
+]
+],
+"severities": [
+0.4858950078487396,
+0.480635404586792,
+0.48823991417884827,
+0.49469053745269775,
+0.48941782116889954,
+0.4574698209762573,
+0.4900630712509155,
+0.48377299308776855,
+0.4786624312400818,
+0.4621262550354004,
+0.48136651515960693,
+0.487732470035553,
+0.4765276312828064,
+0.4631127119064331,
+0.474128395318985,
+0.46710753440856934
+],
+"semcer_impute_one": 0.10944212164197649,
+"n_dropped": 0
+},
+{
+"id": "pt-004",
+"reference": "A ação custa 30 reais. O coração da cidade. Não há informação disponível.",
+"hypothesis": "A açã, cusa 30 rN.is. O coaão 1da cildade.Nsão9 oá inform\"aão disponí5l.",
+"records": [
+[
+"REFERENCE:\nA ação custa 30 reais. O coração da cidade. Não há informação disponível.\n\nHYPOTHESIS:\nA açã, cusa 30 rN.is. O coaão 1da cildade.Nsão9 oá inform\"aão disponí5l.\n\nOperation: SUB\nREF: A açã[o] custa 30 ...\nHYP: A açã[,] cusa 30 r...\n",
+[
+197,
+200
+],
+[
+224,
+227
+]
+],
+[
+"REFERENCE:\nA ação custa 30 reais. O coração da cidade. Não há informação disponível.\n\nHYPOTHESIS:\nA açã, cusa 30 rN.is. O coaão 1da cildade.Nsão9 oá inform\"aão disponí5l.\n\nOperation: DEL\nREF: A ação cus[t]a 30 reais...\nHYP: A açã, cus[]a 30 rN.is...\n",
+[
+202,
+205
+],
+[
+234,
+236
+]
+],
+[
+"REFERENCE:\nA ação custa 30 reais. O coração da cidade. Não há informação disponível.\n\nHYPOTHESIS:\nA açã, cusa 30 rN.is. O coaão 1da cildade.Nsão9 oá inform\"aão disponí5l.\n\nOperation: SUB\nREF: ...custa 30 r[e]ais. O cor...\nHYP: ... cusa 30 r[N].is. O coa...\n",
+[
+205,
+208
+],
+[
+240,
+243
+]
+],
+[
+"REFERENCE:\nA ação custa 30 reais. O coração da cidade. Não há informação disponível.\n\nHYPOTHESIS:\nA açã, cusa 30 rN.is. O coaão 1da cildade.Nsão9 oá inform\"aão disponí5l.\n\nOperation: SUB\nREF: ...usta 30 re[a]is. O cora...\nHYP: ...cusa 30 rN[.]is. O coaã...\n",
+[
+205,
+208
+],
+[
+240,
+243
+]
+],
+[
+"REFERENCE:\nA ação custa 30 reais. O coração da cidade. Não há informação disponível.\n\nHYPOTHESIS:\nA açã, cusa 30 rN.is. O coaão 1da cildade.Nsão9 oá inform\"aão disponí5l.\n\nOperation: DEL\nREF: ...eais. O co[r]ação da ci...\nHYP: ...N.is. O co[]aão 1da ci...\n",
+[
+205,
+208
+],
+[
+240,
+242
+]
+],
+[
+"REFERENCE:\nA ação custa 30 reais. O coração da cidade. Não há informação disponível.\n\nHYPOTHESIS:\nA açã, cusa 30 rN.is. O coaão 1da cildade.Nsão9 oá inform\"aão disponí5l.\n\nOperation: DEL\nREF: ...is. O cora[ç]ão da cida...\nHYP: ....is. O coa[]ão 1da cil...\n",
+[
+205,
+208
+],
+[
+240,
+242
+]
+],
+[
+"REFERENCE:\nA ação custa 30 reais. O coração da cidade. Não há informação disponível.\n\nHYPOTHESIS:\nA açã, cusa 30 rN.is. O coaão 1da cildade.Nsão9 oá inform\"aão disponí5l.\n\nOperation: INS\nREF: ...O coração []da cidade....\nHYP: .... O coaão [1]da cildade...\n",
+[
+205,
+207
+],
+[
+239,
+242
+]
+],
+[
+"REFERENCE:\nA ação custa 30 reais. O coração da cidade. Não há informação disponível.\n\nHYPOTHESIS:\nA açã, cusa 30 rN.is. O coaão 1da cildade.Nsão9 oá inform\"aão disponí5l.\n\nOperation: INS\nREF: ...ação da ci[]dade. Não ...\nHYP: ...aão 1da ci[l]dade.Nsão9...\n",
+[
+205,
+207
+],
+[
+239,
+242
+]
+],
+[
+"REFERENCE:\nA ação custa 30 reais. O coração da cidade. Não há informação disponível.\n\nHYPOTHESIS:\nA açã, cusa 30 rN.is. O coaão 1da cildade.Nsão9 oá inform\"aão disponí5l.\n\nOperation: SUB\nREF: ...da cidade.[ ]Não há inf...\nHYP: ...a cildade.[N]são9 oá in...\n",
+[
+205,
+208
+],
+[
+240,
+243
+]
+],
+[
+"REFERENCE:\nA ação custa 30 reais. O coração da cidade. Não há informação disponível.\n\nHYPOTHESIS:\nA açã, cusa 30 rN.is. O coaão 1da cildade.Nsão9 oá inform\"aão disponí5l.\n\nOperation: SUB\nREF: ...a cidade. [N]ão há info...\nHYP: ... cildade.N[s]ão9 oá inf...\n",
+[
+205,
+208
+],
+[
+240,
+243
+]
+],
+[
+"REFERENCE:\nA ação custa 30 reais. O coração da cidade. Não há informação disponível.\n\nHYPOTHESIS:\nA açã, cusa 30 rN.is. O coaão 1da cildade.Nsão9 oá inform\"aão disponí5l.\n\nOperation: INS\nREF: ...idade. Não[] há inform...\nHYP: ...ldade.Nsão[9] oá inform...\n",
+[
+205,
+207
+],
+[
+239,
+242
+]
+],
+[
+"REFERENCE:\nA ação custa 30 reais. O coração da cidade. Não há informação disponível.\n\nHYPOTHESIS:\nA açã, cusa 30 rN.is. O coaão 1da cildade.Nsão9 oá inform\"aão disponí5l.\n\nOperation: SUB\nREF: ...dade. Não [h]á informaç...\nHYP: ...ade.Nsão9 [o]á inform\"a...\n",
+[
+205,
+208
+],
+[
+240,
+243
+]
+],
+[
+"REFERENCE:\nA ação custa 30 reais. O coração da cidade. Não há informação disponível.\n\nHYPOTHESIS:\nA açã, cusa 30 rN.is. O coaão 1da cildade.Nsão9 oá inform\"aão disponí5l.\n\nOperation: SUB\nREF: ... há inform[a]ção dispon...\nHYP: ... oá inform[\"]aão dispon...\n",
+[
+205,
+208
+],
+[
+240,
+243
+]
+],
+[
+"REFERENCE:\nA ação custa 30 reais. O coração da cidade. Não há informação disponível.\n\nHYPOTHESIS:\nA açã, cusa 30 rN.is. O coaão 1da cildade.Nsão9 oá inform\"aão disponí5l.\n\nOperation: SUB\nREF: ...há informa[ç]ão disponí...\nHYP: ...oá inform\"[a]ão disponí...\n",
+[
+205,
+208
+],
+[
+240,
+243
+]
+],
+[
+"REFERENCE:\nA ação custa 30 reais. O coração da cidade. Não há informação disponível.\n\nHYPOTHESIS:\nA açã, cusa 30 rN.is. O coaão 1da cildade.Nsão9 oá inform\"aão disponí5l.\n\nOperation: DEL\nREF: ...ão disponí[v]el.\nHYP: ...ão disponí[]5l.\n",
+[
+205,
+208
+],
+[
+230,
+232
+]
+],
+[
+"REFERENCE:\nA ação custa 30 reais. O coração da cidade. Não há informação disponível.\n\nHYPOTHESIS:\nA açã, cusa 30 rN.is. O coaão 1da cildade.Nsão9 oá inform\"aão disponí5l.\n\nOperation: SUB\nREF: ...o disponív[e]l.\nHYP: ...ão disponí[5]l.\n",
+[
+205,
+208
+],
+[
+229,
+232
+]
+]
+],
+"severities": [
+0.48654288053512573,
+0.48371195793151855,
+0.5002601742744446,
+0.49587270617485046,
+0.4845280051231384,
+0.47133809328079224,
+0.4760344624519348,
+0.5055598020553589,
+0.4832153618335724,
+0.4935764670372009,
+0.49830883741378784,
+0.4760691523551941,
+0.49141180515289307,
+0.48253369331359863,
+0.49905696511268616,
+0.5101163387298584
+],
+"semcer_impute_one": 0.10737173565446514,
+"n_dropped": 0
+},
+{
+"id": "ru-005",
+"reference": "Он не пришёл вчера.",
+"hypothesis": "Он,епрршёл в,ч9ра.",
+"records": [
+[
+"REFERENCE:\nОн не пришёл вчера.\n\nHYPOTHESIS:\nОн,епрршёл в,ч9ра.\n\nOperation: DEL\nREF: Он[ ]не пришёл ...\nHYP: Он[],епрршёл в...\n",
+[
+86,
+89
+],
+[
+110,
+112
+]
+],
+[
+"REFERENCE:\nОн не пришёл вчера.\n\nHYPOTHESIS:\nОн,епрршёл в,ч9ра.\n\nOperation: SUB\nREF: Он [н]е пришёл в...\nHYP: Он[,]епрршёл в,...\n",
+[
+87,
+90
+],
+[
+111,
+114
+]
+],
+[
+"REFERENCE:\nОн не пришёл вчера.\n\nHYPOTHESIS:\nОн,епрршёл в,ч9ра.\n\nOperation: DEL\nREF: Он не[ ]пришёл вче...\nHYP: Он,е[]прршёл в,ч...\n",
+[
+89,
+92
+],
+[
+115,
+117
+]
+],
+[
+"REFERENCE:\nОн не пришёл вчера.\n\nHYPOTHESIS:\nОн,епрршёл в,ч9ра.\n\nOperation: SUB\nREF: Он не пр[и]шёл вчера.\nHYP: Он,епр[р]шёл в,ч9ра...\n",
+[
+92,
+95
+],
+[
+117,
+120
+]
+],
+[
+"REFERENCE:\nОн не пришёл вчера.\n\nHYPOTHESIS:\nОн,епрршёл в,ч9ра.\n\nOperation: INS\nREF: ...е пришёл в[]чера.\nHYP: ...,епрршёл в[,]ч9ра.\n",
+[
+97,
+99
+],
+[
+123,
+126
+]
+],
+[
+"REFERENCE:\nОн не пришёл вчера.\n\nHYPOTHESIS:\nОн,епрршёл в,ч9ра.\n\nOperation: SUB\nREF: ... пришёл вч[е]ра.\nHYP: ...прршёл в,ч[9]ра.\n",
+[
+97,
+100
+],
+[
+122,
+125
+]
+]
+],
+"severities": [
+0.48697590827941895,
+0.4711074233055115,
+0.48281601071357727,
+0.48805633187294006,
+0.5084031820297241,
+0.488118976354599
+],
+"semcer_impute_one": 0.1539725175029353,
+"n_dropped": 0
+},
+{
+"id": "ar-006",
+"reference": "المجموع ١٥ دينارًا.",
+"hypothesis": "المجiمورًع ١٥ 6ينارًا.",
+"records": [
+[
+"REFERENCE:\nالمجموع ١٥ دينارًا.\n\nHYPOTHESIS:\nالمجiمورًع ١٥ 6ينارًا.\n\nOperation: INS\nREF: المج[]موع ١٥ دين...\nHYP: المج[i]مورًع ١٥ 6ي...\n",
+[
+92,
+94
+],
+[
+117,
+120
+]
+],
+[
+"REFERENCE:\nالمجموع ١٥ دينارًا.\n\nHYPOTHESIS:\nالمجiمورًع ١٥ 6ينارًا.\n\nOperation: INS\nREF: المجمو[]ع ١٥ دينارً...\nHYP: المجiمو[رً]ع ١٥ 6ينارً...\n",
+[
+94,
+96
+],
+[
+123,
+127
+]
+],
+[
+"REFERENCE:\nالمجموع ١٥ دينارًا.\n\nHYPOTHESIS:\nالمجiمورًع ١٥ 6ينارًا.\n\nOperation: SUB\nREF: ...لمجموع ١٥ [د]ينارًا.\nHYP: ...جiمورًع ١٥ [6]ينارًا.\n",
+[
+101,
+104
+],
+[
+131,
+134
+]
+]
+],
+"severities": [
+0.480976402759552,
+0.49835050106048584,
+0.43845319747924805
+],
+"semcer_impute_one": 0.07876556118329366,
+"n_dropped": 0
+},
+{
+"id": "hi-007",
+"reference": "वह कल स्कूल नहीं गया। कुल राशि 15 रुपये है। भारत की राजधानी दिल्ली है।",
+"hypothesis": "6ह कल्ली स्कूल नहीं गया। कु4 राशि 15 रुपये है। भारत ह राजधानी दिल्ली है।",
+"records": [
+[
+"REFERENCE:\nवह कल स्कूल नहीं गया। कुल राशि 15 रुपये है। भारत की राजधानी दिल्ली है।\n\nHYPOTHESIS:\n6ह कल्ली स्कूल नहीं गया। कु4 राशि 15 रुपये है। भारत ह राजधानी दिल्ली है।\n\nOperation: SUB\nREF: [व]ह कल स्कूल नहीं...\nHYP: [6]ह कल्ली स्कूल नहीं...\n",
+[
+189,
+192
+],
+[
+216,
+219
+]
+],
+[
+"REFERENCE:\nवह कल स्कूल नहीं गया। कुल राशि 15 रुपये है। भारत की राजधानी दिल्ली है।\n\nHYPOTHESIS:\n6ह कल्ली स्कूल नहीं गया। कु4 राशि 15 रुपये है। भारत ह राजधानी दिल्ली है।\n\nOperation: SUB\nREF: वह क[ल] स्कूल नहीं गया।...\nHYP: 6ह क[ल्ली] स्कूल नहीं गया।...\n",
+[
+193,
+196
+],
+[
+225,
+231
+]
+],
+[
+"REFERENCE:\nवह कल स्कूल नहीं गया। कुल राशि 15 रुपये है। भारत की राजधानी दिल्ली है।\n\nHYPOTHESIS:\n6ह कल्ली स्कूल नहीं गया। कु4 राशि 15 रुपये है। भारत ह राजधानी दिल्ली है।\n\nOperation: SUB\nREF: ...ल नहीं गया। कु[ल] राशि 15 रुपये...\nHYP: ...ल नहीं गया। कु[4] राशि 15 रुपये...\n",
+[
+206,
+209
+],
+[
+249,
+252
+]
+],
+[
+"REFERENCE:\nवह कल स्कूल नहीं गया। कुल राशि 15 रुपये है। भारत की राजधानी दिल्ली है।\n\nHYPOTHESIS:\n6ह कल्ली स्कूल नहीं गया। कु4 राशि 15 रुपये है। भारत ह राजधानी दिल्ली है।\n\nOperation: SUB\nREF: ...पये है। भारत [की] राजधानी दिल्ली है...\nHYP: ...पये है। भारत [ह] राजधानी दिल्ली है...\n",
+[
+205,
+209
+],
+[
+252,
+255
+]
+]
+],
+"severities": [
+0.4683947265148163,
+0.4648837447166443,
+0.4717010259628296,
+0.4659193158149719
+],
+"semcer_impute_one": 0.03897705860435963,
+"n_dropped": 0
+},
+{
+"id": "mr-008",
+"reference": "महाराष्ट्राची राजधानी मुंबई. तो काल शाळेत गेला नाही.",
+"hypothesis": "महाराष्ट्राची राज6नी नाब. तो काल शाळेतo गेला' नाही.",
+"records": [
+[
+"REFERENCE:\nमहाराष्ट्राची राजधानी मुंबई. तो काल शाळेत गेला नाही.\n\nHYPOTHESIS:\nमहाराष्ट्राची राज6नी नाब. तो काल शाळेतo गेला' नाही.\n\nOperation: SUB\nREF: महाराष्ट्राची राज[धा]नी मुंबई. तो का...\nHYP: महाराष्ट्राची राज[6]नी नाब. तो काल...\n",
+[
+167,
+171
+],
+[
+212,
+215
+]
+],
+[
+"REFERENCE:\nमहाराष्ट्राची राजधानी मुंबई. तो काल शाळेत गेला नाही.\n\nHYPOTHESIS:\nमहाराष्ट्राची राज6नी नाब. तो काल शाळेतo गेला' नाही.\n\nOperation: SUB\nREF: ...हाराष्ट्राची राजधानी [मुं]बई. तो काल शा...\nHYP: ...हाराष्ट्राची राज6नी [ना]ब. तो काल शाळे...\n",
+[
+174,
+179
+],
+[
+224,
+228
+]
+],
+[
+"REFERENCE:\nमहाराष्ट्राची राजधानी मुंबई. तो काल शाळेत गेला नाही.\n\nHYPOTHESIS:\nमहाराष्ट्राची राज6नी नाब. तो काल शाळेतo गेला' नाही.\n\nOperation: DEL\nREF: ...ष्ट्राची राजधानी मुंब[ई]. तो काल शाळेत...\nHYP: ...ष्ट्राची राज6नी नाब[]. तो काल शाळेत...\n",
+[
+174,
+177
+],
+[
+222,
+224
+]
+],
+[
+"REFERENCE:\nमहाराष्ट्राची राजधानी मुंबई. तो काल शाळेत गेला नाही.\n\nHYPOTHESIS:\nमहाराष्ट्राची राज6नी नाब. तो काल शाळेतo गेला' नाही.\n\nOperation: INS\nREF: .... तो काल शाळेत[] गेला नाही.\nHYP: .... तो काल शाळेत[o] गेला' नाही.\n",
+[
+167,
+169
+],
+[
+203,
+206
+]
+],
+[
+"REFERENCE:\nमहाराष्ट्राची राजधानी मुंबई. तो काल शाळेत गेला नाही.\n\nHYPOTHESIS:\nमहाराष्ट्राची राज6नी नाब. तो काल शाळेतo गेला' नाही.\n\nOperation: INS\nREF: ... काल शाळेत गेला[] नाही.\nHYP: ...काल शाळेतo गेला['] नाही.\n",
+[
+168,
+170
+],
+[
+200,
+203
+]
+]
+],
+"severities": [
+0.47513291239738464,
+0.48005545139312744,
+0.4950292706489563,
+0.5097724199295044,
+0.5120075941085815
+],
+"semcer_impute_one": 0.07974185962830821,
+"n_dropped": 0
+},
+{
+"id": "kn-009",
+"reference": "ಒಟ್ಟು ಮೊತ್ತ 15 ರೂಪಾಯಿ. ಬೆಂಗಳೂರು ನಗರ.",
+"hypothesis": "ಒಟ್ಟು ಮೊತ್ತ 5 ರೂಪಾಯಿ. ಬೆಂ'ಳೂರು ನಗರ.",
+"records": [
+[
+"REFERENCE:\nಒಟ್ಟು ಮೊತ್ತ 15 ರೂಪಾಯಿ. ಬೆಂಗಳೂರು ನಗರ.\n\nHYPOTHESIS:\nಒಟ್ಟು ಮೊತ್ತ 5 ರೂಪಾಯಿ. ಬೆಂ'ಳೂರು ನಗರ.\n\nOperation: DEL\nREF: ಒಟ್ಟು ಮೊತ್ತ [1]5 ರೂಪಾಯಿ. ಬೆಂಗಳೂ...\nHYP: ಒಟ್ಟು ಮೊತ್ತ []5 ರೂಪಾಯಿ. ಬೆಂ'ಳೂ...\n",
+[
+130,
+133
+],
+[
+170,
+172
+]
+],
+[
+"REFERENCE:\nಒಟ್ಟು ಮೊತ್ತ 15 ರೂಪಾಯಿ. ಬೆಂಗಳೂರು ನಗರ.\n\nHYPOTHESIS:\nಒಟ್ಟು ಮೊತ್ತ 5 ರೂಪಾಯಿ. ಬೆಂ'ಳೂರು ನಗರ.\n\nOperation: SUB\nREF: ... 15 ರೂಪಾಯಿ. ಬೆಂ[ಗ]ಳೂರು ನಗರ.\nHYP: ...ತ 5 ರೂಪಾಯಿ. ಬೆಂ[']ಳೂರು ನಗರ.\n",
+[
+136,
+139
+],
+[
+172,
+175
+]
+]
+],
+"severities": [
+0.4609430134296417,
+0.4920288920402527
+],
+"semcer_impute_one": 0.038118876218795776,
+"n_dropped": 0
+},
+{
+"id": "ta-010",
+"reference": "அவன் நேற்று வரவில்லை. மொத்தம் 15 ரூபாய். சென்னை நகரம்.",
+"hypothesis": "வன் நேற்று வரவி\"லை. மொத்தம் 15 ரூபாய். செiனை நகரம்",
+"records": [
+[
+"REFERENCE:\nஅவன் நேற்று வரவில்லை. மொத்தம் 15 ரூபாய். சென்னை நகரம்.\n\nHYPOTHESIS:\nவன் நேற்று வரவி\"லை. மொத்தம் 15 ரூபாய். செiனை நகரம்\n\nOperation: DEL\nREF: [அ]வன் நேற்று வரவி...\nHYP: []வன் நேற்று வரவி...\n",
+[
+151,
+154
+],
+[
+178,
+180
+]
+],
+[
+"REFERENCE:\nஅவன் நேற்று வரவில்லை. மொத்தம் 15 ரூபாய். சென்னை நகரம்.\n\nHYPOTHESIS:\nவன் நேற்று வரவி\"லை. மொத்தம் 15 ரூபாய். செiனை நகரம்\n\nOperation: SUB\nREF: ...வன் நேற்று வரவி[ல்]லை. மொத்தம் 15...\nHYP: வன் நேற்று வரவி[\"]லை. மொத்தம் 15...\n",
+[
+169,
+173
+],
+[
+211,
+214
+]
+],
+[
+"REFERENCE:\nஅவன் நேற்று வரவில்லை. மொத்தம் 15 ரூபாய். சென்னை நகரம்.\n\nHYPOTHESIS:\nவன் நேற்று வரவி\"லை. மொத்தம் 15 ரூபாய். செiனை நகரம்\n\nOperation: SUB\nREF: ... 15 ரூபாய். செ[ன்]னை நகரம்.\nHYP: ... 15 ரூபாய். செ[i]னை நகரம்\n",
+[
+168,
+172
+],
+[
+204,
+207
+]
+],
+[
+"REFERENCE:\nஅவன் நேற்று வரவில்லை. மொத்தம் 15 ரூபாய். சென்னை நகரம்.\n\nHYPOTHESIS:\nவன் நேற்று வரவி\"லை. மொத்தம் 15 ரூபாய். செiனை நகரம்\n\nOperation: DEL\nREF: .... சென்னை நகரம்[.]\nHYP: .... செiனை நகரம்[]\n",
+[
+168,
+171
+],
+[
+193,
+195
+]
+]
+],
+"severities": [
+0.47409582138061523,
+0.46892377734184265,
+0.47768259048461914,
+0.48858052492141724
+],
+"semcer_impute_one": 0.05160223551698633,
+"n_dropped": 0
+},
+{
+"id": "te-011",
+"reference": "మొత్తం 15 రూపాయలు.",
+"hypothesis": "మొత్తం 15 రూపాయలు.",
+"records": [],
+"severities": [],
+"semcer_impute_one": 0.0,
+"n_dropped": 0
+},
+{
+"id": "th-012",
+"reference": "กรุงเทพมหานคร เขาไม่ได้มาเมื่อวาน",
+"hypothesis": "กรุงzทรพมหาคเร6เขาไม่iได้มขา0เมื่อ0าน",
+"records": [
+[
+"REFERENCE:\nกรุงเทพมหานคร เขาไม่ได้มาเมื่อวาน\n\nHYPOTHESIS:\nกรุงzทรพมหาคเร6เขาไม่iได้มขา0เมื่อ0าน\n\nOperation: SUB\nREF: กรุง[เ]ทพมหานคร เ...\nHYP: กรุง[z]ทรพมหาคเร6...\n",
+[
+121,
+124
+],
+[
+147,
+150
+]
+],
+[
+"REFERENCE:\nกรุงเทพมหานคร เขาไม่ได้มาเมื่อวาน\n\nHYPOTHESIS:\nกรุงzทรพมหาคเร6เขาไม่iได้มขา0เมื่อ0าน\n\nOperation: INS\nREF: กรุงเท[]พมหานคร เข...\nHYP: กรุงzท[ร]พมหาคเร6เข...\n",
+[
+123,
+125
+],
+[
+150,
+153
+]
+],
+[
+"REFERENCE:\nกรุงเทพมหานคร เขาไม่ได้มาเมื่อวาน\n\nHYPOTHESIS:\nกรุงzทรพมหาคเร6เขาไม่iได้มขา0เมื่อ0าน\n\nOperation: SUB\nREF: กรุงเทพมหา[น]คร เขาไม่ได้...\nHYP: กรุงzทรพมหา[ค]เร6เขาไม่iไ...\n",
+[
+127,
+130
+],
+[
+162,
+165
+]
+],
+[
+"REFERENCE:\nกรุงเทพมหานคร เขาไม่ได้มาเมื่อวาน\n\nHYPOTHESIS:\nกรุงzทรพมหาคเร6เขาไม่iได้มขา0เมื่อ0าน\n\nOperation: SUB\nREF: กรุงเทพมหาน[ค]ร เขาไม่ได้ม...\nHYP: ...รุงzทรพมหาค[เ]ร6เขาไม่iได้...\n",
+[
+128,
+131
+],
+[
+166,
+169
+]
+],
+[
+"REFERENCE:\nกรุงเทพมหานคร เขาไม่ได้มาเมื่อวาน\n\nHYPOTHESIS:\nกรุงzทรพมหาคเร6เขาไม่iได้มขา0เมื่อ0าน\n\nOperation: SUB\nREF: ...งเทพมหานคร[ ]เขาไม่ได้มาเ...\nHYP: ...zทรพมหาคเร[6]เขาไม่iได้มข...\n",
+[
+130,
+133
+],
+[
+167,
+170
+]
+],
+[
+"REFERENCE:\nกรุงเทพมหานคร เขาไม่ได้มาเมื่อวาน\n\nHYPOTHESIS:\nกรุงzทรพมหาคเร6เขาไม่iได้มขา0เมื่อ0าน\n\nOperation: INS\nREF: ...านคร เขาไม่[]ได้มาเมื่อวาน\nHYP: ...าคเร6เขาไม่[i]ได้มขา0เมื่อ0...\n",
+[
+131,
+133
+],
+[
+166,
+169
+]
+],
+[
+"REFERENCE:\nกรุงเทพมหานคร เขาไม่ได้มาเมื่อวาน\n\nHYPOTHESIS:\nกรุงzทรพมหาคเร6เขาไม่iได้มขา0เมื่อ0าน\n\nOperation: INS\nREF: ...ร เขาไม่ได้ม[]าเมื่อวาน\nHYP: ...6เขาไม่iได้ม[ข]า0เมื่อ0าน\n",
+[
+132,
+134
+],
+[
+164,
+167
+]
+],
+[
+"REFERENCE:\nกรุงเทพมหานคร เขาไม่ได้มาเมื่อวาน\n\nHYPOTHESIS:\nกรุงzทรพมหาคเร6เขาไม่iได้มขา0เมื่อ0าน\n\nOperation: INS\nREF: ... เขาไม่ได้มา[]เมื่อวาน\nHYP: ...ขาไม่iได้มขา[0]เมื่อ0าน\n",
+[
+132,
+134
+],
+[
+163,
+166
+]
+],
+[
+"REFERENCE:\nกรุงเทพมหานคร เขาไม่ได้มาเมื่อวาน\n\nHYPOTHESIS:\nกรุงzทรพมหาคเร6เขาไม่iได้มขา0เมื่อ0าน\n\nOperation: SUB\nREF: ...าไม่ได้มาเมื่อ[ว]าน\nHYP: ...iได้มขา0เมื่อ[0]าน\n",
+[
+134,
+137
+],
+[
+161,
+164
+]
+]
+],
+"severities": [
+0.49489083886146545,
+0.5162521004676819,
+0.5192897319793701,
+0.5178970098495483,
+0.4883783757686615,
+0.4959597885608673,
+0.5163909196853638,
+0.5019896626472473,
+0.49100345373153687
+],
+"semcer_impute_one": 0.16221613862684794,
+"n_dropped": 0
+},
+{
+"id": "ur-013",
+"reference": "وہ کل اسکول نہیں گیا۔ لاہور ایک شہر ہے۔",
+"hypothesis": "وہ کل اسکeول1 نہیں گیا۔ لاہور ایک شہر ہے۔",
+"records": [
+[
+"REFERENCE:\nوہ کل اسکول نہیں گیا۔ لاہور ایک شہر ہے۔\n\nHYPOTHESIS:\nوہ کل اسکeول1 نہیں گیا۔ لاہور ایک شہر ہے۔\n\nOperation: INS\nREF: وہ کل اسک[]ول نہیں گی...\nHYP: وہ کل اسک[e]ول1 نہیں گ...\n",
+[
+136,
+138
+],
+[
+166,
+169
+]
+],
+[
+"REFERENCE:\nوہ کل اسکول نہیں گیا۔ لاہور ایک شہر ہے۔\n\nHYPOTHESIS:\nوہ کل اسکeول1 نہیں گیا۔ لاہور ایک شہر ہے۔\n\nOperation: INS\nREF: ...ہ کل اسکول[] نہیں گیا۔...\nHYP: ... کل اسکeول[1] نہیں گیا۔...\n",
+[
+140,
+142
+],
+[
+174,
+177
+]
+]
+],
+"severities": [
+0.4999743103981018,
+0.506043016910553
+],
+"semcer_impute_one": 0.025795316084837303,
+"n_dropped": 0
+},
+{
+"id": "vi-014",
+"reference": "Tổng cộng là 15 đồng. Huống hồ anh ấy không đến. Người được giải thưởng.",
+"hypothesis": "Tổn0g cgng là 15 đồng. Huống hồ anh ấy không đến- Người được giải thưởng.",
+"records": [
+[
+"REFERENCE:\nTổng cộng là 15 đồng. Huống hồ anh ấy không đến. Người được giải thưởng.\n\nHYPOTHESIS:\nTổn0g cgng là 15 đồng. Huống hồ anh ấy không đến- Người được giải thưởng.\n\nOperation: INS\nREF: Tổn[]g cộng là ...\nHYP: Tổn[0]g cgng là ...\n",
+[
+195,
+197
+],
+[
+219,
+222
+]
+],
+[
+"REFERENCE:\nTổng cộng là 15 đồng. Huống hồ anh ấy không đến. Người được giải thưởng.\n\nHYPOTHESIS:\nTổn0g cgng là 15 đồng. Huống hồ anh ấy không đến- Người được giải thưởng.\n\nOperation: SUB\nREF: Tổng c[ộ]ng là 15 đ...\nHYP: Tổn0g c[g]ng là 15 đ...\n",
+[
+198,
+201
+],
+[
+227,
+230
+]
+],
+[
+"REFERENCE:\nTổng cộng là 15 đồng. Huống hồ anh ấy không đến. Người được giải thưởng.\n\nHYPOTHESIS:\nTổn0g cgng là 15 đồng. Huống hồ anh ấy không đến- Người được giải thưởng.\n\nOperation: SUB\nREF: ... không đến[.] Người đượ...\nHYP: ... không đến[-] Người đượ...\n",
+[
+205,
+208
+],
+[
+240,
+243
+]
+]
+],
+"severities": [
+0.4886333644390106,
+0.5084196329116821,
+0.48343899846076965
+],
+"semcer_impute_one": 0.020562388830714755,
+"n_dropped": 0
+},
+{
+"id": "zh-015",
+"reference": "总计十五元。 他昨天没有来，数字是12345。",
+"hypothesis": "总计十五元。 他昨天没有来，数字是12345。",
+"records": [],
+"severities": [],
+"semcer_impute_one": 0.0,
+"n_dropped": 0
+},
+{
+"id": "en-016",
+"reference": "The total is 15 dollars. Invoice No. 2024-117, due 3 March. He said: \"don't wait\".",
+"hypothesis": "Th:e t,tal is 15! dolla\"rs. InhoicHe N2o. 202we617y ue 3 Mareh. Hde s6ia: \"don'o 5iu\"",
+"records": [
+[
+"REFERENCE:\nThe total is 15 dollars. Invoice No. 2024-117, due 3 March. He said: \"don't wait\".\n\nHYPOTHESIS:\nTh:e t,tal is 15! dolla\"rs. InhoicHe N2o. 202we617y ue 3 Mareh. Hde s6ia: \"don'o 5iu\"\n\nOperation: INS\nREF: Th[]e total is...\nHYP: Th[:]e t,tal is...\n",
+[
+216,
+218
+],
+[
+239,
+242
+]
+],
+[
+"REFERENCE:\nThe total is 15 dollars. Invoice No. 2024-117, due 3 March. He said: \"don't wait\".\n\nHYPOTHESIS:\nTh:e t,tal is 15! dolla\"rs. InhoicHe N2o. 202we617y ue 3 Mareh. Hde s6ia: \"don'o 5iu\"\n\nOperation: SUB\nREF: The t[o]tal is 15 ...\nHYP: Th:e t[,]tal is 15!...\n",
+[
+219,
+222
+],
+[
+247,
+250
+]
+],
+[
+"REFERENCE:\nThe total is 15 dollars. Invoice No. 2024-117, due 3 March. He said: \"don't wait\".\n\nHYPOTHESIS:\nTh:e t,tal is 15! dolla\"rs. InhoicHe N2o. 202we617y ue 3 Mareh. Hde s6ia: \"don'o 5iu\"\n\nOperation: INS\nREF: ...otal is 15[] dollars. ...\nHYP: ...,tal is 15[!] dolla\"rs....\n",
+[
+227,
+229
+],
+[
+261,
+264
+]
+],
+[
+"REFERENCE:\nThe total is 15 dollars. Invoice No. 2024-117, due 3 March. He said: \"don't wait\".\n\nHYPOTHESIS:\nTh:e t,tal is 15! dolla\"rs. InhoicHe N2o. 202we617y ue 3 Mareh. Hde s6ia: \"don'o 5iu\"\n\nOperation: INS\nREF: ...s 15 dolla[]rs. Invoic...\nHYP: ... 15! dolla[\"]rs. Inhoic...\n",
+[
+227,
+229
+],
+[
+261,
+264
+]
+],
+[
+"REFERENCE:\nThe total is 15 dollars. Invoice No. 2024-117, due 3 March. He said: \"don't wait\".\n\nHYPOTHESIS:\nTh:e t,tal is 15! dolla\"rs. InhoicHe N2o. 202we617y ue 3 Mareh. Hde s6ia: \"don'o 5iu\"\n\nOperation: SUB\nREF: ...ollars. In[v]oice No. 2...\nHYP: ...lla\"rs. In[h]oicHe N2o....\n",
+[
+227,
+230
+],
+[
+262,
+265
+]
+],
+[
+"REFERENCE:\nThe total is 15 dollars. Invoice No. 2024-117, due 3 March. He said: \"don't wait\".\n\nHYPOTHESIS:\nTh:e t,tal is 15! dolla\"rs. InhoicHe N2o. 202we617y ue 3 Mareh. Hde s6ia: \"don'o 5iu\"\n\nOperation: INS\nREF: ...rs. Invoic[]e No. 2024...\nHYP: ...rs. Inhoic[H]e N2o. 202...\n",
+[
+227,
+229
+],
+[
+261,
+264
+]
+],
+[
+"REFERENCE:\nThe total is 15 dollars. Invoice No. 2024-117, due 3 March. He said: \"don't wait\".\n\nHYPOTHESIS:\nTh:e t,tal is 15! dolla\"rs. InhoicHe N2o. 202we617y ue 3 Mareh. Hde s6ia: \"don'o 5iu\"\n\nOperation: INS\nREF: ... Invoice N[]o. 2024-11...\nHYP: ...InhoicHe N[2]o. 202we61...\n",
+[
+227,
+229
+],
+[
+261,
+264
+]
+],
+[
+"REFERENCE:\nThe total is 15 dollars. Invoice No. 2024-117, due 3 March. He said: \"don't wait\".\n\nHYPOTHESIS:\nTh:e t,tal is 15! dolla\"rs. InhoicHe N2o. 202we617y ue 3 Mareh. Hde s6ia: \"don'o 5iu\"\n\nOperation: SUB\nREF: ...ce No. 202[4]-117, due ...\nHYP: ...e N2o. 202[w]e617y ue 3...\n",
+[
+227,
+230
+],
+[
+262,
+265
+]
+],
+[
+"REFERENCE:\nThe total is 15 dollars. Invoice No. 2024-117, due 3 March. He said: \"don't wait\".\n\nHYPOTHESIS:\nTh:e t,tal is 15! dolla\"rs. InhoicHe N2o. 202we617y ue 3 Mareh. Hde s6ia: \"don'o 5iu\"\n\nOperation: SUB\nREF: ...e No. 2024[-]117, due 3...\nHYP: ... N2o. 202w[e]617y ue 3 ...\n",
+[
+227,
+230
+],
+[
+262,
+265
+]
+],
+[
+"REFERENCE:\nThe total is 15 dollars. Invoice No. 2024-117, due 3 March. He said: \"don't wait\".\n\nHYPOTHESIS:\nTh:e t,tal is 15! dolla\"rs. InhoicHe N2o. 202we617y ue 3 Mareh. Hde s6ia: \"don'o 5iu\"\n\nOperation: SUB\nREF: ... No. 2024-[1]17, due 3 ...\nHYP: ...N2o. 202we[6]17y ue 3 M...\n",
+[
+227,
+230
+],
+[
+262,
+265
+]
+],
+[
+"REFERENCE:\nThe total is 15 dollars. Invoice No. 2024-117, due 3 March. He said: \"don't wait\".\n\nHYPOTHESIS:\nTh:e t,tal is 15! dolla\"rs. InhoicHe N2o. 202we617y ue 3 Mareh. Hde s6ia: \"don'o 5iu\"\n\nOperation: SUB\nREF: .... 2024-117[,] due 3 Mar...\nHYP: .... 202we617[y] ue 3 Mare...\n",
+[
+227,
+230
+],
+[
+262,
+265
+]
+],
+[
+"REFERENCE:\nThe total is 15 dollars. Invoice No. 2024-117, due 3 March. He said: \"don't wait\".\n\nHYPOTHESIS:\nTh:e t,tal is 15! dolla\"rs. InhoicHe N2o. 202we617y ue 3 Mareh. Hde s6ia: \"don'o 5iu\"\n\nOperation: DEL\nREF: ...2024-117, [d]ue 3 March...\nHYP: ...202we617y []ue 3 Mareh...\n",
+[
+227,
+230
+],
+[
+262,
+264
+]
+],
+[
+"REFERENCE:\nThe total is 15 dollars. Invoice No. 2024-117, due 3 March. He said: \"don't wait\".\n\nHYPOTHESIS:\nTh:e t,tal is 15! dolla\"rs. InhoicHe N2o. 202we617y ue 3 Mareh. Hde s6ia: \"don'o 5iu\"\n\nOperation: SUB\nREF: ... due 3 Mar[c]h. He said...\nHYP: ...y ue 3 Mar[e]h. Hde s6i...\n",
+[
+227,
+230
+],
+[
+262,
+265
+]
+],
+[
+"REFERENCE:\nThe total is 15 dollars. Invoice No. 2024-117, due 3 March. He said: \"don't wait\".\n\nHYPOTHESIS:\nTh:e t,tal is 15! dolla\"rs. InhoicHe N2o. 202we617y ue 3 Mareh. Hde s6ia: \"don'o 5iu\"\n\nOperation: INS\nREF: ...3 March. H[]e said: \"d...\nHYP: ...3 Mareh. H[d]e s6ia: \"d...\n",
+[
+227,
+229
+],
+[
+261,
+264
+]
+],
+[
+"REFERENCE:\nThe total is 15 dollars. Invoice No. 2024-117, due 3 March. He said: \"don't wait\".\n\nHYPOTHESIS:\nTh:e t,tal is 15! dolla\"rs. InhoicHe N2o. 202we617y ue 3 Mareh. Hde s6ia: \"don'o 5iu\"\n\nOperation: SUB\nREF: ...arch. He s[a]id: \"don't...\nHYP: ...reh. Hde s[6]ia: \"don'o...\n",
+[
+227,
+230
+],
+[
+262,
+265
+]
+],
+[
+"REFERENCE:\nThe total is 15 dollars. Invoice No. 2024-117, due 3 March. He said: \"don't wait\".\n\nHYPOTHESIS:\nTh:e t,tal is 15! dolla\"rs. InhoicHe N2o. 202we617y ue 3 Mareh. Hde s6ia: \"don'o 5iu\"\n\nOperation: SUB\nREF: ...ch. He sai[d]: \"don't w...\nHYP: ...h. Hde s6i[a]: \"don'o 5...\n",
+[
+227,
+230
+],
+[
+262,
+265
+]
+],
+[
+"REFERENCE:\nThe total is 15 dollars. Invoice No. 2024-117, due 3 March. He said: \"don't wait\".\n\nHYPOTHESIS:\nTh:e t,tal is 15! dolla\"rs. InhoicHe N2o. 202we617y ue 3 Mareh. Hde s6ia: \"don'o 5iu\"\n\nOperation: SUB\nREF: ...aid: \"don'[t] wait\".\nHYP: ...6ia: \"don'[o] 5iu\"\n",
+[
+227,
+230
+],
+[
+256,
+259
+]
+],
+[
+"REFERENCE:\nThe total is 15 dollars. Invoice No. 2024-117, due 3 March. He said: \"don't wait\".\n\nHYPOTHESIS:\nTh:e t,tal is 15! dolla\"rs. InhoicHe N2o. 202we617y ue 3 Mareh. Hde s6ia: \"don'o 5iu\"\n\nOperation: DEL\nREF: ...d: \"don't [w]ait\".\nHYP: ...a: \"don'o []5iu\"\n",
+[
+227,
+230
+],
+[
+254,
+256
+]
+],
+[
+"REFERENCE:\nThe total is 15 dollars. Invoice No. 2024-117, due 3 March. He said: \"don't wait\".\n\nHYPOTHESIS:\nTh:e t,tal is 15! dolla\"rs. InhoicHe N2o. 202we617y ue 3 Mareh. Hde s6ia: \"don'o 5iu\"\n\nOperation: SUB\nREF: ...: \"don't w[a]it\".\nHYP: ...a: \"don'o [5]iu\"\n",
+[
+227,
+230
+],
+[
+253,
+256
+]
+],
+[
+"REFERENCE:\nThe total is 15 dollars. Invoice No. 2024-117, due 3 March. He said: \"don't wait\".\n\nHYPOTHESIS:\nTh:e t,tal is 15! dolla\"rs. InhoicHe N2o. 202we617y ue 3 Mareh. Hde s6ia: \"don'o 5iu\"\n\nOperation: SUB\nREF: ...\"don't wai[t]\".\nHYP: ... \"don'o 5i[u]\"\n",
+[
+227,
+230
+],
+[
+251,
+254
+]
+],
+[
+"REFERENCE:\nThe total is 15 dollars. Invoice No. 2024-117, due 3 March. He said: \"don't wait\".\n\nHYPOTHESIS:\nTh:e t,tal is 15! dolla\"rs. InhoicHe N2o. 202we617y ue 3 Mareh. Hde s6ia: \"don'o 5iu\"\n\nOperation: DEL\nREF: ...on't wait\"[.]\nHYP: ...don'o 5iu\"[]\n",
+[
+227,
+230
+],
+[
+249,
+251
+]
+]
+],
+"severities": [
+0.5012091994285583,
+0.4849669933319092,
+0.49623584747314453,
+0.48935458064079285,
+0.4990634620189667,
+0.49675196409225464,
+0.4855406880378723,
+0.4872170388698578,
+0.48457202315330505,
+0.48560208082199097,
+0.4941103458404541,
+0.46224474906921387,
+0.496837854385376,
+0.4770577549934387,
+0.4877700209617615,
+0.500466525554657,
+0.47552064061164856,
+0.45304182171821594,
+0.4857890009880066,
+0.4750419855117798,
+0.4796031713485718
+],
+"semcer_impute_one": 0.12436582620550947,
+"n_dropped": 0
+},
+{
+"id": "de-017",
+"reference": "Straße und Übung für Anfänger.",
+"hypothesis": "Stra5e uNd bunG fÜr ANEÄgER.",
+"records": [
+[
+"REFERENCE:\nStraße und Übung für Anfänger.\n\nHYPOTHESIS:\nStra5e uNd bunG fÜr ANEÄgER.\n\nOperation: SUB\nREF: Stra[ß]e und Übun...\nHYP: Stra[5]e uNd bunG...\n",
+[
+109,
+112
+],
+[
+135,
+138
+]
+],
+[
+"REFERENCE:\nStraße und Übung für Anfänger.\n\nHYPOTHESIS:\nStra5e uNd bunG fÜr ANEÄgER.\n\nOperation: SUB\nREF: Straße u[n]d Übung fü...\nHYP: Stra5e u[N]d bunG fÜr...\n",
+[
+113,
+116
+],
+[
+143,
+146
+]
+],
+[
+"REFERENCE:\nStraße und Übung für Anfänger.\n\nHYPOTHESIS:\nStra5e uNd bunG fÜr ANEÄgER.\n\nOperation: DEL\nREF: ...traße und [Ü]bung für A...\nHYP: ...tra5e uNd []bunG fÜr A...\n",
+[
+118,
+121
+],
+[
+153,
+155
+]
+],
+[
+"REFERENCE:\nStraße und Übung für Anfänger.\n\nHYPOTHESIS:\nStra5e uNd bunG fÜr ANEÄgER.\n\nOperation: SUB\nREF: ...e und Übun[g] für Anfän...\nHYP: ...5e uNd bun[G] fÜr ANEÄg...\n",
+[
+118,
+121
+],
+[
+153,
+156
+]
+],
+[
+"REFERENCE:\nStraße und Übung für Anfänger.\n\nHYPOTHESIS:\nStra5e uNd bunG fÜr ANEÄgER.\n\nOperation: SUB\nREF: ...nd Übung f[ü]r Anfänger...\nHYP: ...uNd bunG f[Ü]r ANEÄgER.\n",
+[
+118,
+121
+],
+[
+153,
+156
+]
+],
+[
+"REFERENCE:\nStraße und Übung für Anfänger.\n\nHYPOTHESIS:\nStra5e uNd bunG fÜr ANEÄgER.\n\nOperation: DEL\nREF: ...bung für A[n]fänger.\nHYP: ...bunG fÜr A[]NEÄgER.\n",
+[
+118,
+121
+],
+[
+147,
+149
+]
+],
+[
+"REFERENCE:\nStraße und Übung für Anfänger.\n\nHYPOTHESIS:\nStra5e uNd bunG fÜr ANEÄgER.\n\nOperation: SUB\nREF: ...ung für An[f]änger.\nHYP: ...bunG fÜr A[N]EÄgER.\n",
+[
+118,
+121
+],
+[
+146,
+149
+]
+],
+[
+"REFERENCE:\nStraße und Übung für Anfänger.\n\nHYPOTHESIS:\nStra5e uNd bunG fÜr ANEÄgER.\n\nOperation: SUB\nREF: ...ng für Anf[ä]nger.\nHYP: ...unG fÜr AN[E]ÄgER.\n",
+[
+118,
+121
+],
+[
+145,
+148
+]
+],
+[
+"REFERENCE:\nStraße und Übung für Anfänger.\n\nHYPOTHESIS:\nStra5e uNd bunG fÜr ANEÄgER.\n\nOperation: SUB\nREF: ...g für Anfä[n]ger.\nHYP: ...nG fÜr ANE[Ä]gER.\n",
+[
+118,
+121
+],
+[
+144,
+147
+]
+],
+[
+"REFERENCE:\nStraße und Übung für Anfänger.\n\nHYPOTHESIS:\nStra5e uNd bunG fÜr ANEÄgER.\n\nOperation: SUB\nREF: ...für Anfäng[e]r.\nHYP: ... fÜr ANEÄg[E]R.\n",
+[
+118,
+121
+],
+[
+142,
+145
+]
+],
+[
+"REFERENCE:\nStraße und Übung für Anfänger.\n\nHYPOTHESIS:\nStra5e uNd bunG fÜr ANEÄgER.\n\nOperation: SUB\nREF: ...ür Anfänge[r].\nHYP: ...fÜr ANEÄgE[R].\n",
+[
+118,
+121
+],
+[
+141,
+144
+]
+]
+],
+"severities": [
+0.4867696166038513,
+0.4972703158855438,
+0.4702076315879822,
+0.4892846643924713,
+0.4836775064468384,
+0.49900567531585693,
+0.49553871154785156,
+0.48606234788894653,
+0.4932660460472107,
+0.5002197027206421,
+0.4963659942150116
+],
+"semcer_impute_one": 0.17992227375507355,
+"n_dropped": 0
+},
+{
+"id": "fr-018",
+"reference": "Élève numéro 7, classe B. Où est la bibliothèque ? Le garçon a déjà mangé.",
+"hypothesis": "Élèue umérOo17, classe B.Où est la bibliothèque? Le garçon  déjà mangé.",
+"records": [
+[
+"REFERENCE:\nÉlève numéro 7, classe B. Où est la bibliothèque ? Le garçon a déjà mangé.\n\nHYPOTHESIS:\nÉlèue umérOo17, classe B.Où est la bibliothèque? Le garçon  déjà mangé.\n\nOperation: SUB\nREF: Élè[v]e numéro 7...\nHYP: Élè[u]e umérOo17...\n",
+[
+195,
+198
+],
+[
+220,
+223
+]
+],
+[
+"REFERENCE:\nÉlève numéro 7, classe B. Où est la bibliothèque ? Le garçon a déjà mangé.\n\nHYPOTHESIS:\nÉlèue umérOo17, classe B.Où est la bibliothèque? Le garçon  déjà mangé.\n\nOperation: DEL\nREF: Élève [n]uméro 7, c...\nHYP: Élèue []umérOo17, ...\n",
+[
+198,
+201
+],
+[
+226,
+228
+]
+],
+[
+"REFERENCE:\nÉlève numéro 7, classe B. Où est la bibliothèque ? Le garçon a déjà mangé.\n\nHYPOTHESIS:\nÉlèue umérOo17, classe B.Où est la bibliothèque? Le garçon  déjà mangé.\n\nOperation: INS\nREF: ...lève numér[]o 7, class...\nHYP: Élèue umér[O]o17, class...\n",
+[
+205,
+207
+],
+[
+236,
+239
+]
+],
+[
+"REFERENCE:\nÉlève numéro 7, classe B. Où est la bibliothèque ? Le garçon a déjà mangé.\n\nHYPOTHESIS:\nÉlèue umérOo17, classe B.Où est la bibliothèque? Le garçon  déjà mangé.\n\nOperation: SUB\nREF: ...ève numéro[ ]7, classe ...\nHYP: ...èue umérOo[1]7, classe ...\n",
+[
+205,
+208
+],
+[
+240,
+243
+]
+],
+[
+"REFERENCE:\nÉlève numéro 7, classe B. Où est la bibliothèque ? Le garçon a déjà mangé.\n\nHYPOTHESIS:\nÉlèue umérOo17, classe B.Où est la bibliothèque? Le garçon  déjà mangé.\n\nOperation: DEL\nREF: ... classe B.[ ]Où est la ...\nHYP: ... classe B.[]Où est la ...\n",
+[
+205,
+208
+],
+[
+240,
+242
+]
+],
+[
+"REFERENCE:\nÉlève numéro 7, classe B. Où est la bibliothèque ? Le garçon a déjà mangé.\n\nHYPOTHESIS:\nÉlèue umérOo17, classe B.Où est la bibliothèque? Le garçon  déjà mangé.\n\nOperation: DEL\nREF: ...bliothèque[ ]? Le garço...\nHYP: ...bliothèque[]? Le garço...\n",
+[
+205,
+208
+],
+[
+240,
+242
+]
+],
+[
+"REFERENCE:\nÉlève numéro 7, classe B. Où est la bibliothèque ? Le garçon a déjà mangé.\n\nHYPOTHESIS:\nÉlèue umérOo17, classe B.Où est la bibliothèque? Le garçon  déjà mangé.\n\nOperation: DEL\nREF: ...Le garçon [a] déjà mang...\nHYP: ...Le garçon [] déjà mang...\n",
+[
+205,
+208
+],
+[
+240,
+242
+]
+]
+],
+"severities": [
+0.49585074186325073,
+0.4739688038825989,
+0.48234522342681885,
+0.496455579996109,
+0.47896808385849,
+0.48674243688583374,
+0.46851402521133423
+],
+"semcer_impute_one": 0.04571412020438426,
+"n_dropped": 0
+},
+{
+"id": "es-019",
+"reference": "¿Dónde está la estación?",
+"hypothesis": "¿Dón'de .tá la eutdcón?",
+"records": [
+[
+"REFERENCE:\n¿Dónde está la estación?\n\nHYPOTHESIS:\n¿Dón'de .tá la eutdcón?\n\nOperation: INS\nREF: ¿Dón[]de está la...\nHYP: ¿Dón[']de .tá la ...\n",
+[
+98,
+100
+],
+[
+123,
+126
+]
+],
+[
+"REFERENCE:\n¿Dónde está la estación?\n\nHYPOTHESIS:\n¿Dón'de .tá la eutdcón?\n\nOperation: DEL\nREF: ¿Dónde [e]stá la est...\nHYP: ¿Dón'de [].tá la eut...\n",
+[
+101,
+104
+],
+[
+131,
+133
+]
+],
+[
+"REFERENCE:\n¿Dónde está la estación?\n\nHYPOTHESIS:\n¿Dón'de .tá la eutdcón?\n\nOperation: SUB\nREF: ¿Dónde e[s]tá la esta...\nHYP: ¿Dón'de [.]tá la eutd...\n",
+[
+102,
+105
+],
+[
+132,
+135
+]
+],
+[
+"REFERENCE:\n¿Dónde está la estación?\n\nHYPOTHESIS:\n¿Dón'de .tá la eutdcón?\n\nOperation: SUB\nREF: ... está la e[s]tación?\nHYP: ...e .tá la e[u]tdcón?\n",
+[
+107,
+110
+],
+[
+136,
+139
+]
+],
+[
+"REFERENCE:\n¿Dónde está la estación?\n\nHYPOTHESIS:\n¿Dón'de .tá la eutdcón?\n\nOperation: SUB\nREF: ...stá la est[a]ción?\nHYP: ....tá la eut[d]cón?\n",
+[
+107,
+110
+],
+[
+134,
+137
+]
+],
+[
+"REFERENCE:\n¿Dónde está la estación?\n\nHYPOTHESIS:\n¿Dón'de .tá la eutdcón?\n\nOperation: DEL\nREF: ...á la estac[i]ón?\nHYP: ...á la eutdc[]ón?\n",
+[
+107,
+110
+],
+[
+132,
+134
+]
+]
+],
+"severities": [
+0.4946190416812897,
+0.451596736907959,
+0.4693194031715393,
+0.4704151749610901,
+0.4912418723106384,
+0.4875968396663666
+],
+"semcer_impute_one": 0.11936621119578679,
+"n_dropped": 0
+},
+{
+"id": "pt-020",
+"reference": "A ação custa 30 reais. O coração da cidade.",
+"hypothesis": "A AÇuo :cU3Ta 30 :e'ais. O CoRAcãO a cidaDe.",
+"records": [
+[
+"REFERENCE:\nA ação custa 30 reais. O coração da cidade.\n\nHYPOTHESIS:\nA AÇuo :cU3Ta 30 :e'ais. O CoRAcãO a cidaDe.\n\nOperation: SUB\nREF: A [a]ção custa ...\nHYP: A [A]Çuo :cU3Ta...\n",
+[
+136,
+139
+],
+[
+160,
+163
+]
+],
+[
+"REFERENCE:\nA ação custa 30 reais. O coração da cidade.\n\nHYPOTHESIS:\nA AÇuo :cU3Ta 30 :e'ais. O CoRAcãO a cidaDe.\n\nOperation: SUB\nREF: A a[ç]ão custa 3...\nHYP: A A[Ç]uo :cU3Ta ...\n",
+[
+137,
+140
+],
+[
+162,
+165
+]
+],
+[
+"REFERENCE:\nA ação custa 30 reais. O coração da cidade.\n\nHYPOTHESIS:\nA AÇuo :cU3Ta 30 :e'ais. O CoRAcãO a cidaDe.\n\nOperation: SUB\nREF: A aç[ã]o custa 30...\nHYP: A AÇ[u]o :cU3Ta 3...\n",
+[
+138,
+141
+],
+[
+164,
+167
+]
+],
+[
+"REFERENCE:\nA ação custa 30 reais. O coração da cidade.\n\nHYPOTHESIS:\nA AÇuo :cU3Ta 30 :e'ais. O CoRAcãO a cidaDe.\n\nOperation: INS\nREF: A ação []custa 30 r...\nHYP: A AÇuo [:]cU3Ta 30 :...\n",
+[
+141,
+143
+],
+[
+169,
+172
+]
+],
+[
+"REFERENCE:\nA ação custa 30 reais. O coração da cidade.\n\nHYPOTHESIS:\nA AÇuo :cU3Ta 30 :e'ais. O CoRAcãO a cidaDe.\n\nOperation: SUB\nREF: A ação c[u]sta 30 rea...\nHYP: A AÇuo :c[U]3Ta 30 :e'...\n",
+[
+142,
+145
+],
+[
+173,
+176
+]
+],
+[
+"REFERENCE:\nA ação custa 30 reais. O coração da cidade.\n\nHYPOTHESIS:\nA AÇuo :cU3Ta 30 :e'ais. O CoRAcãO a cidaDe.\n\nOperation: SUB\nREF: A ação cu[s]ta 30 reai...\nHYP: A AÇuo :cU[3]Ta 30 :e'a...\n",
+[
+143,
+146
+],
+[
+175,
+178
+]
+],
+[
+"REFERENCE:\nA ação custa 30 reais. O coração da cidade.\n\nHYPOTHESIS:\nA AÇuo :cU3Ta 30 :e'ais. O CoRAcãO a cidaDe.\n\nOperation: SUB\nREF: A ação cus[t]a 30 reais...\nHYP: ... AÇuo :cU3[T]a 30 :e'ai...\n",
+[
+144,
+147
+],
+[
+179,
+182
+]
+],
+[
+"REFERENCE:\nA ação custa 30 reais. O coração da cidade.\n\nHYPOTHESIS:\nA AÇuo :cU3Ta 30 :e'ais. O CoRAcãO a cidaDe.\n\nOperation: SUB\nREF: ... custa 30 [r]eais. O co...\nHYP: ...:cU3Ta 30 [:]e'ais. O C...\n",
+[
+147,
+150
+],
+[
+182,
+185
+]
+],
+[
+"REFERENCE:\nA ação custa 30 reais. O coração da cidade.\n\nHYPOTHESIS:\nA AÇuo :cU3Ta 30 :e'ais. O CoRAcãO a cidaDe.\n\nOperation: INS\nREF: ...usta 30 re[]ais. O cor...\nHYP: ...U3Ta 30 :e[']ais. O CoR...\n",
+[
+147,
+149
+],
+[
+181,
+184
+]
+],
+[
+"REFERENCE:\nA ação custa 30 reais. O coração da cidade.\n\nHYPOTHESIS:\nA AÇuo :cU3Ta 30 :e'ais. O CoRAcãO a cidaDe.\n\nOperation: SUB\nREF: ... reais. O [c]oração da ...\nHYP: ...:e'ais. O [C]oRAcãO a c...\n",
+[
+147,
+150
+],
+[
+182,
+185
+]
+],
+[
+"REFERENCE:\nA ação custa 30 reais. O coração da cidade.\n\nHYPOTHESIS:\nA AÇuo :cU3Ta 30 :e'ais. O CoRAcãO a cidaDe.\n\nOperation: SUB\nREF: ...eais. O co[r]ação da ci...\nHYP: ...'ais. O Co[R]AcãO a cid...\n",
+[
+147,
+150
+],
+[
+182,
+185
+]
+],
+[
+"REFERENCE:\nA ação custa 30 reais. O coração da cidade.\n\nHYPOTHESIS:\nA AÇuo :cU3Ta 30 :e'ais. O CoRAcãO a cidaDe.\n\nOperation: SUB\nREF: ...ais. O cor[a]ção da cid...\nHYP: ...ais. O CoR[A]cãO a cida...\n",
+[
+147,
+150
+],
+[
+182,
+185
+]
+],
+[
+"REFERENCE:\nA ação custa 30 reais. O coração da cidade.\n\nHYPOTHESIS:\nA AÇuo :cU3Ta 30 :e'ais. O CoRAcãO a cidaDe.\n\nOperation: SUB\nREF: ...is. O cora[ç]ão da cida...\nHYP: ...is. O CoRA[c]ãO a cidaD...\n",
+[
+147,
+150
+],
+[
+182,
+185
+]
+],
+[
+"REFERENCE:\nA ação custa 30 reais. O coração da cidade.\n\nHYPOTHESIS:\nA AÇuo :cU3Ta 30 :e'ais. O CoRAcãO a cidaDe.\n\nOperation: SUB\nREF: .... O coraçã[o] da cidade...\nHYP: .... O CoRAcã[O] a cidaDe.\n",
+[
+147,
+150
+],
+[
+182,
+185
+]
+],
+[
+"REFERENCE:\nA ação custa 30 reais. O coração da cidade.\n\nHYPOTHESIS:\nA AÇuo :cU3Ta 30 :e'ais. O CoRAcãO a cidaDe.\n\nOperation: DEL\nREF: ...O coração [d]a cidade.\nHYP: ...O CoRAcãO []a cidaDe.\n",
+[
+147,
+150
+],
+[
+178,
+180
+]
+],
+[
+"REFERENCE:\nA ação custa 30 reais. O coração da cidade.\n\nHYPOTHESIS:\nA AÇuo :cU3Ta 30 :e'ais. O CoRAcãO a cidaDe.\n\nOperation: SUB\nREF: ...ão da cida[d]e.\nHYP: ...cãO a cida[D]e.\n",
+[
+147,
+150
+],
+[
+171,
+174
+]
+]
+],
+"severities": [
+0.48763200640678406,
+0.4592365026473999,
+0.48218098282814026,
+0.46682336926460266,
+0.46701523661613464,
+0.48936834931373596,
+0.4830804765224457,
+0.4618191123008728,
+0.5053395628929138,
+0.473577618598938,
+0.48118215799331665,
+0.5043971538543701,
+0.4913367033004761,
+0.4712691605091095,
+0.46686261892318726,
+0.498740017414093
+],
+"semcer_impute_one": 0.1788339774275935,
+"n_dropped": 0
+},
+{
+"id": "ru-021",
+"reference": "Итого: 15 рублей.",
+"hypothesis": "И6того: 15 рублей",
+"records": [
+[
+"REFERENCE:\nИтого: 15 рублей.\n\nHYPOTHESIS:\nИ6того: 15 рублей\n\nOperation: INS\nREF: И[]того: 15 р...\nHYP: И[6]того: 15 р...\n",
+[
+82,
+84
+],
+[
+104,
+107
+]
+],
+[
+"REFERENCE:\nИтого: 15 рублей.\n\nHYPOTHESIS:\nИ6того: 15 рублей\n\nOperation: DEL\nREF: ... 15 рублей[.]\nHYP: ... 15 рублей[]\n",
+[
+94,
+97
+],
+[
+116,
+118
+]
+]
+],
+"severities": [
+0.4950261116027832,
+0.48099106550216675
+],
+"semcer_impute_one": 0.057412775123820585,
+"n_dropped": 0
+},
+{
+"id": "ar-022",
+"reference": "هذا ليس صحيحا.",
+"hypothesis": "هe ليyس حيحا..",
+"records": [
+[
+"REFERENCE:\nهذا ليس صحيحا.\n\nHYPOTHESIS:\nهe ليyس حيحا..\n\nOperation: DEL\nREF: ه[ذ]ا ليس صحيح...\nHYP: ه[]e ليyس حيح...\n",
+[
+76,
+79
+],
+[
+99,
+101
+]
+],
+[
+"REFERENCE:\nهذا ليس صحيحا.\n\nHYPOTHESIS:\nهe ليyس حيحا..\n\nOperation: SUB\nREF: هذ[ا] ليس صحيحا...\nHYP: ه[e] ليyس حيحا...\n",
+[
+77,
+80
+],
+[
+100,
+103
+]
+],
+[
+"REFERENCE:\nهذا ليس صحيحا.\n\nHYPOTHESIS:\nهe ليyس حيحا..\n\nOperation: INS\nREF: هذا لي[]س صحيحا.\nHYP: هe لي[y]س حيحا..\n",
+[
+81,
+83
+],
+[
+102,
+105
+]
+],
+[
+"REFERENCE:\nهذا ليس صحيحا.\n\nHYPOTHESIS:\nهe ليyس حيحا..\n\nOperation: DEL\nREF: هذا ليس [ص]حيحا.\nHYP: هe ليyس []حيحا..\n",
+[
+83,
+86
+],
+[
+105,
+107
+]
+],
+[
+"REFERENCE:\nهذا ليس صحيحا.\n\nHYPOTHESIS:\nهe ليyس حيحا..\n\nOperation: INS\nREF: ... ليس صحيحا[].\nHYP: ... ليyس حيحا[.].\n",
+[
+88,
+90
+],
+[
+110,
+113
+]
+]
+],
+"severities": [
+0.4674673080444336,
+0.4802882671356201,
+0.4944787323474884,
+0.44956350326538086,
+0.49181878566741943
+],
+"semcer_impute_one": 0.1702583283185959,
+"n_dropped": 0
+},
+{
+"id": "hi-023",
+"reference": "कुल राशि 15 रुपये है।",
+"hypothesis": "पल राशि 15- रुपये है।",
+"records": [
+[
+"REFERENCE:\nकुल राशि 15 रुपये है।\n\nHYPOTHESIS:\nपल राशि 15- रुपये है।\n\nOperation: SUB\nREF: [कु]ल राशि 15 रुप...\nHYP: [प]ल राशि 15- रु...\n",
+[
+89,
+93
+],
+[
+115,
+118
+]
+],
+[
+"REFERENCE:\nकुल राशि 15 रुपये है।\n\nHYPOTHESIS:\nपल राशि 15- रुपये है।\n\nOperation: INS\nREF: कुल राशि 15[] रुपये है।\nHYP: पल राशि 15[-] रुपये है।\n",
+[
+100,
+102
+],
+[
+128,
+131
+]
+]
+],
+"severities": [
+0.46839773654937744,
+0.509624719619751
+],
+"semcer_impute_one": 0.0652014970779419,
+"n_dropped": 0
+},
+{
+"id": "mr-024",
+"reference": "एकूण रक्कम १५ रुपये. महाराष्ट्राची राजधानी मुंबई. तो काल शाळेत गेला नाही.",
+"hypothesis": "एकूण रक्ककू १५ रुपये. महाराष्ट्राची राजधानी मुंबई. तो काल शाळेत गे नाही.",
+"records": [
+[
+"REFERENCE:\nएकूण रक्कम १५ रुपये. महाराष्ट्राची राजधानी मुंबई. तो काल शाळेत गेला नाही.\n\nHYPOTHESIS:\nएकूण रक्ककू १५ रुपये. महाराष्ट्राची राजधानी मुंबई. तो काल शाळेत गे नाही.\n\nOperation: SUB\nREF: एकूण रक्क[म] १५ रुपये. म...\nHYP: एकूण रक्क[कू] १५ रुपये. म...\n",
+[
+201,
+204
+],
+[
+234,
+238
+]
+],
+[
+"REFERENCE:\nएकूण रक्कम १५ रुपये. महाराष्ट्राची राजधानी मुंबई. तो काल शाळेत गेला नाही.\n\nHYPOTHESIS:\nएकूण रक्ककू १५ रुपये. महाराष्ट्राची राजधानी मुंबई. तो काल शाळेत गे नाही.\n\nOperation: DEL\nREF: ...तो काल शाळेत गे[ला] नाही.\nHYP: ...तो काल शाळेत गे[] नाही.\n",
+[
+210,
+214
+],
+[
+244,
+246
+]
+]
+],
+"severities": [
+0.48570364713668823,
+0.47448739409446716
+],
+"semcer_impute_one": 0.020429596621939477,
+"n_dropped": 0
+},
+{
+"id": "kn-025",
+"reference": "ಅವನು ನಿನ್ನೆ ಬರಲಿಲ್ಲ. ಒಟ್ಟು ಮೊತ್ತ 15 ರೂಪಾಯಿ.",
+"hypothesis": "ಅವನು ನಿನ್ನೆ ಬರಲಿಲ್ಲ. ಒಟ್ಟು ಮೊತ್ತ 15 ರೂಪಾಯಿ.",
+"records": [],
+"severities": [],
+"semcer_impute_one": 0.0,
+"n_dropped": 0
+},
+{
+"id": "ta-026",
+"reference": "அவன் நேற்று வரவில்லை. மொத்தம் 15 ரூபாய்.",
+"hypothesis": "",
+"records": [
+[
+"REFERENCE:\nஅவன் நேற்று வரவில்லை. மொத்தம் 15 ரூபாய்.\n\nHYPOTHESIS:\n\n\nOperation: DEL\nREF: [அ]வன் நேற்று வரவி...\nHYP: []\n",
+[
+87,
+90
+],
+[
+114,
+116
+]
+],
+[
+"REFERENCE:\nஅவன் நேற்று வரவில்லை. மொத்தம் 15 ரூபாய்.\n\nHYPOTHESIS:\n\n\nOperation: DEL\nREF: அ[வ]ன் நேற்று வரவில்...\nHYP: []\n",
+[
+88,
+91
+],
+[
+116,
+118
+]
+],
+[
+"REFERENCE:\nஅவன் நேற்று வரவில்லை. மொத்தம் 15 ரூபாய்.\n\nHYPOTHESIS:\n\n\nOperation: DEL\nREF: அவ[ன்] நேற்று வரவில்லை...\nHYP: []\n",
+[
+89,
+93
+],
+[
+118,
+120
+]
+],
+[
+"REFERENCE:\nஅவன் நேற்று வரவில்லை. மொத்தம் 15 ரூபாய்.\n\nHYPOTHESIS:\n\n\nOperation: DEL\nREF: அவன்[ ]நேற்று வரவில்லை....\nHYP: []\n",
+[
+91,
+94
+],
+[
+119,
+121
+]
+],
+[
+"REFERENCE:\nஅவன் நேற்று வரவில்லை. மொத்தம் 15 ரூபாய்.\n\nHYPOTHESIS:\n\n\nOperation: DEL\nREF: அவன் [நே]ற்று வரவில்லை. ...\nHYP: []\n",
+[
+92,
+96
+],
+[
+120,
+122
+]
+],
+[
+"REFERENCE:\nஅவன் நேற்று வரவில்லை. மொத்தம் 15 ரூபாய்.\n\nHYPOTHESIS:\n\n\nOperation: DEL\nREF: அவன் நே[ற்]று வரவில்லை. மொ...\nHYP: []\n",
+[
+94,
+98
+],
+[
+122,
+124
+]
+],
+[
+"REFERENCE:\nஅவன் நேற்று வரவில்லை. மொத்தம் 15 ரூபாய்.\n\nHYPOTHESIS:\n\n\nOperation: DEL\nREF: அவன் நேற்[று] வரவில்லை. மொத்...\nHYP: []\n",
+[
+96,
+100
+],
+[
+124,
+126
+]
+],
+[
+"REFERENCE:\nஅவன் நேற்று வரவில்லை. மொத்தம் 15 ரூபாய்.\n\nHYPOTHESIS:\n\n\nOperation: DEL\nREF: அவன் நேற்று[ ]வரவில்லை. மொத்த...\nHYP: []\n",
+[
+98,
+101
+],
+[
+125,
+127
+]
+],
+[
+"REFERENCE:\nஅவன் நேற்று வரவில்லை. மொத்தம் 15 ரூபாய்.\n\nHYPOTHESIS:\n\n\nOperation: DEL\nREF: அவன் நேற்று [வ]ரவில்லை. மொத்தம்...\nHYP: []\n",
+[
+99,
+102
+],
+[
+127,
+129
+]
+],
+[
+"REFERENCE:\nஅவன் நேற்று வரவில்லை. மொத்தம் 15 ரூபாய்.\n\nHYPOTHESIS:\n\n\nOperation: DEL\nREF: அவன் நேற்று வ[ர]வில்லை. மொத்தம் ...\nHYP: []\n",
+[
+100,
+103
+],
+[
+128,
+130
+]
+],
+[
+"REFERENCE:\nஅவன் நேற்று வரவில்லை. மொத்தம் 15 ரூபாய்.\n\nHYPOTHESIS:\n\n\nOperation: DEL\nREF: அவன் நேற்று வர[வி]ல்லை. மொத்தம் 1...\nHYP: []\n",
+[
+101,
+105
+],
+[
+129,
+131
+]
+],
+[
+"REFERENCE:\nஅவன் நேற்று வரவில்லை. மொத்தம் 15 ரூபாய்.\n\nHYPOTHESIS:\n\n\nOperation: DEL\nREF: ...வன் நேற்று வரவி[ல்]லை. மொத்தம் 15...\nHYP: []\n",
+[
+105,
+109
+],
+[
+132,
+134
+]
+],
+[
+"REFERENCE:\nஅவன் நேற்று வரவில்லை. மொத்தம் 15 ரூபாய்.\n\nHYPOTHESIS:\n\n\nOperation: DEL\nREF: ...ன் நேற்று வரவில்[லை]. மொத்தம் 15 ...\nHYP: []\n",
+[
+106,
+110
+],
+[
+132,
+134
+]
+],
+[
+"REFERENCE:\nஅவன் நேற்று வரவில்லை. மொத்தம் 15 ரூபாய்.\n\nHYPOTHESIS:\n\n\nOperation: DEL\nREF: ... நேற்று வரவில்லை[.] மொத்தம் 15 ரூ...\nHYP: []\n",
+[
+106,
+109
+],
+[
+132,
+134
+]
+],
+[
+"REFERENCE:\nஅவன் நேற்று வரவில்லை. மொத்தம் 15 ரூபாய்.\n\nHYPOTHESIS:\n\n\nOperation: DEL\nREF: ...நேற்று வரவில்லை.[ ]மொத்தம் 15 ரூபா...\nHYP: []\n",
+[
+106,
+109
+],
+[
+133,
+135
+]
+],
+[
+"REFERENCE:\nஅவன் நேற்று வரவில்லை. மொத்தம் 15 ரூபாய்.\n\nHYPOTHESIS:\n\n\nOperation: DEL\nREF: ...ற்று வரவில்லை. [மொ]த்தம் 15 ரூபாய்...\nHYP: []\n",
+[
+105,
+109
+],
+[
+133,
+135
+]
+],
+[
+"REFERENCE:\nஅவன் நேற்று வரவில்லை. மொத்தம் 15 ரூபாய்.\n\nHYPOTHESIS:\n\n\nOperation: DEL\nREF: ...று வரவில்லை. மொ[த்]தம் 15 ரூபாய்.\nHYP: []\n",
+[
+105,
+109
+],
+[
+129,
+131
+]
+],
+[
+"REFERENCE:\nஅவன் நேற்று வரவில்லை. மொத்தம் 15 ரூபாய்.\n\nHYPOTHESIS:\n\n\nOperation: DEL\nREF: ... வரவில்லை. மொத்[த]ம் 15 ரூபாய்.\nHYP: []\n",
+[
+105,
+108
+],
+[
+127,
+129
+]
+],
+[
+"REFERENCE:\nஅவன் நேற்று வரவில்லை. மொத்தம் 15 ரூபாய்.\n\nHYPOTHESIS:\n\n\nOperation: DEL\nREF: ...வரவில்லை. மொத்த[ம்] 15 ரூபாய்.\nHYP: []\n",
+[
+105,
+109
+],
+[
+126,
+128
+]
+],
+[
+"REFERENCE:\nஅவன் நேற்று வரவில்லை. மொத்தம் 15 ரூபாய்.\n\nHYPOTHESIS:\n\n\nOperation: DEL\nREF: ...ரவில்லை. மொத்தம்[ ]15 ரூபாய்.\nHYP: []\n",
+[
+106,
+109
+],
+[
+125,
+127
+]
+],
+[
+"REFERENCE:\nஅவன் நேற்று வரவில்லை. மொத்தம் 15 ரூபாய்.\n\nHYPOTHESIS:\n\n\nOperation: DEL\nREF: ...வில்லை. மொத்தம் [1]5 ரூபாய்.\nHYP: []\n",
+[
+106,
+109
+],
+[
+124,
+126
+]
+],
+[
+"REFERENCE:\nஅவன் நேற்று வரவில்லை. மொத்தம் 15 ரூபாய்.\n\nHYPOTHESIS:\n\n\nOperation: DEL\nREF: ...ல்லை. மொத்தம் 1[5] ரூபாய்.\nHYP: []\n",
+[
+105,
+108
+],
+[
+122,
+124
+]
+],
+[
+"REFERENCE:\nஅவன் நேற்று வரவில்லை. மொத்தம் 15 ரூபாய்.\n\nHYPOTHESIS:\n\n\nOperation: DEL\nREF: ...லை. மொத்தம் 15[ ]ரூபாய்.\nHYP: []\n",
+[
+104,
+107
+],
+[
+120,
+122
+]
+],
+[
+"REFERENCE:\nஅவன் நேற்று வரவில்லை. மொத்தம் 15 ரூபாய்.\n\nHYPOTHESIS:\n\n\nOperation: DEL\nREF: .... மொத்தம் 15 [ரூ]பாய்.\nHYP: []\n",
+[
+103,
+107
+],
+[
+118,
+120
+]
+],
+[
+"REFERENCE:\nஅவன் நேற்று வரவில்லை. மொத்தம் 15 ரூபாய்.\n\nHYPOTHESIS:\n\n\nOperation: DEL\nREF: ... மொத்தம் 15 ரூ[பா]ய்.\nHYP: []\n",
+[
+104,
+108
+],
+[
+117,
+119
+]
+],
+[
+"REFERENCE:\nஅவன் நேற்று வரவில்லை. மொத்தம் 15 ரூபாய்.\n\nHYPOTHESIS:\n\n\nOperation: DEL\nREF: ...மொத்தம் 15 ரூபா[ய்].\nHYP: []\n",
+[
+105,
+109
+],
+[
+116,
+118
+]
+],
+[
+"REFERENCE:\nஅவன் நேற்று வரவில்லை. மொத்தம் 15 ரூபாய்.\n\nHYPOTHESIS:\n\n\nOperation: DEL\nREF: ...த்தம் 15 ரூபாய்[.]\nHYP: []\n",
+[
+105,
+108
+],
+[
+114,
+116
+]
+]
+],
+"severities": [
+0.47567203640937805,
+0.4780978262424469,
+0.4744303226470947,
+0.47574448585510254,
+0.44768139719963074,
+0.4743839502334595,
+0.47678470611572266,
+0.47521111369132996,
+0.4723403751850128,
+0.4795132875442505,
+0.4761643707752228,
+0.46290963888168335,
+0.47238507866859436,
+0.47071295976638794,
+0.47402098774909973,
+0.44835203886032104,
+0.4681991934776306,
+0.4687902331352234,
+0.4717616140842438,
+0.4746030271053314,
+0.46001332998275757,
+0.462123304605484,
+0.4732152819633484,
+0.4699786901473999,
+0.48195406794548035,
+0.4688418507575989,
+0.4749026894569397
+],
+"semcer_impute_one": 0.4706958466105991,
+"n_dropped": 0
+},
+{
+"id": "te-027",
+"reference": "హైదరాబాద్ నగరం.",
+"hypothesis": "హైదరాబాద్ నగరం. హైదరాబా",
+"records": [
+[
+"REFERENCE:\nహైదరాబాద్ నగరం.\n\nHYPOTHESIS:\nహైదరాబాద్ నగరం. హైదరాబా\n\nOperation: INS\nREF: హైదరాబాద్ నగరం.[]\nHYP: హైదరాబాద్ నగరం.[ ]హైదరాబా\n",
+[
+100,
+102
+],
+[
+123,
+126
+]
+],
+[
+"REFERENCE:\nహైదరాబాద్ నగరం.\n\nHYPOTHESIS:\nహైదరాబాద్ నగరం. హైదరాబా\n\nOperation: INS\nREF: హైదరాబాద్ నగరం.[]\nHYP: ...దరాబాద్ నగరం. [హై]దరాబా\n",
+[
+100,
+102
+],
+[
+125,
+129
+]
+],
+[
+"REFERENCE:\nహైదరాబాద్ నగరం.\n\nHYPOTHESIS:\nహైదరాబాద్ నగరం. హైదరాబా\n\nOperation: INS\nREF: హైదరాబాద్ నగరం.[]\nHYP: ...రాబాద్ నగరం. హై[ద]రాబా\n",
+[
+100,
+102
+],
+[
+126,
+129
+]
+],
+[
+"REFERENCE:\nహైదరాబాద్ నగరం.\n\nHYPOTHESIS:\nహైదరాబాద్ నగరం. హైదరాబా\n\nOperation: INS\nREF: హైదరాబాద్ నగరం.[]\nHYP: ...బాద్ నగరం. హైద[రా]బా\n",
+[
+100,
+102
+],
+[
+125,
+129
+]
+],
+[
+"REFERENCE:\nహైదరాబాద్ నగరం.\n\nHYPOTHESIS:\nహైదరాబాద్ నగరం. హైదరాబా\n\nOperation: INS\nREF: హైదరాబాద్ నగరం.[]\nHYP: ...ద్ నగరం. హైదరా[బా]\n",
+[
+100,
+102
+],
+[
+125,
+129
+]
+]
+],
+"severities": [
+0.5039763450622559,
+0.5122931003570557,
+0.5037750005722046,
+0.5136363506317139,
+0.5244571566581726
+],
+"semcer_impute_one": 0.25581379532814025,
+"n_dropped": 0
+},
+{
+"id": "th-028",
+"reference": "ยอดรวม 15 บาท กรุงเทพมหานคร เขาไม่ได้มาเมื่อวาน",
+"hypothesis": "ยอดรวม 15 บาท กรุงรุทพมหานคร เขาไม่ไaด้มาเมื่อวาน",
+"records": [
+[
+"REFERENCE:\nยอดรวม 15 บาท กรุงเทพมหานคร เขาไม่ได้มาเมื่อวาน\n\nHYPOTHESIS:\nยอดรวม 15 บาท กรุงรุทพมหานคร เขาไม่ไaด้มาเมื่อวาน\n\nOperation: SUB\nREF: ...15 บาท กรุง[เ]ทพมหานคร เ...\nHYP: ...15 บาท กรุง[รุ]ทพมหานคร เ...\n",
+[
+157,
+160
+],
+[
+193,
+197
+]
+],
+[
+"REFERENCE:\nยอดรวม 15 บาท กรุงเทพมหานคร เขาไม่ได้มาเมื่อวาน\n\nHYPOTHESIS:\nยอดรวม 15 บาท กรุงรุทพมหานคร เขาไม่ไaด้มาเมื่อวาน\n\nOperation: INS\nREF: ...นคร เขาไม่ไ[]ด้มาเมื่อวาน\nHYP: ...นคร เขาไม่ไ[a]ด้มาเมื่อวาน\n",
+[
+157,
+159
+],
+[
+191,
+194
+]
+]
+],
+"severities": [
+0.5074928998947144,
+0.5071028470993042
+],
+"semcer_impute_one": 0.024157041595095678,
+"n_dropped": 0
+},
+{
+"id": "ur-029",
+"reference": "وہ کل اسکول نہیں گیا۔ کل رقم ۱۵ روپے ہے۔",
+"hypothesis": "وہ 2ل اوولہ نہں گ!یا۔کل ق7م ۱۵ روپے ہے۔",
+"records": [
+[
+"REFERENCE:\nوہ کل اسکول نہیں گیا۔ کل رقم ۱۵ روپے ہے۔\n\nHYPOTHESIS:\nوہ 2ل اوولہ نہں گ!یا۔کل ق7م ۱۵ روپے ہے۔\n\nOperation: SUB\nREF: وہ [ک]ل اسکول نہ...\nHYP: وہ [2]ل اوولہ نہ...\n",
+[
+129,
+132
+],
+[
+154,
+157
+]
+],
+[
+"REFERENCE:\nوہ کل اسکول نہیں گیا۔ کل رقم ۱۵ روپے ہے۔\n\nHYPOTHESIS:\nوہ 2ل اوولہ نہں گ!یا۔کل ق7م ۱۵ روپے ہے۔\n\nOperation: DEL\nREF: وہ کل ا[س]کول نہیں گ...\nHYP: وہ 2ل ا[]وولہ نہں گ...\n",
+[
+133,
+136
+],
+[
+162,
+164
+]
+],
+[
+"REFERENCE:\nوہ کل اسکول نہیں گیا۔ کل رقم ۱۵ روپے ہے۔\n\nHYPOTHESIS:\nوہ 2ل اوولہ نہں گ!یا۔کل ق7م ۱۵ روپے ہے۔\n\nOperation: SUB\nREF: وہ کل اس[ک]ول نہیں گی...\nHYP: وہ 2ل ا[و]ولہ نہں گ!...\n",
+[
+134,
+137
+],
+[
+163,
+166
+]
+],
+[
+"REFERENCE:\nوہ کل اسکول نہیں گیا۔ کل رقم ۱۵ روپے ہے۔\n\nHYPOTHESIS:\nوہ 2ل اوولہ نہں گ!یا۔کل ق7م ۱۵ روپے ہے۔\n\nOperation: INS\nREF: ...ہ کل اسکول[] نہیں گیا۔...\nHYP: وہ 2ل اوول[ہ] نہں گ!یا۔...\n",
+[
+139,
+141
+],
+[
+170,
+173
+]
+],
+[
+"REFERENCE:\nوہ کل اسکول نہیں گیا۔ کل رقم ۱۵ روپے ہے۔\n\nHYPOTHESIS:\nوہ 2ل اوولہ نہں گ!یا۔کل ق7م ۱۵ روپے ہے۔\n\nOperation: DEL\nREF: ...ل اسکول نہ[ی]ں گیا۔ کل ...\nHYP: ...ل اوولہ نہ[]ں گ!یا۔کل ...\n",
+[
+139,
+142
+],
+[
+174,
+176
+]
+],
+[
+"REFERENCE:\nوہ کل اسکول نہیں گیا۔ کل رقم ۱۵ روپے ہے۔\n\nHYPOTHESIS:\nوہ 2ل اوولہ نہں گ!یا۔کل ق7م ۱۵ روپے ہے۔\n\nOperation: INS\nREF: ...کول نہیں گ[]یا۔ کل رقم...\nHYP: ...وولہ نہں گ[!]یا۔کل ق7م ...\n",
+[
+139,
+141
+],
+[
+173,
+176
+]
+],
+[
+"REFERENCE:\nوہ کل اسکول نہیں گیا۔ کل رقم ۱۵ روپے ہے۔\n\nHYPOTHESIS:\nوہ 2ل اوولہ نہں گ!یا۔کل ق7م ۱۵ روپے ہے۔\n\nOperation: DEL\nREF: ... نہیں گیا۔[ ]کل رقم ۱۵ ...\nHYP: ... نہں گ!یا۔[]کل ق7م ۱۵ ...\n",
+[
+139,
+142
+],
+[
+174,
+176
+]
+],
+[
+"REFERENCE:\nوہ کل اسکول نہیں گیا۔ کل رقم ۱۵ روپے ہے۔\n\nHYPOTHESIS:\nوہ 2ل اوولہ نہں گ!یا۔کل ق7م ۱۵ روپے ہے۔\n\nOperation: SUB\nREF: ...ں گیا۔ کل [ر]قم ۱۵ روپے...\nHYP: ...ں گ!یا۔کل [ق]7م ۱۵ روپے...\n",
+[
+139,
+142
+],
+[
+174,
+177
+]
+],
+[
+"REFERENCE:\nوہ کل اسکول نہیں گیا۔ کل رقم ۱۵ روپے ہے۔\n\nHYPOTHESIS:\nوہ 2ل اوولہ نہں گ!یا۔کل ق7م ۱۵ روپے ہے۔\n\nOperation: SUB\nREF: ... گیا۔ کل ر[ق]م ۱۵ روپے ...\nHYP: ... گ!یا۔کل ق[7]م ۱۵ روپے ...\n",
+[
+139,
+142
+],
+[
+174,
+177
+]
+]
+],
+"severities": [
+0.4581623077392578,
+0.4765182435512543,
+0.48772144317626953,
+0.5062662959098816,
+0.49213525652885437,
+0.5034860968589783,
+0.4821262061595917,
+0.476260781288147,
+0.48366811871528625
+],
+"semcer_impute_one": 0.10915861874818802,
+"n_dropped": 0
+},
+{
+"id": "vi-030",
+"reference": "Người được giải thưởng. Tổng cộng là 15 đồng.",
+"hypothesis": "Ngưoời1đượ giải thưởng. Tổng cộng là 15 đồng.",
+"records": [
+[
+"REFERENCE:\nNgười được giải thưởng. Tổng cộng là 15 đồng.\n\nHYPOTHESIS:\nNgưoời1đượ giải thưởng. Tổng cộng là 15 đồng.\n\nOperation: INS\nREF: Ngư[]ời được gi...\nHYP: Ngư[o]ời1đượ giả...\n",
+[
+140,
+142
+],
+[
+164,
+167
+]
+],
+[
+"REFERENCE:\nNgười được giải thưởng. Tổng cộng là 15 đồng.\n\nHYPOTHESIS:\nNgưoời1đượ giải thưởng. Tổng cộng là 15 đồng.\n\nOperation: SUB\nREF: Người[ ]được giải ...\nHYP: Ngưoời[1]đượ giải t...\n",
+[
+142,
+145
+],
+[
+170,
+173
+]
+],
+[
+"REFERENCE:\nNgười được giải thưởng. Tổng cộng là 15 đồng.\n\nHYPOTHESIS:\nNgưoời1đượ giải thưởng. Tổng cộng là 15 đồng.\n\nOperation: DEL\nREF: Người đượ[c] giải thưở...\nHYP: Ngưoời1đượ[] giải thưở...\n",
+[
+146,
+149
+],
+[
+178,
+180
+]
+]
+],
+"severities": [
+0.4904012680053711,
+0.48968684673309326,
+0.4758633077144623
+],
+"semcer_impute_one": 0.03235447605450948,
+"n_dropped": 0
+},
+{
+"id": "zh-031",
+"reference": "我们今天去学校。 他昨天没有来，数字是12345。",
+"hypothesis": "我们今天去学校。 他昨天没有来，数字是12345。",
+"records": [],
+"severities": [],
+"semcer_impute_one": 0.0,
+"n_dropped": 0
+},
+{
+"id": "en-032",
+"reference": "Invoice No. 2024-117, due 3 March.",
+"hypothesis": "Invoice No. 0243117, due 3 9archh.",
+"records": [
+[
+"REFERENCE:\nInvoice No. 2024-117, due 3 March.\n\nHYPOTHESIS:\nInvoice No. 0243117, due 3 9archh.\n\nOperation: DEL\nREF: ...voice No. [2]024-117, d...\nHYP: ...voice No. []0243117, d...\n",
+[
+128,
+131
+],
+[
+163,
+165
+]
+],
+[
+"REFERENCE:\nInvoice No. 2024-117, due 3 March.\n\nHYPOTHESIS:\nInvoice No. 0243117, due 3 9archh.\n\nOperation: SUB\nREF: ...e No. 2024[-]117, due 3...\nHYP: ...ce No. 024[3]117, due 3...\n",
+[
+128,
+131
+],
+[
+163,
+166
+]
+],
+[
+"REFERENCE:\nInvoice No. 2024-117, due 3 March.\n\nHYPOTHESIS:\nInvoice No. 0243117, due 3 9archh.\n\nOperation: SUB\nREF: ...17, due 3 [M]arch.\nHYP: ...17, due 3 [9]archh.\n",
+[
+128,
+131
+],
+[
+155,
+158
+]
+],
+[
+"REFERENCE:\nInvoice No. 2024-117, due 3 March.\n\nHYPOTHESIS:\nInvoice No. 0243117, due 3 9archh.\n\nOperation: INS\nREF: ...due 3 Marc[]h.\nHYP: ...due 3 9arc[h]h.\n",
+[
+128,
+130
+],
+[
+151,
+154
+]
+]
+],
+"severities": [
+0.4524351954460144,
+0.4815663993358612,
+0.4618300795555115,
+0.48492059111595154
+],
+"semcer_impute_one": 0.05531624310156878,
+"n_dropped": 0
+},
+{
+"id": "de-033",
+"reference": "Das Ergebnis ist nicht klar. Straße und Übung für Anfänger.",
+"hypothesis": "Das Ergebnis isat nitcht klar. Straße und Übung7für Anfänger.",
+"records": [
+[
+"REFERENCE:\nDas Ergebnis ist nicht klar. Straße und Übung für Anfänger.\n\nHYPOTHESIS:\nDas Ergebnis isat nitcht klar. Straße und Übung7für Anfänger.\n\nOperation: INS\nREF: ...rgebnis is[]t nicht kl...\nHYP: ...rgebnis is[a]t nitcht k...\n",
+[
+180,
+182
+],
+[
+214,
+217
+]
+],
+[
+"REFERENCE:\nDas Ergebnis ist nicht klar. Straße und Übung für Anfänger.\n\nHYPOTHESIS:\nDas Ergebnis isat nitcht klar. Straße und Übung7für Anfänger.\n\nOperation: INS\nREF: ...nis ist ni[]cht klar. ...\nHYP: ...is isat ni[t]cht klar. ...\n",
+[
+180,
+182
+],
+[
+214,
+217
+]
+],
+[
+"REFERENCE:\nDas Ergebnis ist nicht klar. Straße und Übung für Anfänger.\n\nHYPOTHESIS:\nDas Ergebnis isat nitcht klar. Straße und Übung7für Anfänger.\n\nOperation: SUB\nREF: ... und Übung[ ]für Anfäng...\nHYP: ... und Übung[7]für Anfäng...\n",
+[
+180,
+183
+],
+[
+215,
+218
+]
+]
+],
+"severities": [
+0.4978749752044678,
+0.5018949508666992,
+0.4806039333343506
+],
+"semcer_impute_one": 0.025091082362805384,
+"n_dropped": 0
+},
+{
+"id": "fr-034",
+"reference": "Le garçon a déjà mangé. Où est la bibliothèque ?",
+"hypothesis": "LE gaRÇoN A Déjà omangé. Où esT la biblIothÈQue ?",
+"records": [
+[
+"REFERENCE:\nLe garçon a déjà mangé. Où est la bibliothèque ?\n\nHYPOTHESIS:\nLE gaRÇoN A Déjà omangé. Où esT la biblIothÈQue ?\n\nOperation: SUB\nREF: L[e] garçon a ...\nHYP: L[E] gaRÇoN A ...\n",
+[
+145,
+148
+],
+[
+168,
+171
+]
+],
+[
+"REFERENCE:\nLe garçon a déjà mangé. Où est la bibliothèque ?\n\nHYPOTHESIS:\nLE gaRÇoN A Déjà omangé. Où esT la biblIothÈQue ?\n\nOperation: SUB\nREF: Le ga[r]çon a déjà...\nHYP: LE ga[R]ÇoN A Déjà...\n",
+[
+149,
+152
+],
+[
+176,
+179
+]
+],
+[
+"REFERENCE:\nLe garçon a déjà mangé. Où est la bibliothèque ?\n\nHYPOTHESIS:\nLE gaRÇoN A Déjà omangé. Où esT la biblIothÈQue ?\n\nOperation: SUB\nREF: Le gar[ç]on a déjà ...\nHYP: LE gaR[Ç]oN A Déjà ...\n",
+[
+150,
+153
+],
+[
+178,
+181
+]
+],
+[
+"REFERENCE:\nLe garçon a déjà mangé. Où est la bibliothèque ?\n\nHYPOTHESIS:\nLE gaRÇoN A Déjà omangé. Où esT la biblIothÈQue ?\n\nOperation: SUB\nREF: Le garço[n] a déjà ma...\nHYP: LE gaRÇo[N] A Déjà om...\n",
+[
+152,
+155
+],
+[
+182,
+185
+]
+],
+[
+"REFERENCE:\nLe garçon a déjà mangé. Où est la bibliothèque ?\n\nHYPOTHESIS:\nLE gaRÇoN A Déjà omangé. Où esT la biblIothÈQue ?\n\nOperation: SUB\nREF: Le garçon [a] déjà mang...\nHYP: LE gaRÇoN [A] Déjà oman...\n",
+[
+154,
+157
+],
+[
+186,
+189
+]
+],
+[
+"REFERENCE:\nLe garçon a déjà mangé. Où est la bibliothèque ?\n\nHYPOTHESIS:\nLE gaRÇoN A Déjà omangé. Où esT la biblIothÈQue ?\n\nOperation: SUB\nREF: ... garçon a [d]éjà mangé....\nHYP: ... gaRÇoN A [D]éjà omangé...\n",
+[
+157,
+160
+],
+[
+192,
+195
+]
+],
+[
+"REFERENCE:\nLe garçon a déjà mangé. Où est la bibliothèque ?\n\nHYPOTHESIS:\nLE gaRÇoN A Déjà omangé. Où esT la biblIothÈQue ?\n\nOperation: INS\nREF: ...on a déjà []mangé. Où ...\nHYP: ...oN A Déjà [o]mangé. Où ...\n",
+[
+157,
+159
+],
+[
+191,
+194
+]
+],
+[
+"REFERENCE:\nLe garçon a déjà mangé. Où est la bibliothèque ?\n\nHYPOTHESIS:\nLE gaRÇoN A Déjà omangé. Où esT la biblIothÈQue ?\n\nOperation: SUB\nREF: ...ngé. Où es[t] la biblio...\nHYP: ...ngé. Où es[T] la biblIo...\n",
+[
+157,
+160
+],
+[
+192,
+195
+]
+],
+[
+"REFERENCE:\nLe garçon a déjà mangé. Où est la bibliothèque ?\n\nHYPOTHESIS:\nLE gaRÇoN A Déjà omangé. Où esT la biblIothÈQue ?\n\nOperation: SUB\nREF: ...st la bibl[i]othèque ?\nHYP: ...sT la bibl[I]othÈQue ?\n",
+[
+157,
+160
+],
+[
+188,
+191
+]
+],
+[
+"REFERENCE:\nLe garçon a déjà mangé. Où est la bibliothèque ?\n\nHYPOTHESIS:\nLE gaRÇoN A Déjà omangé. Où esT la biblIothÈQue ?\n\nOperation: SUB\nREF: ...a biblioth[è]que ?\nHYP: ...a biblIoth[È]Que ?\n",
+[
+157,
+160
+],
+[
+184,
+187
+]
+],
+[
+"REFERENCE:\nLe garçon a déjà mangé. Où est la bibliothèque ?\n\nHYPOTHESIS:\nLE gaRÇoN A Déjà omangé. Où esT la biblIothÈQue ?\n\nOperation: SUB\nREF: ... bibliothè[q]ue ?\nHYP: ... biblIothÈ[Q]ue ?\n",
+[
+157,
+160
+],
+[
+183,
+186
+]
+]
+],
+"severities": [
+0.48649704456329346,
+0.4863731861114502,
+0.4635547995567322,
+0.4948340654373169,
+0.4828546643257141,
+0.47391706705093384,
+0.4631311297416687,
+0.4724879264831543,
+0.4979037940502167,
+0.48526668548583984,
+0.49643105268478394
+],
+"semcer_impute_one": 0.110484404489398,
+"n_dropped": 0
+},
+{
+"id": "es-035",
+"reference": "¿Dónde está la estación? Mañana llegará el tren. El niño tiene 5 años.",
+"hypothesis": "Dóeode estxá La  estcin? saña¿a LDEGaá odl TreN. E nioÑo TIINe 5 ñOs.,",
+"records": [
+[
+"REFERENCE:\n¿Dónde está la estación? Mañana llegará el tren. El niño tiene 5 años.\n\nHYPOTHESIS:\nDóeode estxá La  estcin? saña¿a LDEGaá odl TreN. E nioÑo TIINe 5 ñOs.,\n\nOperation: DEL\nREF: [¿]Dónde está...\nHYP: []Dóeode est...\n",
+[
+187,
+190
+],
+[
+209,
+211
+]
+],
+[
+"REFERENCE:\n¿Dónde está la estación? Mañana llegará el tren. El niño tiene 5 años.\n\nHYPOTHESIS:\nDóeode estxá La  estcin? saña¿a LDEGaá odl TreN. E nioÑo TIINe 5 ñOs.,\n\nOperation: INS\nREF: ¿Dó[]nde está l...\nHYP: Dó[e]ode estxá ...\n",
+[
+190,
+192
+],
+[
+213,
+216
+]
+],
+[
+"REFERENCE:\n¿Dónde está la estación? Mañana llegará el tren. El niño tiene 5 años.\n\nHYPOTHESIS:\nDóeode estxá La  estcin? saña¿a LDEGaá odl TreN. E nioÑo TIINe 5 ñOs.,\n\nOperation: SUB\nREF: ¿Dó[n]de está la...\nHYP: Dóe[o]de estxá L...\n",
+[
+190,
+193
+],
+[
+215,
+218
+]
+],
+[
+"REFERENCE:\n¿Dónde está la estación? Mañana llegará el tren. El niño tiene 5 años.\n\nHYPOTHESIS:\nDóeode estxá La  estcin? saña¿a LDEGaá odl TreN. E nioÑo TIINe 5 ñOs.,\n\nOperation: INS\nREF: ¿Dónde est[]á la estac...\nHYP: Dóeode est[x]á La  estc...\n",
+[
+197,
+199
+],
+[
+228,
+231
+]
+],
+[
+"REFERENCE:\n¿Dónde está la estación? Mañana llegará el tren. El niño tiene 5 años.\n\nHYPOTHESIS:\nDóeode estxá La  estcin? saña¿a LDEGaá odl TreN. E nioÑo TIINe 5 ñOs.,\n\nOperation: SUB\nREF: ...ónde está [l]a estación...\nHYP: ...ode estxá [L]a  estcin?...\n",
+[
+200,
+203
+],
+[
+235,
+238
+]
+],
+[
+"REFERENCE:\n¿Dónde está la estación? Mañana llegará el tren. El niño tiene 5 años.\n\nHYPOTHESIS:\nDóeode estxá La  estcin? saña¿a LDEGaá odl TreN. E nioÑo TIINe 5 ñOs.,\n\nOperation: INS\nREF: ...de está la[] estación?...\nHYP: ...e estxá La[ ] estcin? s...\n",
+[
+200,
+202
+],
+[
+234,
+237
+]
+],
+[
+"REFERENCE:\n¿Dónde está la estación? Mañana llegará el tren. El niño tiene 5 años.\n\nHYPOTHESIS:\nDóeode estxá La  estcin? saña¿a LDEGaá odl TreN. E nioÑo TIINe 5 ñOs.,\n\nOperation: DEL\nREF: ...stá la est[a]ción? Maña...\nHYP: ...xá La  est[]cin? saña¿...\n",
+[
+200,
+203
+],
+[
+235,
+237
+]
+],
+[
+"REFERENCE:\n¿Dónde está la estación? Mañana llegará el tren. El niño tiene 5 años.\n\nHYPOTHESIS:\nDóeode estxá La  estcin? saña¿a LDEGaá odl TreN. E nioÑo TIINe 5 ñOs.,\n\nOperation: DEL\nREF: ... la estaci[ó]n? Mañana ...\nHYP: ... La  estci[]n? saña¿a ...\n",
+[
+200,
+203
+],
+[
+235,
+237
+]
+],
+[
+"REFERENCE:\n¿Dónde está la estación? Mañana llegará el tren. El niño tiene 5 años.\n\nHYPOTHESIS:\nDóeode estxá La  estcin? saña¿a LDEGaá odl TreN. E nioÑo TIINe 5 ñOs.,\n\nOperation: SUB\nREF: ...estación? [M]añana lleg...\nHYP: ...  estcin? [s]aña¿a LDEG...\n",
+[
+200,
+203
+],
+[
+235,
+238
+]
+],
+[
+"REFERENCE:\n¿Dónde está la estación? Mañana llegará el tren. El niño tiene 5 años.\n\nHYPOTHESIS:\nDóeode estxá La  estcin? saña¿a LDEGaá odl TreN. E nioÑo TIINe 5 ñOs.,\n\nOperation: SUB\nREF: ...ción? Maña[n]a llegará ...\nHYP: ...tcin? saña[¿]a LDEGaá o...\n",
+[
+200,
+203
+],
+[
+235,
+238
+]
+],
+[
+"REFERENCE:\n¿Dónde está la estación? Mañana llegará el tren. El niño tiene 5 años.\n\nHYPOTHESIS:\nDóeode estxá La  estcin? saña¿a LDEGaá odl TreN. E nioÑo TIINe 5 ñOs.,\n\nOperation: SUB\nREF: ...n? Mañana [l]legará el ...\nHYP: ...n? saña¿a [L]DEGaá odl ...\n",
+[
+200,
+203
+],
+[
+235,
+238
+]
+],
+[
+"REFERENCE:\n¿Dónde está la estación? Mañana llegará el tren. El niño tiene 5 años.\n\nHYPOTHESIS:\nDóeode estxá La  estcin? saña¿a LDEGaá odl TreN. E nioÑo TIINe 5 ñOs.,\n\nOperation: SUB\nREF: ...? Mañana l[l]egará el t...\nHYP: ...? saña¿a L[D]EGaá odl T...\n",
+[
+200,
+203
+],
+[
+235,
+238
+]
+],
+[
+"REFERENCE:\n¿Dónde está la estación? Mañana llegará el tren. El niño tiene 5 años.\n\nHYPOTHESIS:\nDóeode estxá La  estcin? saña¿a LDEGaá odl TreN. E nioÑo TIINe 5 ñOs.,\n\nOperation: SUB\nREF: ... Mañana ll[e]gará el tr...\nHYP: ... saña¿a LD[E]Gaá odl Tr...\n",
+[
+200,
+203
+],
+[
+235,
+238
+]
+],
+[
+"REFERENCE:\n¿Dónde está la estación? Mañana llegará el tren. El niño tiene 5 años.\n\nHYPOTHESIS:\nDóeode estxá La  estcin? saña¿a LDEGaá odl TreN. E nioÑo TIINe 5 ñOs.,\n\nOperation: SUB\nREF: ...Mañana lle[g]ará el tre...\nHYP: ...saña¿a LDE[G]aá odl Tre...\n",
+[
+200,
+203
+],
+[
+235,
+238
+]
+],
+[
+"REFERENCE:\n¿Dónde está la estación? Mañana llegará el tren. El niño tiene 5 años.\n\nHYPOTHESIS:\nDóeode estxá La  estcin? saña¿a LDEGaá odl TreN. E nioÑo TIINe 5 ñOs.,\n\nOperation: DEL\nREF: ...ñana llega[r]á el tren....\nHYP: ...ña¿a LDEGa[]á odl TreN...\n",
+[
+200,
+203
+],
+[
+235,
+237
+]
+],
+[
+"REFERENCE:\n¿Dónde está la estación? Mañana llegará el tren. El niño tiene 5 años.\n\nHYPOTHESIS:\nDóeode estxá La  estcin? saña¿a LDEGaá odl TreN. E nioÑo TIINe 5 ñOs.,\n\nOperation: INS\nREF: ...a llegará []el tren. E...\nHYP: ...¿a LDEGaá [o]dl TreN. E...\n",
+[
+200,
+202
+],
+[
+234,
+237
+]
+],
+[
+"REFERENCE:\n¿Dónde está la estación? Mañana llegará el tren. El niño tiene 5 años.\n\nHYPOTHESIS:\nDóeode estxá La  estcin? saña¿a LDEGaá odl TreN. E nioÑo TIINe 5 ñOs.,\n\nOperation: SUB\nREF: ...a llegará [e]l tren. El...\nHYP: ...a LDEGaá o[d]l TreN. E ...\n",
+[
+200,
+203
+],
+[
+235,
+238
+]
+],
+[
+"REFERENCE:\n¿Dónde está la estación? Mañana llegará el tren. El niño tiene 5 años.\n\nHYPOTHESIS:\nDóeode estxá La  estcin? saña¿a LDEGaá odl TreN. E nioÑo TIINe 5 ñOs.,\n\nOperation: SUB\nREF: ...legará el [t]ren. El ni...\nHYP: ...DEGaá odl [T]reN. E nio...\n",
+[
+200,
+203
+],
+[
+235,
+238
+]
+],
+[
+"REFERENCE:\n¿Dónde está la estación? Mañana llegará el tren. El niño tiene 5 años.\n\nHYPOTHESIS:\nDóeode estxá La  estcin? saña¿a LDEGaá odl TreN. E nioÑo TIINe 5 ñOs.,\n\nOperation: SUB\nREF: ...ará el tre[n]. El niño ...\nHYP: ...aá odl Tre[N]. E nioÑo ...\n",
+[
+200,
+203
+],
+[
+235,
+238
+]
+],
+[
+"REFERENCE:\n¿Dónde está la estación? Mañana llegará el tren. El niño tiene 5 años.\n\nHYPOTHESIS:\nDóeode estxá La  estcin? saña¿a LDEGaá odl TreN. E nioÑo TIINe 5 ñOs.,\n\nOperation: DEL\nREF: ...el tren. E[l] niño tien...\nHYP: ...dl TreN. E[] nioÑo TII...\n",
+[
+200,
+203
+],
+[
+235,
+237
+]
+],
+[
+"REFERENCE:\n¿Dónde está la estación? Mañana llegará el tren. El niño tiene 5 años.\n\nHYPOTHESIS:\nDóeode estxá La  estcin? saña¿a LDEGaá odl TreN. E nioÑo TIINe 5 ñOs.,\n\nOperation: INS\nREF: ...ren. El ni[]ño tiene 5...\nHYP: ...TreN. E ni[o]Ño TIINe 5...\n",
+[
+200,
+202
+],
+[
+234,
+237
+]
+],
+[
+"REFERENCE:\n¿Dónde está la estación? Mañana llegará el tren. El niño tiene 5 años.\n\nHYPOTHESIS:\nDóeode estxá La  estcin? saña¿a LDEGaá odl TreN. E nioÑo TIINe 5 ñOs.,\n\nOperation: SUB\nREF: ...ren. El ni[ñ]o tiene 5 ...\nHYP: ...reN. E nio[Ñ]o TIINe 5 ...\n",
+[
+200,
+203
+],
+[
+235,
+238
+]
+],
+[
+"REFERENCE:\n¿Dónde está la estación? Mañana llegará el tren. El niño tiene 5 años.\n\nHYPOTHESIS:\nDóeode estxá La  estcin? saña¿a LDEGaá odl TreN. E nioÑo TIINe 5 ñOs.,\n\nOperation: SUB\nREF: .... El niño [t]iene 5 año...\nHYP: .... E nioÑo [T]IINe 5 ñOs...\n",
+[
+200,
+203
+],
+[
+235,
+238
+]
+],
+[
+"REFERENCE:\n¿Dónde está la estación? Mañana llegará el tren. El niño tiene 5 años.\n\nHYPOTHESIS:\nDóeode estxá La  estcin? saña¿a LDEGaá odl TreN. E nioÑo TIINe 5 ñOs.,\n\nOperation: SUB\nREF: ... El niño t[i]ene 5 años...\nHYP: ... E nioÑo T[I]INe 5 ñOs....\n",
+[
+200,
+203
+],
+[
+235,
+238
+]
+],
+[
+"REFERENCE:\n¿Dónde está la estación? Mañana llegará el tren. El niño tiene 5 años.\n\nHYPOTHESIS:\nDóeode estxá La  estcin? saña¿a LDEGaá odl TreN. E nioÑo TIINe 5 ñOs.,\n\nOperation: SUB\nREF: ...El niño ti[e]ne 5 años.\nHYP: ...E nioÑo TI[I]Ne 5 ñOs.,\n",
+[
+200,
+203
+],
+[
+232,
+235
+]
+],
+[
+"REFERENCE:\n¿Dónde está la estación? Mañana llegará el tren. El niño tiene 5 años.\n\nHYPOTHESIS:\nDóeode estxá La  estcin? saña¿a LDEGaá odl TreN. E nioÑo TIINe 5 ñOs.,\n\nOperation: SUB\nREF: ...l niño tie[n]e 5 años.\nHYP: ... nioÑo TII[N]e 5 ñOs.,\n",
+[
+200,
+203
+],
+[
+231,
+234
+]
+],
+[
+"REFERENCE:\n¿Dónde está la estación? Mañana llegará el tren. El niño tiene 5 años.\n\nHYPOTHESIS:\nDóeode estxá La  estcin? saña¿a LDEGaá odl TreN. E nioÑo TIINe 5 ñOs.,\n\nOperation: DEL\nREF: ...o tiene 5 [a]ños.\nHYP: ...o TIINe 5 []ñOs.,\n",
+[
+200,
+203
+],
+[
+226,
+228
+]
+],
+[
+"REFERENCE:\n¿Dónde está la estación? Mañana llegará el tren. El niño tiene 5 años.\n\nHYPOTHESIS:\nDóeode estxá La  estcin? saña¿a LDEGaá odl TreN. E nioÑo TIINe 5 ñOs.,\n\nOperation: SUB\nREF: ...tiene 5 añ[o]s.\nHYP: ... TIINe 5 ñ[O]s.,\n",
+[
+200,
+203
+],
+[
+224,
+227
+]
+],
+[
+"REFERENCE:\n¿Dónde está la estación? Mañana llegará el tren. El niño tiene 5 años.\n\nHYPOTHESIS:\nDóeode estxá La  estcin? saña¿a LDEGaá odl TreN. E nioÑo TIINe 5 ñOs.,\n\nOperation: INS\nREF: ...ne 5 años.[]\nHYP: ...INe 5 ñOs.[,]\n",
+[
+200,
+202
+],
+[
+221,
+224
+]
+]
+],
+"severities": [
+0.4379972219467163,
+0.49130332469940186,
+0.49218836426734924,
+0.4918540120124817,
+0.4539696276187897,
+0.49533820152282715,
+0.4911276698112488,
+0.47634395956993103,
+0.4631304442882538,
+0.49624982476234436,
+0.46223729848861694,
+0.4826087951660156,
+0.48531419038772583,
+0.49114423990249634,
+0.48033222556114197,
+0.4629061818122864,
+0.4697706997394562,
+0.4566357135772705,
+0.4933801293373108,
+0.4706559181213379,
+0.4893185496330261,
+0.4772524833679199,
+0.4553811550140381,
+0.48118817806243896,
+0.5002481341362,
+0.5006805062294006,
+0.4774654507637024,
+0.46330374479293823,
+0.5008856654167175
+],
+"semcer_impute_one": 0.19843159871441976,
+"n_dropped": 0
+},
+{
+"id": "pt-036",
+"reference": "Não há informação disponível. A ação custa 30 reais.",
+"hypothesis": "Não há informaç o disponível. Aíaçãdo custa 30 reais.",
+"records": [
+[
+"REFERENCE:\nNão há informação disponível. A ação custa 30 reais.\n\nHYPOTHESIS:\nNão há informaç o disponível. Aíaçãdo custa 30 reais.\n\nOperation: SUB\nREF: ...á informaç[ã]o disponív...\nHYP: ...á informaç[ ]o disponív...\n",
+[
+165,
+168
+],
+[
+200,
+203
+]
+],
+[
+"REFERENCE:\nNão há informação disponível. A ação custa 30 reais.\n\nHYPOTHESIS:\nNão há informaç o disponível. Aíaçãdo custa 30 reais.\n\nOperation: SUB\nREF: ...ponível. A[ ]ação custa...\nHYP: ...ponível. A[í]açãdo cust...\n",
+[
+165,
+168
+],
+[
+200,
+203
+]
+],
+[
+"REFERENCE:\nNão há informação disponível. A ação custa 30 reais.\n\nHYPOTHESIS:\nNão há informaç o disponível. Aíaçãdo custa 30 reais.\n\nOperation: INS\nREF: ...vel. A açã[]o custa 30...\nHYP: ...vel. Aíaçã[d]o custa 30...\n",
+[
+165,
+167
+],
+[
+199,
+202
+]
+]
+],
+"severities": [
+0.5028582215309143,
+0.476601779460907,
+0.4942755401134491
+],
+"semcer_impute_one": 0.028341068098178275,
+"n_dropped": 0
+},
+{
+"id": "ru-037",
+"reference": "Он не пришёл вчера. Москва — столица России.",
+"hypothesis": "Он не пришё вчера. Москва — столица России.",
+"records": [
+[
+"REFERENCE:\nОн не пришёл вчера. Москва — столица России.\n\nHYPOTHESIS:\nОн не пришё вчера. Москва — столица России.\n\nOperation: DEL\nREF: ...н не пришё[л] вчера. Мо...\nHYP: ...н не пришё[] вчера. Мо...\n",
+[
+147,
+150
+],
+[
+182,
+184
+]
+]
+],
+"severities": [
+0.48273369669914246
+],
+"semcer_impute_one": 0.010971220379525965,
+"n_dropped": 0
+},
+{
+"id": "ar-038",
+"reference": "المجموع ١٥ دينارًا. ذهب الولد إلى المدرسة. هذا ليس صحيحا.",
+"hypothesis": "لمجموع ١٥ دينارًا. ذهب الولد إلى المدرسةا. هذا ليس صحيحا.",
+"records": [
+[
+"REFERENCE:\nالمجموع ١٥ دينارًا. ذهب الولد إلى المدرسة. هذا ليس صحيحا.\n\nHYPOTHESIS:\nلمجموع ١٥ دينارًا. ذهب الولد إلى المدرسةا. هذا ليس صحيحا.\n\nOperation: DEL\nREF: [ا]لمجموع ١٥ ...\nHYP: []لمجموع ١٥ ...\n",
+[
+161,
+164
+],
+[
+183,
+185
+]
+],
+[
+"REFERENCE:\nالمجموع ١٥ دينارًا. ذهب الولد إلى المدرسة. هذا ليس صحيحا.\n\nHYPOTHESIS:\nلمجموع ١٥ دينارًا. ذهب الولد إلى المدرسةا. هذا ليس صحيحا.\n\nOperation: INS\nREF: ...لى المدرسة[]. هذا ليس ...\nHYP: ...لى المدرسة[ا]. هذا ليس ...\n",
+[
+174,
+176
+],
+[
+208,
+211
+]
+]
+],
+"severities": [
+0.450975239276886,
+0.49692243337631226
+],
+"semcer_impute_one": 0.016926744154521396,
+"n_dropped": 0
+},
+{
+"id": "hi-039",
+"reference": "वह कल स्कूल नहीं गया। भारत की राजधानी दिल्ली है।",
+"hypothesis": "वह कल स्कूल नहीं गया। भारत की राजधानी दिल्ली है।",
+"records": [],
+"severities": [],
+"semcer_impute_one": 0.0,
+"n_dropped": 0
+},
+{
+"id": "mr-040",
+"reference": "एकूण रक्कम १५ रुपये.",
+"hypothesis": "एकूण क्कम १५ रुपये.",
+"records": [
+[
+"REFERENCE:\nएकूण रक्कम १५ रुपये.\n\nHYPOTHESIS:\nएकूण क्कम १५ रुपये.\n\nOperation: DEL\nREF: एकूण [र]क्कम १५ रुपये.\nHYP: एकूण []क्कम १५ रुपये.\n",
+[
+91,
+94
+],
+[
+119,
+121
+]
+]
+],
+"severities": [
+0.46051260828971863
+],
+"semcer_impute_one": 0.03070084055264791,
+"n_dropped": 0
+},
+{
+"id": "kn-041",
+"reference": "ಅವನು ನಿನ್ನೆ ಬರಲಿಲ್ಲ. ಒಟ್ಟು ಮೊತ್ತ 15 ರೂಪಾಯಿ. ಬೆಂಗಳೂರು ನಗರ.",
+"hypothesis": "ಅವನು ನಿನ್yನೆ 4ವಅಲ್ಲ. ಗಒಟ್ಟು ಮೊತ್ತ 15 ಪಾಯಿ. ಬೆಂಗಳೂರು ನಗ.",
+"records": [
+[
+"REFERENCE:\nಅವನು ನಿನ್ನೆ ಬರಲಿಲ್ಲ. ಒಟ್ಟು ಮೊತ್ತ 15 ರೂಪಾಯಿ. ಬೆಂಗಳೂರು ನಗರ.\n\nHYPOTHESIS:\nಅವನು ನಿನ್yನೆ 4ವಅಲ್ಲ. ಗಒಟ್ಟು ಮೊತ್ತ 15 ಪಾಯಿ. ಬೆಂಗಳೂರು ನಗ.\n\nOperation: INS\nREF: ಅವನು ನಿನ್[]ನೆ ಬರಲಿಲ್ಲ. ಒ...\nHYP: ಅವನು ನಿನ್[y]ನೆ 4ವಅಲ್ಲ. ಗ...\n",
+[
+168,
+170
+],
+[
+201,
+204
+]
+],
+[
+"REFERENCE:\nಅವನು ನಿನ್ನೆ ಬರಲಿಲ್ಲ. ಒಟ್ಟು ಮೊತ್ತ 15 ರೂಪಾಯಿ. ಬೆಂಗಳೂರು ನಗರ.\n\nHYPOTHESIS:\nಅವನು ನಿನ್yನೆ 4ವಅಲ್ಲ. ಗಒಟ್ಟು ಮೊತ್ತ 15 ಪಾಯಿ. ಬೆಂಗಳೂರು ನಗ.\n\nOperation: SUB\nREF: ಅವನು ನಿನ್ನೆ [ಬ]ರಲಿಲ್ಲ. ಒಟ್ಟು ...\nHYP: ಅವನು ನಿನ್yನೆ [4]ವಅಲ್ಲ. ಗಒಟ್ಟು...\n",
+[
+171,
+174
+],
+[
+210,
+213
+]
+],
+[
+"REFERENCE:\nಅವನು ನಿನ್ನೆ ಬರಲಿಲ್ಲ. ಒಟ್ಟು ಮೊತ್ತ 15 ರೂಪಾಯಿ. ಬೆಂಗಳೂರು ನಗರ.\n\nHYPOTHESIS:\nಅವನು ನಿನ್yನೆ 4ವಅಲ್ಲ. ಗಒಟ್ಟು ಮೊತ್ತ 15 ಪಾಯಿ. ಬೆಂಗಳೂರು ನಗ.\n\nOperation: SUB\nREF: ಅವನು ನಿನ್ನೆ ಬ[ರ]ಲಿಲ್ಲ. ಒಟ್ಟು ಮೊ...\nHYP: ಅವನು ನಿನ್yನೆ 4[ವ]ಅಲ್ಲ. ಗಒಟ್ಟು ...\n",
+[
+172,
+175
+],
+[
+213,
+216
+]
+],
+[
+"REFERENCE:\nಅವನು ನಿನ್ನೆ ಬರಲಿಲ್ಲ. ಒಟ್ಟು ಮೊತ್ತ 15 ರೂಪಾಯಿ. ಬೆಂಗಳೂರು ನಗರ.\n\nHYPOTHESIS:\nಅವನು ನಿನ್yನೆ 4ವಅಲ್ಲ. ಗಒಟ್ಟು ಮೊತ್ತ 15 ಪಾಯಿ. ಬೆಂಗಳೂರು ನಗ.\n\nOperation: SUB\nREF: ಅವನು ನಿನ್ನೆ ಬರ[ಲಿ]ಲ್ಲ. ಒಟ್ಟು ಮೊತ್...\nHYP: ...ವನು ನಿನ್yನೆ 4ವ[ಅ]ಲ್ಲ. ಗಒಟ್ಟು ಮೊ...\n",
+[
+173,
+177
+],
+[
+218,
+221
+]
+],
+[
+"REFERENCE:\nಅವನು ನಿನ್ನೆ ಬರಲಿಲ್ಲ. ಒಟ್ಟು ಮೊತ್ತ 15 ರೂಪಾಯಿ. ಬೆಂಗಳೂರು ನಗರ.\n\nHYPOTHESIS:\nಅವನು ನಿನ್yನೆ 4ವಅಲ್ಲ. ಗಒಟ್ಟು ಮೊತ್ತ 15 ಪಾಯಿ. ಬೆಂಗಳೂರು ನಗ.\n\nOperation: INS\nREF: ...ನ್ನೆ ಬರಲಿಲ್ಲ. []ಒಟ್ಟು ಮೊತ್ತ 15...\nHYP: ...yನೆ 4ವಅಲ್ಲ. [ಗ]ಒಟ್ಟು ಮೊತ್ತ 15...\n",
+[
+176,
+178
+],
+[
+216,
+219
+]
+],
+[
+"REFERENCE:\nಅವನು ನಿನ್ನೆ ಬರಲಿಲ್ಲ. ಒಟ್ಟು ಮೊತ್ತ 15 ರೂಪಾಯಿ. ಬೆಂಗಳೂರು ನಗರ.\n\nHYPOTHESIS:\nಅವನು ನಿನ್yನೆ 4ವಅಲ್ಲ. ಗಒಟ್ಟು ಮೊತ್ತ 15 ಪಾಯಿ. ಬೆಂಗಳೂರು ನಗ.\n\nOperation: DEL\nREF: ...ಟ್ಟು ಮೊತ್ತ 15 [ರೂ]ಪಾಯಿ. ಬೆಂಗಳೂರು ನ...\nHYP: ...ಟ್ಟು ಮೊತ್ತ 15 []ಪಾಯಿ. ಬೆಂಗಳೂರು ನ...\n",
+[
+176,
+180
+],
+[
+222,
+224
+]
+],
+[
+"REFERENCE:\nಅವನು ನಿನ್ನೆ ಬರಲಿಲ್ಲ. ಒಟ್ಟು ಮೊತ್ತ 15 ರೂಪಾಯಿ. ಬೆಂಗಳೂರು ನಗರ.\n\nHYPOTHESIS:\nಅವನು ನಿನ್yನೆ 4ವಅಲ್ಲ. ಗಒಟ್ಟು ಮೊತ್ತ 15 ಪಾಯಿ. ಬೆಂಗಳೂರು ನಗ.\n\nOperation: DEL\nREF: ...ಯಿ. ಬೆಂಗಳೂರು ನಗ[ರ].\nHYP: ...ಯಿ. ಬೆಂಗಳೂರು ನಗ[].\n",
+[
+177,
+180
+],
+[
+205,
+207
+]
+]
+],
+"severities": [
+0.5164577960968018,
+0.4735070466995239,
+0.49026548862457275,
+0.4851343631744385,
+0.4852703809738159,
+0.4701542854309082,
+0.4882131814956665
+],
+"semcer_impute_one": 0.08522506356239319,
+"n_dropped": 0
+},
+{
+"id": "ta-042",
+"reference": "மொத்தம் 15 ரூபாய். அவன் நேற்று வரவில்லை. சென்னை நகரம்.",
+"hypothesis": "மொத்தம் 15 ரூபாய். அரூவன் நேற்று வரவில்லை. சென்னை நகம்.",
+"records": [
+[
+"REFERENCE:\nமொத்தம் 15 ரூபாய். அவன் நேற்று வரவில்லை. சென்னை நகரம்.\n\nHYPOTHESIS:\nமொத்தம் 15 ரூபாய். அரூவன் நேற்று வரவில்லை. சென்னை நகம்.\n\nOperation: INS\nREF: ... 15 ரூபாய். அ[]வன் நேற்று வரவி...\nHYP: ... 15 ரூபாய். அ[ரூ]வன் நேற்று வரவி...\n",
+[
+172,
+174
+],
+[
+214,
+218
+]
+],
+[
+"REFERENCE:\nமொத்தம் 15 ரூபாய். அவன் நேற்று வரவில்லை. சென்னை நகரம்.\n\nHYPOTHESIS:\nமொத்தம் 15 ரூபாய். அரூவன் நேற்று வரவில்லை. சென்னை நகம்.\n\nOperation: DEL\nREF: ...ல்லை. சென்னை நக[ர]ம்.\nHYP: ...ல்லை. சென்னை நக[]ம்.\n",
+[
+174,
+177
+],
+[
+204,
+206
+]
+]
+],
+"severities": [
+0.5217877626419067,
+0.4891284704208374
+],
+"semcer_impute_one": 0.02732206035304714,
+"n_dropped": 0
+},
+{
+"id": "te-043",
+"reference": "హైదరాబాద్ నగరం.",
+"hypothesis": " దuబాద్ నగరం.",
+"records": [
+[
+"REFERENCE:\nహైదరాబాద్ నగరం.\n\nHYPOTHESIS:\n దuబాద్ నగరం.\n\nOperation: SUB\nREF: [హై]దరాబాద్ నగరం.\nHYP: [ ]దuబాద్ నగరం.\n",
+[
+75,
+79
+],
+[
+98,
+101
+]
+],
+[
+"REFERENCE:\nహైదరాబాద్ నగరం.\n\nHYPOTHESIS:\n దuబాద్ నగరం.\n\nOperation: SUB\nREF: హైద[రా]బాద్ నగరం.\nHYP:  ద[u]బాద్ నగరం.\n",
+[
+78,
+82
+],
+[
+100,
+103
+]
+]
+],
+"severities": [
+0.4795457720756531,
+0.4789787530899048
+],
+"semcer_impute_one": 0.09585245251655579,
+"n_dropped": 0
+},
+{
+"id": "th-044",
+"reference": "กรุงเทพมหานคร เขาไม่ได้มาเมื่อวาน",
+"hypothesis": "กรุวเทพด้xหานค4 5ข8าไม่ได้มzเ-อวาน",
+"records": [
+[
+"REFERENCE:\nกรุงเทพมหานคร เขาไม่ได้มาเมื่อวาน\n\nHYPOTHESIS:\nกรุวเทพด้xหานค4 5ข8าไม่ได้มzเ-อวาน\n\nOperation: SUB\nREF: กรุ[ง]เทพมหานคร ...\nHYP: กรุ[ว]เทพด้xหานค4...\n",
+[
+117,
+120
+],
+[
+142,
+145
+]
+],
+[
+"REFERENCE:\nกรุงเทพมหานคร เขาไม่ได้มาเมื่อวาน\n\nHYPOTHESIS:\nกรุวเทพด้xหานค4 5ข8าไม่ได้มzเ-อวาน\n\nOperation: INS\nREF: กรุงเทพ[]มหานคร เขา...\nHYP: กรุวเทพ[ด้]xหานค4 5ข8...\n",
+[
+121,
+123
+],
+[
+149,
+153
+]
+],
+[
+"REFERENCE:\nกรุงเทพมหานคร เขาไม่ได้มาเมื่อวาน\n\nHYPOTHESIS:\nกรุวเทพด้xหานค4 5ข8าไม่ได้มzเ-อวาน\n\nOperation: SUB\nREF: กรุงเทพ[ม]หานคร เขาไ...\nHYP: กรุวเทพด้[x]หานค4 5ข8า...\n",
+[
+121,
+124
+],
+[
+152,
+155
+]
+],
+[
+"REFERENCE:\nกรุงเทพมหานคร เขาไม่ได้มาเมื่อวาน\n\nHYPOTHESIS:\nกรุวเทพด้xหานค4 5ข8าไม่ได้มzเ-อวาน\n\nOperation: SUB\nREF: ...รุงเทพมหานค[ร] เขาไม่ได้มา...\nHYP: ...วเทพด้xหานค[4] 5ข8าไม่ได้ม...\n",
+[
+128,
+131
+],
+[
+166,
+169
+]
+],
+[
+"REFERENCE:\nกรุงเทพมหานคร เขาไม่ได้มาเมื่อวาน\n\nHYPOTHESIS:\nกรุวเทพด้xหานค4 5ข8าไม่ได้มzเ-อวาน\n\nOperation: SUB\nREF: ...เทพมหานคร [เ]ขาไม่ได้มาเมื่...\nHYP: ...ทพด้xหานค4 [5]ข8าไม่ได้มzเ...\n",
+[
+127,
+130
+],
+[
+167,
+170
+]
+],
+[
+"REFERENCE:\nกรุงเทพมหานคร เขาไม่ได้มาเมื่อวาน\n\nHYPOTHESIS:\nกรุวเทพด้xหานค4 5ข8าไม่ได้มzเ-อวาน\n\nOperation: INS\nREF: ...พมหานคร เข[]าไม่ได้มาเมื่อ...\nHYP: ...ด้xหานค4 5ข[8]าไม่ได้มzเ-อ...\n",
+[
+127,
+129
+],
+[
+166,
+169
+]
+],
+[
+"REFERENCE:\nกรุงเทพมหานคร เขาไม่ได้มาเมื่อวาน\n\nHYPOTHESIS:\nกรุวเทพด้xหานค4 5ข8าไม่ได้มzเ-อวาน\n\nOperation: SUB\nREF: ...ร เขาไม่ได้ม[า]เมื่อวาน\nHYP: ... 5ข8าไม่ได้ม[z]เ-อวาน\n",
+[
+129,
+132
+],
+[
+161,
+164
+]
+],
+[
+"REFERENCE:\nกรุงเทพมหานคร เขาไม่ได้มาเมื่อวาน\n\nHYPOTHESIS:\nกรุวเทพด้xหานค4 5ข8าไม่ได้มzเ-อวาน\n\nOperation: SUB\nREF: ...เขาไม่ได้มาเ[มื่]อวาน\nHYP: ...ข8าไม่ได้มzเ[-]อวาน\n",
+[
+129,
+134
+],
+[
+159,
+162
+]
+]
+],
+"severities": [
+0.5062780380249023,
+0.5085189342498779,
+0.4886165261268616,
+0.49506139755249023,
+0.48118433356285095,
+0.5105377435684204,
+0.4977729916572571,
+0.4934215545654297
+],
+"semcer_impute_one": 0.14219255426100322,
+"n_dropped": 0
+},
+{
+"id": "ur-045",
+"reference": "کل رقم ۱۵ روپے ہے۔",
+"hypothesis": "کل رقم ۱۵ روپےر ہے۔",
+"records": [
+[
+"REFERENCE:\nکل رقم ۱۵ روپے ہے۔\n\nHYPOTHESIS:\nکل رقم ۱۵ روپےر ہے۔\n\nOperation: INS\nREF: ...قم ۱۵ روپے[] ہے۔\nHYP: ...قم ۱۵ روپے[ر] ہے۔\n",
+[
+97,
+99
+],
+[
+122,
+125
+]
+]
+],
+"severities": [
+0.5027571320533752
+],
+"semcer_impute_one": 0.02793095178074307,
+"n_dropped": 0
+},
+{
+"id": "vi-046",
+"reference": "Tổng cộng là 15 đồng. Huống hồ anh ấy không đến. Người được giải thưởng.",
+"hypothesis": "Tổng cộng là 15 đồn. Huống hồ aô8haấy ?hông đến. N.ười đưồợc giảờ thưởng.",
+"records": [
+[
+"REFERENCE:\nTổng cộng là 15 đồng. Huống hồ anh ấy không đến. Người được giải thưởng.\n\nHYPOTHESIS:\nTổng cộng là 15 đồn. Huống hồ aô8haấy ?hông đến. N.ười đưồợc giảờ thưởng.\n\nOperation: DEL\nREF: ... là 15 đồn[g]. Huống hồ...\nHYP: ... là 15 đồn[]. Huống hồ...\n",
+[
+205,
+208
+],
+[
+240,
+242
+]
+],
+[
+"REFERENCE:\nTổng cộng là 15 đồng. Huống hồ anh ấy không đến. Người được giải thưởng.\n\nHYPOTHESIS:\nTổng cộng là 15 đồn. Huống hồ aô8haấy ?hông đến. N.ười đưồợc giảờ thưởng.\n\nOperation: INS\nREF: ...Huống hồ a[]nh ấy khôn...\nHYP: ...Huống hồ a[ô]8haấy ?hôn...\n",
+[
+205,
+207
+],
+[
+239,
+242
+]
+],
+[
+"REFERENCE:\nTổng cộng là 15 đồng. Huống hồ anh ấy không đến. Người được giải thưởng.\n\nHYPOTHESIS:\nTổng cộng là 15 đồn. Huống hồ aô8haấy ?hông đến. N.ười đưồợc giảờ thưởng.\n\nOperation: SUB\nREF: ...Huống hồ a[n]h ấy không...\nHYP: ...uống hồ aô[8]haấy ?hông...\n",
+[
+205,
+208
+],
+[
+240,
+243
+]
+],
+[
+"REFERENCE:\nTổng cộng là 15 đồng. Huống hồ anh ấy không đến. Người được giải thưởng.\n\nHYPOTHESIS:\nTổng cộng là 15 đồn. Huống hồ aô8haấy ?hông đến. N.ười đưồợc giảờ thưởng.\n\nOperation: SUB\nREF: ...ống hồ anh[ ]ấy không đ...\nHYP: ...ng hồ aô8h[a]ấy ?hông đ...\n",
+[
+205,
+208
+],
+[
+240,
+243
+]
+],
+[
+"REFERENCE:\nTổng cộng là 15 đồng. Huống hồ anh ấy không đến. Người được giải thưởng.\n\nHYPOTHESIS:\nTổng cộng là 15 đồn. Huống hồ aô8haấy ?hông đến. N.ười đưồợc giảờ thưởng.\n\nOperation: SUB\nREF: ...hồ anh ấy [k]hông đến. ...\nHYP: ...ồ aô8haấy [?]hông đến. ...\n",
+[
+205,
+208
+],
+[
+240,
+243
+]
+],
+[
+"REFERENCE:\nTổng cộng là 15 đồng. Huống hồ anh ấy không đến. Người được giải thưởng.\n\nHYPOTHESIS:\nTổng cộng là 15 đồn. Huống hồ aô8haấy ?hông đến. N.ười đưồợc giảờ thưởng.\n\nOperation: SUB\nREF: ...ông đến. N[g]ười được g...\nHYP: ...ông đến. N[.]ười đưồợc ...\n",
+[
+205,
+208
+],
+[
+240,
+243
+]
+],
+[
+"REFERENCE:\nTổng cộng là 15 đồng. Huống hồ anh ấy không đến. Người được giải thưởng.\n\nHYPOTHESIS:\nTổng cộng là 15 đồn. Huống hồ aô8haấy ?hông đến. N.ười đưồợc giảờ thưởng.\n\nOperation: INS\nREF: .... Người đư[]ợc giải th...\nHYP: .... N.ười đư[ồ]ợc giảờ th...\n",
+[
+205,
+207
+],
+[
+239,
+242
+]
+],
+[
+"REFERENCE:\nTổng cộng là 15 đồng. Huống hồ anh ấy không đến. Người được giải thưởng.\n\nHYPOTHESIS:\nTổng cộng là 15 đồn. Huống hồ aô8haấy ?hông đến. N.ười đưồợc giảờ thưởng.\n\nOperation: SUB\nREF: ...i được giả[i] thưởng.\nHYP: ... đưồợc giả[ờ] thưởng.\n",
+[
+205,
+208
+],
+[
+235,
+238
+]
+]
+],
+"severities": [
+0.46952760219573975,
+0.48191624879837036,
+0.502615213394165,
+0.482936829328537,
+0.4710566997528076,
+0.48331424593925476,
+0.4863573908805847,
+0.47943252325057983
+],
+"semcer_impute_one": 0.053571621576944985,
+"n_dropped": 0
+},
+{
+"id": "zh-047",
+"reference": "他昨天没有来，数字是12345。 总计十五元。",
+"hypothesis": "他昨天没有来，数字是12345。 总计十五元。",
+"records": [],
+"severities": [],
+"semcer_impute_one": 0.0,
+"n_dropped": 0
+}
+]
+}

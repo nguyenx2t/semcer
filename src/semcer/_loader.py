@@ -11,6 +11,7 @@ from __future__ import annotations
 
 import json
 import os
+import sys
 from dataclasses import dataclass
 from pathlib import Path
 from typing import Any
@@ -116,9 +117,15 @@ def resolve_bundle(
     from huggingface_hub import snapshot_download
 
     other = "model.safetensors" if dtype == "bf16" else "model.bf16.safetensors"
-    local = snapshot_download(
-        repo_id=str(name_or_path), revision=revision, local_files_only=local_files_only, ignore_patterns=[other]
-    )
+    fetch = dict(repo_id=str(name_or_path), revision=revision, ignore_patterns=[other])
+    try:
+        local = snapshot_download(local_files_only=True, **fetch)
+    except Exception:  # not cached yet
+        if local_files_only:
+            raise
+        size = "1.5 GB" if dtype == "bf16" else "3 GB"
+        print(f"semcer: downloading the model {name_or_path} ({size}), once", file=sys.stderr, flush=True)
+        local = snapshot_download(**fetch)
     local = Path(local)
     return local, str(name_or_path), local.name  # snapshot dirs are named by commit
 

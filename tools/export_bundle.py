@@ -208,9 +208,7 @@ def export_bundle(
         card = Path(model_card).read_text(encoding="utf-8") if model_card else _default_card(bundle_meta)
         (staging / "README.md").write_text(card, encoding="utf-8")
         lines = [
-            f"{sha256_file(p)}  {p.name}"
-            for p in sorted(staging.iterdir())
-            if p.is_file() and p.name != "SHA256SUMS"
+            f"{sha256_file(p)}  {p.name}" for p in sorted(staging.iterdir()) if p.is_file() and p.name != "SHA256SUMS"
         ]
         (staging / "SHA256SUMS").write_text("\n".join(lines) + "\n", encoding="utf-8")
         if out_dir.exists():

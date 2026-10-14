@@ -22,8 +22,17 @@ def _sha256(path) -> str:
 
 def test_bundle_layout_and_checksums(tiny_bundle):
     names = {p.name for p in tiny_bundle.iterdir()}
-    for f in ("model.safetensors", "model.bf16.safetensors", "config.json", "tokenizer.json",
-              "semcer_meta.json", "LICENSE", "NOTICE", "README.md", "SHA256SUMS"):
+    for f in (
+        "model.safetensors",
+        "model.bf16.safetensors",
+        "config.json",
+        "tokenizer.json",
+        "semcer_meta.json",
+        "LICENSE",
+        "NOTICE",
+        "README.md",
+        "SHA256SUMS",
+    ):
         assert f in names
     meta = json.loads((tiny_bundle / "semcer_meta.json").read_text())
     assert meta["bundle_version"] == 1 and meta["dev_checkpoint"] is True
@@ -138,3 +147,25 @@ def test_label_reaches_the_signature(tiny_bundle, tmp_path):
     b = _copy_bundle(tiny_bundle, tmp_path / "b", label="example label, not a release")
     s = SemCER.from_pretrained(b)
     assert s.score("abc", "abd").signature["label"] == "example label, not a release"
+
+
+def test_first_download_says_so_once_and_a_cached_model_is_silent(tiny_bundle, monkeypatch, capsys):
+    import huggingface_hub
+
+    calls = []
+
+    def fake(local_files_only=False, **kwargs):
+        calls.append(local_files_only)
+        if local_files_only and len(calls) == 1:
+            raise FileNotFoundError("not cached")
+        return str(tiny_bundle)
+
+    monkeypatch.setattr(huggingface_hub, "snapshot_download", fake)
+    _loader.resolve_bundle("someone/some-model")
+    assert calls == [True, False]
+    assert "downloading the model someone/some-model (3 GB), once" in capsys.readouterr().err
+    _loader.resolve_bundle("someone/some-model")
+    assert calls == [True, False, True] and capsys.readouterr().err == ""
+    calls.clear()
+    with pytest.raises(FileNotFoundError):
+        _loader.resolve_bundle("someone/some-model", local_files_only=True)

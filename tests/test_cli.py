@@ -59,8 +59,12 @@ def test_jsonl_run_resume_equals_uninterrupted(tiny_bundle, records, tmp_path):
     (tmp_path / "part.jsonl.manifest.json").write_text(json.dumps(manifest))
 
     assert _score(tiny_bundle, "--input", str(inp), "--output", str(part)) == 2  # exists, no flag
-    assert _score(tiny_bundle, "--input", str(inp), "--output", str(part), "--resume",
-                  "--summary", str(tmp_path / "s2.json")) == 0
+    assert (
+        _score(
+            tiny_bundle, "--input", str(inp), "--output", str(part), "--resume", "--summary", str(tmp_path / "s2.json")
+        )
+        == 0
+    )
     resumed = _rows(part)
     assert sorted(r["id"] for r in resumed) == sorted(r["id"] for r in records)
     assert len({r["id"] for r in resumed}) == len(resumed)
@@ -95,10 +99,10 @@ def test_resume_refuses_a_different_configuration(tiny_bundle, records, tmp_path
     inp = _write(tmp_path / "in.jsonl", records[:3])
     out = tmp_path / "out.jsonl"
     assert _score(tiny_bundle, "--input", str(inp), "--output", str(out)) == 0
-    assert _score(tiny_bundle, "--input", str(inp), "--output", str(out), "--resume",
-                  "--unscored", "impute_one") == 2
-    assert _score(tiny_bundle, "--input", str(inp), "--output", str(out), "--overwrite",
-                  "--unscored", "impute_one") == 0
+    assert _score(tiny_bundle, "--input", str(inp), "--output", str(out), "--resume", "--unscored", "impute_one") == 2
+    assert (
+        _score(tiny_bundle, "--input", str(inp), "--output", str(out), "--overwrite", "--unscored", "impute_one") == 0
+    )
 
 
 @pytest.mark.parametrize(
@@ -106,8 +110,10 @@ def test_resume_refuses_a_different_configuration(tiny_bundle, records, tmp_path
     [
         ('{"id": 1, "reference": "a", "hypothesis": null}\n', "must be a string"),
         ('{"reference": "a", "hypothesis": "b"}\n', "'id'"),
-        ('{"id": 1, "reference": "a", "hypothesis": "b"}\n{"id": 1, "reference": "a", "hypothesis": "c"}\n',
-         "duplicate id"),
+        (
+            '{"id": 1, "reference": "a", "hypothesis": "b"}\n{"id": 1, "reference": "a", "hypothesis": "c"}\n',
+            "duplicate id",
+        ),
         ("not json\n", "not valid JSON"),
     ],
 )
@@ -181,11 +187,83 @@ def test_inspect_needs_edit_detail(tiny_bundle, records, tmp_path, capsys):
 
 def test_summarize_refuses_mixed_signatures(tmp_path):
     rows = [
-        {"status": "ok", "semcer": 0.1, "cer": 0.2, "severity_sum": 1.0, "n_edits": 2,
-         "n_ref_graphemes": 10, "signature": {"model": "a"}},
-        {"status": "ok", "semcer": 0.1, "cer": 0.2, "severity_sum": 1.0, "n_edits": 2,
-         "n_ref_graphemes": 10, "signature": {"model": "b"}},
+        {
+            "status": "ok",
+            "semcer": 0.1,
+            "cer": 0.2,
+            "severity_sum": 1.0,
+            "n_edits": 2,
+            "n_ref_graphemes": 10,
+            "signature": {"model": "a"},
+        },
+        {
+            "status": "ok",
+            "semcer": 0.1,
+            "cer": 0.2,
+            "severity_sum": 1.0,
+            "n_edits": 2,
+            "n_ref_graphemes": 10,
+            "signature": {"model": "b"},
+        },
     ]
     p = _write(tmp_path / "s.jsonl", rows)
     assert cli.main(["summarize", "--input", str(p)]) == 2
     assert cli.main(["summarize", "--input", str(p), "--allow-mixed"]) == 0
+
+
+def test_progress_reports_time_left_when_the_total_is_known():
+    import io
+
+    from semcer.cli import Progress
+
+    out = io.StringIO()
+    p = Progress(total=100, every=0.0, stream=out)
+    p.tick("ok")
+    assert "scored 1/100" in out.getvalue() and "min left" in out.getvalue()
+    out = io.StringIO()
+    Progress(total=None, every=0.0, stream=out).tick("ok")
+    assert "min left" not in out.getvalue()
+
+
+def test_two_text_files_are_paired_line_by_line(tiny_bundle, tmp_path, capsys):
+    refs, hyps, out = tmp_path / "refs.txt", tmp_path / "hyps.txt", tmp_path / "scores.jsonl"
+    refs.write_text("The total is 15\n a cat \n", encoding="utf-8")
+    hyps.write_text("The total is 75\n a cat \n", encoding="utf-8")
+    assert (
+        cli.main(
+            [
+                "score",
+                "--references",
+                str(refs),
+                "--hypotheses",
+                str(hyps),
+                "--output",
+                str(out),
+                "--model",
+                str(tiny_bundle),
+            ]
+        )
+        == 0
+    )
+    rows = [json.loads(line) for line in out.read_text(encoding="utf-8").splitlines()]
+    assert [r["id"] for r in rows] == [1, 2] and rows[0]["n_edits"] == 1
+    assert rows[1]["reference"] == " a cat " and rows[1]["n_edits"] == 0  # spaces are kept
+
+    hyps.write_text("only one line\n", encoding="utf-8")
+    assert (
+        cli.main(
+            [
+                "score",
+                "--references",
+                str(refs),
+                "--hypotheses",
+                str(hyps),
+                "--output",
+                str(tmp_path / "x.jsonl"),
+                "--model",
+                str(tiny_bundle),
+            ]
+        )
+        == 2
+    )
+    assert "2 lines" in capsys.readouterr().err

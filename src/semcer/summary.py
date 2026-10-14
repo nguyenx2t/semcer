@@ -29,9 +29,7 @@ class MixedSignatureError(ValueError):
 
 
 def signature_key(signature: dict) -> str:
-    return json.dumps(
-        {k: v for k, v in sorted(signature.items()) if k not in _NON_IDENTITY}, sort_keys=True
-    )
+    return json.dumps({k: v for k, v in sorted(signature.items()) if k not in _NON_IDENTITY}, sort_keys=True)
 
 
 def _in_population(row: dict) -> bool:
@@ -80,8 +78,7 @@ def summarize(rows: Iterable[dict], *, allow_mixed: bool = False) -> dict[str, A
         sigs.setdefault(signature_key(sig), sig)
     if len(sigs) > 1 and not allow_mixed:
         raise MixedSignatureError(
-            f"rows carry {len(sigs)} different scoring signatures; summarize them separately "
-            "or pass allow_mixed=True"
+            f"rows carry {len(sigs)} different scoring signatures; summarize them separately or pass allow_mixed=True"
         )
     out: dict[str, Any] = {
         "population": "rows with a semcer value: status ok, or partial under unscored=impute_one",

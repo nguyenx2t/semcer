@@ -90,8 +90,16 @@ def self_test(channels: int = 64, taps: int = 4, seq_len: int = 37, seed: int = 
 
 
 def chunk_gated_delta_rule(
-    query, key, value, g, beta, chunk_size=64, initial_state=None, output_final_state=False,
-    use_qk_l2norm_in_kernel=False, **kwargs,
+    query,
+    key,
+    value,
+    g,
+    beta,
+    chunk_size=64,
+    initial_state=None,
+    output_final_state=False,
+    use_qk_l2norm_in_kernel=False,
+    **kwargs,
 ):
     """Drop-in for transformers' ``torch_chunk_gated_delta_rule`` (see module doc)."""
     from transformers.models.qwen3_5.modeling_qwen3_5 import l2norm
@@ -139,9 +147,10 @@ def chunk_gated_delta_rule(
         out[:, :, i] = (q_i * g_i[..., None].exp()) @ state + attn @ v_new
         if i == n_chunks - 1 and not output_final_state:
             break  # the final state is not wanted: skip its update
-        state = state * g_i[:, :, -1, None, None].exp() + (
-            k_i * (g_i[:, :, -1, None] - g_i).exp()[..., None]
-        ).transpose(-1, -2) @ v_new
+        state = (
+            state * g_i[:, :, -1, None, None].exp()
+            + (k_i * (g_i[:, :, -1, None] - g_i).exp()[..., None]).transpose(-1, -2) @ v_new
+        )
     out = out.reshape(b, h, -1, dv)[:, :, :length].transpose(1, 2).contiguous().to(initial_dtype)
     return out, (state if output_final_state else None)
 

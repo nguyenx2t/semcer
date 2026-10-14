@@ -162,9 +162,7 @@ def tokenize_edits_full(
     if not indices:
         return []
     built = [prep.edit_input(k) for k in indices]
-    enc = tokenizer(
-        [b[0] for b in built], return_offsets_mapping=True, truncation=True, max_length=max_length
-    )
+    enc = tokenizer([b[0] for b in built], return_offsets_mapping=True, truncation=True, max_length=max_length)
     out: list[TokenizedEdit] = []
     for row, (k, (_, rspan, hspan, context)) in enumerate(zip(indices, built)):
         status, r, h = _resolve(rspan, hspan, enc["offset_mapping"][row])

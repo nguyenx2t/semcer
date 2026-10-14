@@ -59,6 +59,7 @@ instead of stopping the run. `details="scores"` drops the per-edit records and
 ### Command line
 
 ```bash
+semcer score --references refs.txt --hypotheses hyps.txt --output scores.jsonl
 semcer score --input pairs.jsonl --output scores.jsonl --summary summary.json
 semcer score --input pairs.jsonl --output scores.jsonl --resume
 semcer summarize --input scores.jsonl
@@ -66,7 +67,8 @@ semcer inspect --input scores.jsonl --id line-0042
 semcer score --reference "The total is 15" --hypothesis "The total is 75"
 ```
 
-Input lines need `id`, `reference` and `hypothesis`; `language`, `system`,
+With two text files, row `n` of the output is line `n` of each file. A JSONL
+input needs `id`, `reference` and `hypothesis` on each line; `language`, `system`,
 `document_id` and `metadata` are carried through, and the summary breaks scores
 down by language and system. `--resume` keeps every finished row whose text has
 not changed and refuses to continue under a different model or settings. The
@@ -102,7 +104,8 @@ available, else CPU), `"cpu"` or `"cuda"`.
   (default 64) and shares model calls across them, so pass a corpus to
   `score_batch`, `score_iter` or the CLI rather than calling `score` per line.
 - **GPU memory.** A 2,000-line corpus peaked at 15 GB on an A100 40 GB with the
-  defaults. On a smaller card lower `max_batch_edits` (default 32).
+  defaults. `max_batch_edits` defaults to 32 on a card with 24 GB or more and
+  16 on a smaller one.
 - **Precision.** `dtype="bf16"` is faster and smaller, and moves a severity by
   up to about 0.006.
 - **CPU.** Each line is scored on its own, so a score does not depend on the

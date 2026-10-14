@@ -1,7 +1,8 @@
 """``semcer`` command line.
 
     semcer score --reference "The total is 15" --hypothesis "The total is 75" --model DIR
-    semcer score --input pairs.jsonl --output scores.jsonl --model DIR [--resume | --overwrite]
+    semcer score --input pairs.jsonl --output scores.jsonl [--resume | --overwrite]
+    semcer score --references refs.txt --hypotheses hyps.txt --output scores.jsonl
     semcer summarize --input scores.jsonl [--output summary.json]
     semcer inspect --input scores.jsonl --id example-001
 
@@ -41,9 +42,7 @@ class UsageError(Exception):
 
 # -- helpers -------------------------------------------------------------------
 def input_hash(reference: str, hypothesis: str) -> str:
-    return hashlib.sha256(
-        json.dumps([reference, hypothesis], ensure_ascii=False).encode("utf-8")
-    ).hexdigest()
+    return hashlib.sha256(json.dumps([reference, hypothesis], ensure_ascii=False).encode("utf-8")).hexdigest()
 
 
 def read_jsonl_records(path: Path) -> list[tuple[Any, str]]:
@@ -148,10 +147,14 @@ class Progress:
         if now - self.last >= self.every:
             self.last = now
             rate = self.done / max(now - self.t0, 1e-9)
-            of = f"/{self.total}" if self.total is not None else ""
+            of = eta = ""
+            if self.total is not None:
+                of = f"/{self.total}"
+                left = (self.total - self.done - self.skipped) / max(rate, 1e-9)
+                eta = f", about {left / 60:.0f} min left" if self.done else ""
             print(
                 f"semcer: scored {self.done + self.skipped}{of} "
-                f"(resumed {self.skipped}, errors {self.errors}) {rate:.2f} pairs/s",
+                f"(resumed {self.skipped}, errors {self.errors}) {rate:.2f} pairs/s{eta}",
                 file=self.stream,
                 flush=True,
             )
@@ -167,9 +170,7 @@ def _add_model_args(p: argparse.ArgumentParser) -> None:
     g.add_argument("--dtype", default="fp32", choices=["fp32", "bf16"])
     g.add_argument("--unscored", default="partial", choices=["partial", "impute_one", "raise"])
     g.add_argument("--max-batch-tokens", type=int, default=4096, help="padded tokens per forward")
-    g.add_argument(
-        "--max-batch-edits", type=int, default=None, help="edits per forward (default 8 on CPU, 32 on CUDA)"
-    )
+    g.add_argument("--max-batch-edits", type=int, default=None, help="edits per forward (default 8 on CPU, 32 on CUDA)")
     g.add_argument("--cell-budget", type=int, default=25_000_000, help="DP cells before too_large")
 
 
@@ -192,10 +193,39 @@ def _load_scorer(args, *, empty_reference: str):
 
 
 # -- commands ------------------------------------------------------------------
+def _text_files_to_jsonl(references: Path, hypotheses: Path, output: Path) -> Path:
+    """Pair two text files line by line into ``<output>.input.jsonl`` (ids are
+    1-based line numbers). Lines are split on ``\n`` only and otherwise kept as is."""
+    sides = []
+    for path in (references, hypotheses):
+        if not path.is_file():
+            raise UsageError(f"{path} does not exist")
+        try:
+            text = path.read_text(encoding="utf-8")
+        except UnicodeDecodeError as exc:
+            raise UsageError(f"{path}: not valid UTF-8 ({exc})") from exc
+        sides.append(text.removesuffix("\n").split("\n"))
+    refs, hyps = sides
+    if len(refs) != len(hyps):
+        raise UsageError(f"{references} has {len(refs)} lines and {hypotheses} has {len(hyps)}")
+    paired = output.with_name(output.name + ".input.jsonl")
+    paired.parent.mkdir(parents=True, exist_ok=True)
+    with open(paired, "w", encoding="utf-8") as f:
+        for n, (r, h) in enumerate(zip(refs, hyps), 1):
+            f.write(json.dumps({"id": n, "reference": r, "hypothesis": h}, ensure_ascii=False) + "\n")
+    return paired
+
+
 def cmd_score(args) -> int:
+    if args.references or args.hypotheses:
+        if not (args.references and args.hypotheses and args.output) or args.input:
+            raise UsageError("--references and --hypotheses go together, with --output and without --input")
+        args.input = str(_text_files_to_jsonl(Path(args.references), Path(args.hypotheses), Path(args.output)))
     if args.input is None:
         if args.reference is None or args.hypothesis is None:
-            raise UsageError("give --reference and --hypothesis, or --input FILE.jsonl")
+            raise UsageError(
+                "give --reference and --hypothesis, --references and --hypotheses FILES, or --input FILE.jsonl"
+            )
         scorer = _load_scorer(args, empty_reference="null")
         r = scorer.score(args.reference, args.hypothesis, details=args.details)
         print(r.to_json() if args.json else r.explain(color=_color()))
@@ -353,8 +383,10 @@ def build_parser() -> argparse.ArgumentParser:
     p = sub.add_parser("score", help="score one pair or a JSONL file")
     p.add_argument("--reference")
     p.add_argument("--hypothesis")
-    p.add_argument("--input")
-    p.add_argument("--output")
+    p.add_argument("--references", help="text file, one reference per line")
+    p.add_argument("--hypotheses", help="text file, one hypothesis per line")
+    p.add_argument("--input", help="JSONL file with id, reference, hypothesis")
+    p.add_argument("--output", help="JSONL file of results")
     p.add_argument("--summary", help="also write the corpus summary JSON here")
     p.add_argument("--details", default="edits", choices=["edits", "scores", "distributions"])
     p.add_argument("--resume", action="store_true")

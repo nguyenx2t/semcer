@@ -118,9 +118,7 @@ def _micro_batches(rows: list, length_of, max_rows: int, max_tokens: int, offset
     for i in order:
         n = length_of(rows[i])
         new_width = max(width, n)
-        if batch and (
-            len(batch) + 1 > max_rows or (len(batch) + 1) * (offset + new_width) > max_tokens
-        ):
+        if batch and (len(batch) + 1 > max_rows or (len(batch) + 1) * (offset + new_width) > max_tokens):
             yield [rows[j] for j in batch]
             batch, new_width = [], n
         batch.append(i)
@@ -293,9 +291,7 @@ class Engine:
                 extra = prefix[k:]
                 self.stats.slack_tokens += len(extra) * len(tes)
                 rows += [(g, te, extra + te.suffix, outs[p]) for te in tes]
-            for batch in _micro_batches(
-                rows, lambda r: len(r[2]), cfg.max_batch_edits, cfg.max_cache_tokens, offset=k
-            ):
+            for batch in _micro_batches(rows, lambda r: len(r[2]), cfg.max_batch_edits, cfg.max_cache_tokens, offset=k):
                 fork = _fork_cache(cache, torch.tensor([r[0] for r in batch], device=dev), share=False)
                 logits = self._continue(fork, k, [r[2] for r in batch], [r[1] for r in batch])
                 self._finish([r[1] for r in batch], logits, [r[3] for r in batch])
@@ -435,9 +431,7 @@ class Engine:
         if not rows:
             return
         cfg, dev = self.config, self.device
-        for batch in _micro_batches(
-            rows, lambda te: len(te) - start, cfg.max_batch_edits, cfg.max_batch_tokens
-        ):
+        for batch in _micro_batches(rows, lambda te: len(te) - start, cfg.max_batch_edits, cfg.max_batch_tokens):
             cache = _fork_cache(base_cache, len(batch), share=str(dev).startswith("cpu"))
             logits = self._continue(cache, start, [_suffix(te, start) for te in batch], batch)
             self._finish(batch, logits, [out] * len(batch))

@@ -12,7 +12,7 @@ import random
 import regex
 
 SENTENCES = {
-    "en": ["The total is 15 dollars.", "Invoice No. 2024-117, due 3 March.", "He said: \"don't wait\"."],
+    "en": ["The total is 15 dollars.", "Invoice No. 2024-117, due 3 March.", 'He said: "don\'t wait".'],
     "de": ["Die Größe beträgt 12 Meter.", "Straße und Übung für Anfänger.", "Das Ergebnis ist nicht klar."],
     "fr": ["Le garçon a déjà mangé.", "Élève numéro 7, classe B.", "Où est la bibliothèque ?"],
     "es": ["El niño tiene 5 años.", "¿Dónde está la estación?", "Mañana llegará el tren."],

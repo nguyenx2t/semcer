@@ -33,10 +33,12 @@ def uncached(tiny_bundle):
 
 def test_cached_path_is_used_and_matches_uncached(scorer, uncached, pairs):
     before = scorer.stats.cached_rows
-    a = scorer.score_batch([p["reference"] for p in pairs], [p["hypothesis"] for p in pairs],
-                           ids=[p["id"] for p in pairs])
-    b = uncached.score_batch([p["reference"] for p in pairs], [p["hypothesis"] for p in pairs],
-                             ids=[p["id"] for p in pairs])
+    a = scorer.score_batch(
+        [p["reference"] for p in pairs], [p["hypothesis"] for p in pairs], ids=[p["id"] for p in pairs]
+    )
+    b = uncached.score_batch(
+        [p["reference"] for p in pairs], [p["hypothesis"] for p in pairs], ids=[p["id"] for p in pairs]
+    )
     assert scorer.stats.cached_rows > before
     assert scorer.signature["path"] == "prefix_cached" and uncached.signature["path"] == "uncached"
     n_edits = 0
@@ -98,8 +100,9 @@ def test_conv_patch_parity_on_the_model(tiny_bundle, pairs):
 def test_scalar_batch_and_stream_agree(scorer, pairs):
     sub = pairs[:30]
     single = [scorer.score(p["reference"], p["hypothesis"], id=p["id"]) for p in sub]
-    batch = scorer.score_batch([p["reference"] for p in sub], [p["hypothesis"] for p in sub],
-                               ids=[p["id"] for p in sub])
+    batch = scorer.score_batch(
+        [p["reference"] for p in sub], [p["hypothesis"] for p in sub], ids=[p["id"] for p in sub]
+    )
     stream = list(scorer.score_iter(iter(sub)))
     assert [r.id for r in stream] == [p["id"] for p in sub]
     for a, b, c in zip(single, batch, stream):
@@ -174,9 +177,7 @@ def test_runaway_pair_streams_with_bounded_batches(tiny_bundle):
     from _pairs import dense_pair
 
     ref, hyp = dense_pair(900)
-    s = SemCER.from_pretrained(
-        tiny_bundle, max_length=8192, max_batch_edits=8, max_batch_tokens=1024, chunk_edits=64
-    )
+    s = SemCER.from_pretrained(tiny_bundle, max_length=8192, max_batch_edits=8, max_batch_tokens=1024, chunk_edits=64)
     proc = psutil.Process()
     rss0 = proc.memory_info().rss
     r = s.score(ref, hyp, details="scores")

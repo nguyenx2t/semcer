@@ -83,9 +83,7 @@ def cer(reference: str, hypothesis: str, normalization: str = "raw") -> float:
     on an empty normalized reference."""
     stats = cer_stats(reference, hypothesis, normalization)
     if stats["cer"] is None:
-        raise UndefinedMetricError(
-            f"CER is undefined: the reference is empty after {normalization!r} normalization"
-        )
+        raise UndefinedMetricError(f"CER is undefined: the reference is empty after {normalization!r} normalization")
     return stats["cer"]
 
 

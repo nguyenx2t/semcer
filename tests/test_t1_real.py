@@ -60,7 +60,9 @@ def test_real_weights_cached_matches_uncached_and_cpu_kernels(pairs):
         (abs(x.severity - y.severity) for ra, rb in zip(a, b) for x, y in zip(ra.edits, rb.edits)),
         default=0.0,
     )
-    print(f"\nT1 cached(+header, CPU kernels) vs uncached: max |dE[d]/4| = {worst:.2e}; "
-          f"header rows {s.stats.header_rows}, fallback rows {s.stats.fallback_rows}")
+    print(
+        f"\nT1 cached(+header, CPU kernels) vs uncached: max |dE[d]/4| = {worst:.2e}; "
+        f"header rows {s.stats.header_rows}, fallback rows {s.stats.fallback_rows}"
+    )
     assert worst <= TOL
     assert s.stats.fallback_rows == 0

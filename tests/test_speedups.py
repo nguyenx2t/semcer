@@ -133,8 +133,9 @@ def test_read_only_cache_fork_equals_deepcopy_broadcast_and_never_writes_base(sc
         pos = (torch.arange(w) + k).unsqueeze(0).expand(b, w)
 
         def run(cache):
-            return bb(input_ids=ids, attention_mask=full, position_ids=pos, past_key_values=cache,
-                      use_cache=True).last_hidden_state
+            return bb(
+                input_ids=ids, attention_mask=full, position_ids=pos, past_key_values=cache, use_cache=True
+            ).last_hidden_state
 
         old = copy.deepcopy(base)
         old.reorder_cache(torch.zeros(b, dtype=torch.long))

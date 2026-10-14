@@ -23,8 +23,10 @@ from semcer.result import PairResult, severity_level
 
 def test_invariants_over_all_pairs(scorer, pairs):
     results = scorer.score_batch(
-        [p["reference"] for p in pairs], [p["hypothesis"] for p in pairs],
-        ids=[p["id"] for p in pairs], languages=[p["language"] for p in pairs],
+        [p["reference"] for p in pairs],
+        [p["hypothesis"] for p in pairs],
+        ids=[p["id"] for p in pairs],
+        languages=[p["language"] for p in pairs],
     )
     assert [r.id for r in results] == [p["id"] for p in pairs]
     for r in results:
@@ -109,8 +111,9 @@ def test_json_round_trip_without_nan(scorer, tiny_bundle):
     u = SemCER.from_pretrained(tiny_bundle, empty_reference="null").score("", "x")
     d = json.loads(u.to_json())
     assert d["semcer"] is None and d["cer"] is None
-    bad = PairResult(status="ok", semcer=float("nan"), cer=float("inf"), severity_sum=None,
-                     n_edits=0, n_ref_graphemes=1)
+    bad = PairResult(
+        status="ok", semcer=float("nan"), cer=float("inf"), severity_sum=None, n_edits=0, n_ref_graphemes=1
+    )
     assert json.loads(bad.to_json())["semcer"] is None
 
 
@@ -149,10 +152,14 @@ def test_worst_edits_explain_and_levels(scorer):
     assert len(worst) == 2 and worst[0].severity >= worst[1].severity
     assert r.worst_edits(0) == [] and len(r.worst_edits(100)) == r.n_edits
     text = r.explain()
-    assert text.count("\n") == r.n_edits + 1 and "not a probability" in text
+    assert text.count("\n") == r.n_edits
     assert "\033[" not in text and "\033[" in r.explain(color=True)
     assert [severity_level(x) for x in (0.1, 0.25, 0.75, 0.76, None)] == [
-        "harmless", "partially recoverable", "partially recoverable", "meaning lost", None,
+        "harmless",
+        "partially recoverable",
+        "partially recoverable",
+        "meaning lost",
+        None,
     ]
 
 

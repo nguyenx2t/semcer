@@ -187,9 +187,23 @@ class PairResult:
     @classmethod
     def from_dict(cls, d: dict[str, Any]) -> PairResult:
         known = {
-            "schema_version", "id", "status", "semcer", "cer", "severity_sum", "n_edits",
-            "n_ref_graphemes", "n_unscored", "coverage", "cause", "unscored_policy",
-            "effective_severity_sum", "edits", "signature", "reference", "hypothesis",
+            "schema_version",
+            "id",
+            "status",
+            "semcer",
+            "cer",
+            "severity_sum",
+            "n_edits",
+            "n_ref_graphemes",
+            "n_unscored",
+            "coverage",
+            "cause",
+            "unscored_policy",
+            "effective_severity_sum",
+            "edits",
+            "signature",
+            "reference",
+            "hypothesis",
             "input_sha256",
         }
         edits = d.get("edits")
@@ -230,14 +244,8 @@ class PairResult:
             f"({self.n_edits} edit(s) over {self.n_ref_graphemes} reference graphemes; lower is better)"
         ]
         if self.status == "partial":
-            how = (
-                "each charged 1.0 (impute_one)"
-                if self.unscored_policy == "impute_one"
-                else "semcer withheld"
-            )
-            lines.append(
-                f"  PARTIAL: {self.n_unscored} edit(s) past the model window were not scored; {how}"
-            )
+            how = "each charged 1.0 (impute_one)" if self.unscored_policy == "impute_one" else "semcer withheld"
+            lines.append(f"  PARTIAL: {self.n_unscored} edit(s) past the model window were not scored; {how}")
         if self.edits is None:
             return "\n".join(lines)
         edits = self.edits if k is None else self.worst_edits(k)
@@ -249,7 +257,6 @@ class PairResult:
                 f"  {e.op:<3} ref[{e.ref_span[0]}:{e.ref_span[1]}] {e.ref_grapheme!r} -> "
                 f"{e.hyp_grapheme!r}  severity {sev}"
             )
-        lines.append("  severity is graded recoverability in [0, 1], not a probability.")
         return "\n".join(lines)
 
 

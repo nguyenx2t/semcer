@@ -49,6 +49,16 @@ class UnscorableEditError(RuntimeError):
     """An edit could not be scored under ``unscored="raise"``."""
 
 
+def _gpu_batch_edits(device: str) -> int:
+    """Edits per forward for a GPU, from its memory: 32 needs about 15 GB."""
+    import torch
+
+    if not str(device).startswith("cuda"):
+        return 16
+    total = torch.cuda.get_device_properties(torch.device(device)).total_memory
+    return 32 if total >= 24 * 2**30 else 16
+
+
 def _dist_version(name: str) -> str | None:
     from importlib.metadata import PackageNotFoundError, version
 
@@ -93,13 +103,9 @@ class SemCER:
         if unscored not in UNSCORED_POLICIES:
             raise ValueError(f"unscored must be one of {UNSCORED_POLICIES}, got {unscored!r}")
         if empty_reference not in EMPTY_REFERENCE_POLICIES:
-            raise ValueError(
-                f"empty_reference must be one of {EMPTY_REFERENCE_POLICIES}, got {empty_reference!r}"
-            )
+            raise ValueError(f"empty_reference must be one of {EMPTY_REFERENCE_POLICIES}, got {empty_reference!r}")
         device = resolve_device(device)
-        bundle = load_bundle(
-            model, revision=revision, device=device, dtype=dtype, local_files_only=local_files_only
-        )
+        bundle = load_bundle(model, revision=revision, device=device, dtype=dtype, local_files_only=local_files_only)
         model, tokenizer, meta = bundle.model, bundle.tokenizer, bundle.meta
         source, revision = bundle.source, bundle.revision
         self.config, self.bundle_dir = bundle.config, str(bundle.path)
@@ -117,7 +123,7 @@ class SemCER:
         on_cpu = str(device).startswith("cpu")
         if max_batch_edits is None:
             # Larger CPU batches spill the caches (each row carries recurrent state).
-            max_batch_edits = 8 if on_cpu else 32  # 32 rows fit a 16 GB GPU with room to spare
+            max_batch_edits = 8 if on_cpu else _gpu_batch_edits(device)
         if batch_pairs is None:
             # On CPU each pair runs alone, so its score does not depend on its
             # neighbours even at the 1e-7 level (batch_pairs=32 is 1.5x faster).
@@ -209,9 +215,7 @@ class SemCER:
     ) -> list[PairResult]:
         """Score positional pairs; results come back in input order."""
         if len(references) != len(hypotheses):
-            raise ValueError(
-                f"references and hypotheses differ in length: {len(references)} != {len(hypotheses)}"
-            )
+            raise ValueError(f"references and hypotheses differ in length: {len(references)} != {len(hypotheses)}")
         for name, seq in (("ids", ids), ("languages", languages)):
             if seq is not None and len(seq) != len(references):
                 raise ValueError(f"{name} has {len(seq)} entries for {len(references)} pairs")
@@ -441,6 +445,4 @@ def _check_record(rec: dict) -> None:
         if key not in rec:
             raise KeyError(f"record {rec.get('id')!r} has no {key!r}")
         if not isinstance(rec[key], str):
-            raise TypeError(
-                f"record {rec.get('id')!r}: {key} must be str, got {type(rec[key]).__name__}"
-            )
+            raise TypeError(f"record {rec.get('id')!r}: {key} must be str, got {type(rec[key]).__name__}")

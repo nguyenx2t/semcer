@@ -7,6 +7,7 @@ Paper (coming soon)
 [![Model](https://img.shields.io/badge/%F0%9F%A4%97%20Model-semcer--qwen3.5--0.8b-yellow)](https://huggingface.co/nguyenx2t/semcer-qwen3.5-0.8b)
 [![Dataset](https://img.shields.io/badge/%F0%9F%A4%97%20Dataset-61M%20judged%20edits-yellow)](https://huggingface.co/datasets/nguyenx2t/semcer-judged-edits)
 [![Docs](https://img.shields.io/badge/docs-usage%20guide-blue)](https://github.com/nguyenx2t/semcer/blob/main/docs/USAGE.md)
+[![Open in Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/nguyenx2t/semcer/blob/main/notebooks/quickstart.ipynb)
 
 ![Six one-character OCR errors, each charged 1 by CER and a different severity by semcer](https://raw.githubusercontent.com/nguyenx2t/semcer/main/docs/assets/teaser.png)
 
@@ -42,10 +43,10 @@ scorer = semcer.SemCER()
 results = scorer.score_batch(references=refs, hypotheses=hyps)
 ```
 
-Or from the shell, with one JSON object per line (`id`, `reference`, `hypothesis`):
+Or from the shell, with two text files that hold one line each per row:
 
 ```bash
-semcer score --input pairs.jsonl --output scores.jsonl
+semcer score --references refs.txt --hypotheses hyps.txt --output scores.jsonl
 ```
 
 ## Speed
@@ -53,10 +54,12 @@ semcer score --input pairs.jsonl --output scores.jsonl
 | Device | Precision | Edits/s | Lines/s |
 |---|---|---|---|
 | CPU (12-vCPU Xeon, 2.2 GHz) | fp32 | 5.2 | 0.63 |
+| NVIDIA T4 16 GB (free Colab) | fp32 | 46 | 5.5 |
 | NVIDIA A100 40 GB | fp32 | 144 | 17.4 |
 | NVIDIA A100 40 GB | bf16 | 209 | 25.2 |
 
-Measured on 201 lines containing 1,667 edits. A GPU is used when available.
+Measured on 201 lines containing 1,667 edits. A GPU is used when available,
+and is the practical choice for a corpus.
 
 ## Citation
 

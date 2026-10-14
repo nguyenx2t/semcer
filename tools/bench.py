@@ -131,9 +131,7 @@ def main(argv: list[str] | None = None) -> None:
     if args.compare:
         ref = json.loads(Path(args.compare).read_text(encoding="utf-8"))
         worst, n, pair_worst = 0.0, 0, 0.0
-        for mine, theirs, r, s in zip(
-            (res.severities for res in results), ref["severities"], results, ref["semcer"]
-        ):
+        for mine, theirs, r, s in zip((res.severities for res in results), ref["severities"], results, ref["semcer"]):
             if len(mine) != len(theirs):
                 raise SystemExit("the compared report has a different edit list; same workload?")
             for a, b in zip(mine, theirs):

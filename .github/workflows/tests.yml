@@ -18,7 +18,7 @@ jobs:
         with:
           python-version: ${{ matrix.python }}
           cache: pip
-      - run: pip install ruff && ruff check src tools tests
+      - run: pip install ruff && ruff check src tools tests && ruff format --check src tools tests
       # The CPU wheel of the pinned torch: the default Linux wheel bundles CUDA.
       - run: pip install torch==2.13.0 --index-url https://download.pytorch.org/whl/cpu
       - run: pip install -e '.[test]'

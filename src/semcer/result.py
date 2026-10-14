@@ -137,10 +137,6 @@ class PairResult:
         n = self.n_ref_graphemes
         return [None if (e.severity is None or not n) else e.severity / n for e in self.edits]
 
-    @property
-    def complete(self) -> bool:
-        return self.status == "ok"
-
     def worst_edits(self, k: int = 5) -> list[EditRecord]:
         """The ``k`` highest-severity scored edits, stable descending; ``k <= 0`` → []."""
         if k <= 0 or not self.edits:
@@ -243,18 +239,13 @@ class PairResult:
             for level in ("harmless", "partially recoverable", "meaning lost")
         )
         return (
-            '<div style="font-family:monospace;line-height:1.7">'
+            '<div style="font-family:monospace;line-height:1.7;white-space:pre-wrap">'
             f"<div><b>semcer {sem}</b> &nbsp; CER {self.cer:.4f} &nbsp; {self.n_edits} edit(s) &nbsp; {key}</div>"
             f'<div><span style="color:#888">REF</span> {ref}</div>'
             f'<div><span style="color:#888">HYP</span> {hyp}</div></div>'
         )
 
-    def _repr_html_(self) -> str:  # Jupyter and Colab display
-        if self.status in ("undefined", "error"):
-            from html import escape
-
-            return f"<pre>{escape(self.explain())}</pre>"
-        return self.to_html()
+    _repr_html_ = to_html  # Jupyter and Colab display
 
     def explain(self, k: int | None = None, *, color: bool = False) -> str:
         """Text account of the score and its edits (the ``k`` worst if given).
@@ -263,7 +254,7 @@ class PairResult:
         """
         head = f"[{self.id}] " if self.id is not None else ""
         if self.status == "undefined":
-            return f"{head}semcer undefined: empty reference ({self.cause or 'no denominator'})"
+            return f"{head}semcer undefined: empty reference"
         if self.status == "error":
             return f"{head}not scored: {self.cause}"
         sem = "n/a" if self.semcer is None else f"{self.semcer:.4f}"
@@ -301,7 +292,7 @@ def _marked(text: str, spans: list[tuple[int, int, EditRecord]]) -> str:
         out.append(escape(text[at:start]))
         out.append(
             f'<span style="background:{_HTML[e.level]};border-radius:3px" title="{e.op} severity {sev}">'
-            f"{escape(text[start:end]) or '&#8203;'}</span>"
+            f"{escape(text[start:end])}</span>"
         )
         at = end
     return "".join(out) + escape(text[at:])

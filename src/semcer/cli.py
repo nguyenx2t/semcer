@@ -104,10 +104,7 @@ def read_output_rows(path: Path) -> tuple[list[dict], bool]:
                 broken = True
                 continue
             raise UsageError(f"{path}: line {k + 1} is corrupt (not the trailing line); refusing to resume")
-        if last:
-            broken = True  # parseable but unterminated: treat as incomplete
-            continue
-        rows.append(row)
+        rows.append(row)  # a complete object is a complete row, even without its newline
     return rows, broken
 
 
@@ -171,47 +168,46 @@ def _add_model_args(p: argparse.ArgumentParser) -> None:
     g.add_argument("--device", default="auto", help="auto (CUDA when available, else CPU), cpu or cuda[:N]")
     g.add_argument("--dtype", default="fp32", choices=["fp32", "bf16"])
     g.add_argument("--unscored", default="partial", choices=["partial", "impute_one", "raise"])
-    g.add_argument("--max-batch-tokens", type=int, default=4096, help="padded tokens per forward")
     g.add_argument(
         "--batch-size",
         type=int,
         default=None,
-        help="edits per model call (default 8 on CPU; 16 or 32 on a GPU by its memory)",
+        help="edits per model call (default 8 on CPU; 16 to 64 on a GPU by its memory)",
     )
     g.add_argument(
-        "--batch-pairs", type=int, default=None, help="lines prepared together (default 1 on CPU, 64 on GPU)"
+        "--batch-pairs", type=int, default=None, help="lines prepared together (default 1 on CPU; 64 or 256 on a GPU)"
     )
-    g.add_argument("--cell-budget", type=int, default=25_000_000, help="DP cells before too_large")
+    g.add_argument("--cell-budget", type=int, default=None, help="alignment table cells before a line is refused")
 
 
 def _load_scorer(args, *, empty_reference: str):
     from semcer.metric import SemCER
 
-    return SemCER.from_pretrained(
+    advanced = {k: v for k in ("batch_pairs", "cell_budget") if (v := getattr(args, k)) is not None}
+    return SemCER(
         args.model,
         revision=args.revision,
         device=args.device,
         dtype=args.dtype,
-        local_files_only=args.local_files_only,
-        unscored=args.unscored,
-        max_batch_tokens=args.max_batch_tokens,
         batch_size=args.batch_size,
-        batch_pairs=args.batch_pairs,
-        cell_budget=args.cell_budget,
+        unscored=args.unscored,
         empty_reference=empty_reference,
+        local_files_only=args.local_files_only,
+        **advanced,
     )
 
 
 # -- commands ------------------------------------------------------------------
 def _text_files_to_jsonl(references: Path, hypotheses: Path, output: Path) -> Path:
     """Pair two text files line by line into ``<output>.input.jsonl`` (ids are
-    1-based line numbers). Lines are split on ``\n`` only and otherwise kept as is."""
+    1-based line numbers). Line endings are normalized and a leading byte-order mark
+    is dropped; spaces inside a line are kept."""
     sides = []
     for path in (references, hypotheses):
         if not path.is_file():
             raise UsageError(f"{path} does not exist")
         try:
-            text = path.read_text(encoding="utf-8")
+            text = path.read_text(encoding="utf-8-sig")
         except UnicodeDecodeError as exc:
             raise UsageError(f"{path}: not valid UTF-8 ({exc})") from exc
         sides.append(text.removesuffix("\n").split("\n"))
@@ -233,21 +229,37 @@ def _table_to_jsonl(table: Path, output: Path) -> Path:
 
     if not table.is_file():
         raise UsageError(f"input {table} does not exist")
+    tsv = table.suffix.lower() == ".tsv"
+    records = []
+    try:
+        with open(table, encoding="utf-8-sig", newline="") as src:
+            # A TSV field is taken literally: a leading quote must not swallow the tabs after it.
+            reader = csv.DictReader(
+                src, delimiter="\t" if tsv else ",", quoting=csv.QUOTE_NONE if tsv else csv.QUOTE_MINIMAL
+            )
+            missing = {"reference", "hypothesis"} - set(reader.fieldnames or ())
+            if missing:
+                raise UsageError(f"{table} needs the columns {sorted(missing)}")
+            for n, row in enumerate(reader, 1):
+                if row["reference"] is None or row["hypothesis"] is None:
+                    raise UsageError(f"{table}: row {n} is missing a reference or a hypothesis")
+                rec = {"id": row.get("id") or n, "reference": row["reference"], "hypothesis": row["hypothesis"]}
+                rec.update({k: row[k] for k in ("language", "system", "document_id") if row.get(k)})
+                records.append(rec)
+    except UnicodeDecodeError as exc:
+        raise UsageError(f"{table}: not valid UTF-8 ({exc})") from exc
     paired = output.with_name(output.name + ".input.jsonl")
     paired.parent.mkdir(parents=True, exist_ok=True)
-    with open(table, encoding="utf-8", newline="") as src, open(paired, "w", encoding="utf-8") as dst:
-        reader = csv.DictReader(src, delimiter="\t" if table.suffix.lower() == ".tsv" else ",")
-        missing = {"reference", "hypothesis"} - set(reader.fieldnames or ())
-        if missing:
-            raise UsageError(f"{table} needs the columns {sorted(missing)}")
-        for n, row in enumerate(reader, 1):
-            rec = {"id": row.get("id") or n, "reference": row["reference"], "hypothesis": row["hypothesis"]}
-            rec.update({k: row[k] for k in ("language", "system", "document_id") if row.get(k)})
-            dst.write(json.dumps(rec, ensure_ascii=False) + "\n")
+    with open(paired, "w", encoding="utf-8") as dst:
+        dst.writelines(json.dumps(rec, ensure_ascii=False) + "\n" for rec in records)
     return paired
 
 
 def cmd_score(args) -> int:
+    if args.resume and args.overwrite:
+        raise UsageError("--resume and --overwrite are exclusive")
+    if args.output and Path(args.output).exists() and not (args.resume or args.overwrite):
+        raise UsageError(f"{args.output} exists; pass --resume to continue it or --overwrite to replace it")
     if args.input and Path(args.input).suffix.lower() in (".csv", ".tsv") and args.output:
         args.input = str(_table_to_jsonl(Path(args.input), Path(args.output)))
     if args.references or args.hypotheses:
@@ -265,14 +277,10 @@ def cmd_score(args) -> int:
         return EXIT_OK if r.status != "error" else EXIT_PARTIAL
     if args.output is None:
         raise UsageError("--input needs --output")
-    if args.resume and args.overwrite:
-        raise UsageError("--resume and --overwrite are exclusive")
     inp, out = Path(args.input), Path(args.output)
     if not inp.is_file():
         raise UsageError(f"input {inp} does not exist")
     manifest_path = _manifest_path(out)
-    if out.exists() and not (args.resume or args.overwrite):
-        raise UsageError(f"{out} exists; pass --resume to continue it or --overwrite to replace it")
 
     index = read_jsonl_records(inp)  # validates everything before scoring
     n_total = len(index)
@@ -292,11 +300,12 @@ def cmd_score(args) -> int:
         rows, broken = read_output_rows(out)
         want = dict(index)
         for row in rows:
-            if row.get("id") in want and row.get("input_sha256") == want[row.get("id")]:
+            unchanged = row.get("id") in want and row.get("input_sha256") == want[row.get("id")]
+            if unchanged and row.get("status") != "error":  # an error row is scored again
                 kept[row["id"]] = row
         if broken or len(kept) != len(rows):
             shutil.copy(out, out.with_name(out.name + ".bak"))
-            if broken:
+            if broken and not args.quiet:
                 print("semcer: recovered an incomplete trailing record", file=sys.stderr)
         tmp = out.with_name(out.name + ".tmp")
         with open(tmp, "w", encoding="utf-8") as f:
@@ -336,7 +345,8 @@ def cmd_score(args) -> int:
                 progress.tick(row["status"])
     except KeyboardInterrupt:
         interrupted = True
-        print("semcer: interrupted; completed rows are kept, rerun with --resume", file=sys.stderr)
+        if not args.quiet:
+            print("semcer: interrupted; completed rows are kept, rerun with --resume", file=sys.stderr)
     try:
         rows, _ = read_output_rows(out)
     except UsageError:
@@ -397,18 +407,15 @@ def cmd_compare(args) -> int:
     from semcer.summary import compare
 
     rows_a, rows_b = (read_output_rows(Path(p))[0] for p in (args.a, args.b))
-    try:
-        result = compare(rows_a, rows_b, samples=args.samples, seed=args.seed)
-    except ValueError as exc:
-        raise UsageError(str(exc)) from exc
+    result = compare(rows_a, rows_b, samples=args.samples, seed=args.seed, top=args.top)
     if args.json:
         print(json.dumps(result, indent=2, ensure_ascii=False, allow_nan=False))
         return EXIT_OK
     lo, hi = result["semcer_difference_ci95"]
     print(f"{result['n_lines']} lines scored by both ({result['n_excluded']} excluded)")
     print(f"{'':<12}{'semcer':>10}{'CER':>10}")
-    for name, key in ((args.a, "a"), (args.b, "b")):
-        print(f"{Path(name).stem[:11]:<12}{result[key]['semcer_micro']:>10.4f}{result[key]['cer_micro']:>10.4f}")
+    for name, key in (("first", "a"), ("second", "b")):
+        print(f"{name:<12}{result[key]['semcer_micro']:>10.4f}{result[key]['cer_micro']:>10.4f}")
     print(
         f"difference  {result['semcer_difference']:>+10.4f}{result['cer_difference']:>+10.4f}"
         f"   semcer 95% interval [{lo:+.4f}, {hi:+.4f}], {result['resampled']} resampled"
@@ -418,7 +425,7 @@ def cmd_compare(args) -> int:
         f"{result['lines_b_better']} for the second, {result['lines_tied']} tied"
     )
     print("largest differences (id, semcer first, semcer second):")
-    for d in result["largest_differences"][: args.top]:
+    for d in result["largest_differences"]:
         print(f"  {d['id']!s:<24}{d['semcer_a']:>8.4f}{d['semcer_b']:>8.4f}")
     return EXIT_OK
 
@@ -457,7 +464,6 @@ def build_parser() -> argparse.ArgumentParser:
     p.add_argument("--overwrite", action="store_true")
     p.add_argument("--json", action="store_true", help="single pair: print the JSON record")
     p.add_argument("--quiet", action="store_true", help="no progress or status messages")
-    p.add_argument("--verbose", action="store_true", help="more detailed messages")
     _add_model_args(p)
     p.set_defaults(func=cmd_score)
 
@@ -488,21 +494,12 @@ def main(argv: list[str] | None = None) -> int:
     args = ap.parse_args(argv)
     from semcer import enable_logging
 
-    enable_logging(
-        "WARNING" if getattr(args, "quiet", False) else "DEBUG" if getattr(args, "verbose", False) else "INFO"
-    )
+    enable_logging("WARNING" if getattr(args, "quiet", False) else "INFO")
     try:
         return args.func(args)
-    except UsageError as exc:
+    except (UsageError, ValueError, FileNotFoundError) as exc:  # bad input or settings, before any scoring
         print(f"semcer: error: {exc}", file=sys.stderr)
         return EXIT_USAGE
-    except (ValueError, FileNotFoundError) as exc:
-        from semcer._loader import BundleError
-
-        if isinstance(exc, (BundleError, FileNotFoundError)) or "dtype" in str(exc):
-            print(f"semcer: error: {exc}", file=sys.stderr)
-            return EXIT_USAGE
-        raise
 
 
 if __name__ == "__main__":  # pragma: no cover

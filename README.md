@@ -55,11 +55,11 @@ semcer score --references refs.txt --hypotheses hyps.txt --output scores.jsonl
 |---|---|---|---|
 | CPU (12-vCPU Xeon, 2.2 GHz) | fp32 | 5.2 | 0.63 |
 | NVIDIA T4 16 GB (free Colab) | fp32 | 46 | 5.5 |
-| NVIDIA A100 40 GB | fp32 | 144 | 17.4 |
-| NVIDIA A100 40 GB | bf16 | 209 | 25.2 |
+| NVIDIA A100 40 GB | fp32 | 174 | 20.9 |
+| NVIDIA A100 40 GB | bf16 (`dtype="bf16"`) | 286 | 34.5 |
 
-Measured on 201 lines containing 1,667 edits. A GPU is used when available,
-and is the practical choice for a corpus.
+Measured on 201 lines containing 1,667 edits; a larger corpus runs faster per
+line. A GPU is used when available. bf16 moves a severity by up to 0.006.
 
 ## Citation
 

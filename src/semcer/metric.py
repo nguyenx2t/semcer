@@ -18,6 +18,7 @@ With ``batch_pairs > 1`` (the default on a GPU), ``score_batch`` and
 ``score_iter`` prepare that many pairs at a time and share forwards across them
 (:meth:`semcer._engine.Engine.score_pairs`); results come back in input order.
 The values equal the pair-by-pair ones within the fp32 tolerance (1e-6).
+``score`` always scores its one pair on its own.
 """
 
 from __future__ import annotations
@@ -49,10 +50,10 @@ EMPTY_REFERENCE_POLICIES = ("raise", "null")
 #: Engine settings ``SemCER`` accepts by keyword, with their defaults (``None``:
 #: taken from the model or the device).
 ADVANCED = {
-    "batch_pairs": None,  # lines prepared and scored together (1 on CPU, 64 on a GPU)
+    "batch_pairs": None,  # lines prepared and scored together (1 on CPU; 64 or 256 on a GPU)
     "max_length": None,  # input window in tokens (the model's own, 2,048)
-    "max_batch_tokens": 4096,  # padded tokens per model call
-    "chunk_edits": 256,  # edits rendered and tokenized at a time within a line
+    "max_batch_tokens": 4096,  # padded tokens per model call (single-line path only)
+    "chunk_edits": 256,  # edits tokenized at a time within a line (single-line path only)
     "cache_prefix": True,  # reuse the line's encoding across its edits
     "cache_op_header": True,  # a second cache level per operation (single-line path)
     "cell_budget": DEFAULT_CELL_BUDGET,  # alignment table cells before a line is refused
@@ -63,14 +64,15 @@ class UnscorableEditError(RuntimeError):
     """An edit could not be scored under ``unscored="raise"``."""
 
 
-def _gpu_batch_edits(device: str) -> int:
-    """Edits per forward for a GPU, from its memory: 32 needs about 15 GB."""
+def _gpu_batches(device: str) -> tuple[int, int]:
+    """``(batch_size, batch_pairs)`` for a GPU, by its memory. Measured peaks on
+    short lines: 11 GB at (16, 64), 13 GB at (32, 64), 18 GB at (64, 256)."""
     import torch
 
     if not str(device).startswith("cuda"):
-        return 16
-    total = torch.cuda.get_device_properties(torch.device(device)).total_memory
-    return 32 if total >= 24 * 2**30 else 16
+        return 16, 64
+    gb = torch.cuda.get_device_properties(torch.device(device)).total_memory / 2**30
+    return (64, 256) if gb >= 32 else (32, 64) if gb >= 24 else (16, 64)
 
 
 def _dist_version(name: str) -> str | None:
@@ -105,7 +107,7 @@ class SemCER:
         revision          Hub commit, branch or tag of ``model``
         device            ``"auto"`` (CUDA when available, else CPU), ``"cpu"``, ``"cuda[:N]"``
         dtype             ``"fp32"`` or ``"bf16"``
-        batch_size        edits per model call (default 8 on CPU; 16 or 32 on a GPU
+        batch_size        edits per model call (default 8 on CPU; 16 to 64 on a GPU
                           by its memory); lower it if a GPU runs out of memory
         unscored          ``"partial"``, ``"impute_one"`` or ``"raise"`` (module doc)
         empty_reference   ``"raise"`` or ``"null"``
@@ -131,12 +133,10 @@ class SemCER:
         bundle = load_bundle(model, revision=revision, device=device, dtype=dtype, local_files_only=local_files_only)
         model, tokenizer, meta = bundle.model, bundle.tokenizer, bundle.meta
         source, revision = bundle.source, bundle.revision
-        self.config, self.bundle_dir = bundle.config, str(bundle.path)
         if max_length is None:
             max_length = meta["max_length"]
         self._model = model
         self._tokenizer = tokenizer
-        self.meta = meta
         self.device = device
         self.dtype = dtype
         self.max_length = int(max_length)
@@ -146,7 +146,7 @@ class SemCER:
         on_cpu = str(device).startswith("cpu")
         if batch_size is None:
             # Larger CPU batches spill the caches (each row carries recurrent state).
-            batch_size = 8 if on_cpu else _gpu_batch_edits(device)
+            batch_size = 8 if on_cpu else _gpu_batches(device)[0]
         if batch_size < 1:
             raise ValueError(f"batch_size must be >= 1, got {batch_size}")
         self.batch_size = int(batch_size)
@@ -154,7 +154,7 @@ class SemCER:
             # On CPU each pair runs alone, so its score does not depend on its
             # neighbours even at the 1e-7 level (batch_pairs=32 is 1.5x faster).
             # A GPU is launch-bound at these shapes and needs rows from many pairs.
-            batch_pairs = 1 if on_cpu else 64
+            batch_pairs = 1 if on_cpu else _gpu_batches(device)[1]
         if batch_pairs < 1:
             raise ValueError(f"batch_pairs must be >= 1, got {batch_pairs}")
         self.batch_pairs = int(batch_pairs)
@@ -323,11 +323,12 @@ class SemCER:
         preps = [item for _, item in window if isinstance(item, PreparedPair)]
         try:
             scored = iter(self._engine.score_pairs(preps) if preps else ())
-        except Exception:
+        except Exception as exc:
             # One pair's failure (or a batch too large for the device) must not
             # take its neighbours with it: redo the window one pair at a time.
             scored = None
             self._engine.stats.window_fallbacks += 1
+            logger.warning("a batch of lines failed (%s); scoring them one by one", type(exc).__name__)
             if str(self.device).startswith("cuda"):
                 import torch
 
@@ -348,7 +349,7 @@ class SemCER:
 
     def _error(self, rec, cause: str) -> PairResult:
         rec = rec if isinstance(rec, dict) else {}
-        return self._unscored_result(rec, "error", cause, dict(self.signature))
+        return self._unscored_result(rec, "error", cause)
 
     # -- one pair -------------------------------------------------------------
     def _result(self, rec, **fields) -> PairResult:
@@ -364,9 +365,9 @@ class SemCER:
         try:
             prep = prepare_pair(rec["reference"], rec["hypothesis"], cell_budget=self.cell_budget)
         except PairTooLarge as exc:
-            return self._too_large(rec, exc.n_ref, exc.n_hyp, exc.budget, dict(self.signature))
+            return self._too_large(rec, exc.n_ref, exc.n_hyp, exc.budget)
         if prep.n_ref == 0:
-            return self._empty_reference(rec, dict(self.signature))
+            return self._empty_reference(rec)
         return prep
 
     def _score_record(self, rec: dict, *, details: str) -> PairResult:
@@ -430,7 +431,7 @@ class SemCER:
             hypothesis=prep.hypothesis if edits is not None else None,
         )
 
-    def _unscored_result(self, rec, status, cause, sig, *, n_ref=None) -> PairResult:
+    def _unscored_result(self, rec, status, cause, *, n_ref=None) -> PairResult:
         """A result with no scored edits (error or undefined)."""
         return self._result(
             rec,
@@ -441,30 +442,26 @@ class SemCER:
             n_edits=None,
             n_ref_graphemes=n_ref,
             coverage=None,
-            signature=sig,
+            signature=dict(self.signature),
             cause=cause,
         )
 
-    def _too_large(self, rec, n_ref, n_hyp, budget, sig) -> PairResult:
+    def _too_large(self, rec, n_ref, n_hyp, budget) -> PairResult:
         cause = f"too_large: {n_ref}x{n_hyp} graphemes exceeds cell_budget {budget}"
-        return self._unscored_result(rec, "error", cause, sig, n_ref=n_ref)
+        return self._unscored_result(rec, "error", cause, n_ref=n_ref)
 
-    def _empty_reference(self, rec, sig) -> PairResult:
+    def _empty_reference(self, rec) -> PairResult:
         if self.empty_reference == "raise":
             raise UndefinedMetricError(
                 f"pair {rec.get('id')!r}: semcer is undefined for an empty reference "
                 "(use empty_reference='null' to get a record instead)"
             )
-        return self._unscored_result(rec, "undefined", "empty_reference", sig, n_ref=0)
+        return self._unscored_result(rec, "undefined", "empty_reference", n_ref=0)
 
     # -- model-free helpers -----------------------------------------------------
     def cer(self, reference: str, hypothesis: str, normalization: str = "raw") -> float:
         """Grapheme CER under a named profile (model-free; raises on an empty reference)."""
         return _cer(reference, hypothesis, normalization)
-
-    def align(self, reference: str, hypothesis: str) -> list:
-        """The grapheme edit list SemCER scores for this pair (model-free)."""
-        return prepare_pair(reference, hypothesis, cell_budget=self.cell_budget).edits
 
     @property
     def stats(self):

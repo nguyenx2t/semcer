@@ -36,7 +36,7 @@ import torch
 from safetensors.torch import load_file, save_file
 
 from semcer._loader import validate_meta
-from semcer._model import HEAD_TYPE, READOUT, SeverityStudent
+from semcer._model import HEAD_TYPE, READOUT, SeverityStudent, _text_config
 from semcer._prep import ALIGNMENT_VERSION, INPUT_TEMPLATE_VERSION
 
 BUNDLE_VERSION = 1
@@ -146,9 +146,7 @@ def export_bundle(
     del state
 
     backbone, revision = meta["backbone"], meta["backbone_revision"]
-    config = AutoConfig.from_pretrained(backbone, revision=revision)
-    get_text = getattr(config, "get_text_config", None)
-    config = get_text() if callable(get_text) else config
+    config = _text_config(AutoConfig.from_pretrained(backbone, revision=revision))
     head_hidden = int(weights["head.0.weight"].shape[0])
     model = SeverityStudent.from_config(config, head_hidden=head_hidden)
     try:

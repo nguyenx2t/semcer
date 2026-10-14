@@ -62,4 +62,5 @@ def _quiet_semcer_logger():
     logger = logging.getLogger("semcer")
     logger.handlers.clear()
     logger.setLevel(logging.NOTSET)
+    logger.propagate = True
     yield

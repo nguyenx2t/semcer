@@ -79,13 +79,6 @@ def test_missing_meta_and_missing_dir(tmp_path):
         SemCER.from_pretrained(str(tmp_path / "nope"))
 
 
-def test_no_default_model_yet_gives_a_clear_message(monkeypatch):
-    monkeypatch.delenv("SEMCER_MODEL", raising=False)
-    monkeypatch.setattr(_loader, "DEFAULT_MODEL_ID", None)
-    with pytest.raises(BundleError, match="no default semcer model"):
-        SemCER.from_pretrained()
-
-
 def test_env_override_selects_the_bundle(tiny_bundle, monkeypatch):
     monkeypatch.setenv("SEMCER_MODEL", str(tiny_bundle))
     s = SemCER.from_pretrained()

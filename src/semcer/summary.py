@@ -104,7 +104,9 @@ def _micro(rows: list[dict]) -> tuple[float, float]:
     return math.fsum(_numerator(r) for r in rows) / n_ref, sum(r["n_edits"] for r in rows) / n_ref
 
 
-def compare(rows_a: Iterable[dict], rows_b: Iterable[dict], *, samples: int = 1000, seed: int = 0) -> dict[str, Any]:
+def compare(
+    rows_a: Iterable[dict], rows_b: Iterable[dict], *, samples: int = 1000, seed: int = 0, top: int = 10
+) -> dict[str, Any]:
     """Compare two systems scored on the same references.
 
     The rows are matched by ``id``; a line counts only when both systems have a
@@ -112,17 +114,25 @@ def compare(rows_a: Iterable[dict], rows_b: Iterable[dict], *, samples: int = 10
     corpus semcer and CER on those lines, the difference ``a - b`` with a 95%
     paired bootstrap interval (lines resampled together, or documents when every
     row carries ``document_id``; each replicate recomputes the ratio of sums),
-    and the lines on which the two systems' semcer differs most.
+    and the ``top`` lines on which the two systems' semcer differs most. Both
+    files must come from the same model and settings.
     """
     import random
 
+    if samples < 1:
+        raise ValueError(f"samples must be >= 1, got {samples}")
+    rows_a, rows_b = list(rows_a), list(rows_b)
     a, b = ({r["id"]: r for r in rows} for rows in (rows_a, rows_b))
+    if len(a) != len(rows_a) or len(b) != len(rows_b):
+        raise ValueError("an id appears more than once in a file")
     if len(a) == 0 or set(a) != set(b):
         raise ValueError(f"the two files do not score the same ids ({len(a)} and {len(b)} rows)")
+    if len({signature_key(r.get("signature") or {}) for r in (*rows_a, *rows_b)}) > 1:
+        raise ValueError("the two files were scored with different models or settings")
     ids = [i for i in a if _in_population(a[i]) and _in_population(b[i])]
     for i in ids:
-        same_text = a[i].get("reference") == b[i].get("reference")
-        if a[i]["n_ref_graphemes"] != b[i]["n_ref_graphemes"] or not same_text:
+        ra, rb = a[i].get("reference"), b[i].get("reference")
+        if a[i]["n_ref_graphemes"] != b[i]["n_ref_graphemes"] or (ra is not None and rb is not None and ra != rb):
             raise ValueError(f"id {i!r} has a different reference in the two files")
     if not ids:
         raise ValueError("no line has a semcer value in both files")
@@ -139,7 +149,8 @@ def compare(rows_a: Iterable[dict], rows_b: Iterable[dict], *, samples: int = 10
     rng = random.Random(seed)
     draws = sorted(diff([i for unit in rng.choices(units, k=len(units)) for i in unit])[0] for _ in range(samples))
     (sem_a, cer_a), (sem_b, cer_b) = _micro([a[i] for i in ids]), _micro([b[i] for i in ids])
-    lo, hi = (draws[int(q * (samples - 1))] for q in (0.025, 0.975)) if samples else (None, None)
+    tail = int(0.025 * samples)
+    lo, hi = draws[tail], draws[samples - 1 - tail]
     per_line = sorted(ids, key=lambda i: -abs(a[i]["semcer"] - b[i]["semcer"]))
     return {
         "n_lines": len(ids),
@@ -161,7 +172,7 @@ def compare(rows_a: Iterable[dict], rows_b: Iterable[dict], *, samples: int = 10
                 "cer_a": a[i]["cer"],
                 "cer_b": b[i]["cer"],
             }
-            for i in per_line[:10]
+            for i in per_line[:top]
         ],
     }
 

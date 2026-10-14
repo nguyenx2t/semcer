@@ -65,7 +65,7 @@ def score(reference: str, hypothesis: str, **kwargs) -> PairResult:
     return scorer.score(reference, hypothesis, **kwargs)
 
 
-def enable_logging(level: str = "INFO") -> None:
+def enable_logging(level: str | int = "INFO") -> None:
     """Print semcer's log messages (model download, device, batch size) to stderr.
 
     The library is silent by default. It logs to the standard ``"semcer"`` logger,
@@ -74,11 +74,12 @@ def enable_logging(level: str = "INFO") -> None:
     import logging
 
     logger = logging.getLogger("semcer")
-    logger.setLevel(level.upper())
+    logger.setLevel(level.upper() if isinstance(level, str) else level)
     if not logger.handlers:
         handler = logging.StreamHandler()
         handler.setFormatter(logging.Formatter("semcer: %(message)s"))
         logger.addHandler(handler)
+        logger.propagate = False  # or a configured root logger would print each message again
 
 
 def clear_cache() -> None:

@@ -68,7 +68,7 @@ semcer inspect --input scores.jsonl --id line-0042
 semcer score --reference "The total is 15" --hypothesis "The total is 75"
 ```
 
-With two text files, row `n` of the output is line `n` of each file. A CSV or
+With two text files, the row with `id` n scores line n of each file. A CSV or
 TSV file needs `reference` and `hypothesis` columns. A JSONL input needs `id`,
 `reference` and `hypothesis` on each line; `language`, `system`,
 `document_id` and `metadata` are carried through, and the summary breaks scores
@@ -117,14 +117,17 @@ These load no model and import no tensor library.
 available, else CPU), `"cpu"` or `"cuda"`.
 
 - **GPU batches.** On a GPU the scorer prepares `batch_pairs` lines at a time
-  (default 64) and shares model calls across them, so pass a corpus to
-  `score_batch`, `score_iter` or the CLI rather than calling `score` per line.
+  and shares model calls across them, so pass a corpus to `score_batch`,
+  `score_iter` or the CLI rather than calling `score` per line.
 - **Batch size.** `SemCER(batch_size=...)` or `--batch-size` sets the number of
-  edits per model call. The default is 8 on CPU, 16 on a GPU with less than
-  24 GB and 32 on a larger one. Lower it if a GPU runs out of memory; a
-  2,000-line corpus peaked at 15 GB on an A100 40 GB with 32.
-- **Precision.** `dtype="bf16"` is faster and smaller, and moves a severity by
-  up to about 0.006.
+  edits per model call. Defaults follow the card's memory: 16 edits and 64
+  lines below 24 GB, 32 and 64 from 24 GB, 64 and 256 from 32 GB (18 GB peak on
+  short lines). On CPU they are 8 and 1. Lower `batch_size` if a GPU runs out
+  of memory.
+- **Precision.** `dtype="bf16"` is about twice as fast on an A100 (374 against
+  193 edits per second on 1,000 lines), halves the download, and moves a
+  severity by up to about 0.006. fp32 is the default because it gives the same
+  scores on every device.
 - **CPU.** Each line is scored on its own, so a score does not depend on the
   lines around it. `batch_pairs=32` is about 1.5 times faster and changes
   scores by less than 1e-06.
@@ -139,8 +142,7 @@ semcer.enable_logging()                       # or configure the "semcer" logger
 scorer.score_batch(refs, hyps, progress=True) # a progress bar
 ```
 
-The CLI shows status and progress by default; `--quiet` turns them off and
-`--verbose` adds detail.
+The CLI shows status and progress by default; `--quiet` turns them off.
 
 In Jupyter or Colab a result displays as the two texts with each edit coloured
 by its level; `result.to_html()` returns that HTML.

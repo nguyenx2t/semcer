@@ -22,8 +22,8 @@ logger = logging.getLogger("semcer")
 SUPPORTED_BUNDLE_VERSIONS = frozenset({1})
 #: The published default model, pinned to one Hub commit so a release of this
 #: package always scores with the same weights.
-DEFAULT_MODEL_ID: str | None = "nguyenx2t/semcer-qwen3.5-0.8b"
-DEFAULT_REVISION: str | None = "b612a672c2d3f4101a734e64f28370bd7d872f67"
+DEFAULT_MODEL_ID = "nguyenx2t/semcer-qwen3.5-0.8b"
+DEFAULT_REVISION = "b612a672c2d3f4101a734e64f28370bd7d872f67"
 #: Environment override for the default model (a bundle directory or a Hub id).
 MODEL_ENV = "SEMCER_MODEL"
 
@@ -106,38 +106,34 @@ def resolve_bundle(
         name_or_path = os.environ.get(MODEL_ENV) or DEFAULT_MODEL_ID
         if revision is None and name_or_path == DEFAULT_MODEL_ID:
             revision = DEFAULT_REVISION
-    if name_or_path is None:
-        raise BundleError(
-            "no default semcer model has been published yet; pass a bundle directory or "
-            f"Hub id to from_pretrained(), or set ${MODEL_ENV}"
-        )
     path = Path(name_or_path).expanduser()
     if path.is_dir():
         return path, str(name_or_path), None
     if path.exists() or str(name_or_path).startswith((".", "/", "~")):
         raise BundleError(f"bundle directory {path} does not exist")
     from huggingface_hub import snapshot_download
+    from tqdm.auto import tqdm
 
+    class _NoBar(tqdm):  # a cache lookup needs no progress bar
+        def __init__(self, *args, **kwargs):
+            super().__init__(*args, **{**kwargs, "disable": True})
+
+    weights = "model.bf16.safetensors" if dtype == "bf16" else "model.safetensors"
     other = "model.safetensors" if dtype == "bf16" else "model.bf16.safetensors"
     fetch = dict(repo_id=str(name_or_path), revision=revision, ignore_patterns=[other])
-    from huggingface_hub.utils import are_progress_bars_disabled, disable_progress_bars, enable_progress_bars
-
-    bars_were_off = are_progress_bars_disabled()
-    disable_progress_bars()  # a cache lookup needs no progress bar
     try:
-        local = snapshot_download(local_files_only=True, **fetch)
-    except Exception as exc:  # not cached yet
-        local, miss = None, exc
-    finally:
-        if not bars_were_off:
-            enable_progress_bars()
-    if local is None:
+        local = Path(snapshot_download(local_files_only=True, tqdm_class=_NoBar, **fetch))
+        # A snapshot left by an interrupted download, or one fetched for the other
+        # precision, lacks files: complete it rather than fail on it.
+        cached = (local / META_FILE).is_file() and (local / weights).is_file()
+    except Exception:
         if local_files_only:
-            raise miss
+            raise
+        cached = False
+    if not cached and not local_files_only:
         size = "1.5 GB" if dtype == "bf16" else "3 GB"
         logger.info("downloading the model %s (%s), once", name_or_path, size)
-        local = snapshot_download(**fetch)
-    local = Path(local)
+        local = Path(snapshot_download(**fetch))
     return local, str(name_or_path), local.name  # snapshot dirs are named by commit
 
 

@@ -3,7 +3,7 @@
 **Equal CER, Unequal Damage: Severity-Weighted Character Error Rate for OCR**<br>
 Nguyen Nguyen, Yongyi Zang
 
-Paper (coming soon)
+[![Paper](https://img.shields.io/badge/arXiv-2610.20461-b31b1b)](https://arxiv.org/abs/2610.20461)
 [![Model](https://img.shields.io/badge/%F0%9F%A4%97%20Model-semcer--qwen3.5--0.8b-yellow)](https://huggingface.co/nguyenx2t/semcer-qwen3.5-0.8b)
 [![Dataset](https://img.shields.io/badge/%F0%9F%A4%97%20Dataset-61M%20judged%20edits-yellow)](https://huggingface.co/datasets/nguyenx2t/semcer-judged-edits)
 [![Docs](https://img.shields.io/badge/docs-usage%20guide-blue)](https://github.com/nguyenx2t/semcer/blob/main/docs/USAGE.md)
@@ -63,7 +63,17 @@ line. A GPU is used when available. bf16 moves a severity by up to 0.006.
 
 ## Citation
 
-To be added with the paper.
+```bibtex
+@misc{nguyen2026equalcer,
+  title={Equal CER, Unequal Damage: Severity-Weighted Character Error Rate for OCR},
+  author={Nguyen Nguyen and Yongyi Zang},
+  year={2026},
+  eprint={2610.20461},
+  archivePrefix={arXiv},
+  primaryClass={cs.CL},
+  url={https://arxiv.org/abs/2610.20461},
+}
+```
 
 ## License
 

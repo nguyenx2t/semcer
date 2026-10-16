@@ -14,7 +14,8 @@ language: [ar, de, en, es, fr, hi, kn, mr, pt, ru, ta, te, th, ur, vi, zh]
 # semcer severity model
 
 The scoring model of [semcer](https://github.com/nguyenx2t/semcer), a character
-error rate for OCR that weights each edit by its severity.
+error rate for OCR that weights each edit by its severity, from the paper
+[Equal CER, Unequal Damage: Severity-Weighted Character Error Rate for OCR](https://arxiv.org/abs/2610.20461).
 
 Given a reference transcription and an OCR or VLM transcription, the model
 rates every character edit from 0 (harmless) to 1 (meaning lost). A line's
@@ -70,6 +71,20 @@ A clear pair is two edits in one line whose judge severities differ by at least
   only.
 - Edits past the 2,048-token window are not scored.
 - The numbers above come from one training run.
+
+## Citation
+
+```bibtex
+@misc{nguyen2026equalcer,
+  title={Equal CER, Unequal Damage: Severity-Weighted Character Error Rate for OCR},
+  author={Nguyen Nguyen and Yongyi Zang},
+  year={2026},
+  eprint={2610.20461},
+  archivePrefix={arXiv},
+  primaryClass={cs.CL},
+  url={https://arxiv.org/abs/2610.20461},
+}
+```
 
 ## License
 

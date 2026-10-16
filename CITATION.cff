@@ -1,0 +1,28 @@
+cff-version: 1.2.0
+message: "If you use semcer, please cite the paper."
+title: "semcer"
+abstract: "A character error rate for OCR that weights each edit by its severity, scored by a local model."
+type: software
+authors:
+  - family-names: Nguyen
+    given-names: Nguyen
+  - family-names: Zang
+    given-names: Yongyi
+license: Apache-2.0
+repository-code: "https://github.com/nguyenx2t/semcer"
+url: "https://arxiv.org/abs/2610.20461"
+keywords: [ocr, evaluation, metric, cer, semcer]
+preferred-citation:
+  type: article
+  title: "Equal CER, Unequal Damage: Severity-Weighted Character Error Rate for OCR"
+  authors:
+    - family-names: Nguyen
+      given-names: Nguyen
+    - family-names: Zang
+      given-names: Yongyi
+  year: 2026
+  journal: "arXiv preprint"
+  identifiers:
+    - type: other
+      value: "arXiv:2610.20461"
+  url: "https://arxiv.org/abs/2610.20461"

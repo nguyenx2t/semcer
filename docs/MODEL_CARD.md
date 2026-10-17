@@ -1,14 +1,31 @@
 ---
-license: apache-2.0
 base_model: Qwen/Qwen3.5-0.8B-Base
+language:
+- ar
+- de
+- en
+- es
+- fr
+- hi
+- kn
+- mr
+- pt
+- ru
+- ta
+- te
+- th
+- ur
+- vi
+- zh
 library_name: semcer
+license: apache-2.0
+pipeline_tag: text-classification
 tags:
 - ocr
 - evaluation
 - metric
 - cer
 - semcer
-language: [ar, de, en, es, fr, hi, kn, mr, pt, ru, ta, te, th, ur, vi, zh]
 ---
 
 # semcer severity model

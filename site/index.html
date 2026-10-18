@@ -1,0 +1,293 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Equal CER, Unequal Damage: Severity-Weighted Character Error Rate for OCR</title>
+  <meta name="description" content="Two OCR mistakes can have the same CER and very different damage. semCER charges each error what it costs a reader, from 0 to 1.">
+
+  <!-- Google Scholar -->
+  <meta name="citation_title" content="Equal CER, Unequal Damage: Severity-Weighted Character Error Rate for OCR">
+  <meta name="citation_author" content="Nguyen, Nguyen">
+  <meta name="citation_author" content="Zang, Yongyi">
+  <meta name="citation_publication_date" content="2026/10/14">
+  <meta name="citation_arxiv_id" content="2610.20461">
+  <meta name="citation_pdf_url" content="https://arxiv.org/pdf/2610.20461">
+
+  <!-- Link previews (LinkedIn, X, Slack) -->
+  <meta property="og:type" content="website">
+  <meta property="og:site_name" content="semCER">
+  <meta property="og:title" content="Equal CER, Unequal Damage">
+  <meta property="og:description" content="Two OCR mistakes, same CER, very different damage. Try breaking a line yourself.">
+  <meta property="og:url" content="https://nguyenx2t.github.io/semcer/">
+  <meta property="og:image" content="https://nguyenx2t.github.io/semcer/static/img/social.png">
+  <meta property="og:image:type" content="image/png">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="627">
+  <meta property="og:image:alt" content="Two misreadings of the same line. CER charges each one error. semCER charges a lowercase t 0.00 and a wrong time 0.98.">
+  <meta name="twitter:card" content="summary_large_image">
+  <link rel="canonical" href="https://nguyenx2t.github.io/semcer/">
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="preload" href="https://fonts.googleapis.com/css2?family=Google+Sans:wght@400;500;700&family=Noto+Sans+Mono:wght@400;500&display=swap" as="style" onload="this.onload=null;this.rel='stylesheet'">
+  <noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Google+Sans:wght@400;500;700&family=Noto+Sans+Mono:wght@400;500&display=swap"></noscript>
+  <meta name="theme-color" content="#ffffff">
+  <script type="application/ld+json">{"@context": "https://schema.org", "@type": "ScholarlyArticle", "headline": "Equal CER, Unequal Damage: Severity-Weighted Character Error Rate for OCR", "author": [{"@type": "Person", "name": "Nguyen Nguyen"}, {"@type": "Person", "name": "Yongyi Zang"}], "datePublished": "2026-10-14", "url": "https://nguyenx2t.github.io/semcer/", "sameAs": ["https://arxiv.org/abs/2610.20461"], "image": "https://nguyenx2t.github.io/semcer/static/img/social.png", "about": ["optical character recognition", "evaluation metric", "character error rate"]}</script>
+  <link rel="icon" href="static/img/favicon.svg">
+  <link rel="stylesheet" href="static/css/style.css">
+  <script src="static/js/main.js" defer></script>
+</head>
+<body>
+
+<!-- Title -->
+<header class="hero top">
+  <div class="container">
+    <h1 class="publication-title">Equal CER, Unequal Damage</h1>
+    <p class="publication-sub">Severity-Weighted Character Error Rate for OCR</p>
+    <div class="publication-authors">
+      <span class="author-block">Nguyen Nguyen</span>
+      <span class="author-block">Yongyi Zang</span>
+    </div>
+    <nav class="publication-links" aria-label="Paper links">
+      <a class="button" href="https://arxiv.org/abs/2610.20461"><svg viewBox="0 0 24 24" aria-hidden="true"><path fill="#B31B1B" d="M3.8423 0a1.0037 1.0037 0 0 0-.922.6078c-.1536.3687-.0438.6275.2938 1.1113l6.9185 8.3597-1.0223 1.1058a1.0393 1.0393 0 0 0 .003 1.4229l1.2292 1.3135-5.4391 6.4444c-.2803.299-.4538.823-.2971 1.1986a1.0253 1.0253 0 0 0 .9585.635.9133.9133 0 0 0 .6891-.3405l5.783-6.126 7.4902 8.0051a.8527.8527 0 0 0 .6835.2597.9575.9575 0 0 0 .8777-.6138c.1577-.377-.017-.7502-.306-1.1407l-7.0518-8.3418 1.0632-1.13a.9626.9626 0 0 0 .0089-1.3165L4.6336.4639s-.3733-.4535-.768-.463zm0 .272h.0166c.2179.0052.4874.2715.5644.3639l.005.006.0052.0055 10.169 10.9905a.6915.6915 0 0 1-.0072.945l-1.0666 1.133-1.4982-1.7724-8.5994-10.39c-.3286-.472-.352-.6183-.2592-.841a.7307.7307 0 0 1 .6704-.4401Zm14.341 1.5701a.877.877 0 0 0-.6554.2418l-5.6962 6.1584 1.6944 1.8319 5.3089-6.5138c.3251-.4335.479-.6603.3247-1.0292a1.1205 1.1205 0 0 0-.9763-.689zm-7.6557 12.2823 1.3186 1.4135-5.7864 6.1295a.6494.6494 0 0 1-.4959.26.7516.7516 0 0 1-.706-.4669c-.1119-.2682.0359-.6864.2442-.9083l.0051-.0055.0047-.0055z"/></svg><span>Paper</span></a>
+      <a class="button" href="https://github.com/nguyenx2t/semcer"><svg viewBox="0 0 24 24" aria-hidden="true"><path fill="#181717" d="M12 .297c-6.63 0-12 5.373-12 12 0 5.303 3.438 9.8 8.205 11.385.6.113.82-.258.82-.577 0-.285-.01-1.04-.015-2.04-3.338.724-4.042-1.61-4.042-1.61C4.422 18.07 3.633 17.7 3.633 17.7c-1.087-.744.084-.729.084-.729 1.205.084 1.838 1.236 1.838 1.236 1.07 1.835 2.809 1.305 3.495.998.108-.776.417-1.305.76-1.605-2.665-.3-5.466-1.332-5.466-5.93 0-1.31.465-2.38 1.235-3.22-.135-.303-.54-1.523.105-3.176 0 0 1.005-.322 3.3 1.23.96-.267 1.98-.399 3-.405 1.02.006 2.04.138 3 .405 2.28-1.552 3.285-1.23 3.285-1.23.645 1.653.24 2.873.12 3.176.765.84 1.23 1.91 1.23 3.22 0 4.61-2.805 5.625-5.475 5.92.42.36.81 1.096.81 2.22 0 1.606-.015 2.896-.015 3.286 0 .315.21.69.825.57C20.565 22.092 24 17.592 24 12.297c0-6.627-5.373-12-12-12"/></svg><span>Code</span></a>
+      <a class="button" href="https://huggingface.co/nguyenx2t/semcer-qwen3.5-0.8b"><svg viewBox="0 0 95 88" aria-hidden="true"><path fill="#FFD21E" d="M47.21 76.5a34.75 34.75 0 1 0 0-69.5 34.75 34.75 0 0 0 0 69.5Z" /> <path fill="#FF9D0B" d="M81.96 41.75a34.75 34.75 0 1 0-69.5 0 34.75 34.75 0 0 0 69.5 0Zm-73.5 0a38.75 38.75 0 1 1 77.5 0 38.75 38.75 0 0 1-77.5 0Z" /> <path fill="#3A3B45" d="M58.5 32.3c1.28.44 1.78 3.06 3.07 2.38a5 5 0 1 0-6.76-2.07c.61 1.15 2.55-.72 3.7-.32ZM34.95 32.3c-1.28.44-1.79 3.06-3.07 2.38a5 5 0 1 1 6.76-2.07c-.61 1.15-2.56-.72-3.7-.32Z" /> <path fill="#FF323D" d="M46.96 56.29c9.83 0 13-8.76 13-13.26 0-2.34-1.57-1.6-4.09-.36-2.33 1.15-5.46 2.74-8.9 2.74-7.19 0-13-6.88-13-2.38s3.16 13.26 13 13.26Z" /> <path fill="#3A3B45" fill-rule="evenodd" d="M39.43 54a8.7 8.7 0 0 1 5.3-4.49c.4-.12.81.57 1.24 1.28.4.68.82 1.37 1.24 1.37.45 0 .9-.68 1.33-1.35.45-.7.89-1.38 1.32-1.25a8.61 8.61 0 0 1 5 4.17c3.73-2.94 5.1-7.74 5.1-10.7 0-2.34-1.57-1.6-4.09-.36l-.14.07c-2.31 1.15-5.39 2.67-8.77 2.67s-6.45-1.52-8.77-2.67c-2.6-1.29-4.23-2.1-4.23.29 0 3.05 1.46 8.06 5.47 10.97Z" clip-rule="evenodd" /> <path fill="#FF9D0B" d="M70.71 37a3.25 3.25 0 1 0 0-6.5 3.25 3.25 0 0 0 0 6.5ZM24.21 37a3.25 3.25 0 1 0 0-6.5 3.25 3.25 0 0 0 0 6.5ZM17.52 48c-1.62 0-3.06.66-4.07 1.87a5.97 5.97 0 0 0-1.33 3.76 7.1 7.1 0 0 0-1.94-.3c-1.55 0-2.95.59-3.94 1.66a5.8 5.8 0 0 0-.8 7 5.3 5.3 0 0 0-1.79 2.82c-.24.9-.48 2.8.8 4.74a5.22 5.22 0 0 0-.37 5.02c1.02 2.32 3.57 4.14 8.52 6.1 3.07 1.22 5.89 2 5.91 2.01a44.33 44.33 0 0 0 10.93 1.6c5.86 0 10.05-1.8 12.46-5.34 3.88-5.69 3.33-10.9-1.7-15.92-2.77-2.78-4.62-6.87-5-7.77-.78-2.66-2.84-5.62-6.25-5.62a5.7 5.7 0 0 0-4.6 2.46c-1-1.26-1.98-2.25-2.86-2.82A7.4 7.4 0 0 0 17.52 48Zm0 4c.51 0 1.14.22 1.82.65 2.14 1.36 6.25 8.43 7.76 11.18.5.92 1.37 1.31 2.14 1.31 1.55 0 2.75-1.53.15-3.48-3.92-2.93-2.55-7.72-.68-8.01.08-.02.17-.02.24-.02 1.7 0 2.45 2.93 2.45 2.93s2.2 5.52 5.98 9.3c3.77 3.77 3.97 6.8 1.22 10.83-1.88 2.75-5.47 3.58-9.16 3.58-3.81 0-7.73-.9-9.92-1.46-.11-.03-13.45-3.8-11.76-7 .28-.54.75-.76 1.34-.76 2.38 0 6.7 3.54 8.57 3.54.41 0 .7-.17.83-.6.79-2.85-12.06-4.05-10.98-8.17.2-.73.71-1.02 1.44-1.02 3.14 0 10.2 5.53 11.68 5.53.11 0 .2-.03.24-.1.74-1.2.33-2.04-4.9-5.2-5.21-3.16-8.88-5.06-6.8-7.33.24-.26.58-.38 1-.38 3.17 0 10.66 6.82 10.66 6.82s2.02 2.1 3.25 2.1c.28 0 .52-.1.68-.38.86-1.46-8.06-8.22-8.56-11.01-.34-1.9.24-2.85 1.31-2.85Z" /> <path fill="#FFD21E" d="M38.6 76.69c2.75-4.04 2.55-7.07-1.22-10.84-3.78-3.77-5.98-9.3-5.98-9.3s-.82-3.2-2.69-2.9c-1.87.3-3.24 5.08.68 8.01 3.91 2.93-.78 4.92-2.29 2.17-1.5-2.75-5.62-9.82-7.76-11.18-2.13-1.35-3.63-.6-3.13 2.2.5 2.79 9.43 9.55 8.56 11-.87 1.47-3.93-1.71-3.93-1.71s-9.57-8.71-11.66-6.44c-2.08 2.27 1.59 4.17 6.8 7.33 5.23 3.16 5.64 4 4.9 5.2-.75 1.2-12.28-8.53-13.36-4.4-1.08 4.11 11.77 5.3 10.98 8.15-.8 2.85-9.06-5.38-10.74-2.18-1.7 3.21 11.65 6.98 11.76 7.01 4.3 1.12 15.25 3.49 19.08-2.12Z" /> <path fill="#FF9D0B" d="M77.4 48c1.62 0 3.07.66 4.07 1.87a5.97 5.97 0 0 1 1.33 3.76 7.1 7.1 0 0 1 1.95-.3c1.55 0 2.95.59 3.94 1.66a5.8 5.8 0 0 1 .8 7 5.3 5.3 0 0 1 1.78 2.82c.24.9.48 2.8-.8 4.74a5.22 5.22 0 0 1 .37 5.02c-1.02 2.32-3.57 4.14-8.51 6.1-3.08 1.22-5.9 2-5.92 2.01a44.33 44.33 0 0 1-10.93 1.6c-5.86 0-10.05-1.8-12.46-5.34-3.88-5.69-3.33-10.9 1.7-15.92 2.78-2.78 4.63-6.87 5.01-7.77.78-2.66 2.83-5.62 6.24-5.62a5.7 5.7 0 0 1 4.6 2.46c1-1.26 1.98-2.25 2.87-2.82A7.4 7.4 0 0 1 77.4 48Zm0 4c-.51 0-1.13.22-1.82.65-2.13 1.36-6.25 8.43-7.76 11.18a2.43 2.43 0 0 1-2.14 1.31c-1.54 0-2.75-1.53-.14-3.48 3.91-2.93 2.54-7.72.67-8.01a1.54 1.54 0 0 0-.24-.02c-1.7 0-2.45 2.93-2.45 2.93s-2.2 5.52-5.97 9.3c-3.78 3.77-3.98 6.8-1.22 10.83 1.87 2.75 5.47 3.58 9.15 3.58 3.82 0 7.73-.9 9.93-1.46.1-.03 13.45-3.8 11.76-7-.29-.54-.75-.76-1.34-.76-2.38 0-6.71 3.54-8.57 3.54-.42 0-.71-.17-.83-.6-.8-2.85 12.05-4.05 10.97-8.17-.19-.73-.7-1.02-1.44-1.02-3.14 0-10.2 5.53-11.68 5.53-.1 0-.19-.03-.23-.1-.74-1.2-.34-2.04 4.88-5.2 5.23-3.16 8.9-5.06 6.8-7.33-.23-.26-.57-.38-.98-.38-3.18 0-10.67 6.82-10.67 6.82s-2.02 2.1-3.24 2.1a.74.74 0 0 1-.68-.38c-.87-1.46 8.05-8.22 8.55-11.01.34-1.9-.24-2.85-1.31-2.85Z" /> <path fill="#FFD21E" d="M56.33 76.69c-2.75-4.04-2.56-7.07 1.22-10.84 3.77-3.77 5.97-9.3 5.97-9.3s.82-3.2 2.7-2.9c1.86.3 3.23 5.08-.68 8.01-3.92 2.93.78 4.92 2.28 2.17 1.51-2.75 5.63-9.82 7.76-11.18 2.13-1.35 3.64-.6 3.13 2.2-.5 2.79-9.42 9.55-8.55 11 .86 1.47 3.92-1.71 3.92-1.71s9.58-8.71 11.66-6.44c2.08 2.27-1.58 4.17-6.8 7.33-5.23 3.16-5.63 4-4.9 5.2.75 1.2 12.28-8.53 13.36-4.4 1.08 4.11-11.76 5.3-10.97 8.15.8 2.85 9.05-5.38 10.74-2.18 1.69 3.21-11.65 6.98-11.76 7.01-4.31 1.12-15.26 3.49-19.08-2.12Z" /></svg><span>Model</span></a>
+      <a class="button" href="https://huggingface.co/datasets/nguyenx2t/semcer-judged-edits"><svg viewBox="0 0 95 88" aria-hidden="true"><path fill="#FFD21E" d="M47.21 76.5a34.75 34.75 0 1 0 0-69.5 34.75 34.75 0 0 0 0 69.5Z" /> <path fill="#FF9D0B" d="M81.96 41.75a34.75 34.75 0 1 0-69.5 0 34.75 34.75 0 0 0 69.5 0Zm-73.5 0a38.75 38.75 0 1 1 77.5 0 38.75 38.75 0 0 1-77.5 0Z" /> <path fill="#3A3B45" d="M58.5 32.3c1.28.44 1.78 3.06 3.07 2.38a5 5 0 1 0-6.76-2.07c.61 1.15 2.55-.72 3.7-.32ZM34.95 32.3c-1.28.44-1.79 3.06-3.07 2.38a5 5 0 1 1 6.76-2.07c-.61 1.15-2.56-.72-3.7-.32Z" /> <path fill="#FF323D" d="M46.96 56.29c9.83 0 13-8.76 13-13.26 0-2.34-1.57-1.6-4.09-.36-2.33 1.15-5.46 2.74-8.9 2.74-7.19 0-13-6.88-13-2.38s3.16 13.26 13 13.26Z" /> <path fill="#3A3B45" fill-rule="evenodd" d="M39.43 54a8.7 8.7 0 0 1 5.3-4.49c.4-.12.81.57 1.24 1.28.4.68.82 1.37 1.24 1.37.45 0 .9-.68 1.33-1.35.45-.7.89-1.38 1.32-1.25a8.61 8.61 0 0 1 5 4.17c3.73-2.94 5.1-7.74 5.1-10.7 0-2.34-1.57-1.6-4.09-.36l-.14.07c-2.31 1.15-5.39 2.67-8.77 2.67s-6.45-1.52-8.77-2.67c-2.6-1.29-4.23-2.1-4.23.29 0 3.05 1.46 8.06 5.47 10.97Z" clip-rule="evenodd" /> <path fill="#FF9D0B" d="M70.71 37a3.25 3.25 0 1 0 0-6.5 3.25 3.25 0 0 0 0 6.5ZM24.21 37a3.25 3.25 0 1 0 0-6.5 3.25 3.25 0 0 0 0 6.5ZM17.52 48c-1.62 0-3.06.66-4.07 1.87a5.97 5.97 0 0 0-1.33 3.76 7.1 7.1 0 0 0-1.94-.3c-1.55 0-2.95.59-3.94 1.66a5.8 5.8 0 0 0-.8 7 5.3 5.3 0 0 0-1.79 2.82c-.24.9-.48 2.8.8 4.74a5.22 5.22 0 0 0-.37 5.02c1.02 2.32 3.57 4.14 8.52 6.1 3.07 1.22 5.89 2 5.91 2.01a44.33 44.33 0 0 0 10.93 1.6c5.86 0 10.05-1.8 12.46-5.34 3.88-5.69 3.33-10.9-1.7-15.92-2.77-2.78-4.62-6.87-5-7.77-.78-2.66-2.84-5.62-6.25-5.62a5.7 5.7 0 0 0-4.6 2.46c-1-1.26-1.98-2.25-2.86-2.82A7.4 7.4 0 0 0 17.52 48Zm0 4c.51 0 1.14.22 1.82.65 2.14 1.36 6.25 8.43 7.76 11.18.5.92 1.37 1.31 2.14 1.31 1.55 0 2.75-1.53.15-3.48-3.92-2.93-2.55-7.72-.68-8.01.08-.02.17-.02.24-.02 1.7 0 2.45 2.93 2.45 2.93s2.2 5.52 5.98 9.3c3.77 3.77 3.97 6.8 1.22 10.83-1.88 2.75-5.47 3.58-9.16 3.58-3.81 0-7.73-.9-9.92-1.46-.11-.03-13.45-3.8-11.76-7 .28-.54.75-.76 1.34-.76 2.38 0 6.7 3.54 8.57 3.54.41 0 .7-.17.83-.6.79-2.85-12.06-4.05-10.98-8.17.2-.73.71-1.02 1.44-1.02 3.14 0 10.2 5.53 11.68 5.53.11 0 .2-.03.24-.1.74-1.2.33-2.04-4.9-5.2-5.21-3.16-8.88-5.06-6.8-7.33.24-.26.58-.38 1-.38 3.17 0 10.66 6.82 10.66 6.82s2.02 2.1 3.25 2.1c.28 0 .52-.1.68-.38.86-1.46-8.06-8.22-8.56-11.01-.34-1.9.24-2.85 1.31-2.85Z" /> <path fill="#FFD21E" d="M38.6 76.69c2.75-4.04 2.55-7.07-1.22-10.84-3.78-3.77-5.98-9.3-5.98-9.3s-.82-3.2-2.69-2.9c-1.87.3-3.24 5.08.68 8.01 3.91 2.93-.78 4.92-2.29 2.17-1.5-2.75-5.62-9.82-7.76-11.18-2.13-1.35-3.63-.6-3.13 2.2.5 2.79 9.43 9.55 8.56 11-.87 1.47-3.93-1.71-3.93-1.71s-9.57-8.71-11.66-6.44c-2.08 2.27 1.59 4.17 6.8 7.33 5.23 3.16 5.64 4 4.9 5.2-.75 1.2-12.28-8.53-13.36-4.4-1.08 4.11 11.77 5.3 10.98 8.15-.8 2.85-9.06-5.38-10.74-2.18-1.7 3.21 11.65 6.98 11.76 7.01 4.3 1.12 15.25 3.49 19.08-2.12Z" /> <path fill="#FF9D0B" d="M77.4 48c1.62 0 3.07.66 4.07 1.87a5.97 5.97 0 0 1 1.33 3.76 7.1 7.1 0 0 1 1.95-.3c1.55 0 2.95.59 3.94 1.66a5.8 5.8 0 0 1 .8 7 5.3 5.3 0 0 1 1.78 2.82c.24.9.48 2.8-.8 4.74a5.22 5.22 0 0 1 .37 5.02c-1.02 2.32-3.57 4.14-8.51 6.1-3.08 1.22-5.9 2-5.92 2.01a44.33 44.33 0 0 1-10.93 1.6c-5.86 0-10.05-1.8-12.46-5.34-3.88-5.69-3.33-10.9 1.7-15.92 2.78-2.78 4.63-6.87 5.01-7.77.78-2.66 2.83-5.62 6.24-5.62a5.7 5.7 0 0 1 4.6 2.46c1-1.26 1.98-2.25 2.87-2.82A7.4 7.4 0 0 1 77.4 48Zm0 4c-.51 0-1.13.22-1.82.65-2.13 1.36-6.25 8.43-7.76 11.18a2.43 2.43 0 0 1-2.14 1.31c-1.54 0-2.75-1.53-.14-3.48 3.91-2.93 2.54-7.72.67-8.01a1.54 1.54 0 0 0-.24-.02c-1.7 0-2.45 2.93-2.45 2.93s-2.2 5.52-5.97 9.3c-3.78 3.77-3.98 6.8-1.22 10.83 1.87 2.75 5.47 3.58 9.15 3.58 3.82 0 7.73-.9 9.93-1.46.1-.03 13.45-3.8 11.76-7-.29-.54-.75-.76-1.34-.76-2.38 0-6.71 3.54-8.57 3.54-.42 0-.71-.17-.83-.6-.8-2.85 12.05-4.05 10.97-8.17-.19-.73-.7-1.02-1.44-1.02-3.14 0-10.2 5.53-11.68 5.53-.1 0-.19-.03-.23-.1-.74-1.2-.34-2.04 4.88-5.2 5.23-3.16 8.9-5.06 6.8-7.33-.23-.26-.57-.38-.98-.38-3.18 0-10.67 6.82-10.67 6.82s-2.02 2.1-3.24 2.1a.74.74 0 0 1-.68-.38c-.87-1.46 8.05-8.22 8.55-11.01.34-1.9-.24-2.85-1.31-2.85Z" /> <path fill="#FFD21E" d="M56.33 76.69c-2.75-4.04-2.56-7.07 1.22-10.84 3.77-3.77 5.97-9.3 5.97-9.3s.82-3.2 2.7-2.9c1.86.3 3.23 5.08-.68 8.01-3.92 2.93.78 4.92 2.28 2.17 1.51-2.75 5.63-9.82 7.76-11.18 2.13-1.35 3.64-.6 3.13 2.2-.5 2.79-9.42 9.55-8.55 11 .86 1.47 3.92-1.71 3.92-1.71s9.58-8.71 11.66-6.44c2.08 2.27-1.58 4.17-6.8 7.33-5.23 3.16-5.63 4-4.9 5.2.75 1.2 12.28-8.53 13.36-4.4 1.08 4.11-11.76 5.3-10.97 8.15.8 2.85 9.05-5.38 10.74-2.18 1.69 3.21-11.65 6.98-11.76 7.01-4.31 1.12-15.26 3.49-19.08-2.12Z" /></svg><span>Data</span></a>
+      <a class="button" href="https://colab.research.google.com/github/nguyenx2t/semcer/blob/main/notebooks/quickstart.ipynb"><svg viewBox="0 0 24 24" aria-hidden="true"><path fill="#F9AB00" d="M16.9414 4.9757a7.033 7.033 0 0 0-4.9308 2.0646 7.033 7.033 0 0 0-.1232 9.8068l2.395-2.395a3.6455 3.6455 0 0 1 5.1497-5.1478l2.397-2.3989a7.033 7.033 0 0 0-4.8877-1.9297zM7.07 4.9855a7.033 7.033 0 0 0-4.8878 1.9316l2.3911 2.3911a3.6434 3.6434 0 0 1 5.0227.1271l1.7341-2.9737-.0997-.0802A7.033 7.033 0 0 0 7.07 4.9855zm15.0093 2.1721l-2.3892 2.3911a3.6455 3.6455 0 0 1-5.1497 5.1497l-2.4067 2.4068a7.0362 7.0362 0 0 0 9.9456-9.9476zM1.932 7.1674a7.033 7.033 0 0 0-.002 9.6816l2.397-2.397a3.6434 3.6434 0 0 1-.004-4.8916zm7.664 7.4235c-1.38 1.3816-3.5863 1.411-5.0168.1134l-2.397 2.395c2.4693 2.3328 6.263 2.5753 9.0072.5455l.1368-.1115z"/></svg><span>Colab</span></a>
+    </nav>
+    <p class="claim">CER charges a typo as much as a wrong name.<br><b class="c-sem">semCER</b> charges each error what it costs a reader.</p>
+  </div>
+</header>
+
+<!-- 1. The demo -->
+<section class="hero teaser" id="play">
+  <div class="container wide">
+    <div class="play">
+      <div class="play-head">
+        <div>
+          <h2 class="play-title">Break it yourself</h2>
+          <p class="play-intro">Make an OCR error. <b class="c-cer">CER</b> charges every one the same. <b class="c-sem">semCER</b> charges what it costs a reader.</p>
+        </div>
+        <div class="chips" id="play-tabs" role="group" aria-label="Sentence language"></div>
+      </div>
+
+      <div class="picks"><span class="picks-lbl">Try one:</span><div class="chips" id="play-picks"><button class="chip pick on" type="button"><s>8:30</s> → 3:30</button><button class="chip pick" type="button"><s>Take</s> → take</button><button class="chip pick" type="button"><s>tablets</s> → tablcts</button><button class="chip pick" type="button"><s>2 tablets</s> → 7 tablets</button></div></div>
+
+      <div class="play-stage">
+        <div class="play-lines">
+          <p class="pl-lbl">Original <span class="pl-hint">· tap any letter to change it</span></p>
+          <div class="pl-ref" id="play-ref" lang="en"><span class="pl-static">Take 2 tablets at 8:30, not after meals.</span></div>
+          <div class="pl-pop" id="play-pop" hidden></div>
+          <p class="pl-gloss" id="play-gloss" hidden></p>
+          <p class="pl-lbl">What OCR read</p>
+          <div class="pl-hyp" id="play-hyp">Take 2 tablets at 8:30, not after meals.</div>
+        </div>
+
+        <div class="scores" aria-live="polite">
+          <div class="score cer">
+            <p class="score-k">CER</p>
+            <p class="score-v" id="s-cer">1 error</p>
+            <p class="score-n" id="s-cer-n">Pick an error to see the scores.</p>
+          </div>
+          <div class="score sem">
+            <p class="score-k">semCER</p>
+            <p class="score-v" id="s-sem">–</p>
+            <div class="gauge-track" aria-hidden="true">
+              <span class="gz z1">harmless</span><span class="gz z2">partly recoverable</span><span class="gz z3">meaning lost</span>
+              <div class="gauge-needle" id="gauge-needle"></div>
+            </div>
+            <p class="score-n" id="s-sem-n">&nbsp;</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="tries" id="tries" hidden>
+        <p class="tries-head">Your errors so far: <b class="c-cer">CER</b> charged each one the same.</p>
+        <ol id="tries-list"></ol>
+      </div>
+
+      <div class="play-tools">
+        <a class="tool-link" href="gallery.html">See real OCR errors →</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Abstract -->
+<section class="section abstract-sec" id="abstract">
+  <div class="container narrow">
+    <h2 class="title is-3">Abstract</h2>
+    <div class="abstract-text">
+      <p>Character Error Rate (CER), the standard metric for OCR and vision-language models (VLMs), charges a typo as much as a wrong name. We introduce semCER, which keeps CER's alignment and denominator and charges each grapheme edit a severity from an LLM judge, with no word segmentation. Normalized CER keeps the score of a whole transcription, where it tracks readers as well as semCER or better, and semCER breaks that score down into named edits. The charges track readers' ratings edit by edit in English, Vietnamese, and Chinese and put the edits readers rate most severe near the top of a sorted list. On pairs drawn where CER and semCER disagreed, readers side with semCER more often than with normalized CER in English and Chinese, and equally often in Vietnamese. Across 16 languages, the judge charges a wrong diacritic or tone mark almost nothing in Spanish but nearly a wrong letter's severity in Telugu. Where we can count real words, a general VLM's wrong letter forms one far above chance while a classical pipeline's stays near it. We release the 61 million judged edits, the aggregated reader ratings, and the distilled scorer.</p>
+    </div>
+  </div>
+</section>
+
+<!-- 2. The method -->
+<section class="section" id="how">
+  <div class="container">
+    <p class="kicker">How it works</p>
+    <h2 class="title is-3">Same alignment, new price tag</h2>
+    <p class="section-intro">semCER finds errors exactly the way CER does. It only changes what each one costs: an LLM judge reads the whole line and rates each error from 0 to 1, and a 0.8B model distilled from it does the same on your laptop. Flip between the two price lists.</p>
+    <div class="price" id="price" data-mode="sem">
+      <div class="price-bar">
+        <div class="seg" role="group" aria-label="Price the errors by">
+          <button type="button" data-mode="cer" aria-pressed="false">Priced by CER</button>
+          <button type="button" data-mode="sem" aria-pressed="true">Priced by semCER</button>
+        </div>
+        <div class="price-total"><span id="price-total-k">semCER</span> <b id="price-total">5.4%</b><small id="price-total-eq">1.90 ÷ 35 characters</small></div>
+      </div>
+      <div class="pr-scroll"><div class="pr-line" id="pr-line"></div></div>
+      <ol class="pr-notes" id="pr-notes"></ol>
+    </div>
+  </div>
+</section>
+
+<!-- 3. Results -->
+<section class="section tight-top" id="findings">
+  <div class="container wide">
+    <p class="kicker">What we found</p>
+    <h2 class="title is-3">What the price tag reveals</h2>
+
+    <article class="split" id="r1">
+      <div class="split-text">
+        <span class="fn">1</span>
+        <h3>Short on time? Fix the expensive errors first</h3>
+        <p>Sort a pile of OCR errors by <b class="c-sem">semCER</b>, and the first 10% you check catch 81 to 92% of the damage that readers&rsquo; own top picks would. Sort by <b class="c-cer">CER</b>, and you might as well pick at random.</p>
+        <p class="hint-inline">Drag across the chart to see which real errors each order checks.</p>
+      </div>
+      <div class="split-fig">
+        <div class="chart-card">
+          <div class="chart-bar">
+            <p class="chart-q">Check errors in order. How much of the damage have you found?</p>
+            <p class="chart-sub">Lines with one error each, rated by readers; damage is the sum of their ratings</p>
+            <div class="chips" id="review-tabs" role="group" aria-label="Language"></div>
+          </div>
+          <div id="chart-review" class="chart chart-review" role="img" aria-label="Share of reader-rated damage found against the share of errors checked."></div>
+          <div class="keys" id="review-keys"></div>
+          <div class="lanes" id="review-lanes" aria-live="polite"></div>
+        </div>
+      </div>
+    </article>
+
+    <article class="split reverse" id="r2">
+      <div class="split-text">
+        <span class="fn">2</span>
+        <h3>Where the two scores disagree, readers mostly side with semCER</h3>
+        <p>We gave readers two transcriptions of the same line that <b class="c-cer">CER</b> and <b class="c-sem">semCER</b> ranked in opposite order, and let them pick the better one.</p>
+        <p>In English and Chinese, <b class="c-sem">semCER</b> matched their pick more often than <b class="c-cer">CER</b> did, even after CER ignores case, spacing and punctuation. In Vietnamese, the two tied.</p>
+      </div>
+      <div class="split-fig">
+        <div class="agree" id="agree" aria-label="How often each score picked the readers' choice">
+          <p class="chart-q">How often each score picked the transcription readers preferred</p>
+          <div class="agree-legend" aria-hidden="true"><span><i class="sw sw-sem"></i>semCER</span><span><i class="sw sw-cer"></i>CER (normalized)</span></div>
+        </div>
+      </div>
+    </article>
+
+    <article class="split" id="r3">
+      <div class="split-text">
+        <span class="fn">3</span>
+        <h3>An accent is cheap in Spanish and costly in Telugu</h3>
+        <p>In Spanish, a dropped accent like <i>más</i> &rarr; <i>mas</i> costs almost nothing. In Telugu or Kannada, a wrong mark costs almost as much as a wrong letter.</p>
+        <p><b class="c-cer">CER</b> charges 1 either way. <b class="c-sem">semCER</b> follows what the mark does in each language.</p>
+        
+      </div>
+      <div class="split-fig">
+        <div class="chart-card">
+          <p class="chart-q">How bad is a wrong accent, compared with a wrong letter?</p>
+          <p class="chart-sub">Mean cost of each kind of error per language, from the LLM judge</p>
+          <div class="ab ab-scale" aria-hidden="true"><span></span><span class="ab-axis"><span>barely matters</span><span></span><span>as bad as a wrong letter</span></span><span></span><span class="ab-exh">a real example</span></div>
+          <div class="acc" id="acc" role="list"></div>
+          <div class="acc-key" id="acc-key"></div>
+          <p class="acc-why">Why the spread? It follows what the marks do more than the type of script. A Spanish or French accent mostly decorates a letter. Vietnamese tone marks and the vowel signs of Hindi, Thai and Telugu change the word, so Vietnamese, an alphabet, sits next to Hindi.</p>
+        </div>
+      </div>
+    </article>
+
+    <article class="wide-block" id="r4">
+      <div class="wide-text">
+        <span class="fn">4</span>
+        <h3>Vision-language models make wrong words, not just typos</h3>
+        <p>A classic OCR engine&rsquo;s wrong letter usually makes a non-word that a spell checker would flag. A vision-language model&rsquo;s wrong letter makes a real word far more often, one that reads fine and slips through. <b class="c-sem">semCER</b> charges its letter errors more.</p>
+      </div>
+      <div class="vlm-pair">
+        <div class="chart-card">
+          <p class="chart-q"><span class="qn">A</span>VLMs turn far more of their wrong letters into real words</p>
+          <p class="chart-sub">Share of wrong letters that form a real word</p>
+          <svg id="vlm-a" class="vlm" role="img" aria-label="For each of seven languages, the share of wrong letters that form a real word rises from classic OCR to a general vision-language model."></svg>
+        </div>
+        <div class="chart-card">
+          <p class="chart-q"><span class="qn">B</span>Their letter errors cost more, everywhere but Spanish</p>
+          <p class="chart-sub">Mean cost of letter errors, 0 to 1, from the LLM judge</p>
+          <svg id="vlm-b" class="vlm" role="img" aria-label="For each of seven languages, the cost of those letter errors rises from classic OCR to a general vision-language model, except in Spanish."></svg>
+        </div>
+      </div>
+      <div class="vlm-foot">
+        <div class="keys"><span class="key static"><i class="shape square" style="--c:var(--cer)"></i>classic OCR</span><span class="key static"><i class="shape circle" style="--c:var(--accent)"></i>general VLM</span></div>
+        <div class="readout" id="vlm-readout" aria-live="polite"></div>
+      </div>
+    </article>
+  </div>
+</section>
+
+<!-- 4. Use -->
+<section class="hero is-dark" id="use">
+  <div class="container">
+    <p class="kicker light">Use it</p>
+    <h2 class="title is-3 light">Runs on your laptop</h2>
+    <ul class="uses">
+      <li><b>Review OCR output.</b> Check the costly errors first.</li>
+      <li><b>Compare systems.</b> Break ties that CER calls even.</li>
+      <li><b>Inspect a line.</b> Every error comes back with its cost.</li>
+    </ul>
+    <div class="stats">
+      <div class="stat"><span class="stat-n" data-count="0.8" data-dec="1" data-suffix="B">0.8B</span><span class="stat-l">parameter open model</span></div>
+      <div class="stat"><span class="stat-n" data-count="16">16</span><span class="stat-l">languages</span></div>
+      <div class="stat"><span class="stat-n">9 in 10</span><span class="stat-l">clear pairs of errors ranked as the LLM judge ranks them</span></div>
+    </div>
+    <div class="code-out">
+      <div>
+        <p class="code-lbl">Code</p>
+<pre class="shell"><button class="copy" type="button">Copy</button><code>pip install semcer</code></pre>
+<pre><button class="copy" type="button">Copy</button><code>import semcer
+
+result = semcer.score(
+    reference="The total is 15 dollars.",
+    hypothesis="The total is 75 dollars.",
+)
+print(result.explain())</code></pre>
+      </div>
+      <div>
+        <p class="code-lbl">Output</p>
+<pre class="output"><code>semcer=0.0414  CER=0.0417  (1 edit(s) over 24 reference graphemes; lower is better)
+  SUB ref[13:14] '1' -> '7'  severity 0.99 (meaning lost)</code></pre>
+        <p class="out-note">One wrong digit. <b class="c-cer">CER</b> sees one error in 24 characters. <b class="c-sem">semCER</b> sees that the price changed.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- BibTeX -->
+<section class="section" id="BibTeX">
+  <div class="container">
+    <h2 class="title">BibTeX</h2>
+<pre class="bibtex"><button class="copy" type="button">Copy</button><code>@misc{nguyen2026equalcer,
+  title={Equal CER, Unequal Damage: Severity-Weighted Character Error Rate for OCR},
+  author={Nguyen Nguyen and Yongyi Zang},
+  year={2026},
+  eprint={2610.20461},
+  archivePrefix={arXiv},
+  primaryClass={cs.CL},
+  url={https://arxiv.org/abs/2610.20461},
+}</code></pre>
+  </div>
+</section>
+
+<footer class="footer">
+  <p>Nguyen Nguyen and Yongyi Zang · <a href="https://arxiv.org/abs/2610.20461">arXiv:2610.20461</a> · Layout after the <a href="https://nerfies.github.io/">Nerfies</a> project page · Charts by <a href="https://github.com/leeoniya/uPlot">uPlot</a></p>
+</footer>
+
+</body>
+</html>

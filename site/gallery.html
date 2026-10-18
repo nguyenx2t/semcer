@@ -1,0 +1,49 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Same CER, different damage · semCER</title>
+  <meta name="description" content="Real OCR and VLM transcriptions that tie on CER but not on damage, scored by the released semCER scorer.">
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="Same CER, different damage · semCER">
+  <meta property="og:image" content="https://nguyenx2t.github.io/semcer/static/img/social.png">
+  <meta name="twitter:card" content="summary_large_image">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="preload" href="https://fonts.googleapis.com/css2?family=Google+Sans:wght@400;500;700&family=Noto+Sans+Mono:wght@400;500&family=Noto+Nastaliq+Urdu&display=swap" as="style" onload="this.onload=null;this.rel='stylesheet'">
+  <noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Google+Sans:wght@400;500;700&family=Noto+Sans+Mono:wght@400;500&family=Noto+Nastaliq+Urdu&display=swap"></noscript>
+  <link rel="icon" href="static/img/favicon.svg">
+  <link rel="stylesheet" href="static/css/style.css">
+</head>
+<body>
+
+<section class="hero small">
+  <div class="container">
+    <p class="crumb"><a href="index.html#play">← semCER project page</a></p>
+    <h1 class="publication-title">Same CER, different damage</h1>
+    <p class="section-intro">Each card shows two real systems that made the same number of errors on the same line, so their CER is identical. semCER tells them apart. Hover or tap an error to see what it costs.</p>
+  </div>
+</section>
+
+<section class="section tight" id="gallery">
+  <div class="container">
+    <div class="gallery-bar">
+      <div class="chips" id="filters" role="group" aria-label="Filter by language"></div>
+      <label class="switch"><input type="checkbox" id="cer-view"><span></span>See it as CER does</label>
+    </div>
+    <div class="scale" aria-hidden="true"><span>harmless</span><span class="ramp"></span><span>meaning lost</span></div>
+    <div class="cards" id="cards"></div>
+    <p class="fine">Turn on “See it as CER does” and every error looks the same. Scores come from the released scorer (semcer 0.1.5, fp32), so <code>pip install semcer</code> gives the same numbers. Lines come from the sources in our <a href="https://huggingface.co/datasets/nguyenx2t/semcer-judged-edits">dataset</a> whose licenses allow redistribution; each card names its source and license.</p>
+  </div>
+</section>
+
+<footer class="footer">
+  <div class="container">
+    <p><a href="index.html">semCER</a> · Nguyen Nguyen and Yongyi Zang · <a href="https://arxiv.org/abs/2610.20461">arXiv:2610.20461</a> · <a href="https://github.com/nguyenx2t/semcer">GitHub</a></p>
+  </div>
+</footer>
+
+<script src="static/js/main.js"></script>
+</body>
+</html>

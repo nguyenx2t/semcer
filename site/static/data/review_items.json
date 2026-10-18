@@ -1,0 +1,1779 @@
+{
+"en": [
+{
+"ref": "strategically",
+"hyp": "strategicallv",
+"readers": 0.2,
+"severity": 0.252,
+"cer": 0.01333
+},
+{
+"ref": "tired",
+"hyp": "tired,",
+"readers": 0.0,
+"severity": 0.0,
+"cer": 0.01538
+},
+{
+"ref": "canteen .",
+"hyp": "canteen.",
+"readers": 0.0,
+"severity": 0.0,
+"cer": 0.01587
+},
+{
+"ref": "clothes",
+"hyp": "clothes,",
+"readers": 0.0,
+"severity": 0.0,
+"cer": 0.01587
+},
+{
+"ref": "any thing",
+"hyp": "anything",
+"readers": 0.0,
+"severity": 0.007,
+"cer": 0.01695
+},
+{
+"ref": "brother-in-law ,",
+"hyp": "brother-in-law,",
+"readers": 0.0,
+"severity": 0.004,
+"cer": 0.01818
+},
+{
+"ref": "mother's,",
+"hyp": "mother's",
+"readers": 0.0,
+"severity": 0.068,
+"cer": 0.02041
+},
+{
+"ref": "but,",
+"hyp": "but",
+"readers": 0.0,
+"severity": 0.0,
+"cer": 0.02041
+},
+{
+"ref": "must",
+"hyp": " must",
+"readers": 0.0,
+"severity": 0.0,
+"cer": 0.02083
+},
+{
+"ref": "still ,",
+"hyp": "still,",
+"readers": 0.0,
+"severity": 0.002,
+"cer": 0.02222
+},
+{
+"ref": "\"We",
+"hyp": "\" We",
+"readers": 0.0,
+"severity": 0.0,
+"cer": 0.02222
+},
+{
+"ref": "summerhouse",
+"hyp": "summer-house",
+"readers": 0.1,
+"severity": 0.0,
+"cer": 0.02222
+},
+{
+"ref": "\" in",
+"hyp": "\"in",
+"readers": 0.0,
+"severity": 0.001,
+"cer": 0.02273
+},
+{
+"ref": "cab horse",
+"hyp": "cab-horse",
+"readers": 0.05,
+"severity": 0.0,
+"cer": 0.02273
+},
+{
+"ref": "slim ,",
+"hyp": "slim,",
+"readers": 0.05,
+"severity": 0.003,
+"cer": 0.02273
+},
+{
+"ref": "I 'm",
+"hyp": "I'm",
+"readers": 0.0,
+"severity": 0.0,
+"cer": 0.02326
+},
+{
+"ref": "situation .",
+"hyp": "situation.",
+"readers": 0.0,
+"severity": 0.002,
+"cer": 0.02381
+},
+{
+"ref": "ruling ,",
+"hyp": "ruling,",
+"readers": 0.0,
+"severity": 0.0,
+"cer": 0.02381
+},
+{
+"ref": "I",
+"hyp": "\"I",
+"readers": 0.1,
+"severity": 0.0,
+"cer": 0.02439
+},
+{
+"ref": "rifle ,",
+"hyp": "rifle,",
+"readers": 0.0,
+"severity": 0.003,
+"cer": 0.02439
+},
+{
+"ref": "Contract 6",
+"hyp": "Contract\n6",
+"readers": 0.0,
+"severity": 0.001,
+"cer": 0.02703
+},
+{
+"ref": "activity.The",
+"hyp": "activity. The",
+"readers": 0.0,
+"severity": 0.0,
+"cer": 0.02857
+},
+{
+"ref": "woman's .",
+"hyp": "woman's.",
+"readers": 0.05,
+"severity": 0.0,
+"cer": 0.02857
+},
+{
+"ref": "Envlronmental",
+"hyp": "Environmental",
+"readers": 0.3,
+"severity": 0.147,
+"cer": 0.02941
+},
+{
+"ref": "now ,",
+"hyp": "now,",
+"readers": 0.0,
+"severity": 0.0,
+"cer": 0.02941
+},
+{
+"ref": "well ,",
+"hyp": "well,",
+"readers": 0.0,
+"severity": 0.0,
+"cer": 0.0303
+},
+{
+"ref": "meanperiod",
+"hyp": "mean period",
+"readers": 0.0,
+"severity": 0.0,
+"cer": 0.03333
+},
+{
+"ref": "ambition .",
+"hyp": "ambition.",
+"readers": 0.0,
+"severity": 0.001,
+"cer": 0.03448
+},
+{
+"ref": "needed to",
+"hyp": "needed\nto",
+"readers": 0.0,
+"severity": 0.0,
+"cer": 0.03846
+},
+{
+"ref": "tradition .",
+"hyp": "tradition.",
+"readers": 0.0,
+"severity": 0.001,
+"cer": 0.04
+},
+{
+"ref": "1superceded",
+"hyp": "1nuperceded",
+"readers": 0.25,
+"severity": 0.605,
+"cer": 0.01471
+},
+{
+"ref": "vulgarest",
+"hyp": "vulgares",
+"readers": 0.2,
+"severity": 0.317,
+"cer": 0.01667
+},
+{
+"ref": "no",
+"hyp": "n",
+"readers": 0.25,
+"severity": 0.657,
+"cer": 0.01667
+},
+{
+"ref": "ecotoxico-",
+"hyp": "ecotoxic-",
+"readers": 0.2,
+"severity": 0.372,
+"cer": 0.01695
+},
+{
+"ref": "for",
+"hyp": "fo",
+"readers": 0.25,
+"severity": 0.535,
+"cer": 0.01818
+},
+{
+"ref": "then",
+"hyp": "them",
+"readers": 0.5,
+"severity": 0.641,
+"cer": 0.01818
+},
+{
+"ref": "with",
+"hyp": "wit",
+"readers": 0.25,
+"severity": 0.419,
+"cer": 0.01887
+},
+{
+"ref": "later",
+"hyp": "late",
+"readers": 0.5,
+"severity": 0.438,
+"cer": 0.01923
+},
+{
+"ref": "his",
+"hyp": "this",
+"readers": 1.0,
+"severity": 0.595,
+"cer": 0.02041
+},
+{
+"ref": "plenitude",
+"hyp": "plentitude",
+"readers": 0.15,
+"severity": 0.336,
+"cer": 0.02041
+},
+{
+"ref": "body",
+"hyp": "boldy",
+"readers": 0.4,
+"severity": 0.343,
+"cer": 0.02174
+},
+{
+"ref": "well-nigh",
+"hyp": "well-high",
+"readers": 0.55,
+"severity": 0.607,
+"cer": 0.02222
+},
+{
+"ref": "disadvantage",
+"hyp": "disadvantages",
+"readers": 0.7,
+"severity": 0.53,
+"cer": 0.02222
+},
+{
+"ref": "the",
+"hyp": "th",
+"readers": 0.25,
+"severity": 0.381,
+"cer": 0.02381
+},
+{
+"ref": "withoul",
+"hyp": "without",
+"readers": 0.25,
+"severity": 0.523,
+"cer": 0.02381
+},
+{
+"ref": "equall",
+"hyp": "equal",
+"readers": 0.35,
+"severity": 0.336,
+"cer": 0.02439
+},
+{
+"ref": "spite",
+"hyp": "spike",
+"readers": 0.55,
+"severity": 0.336,
+"cer": 0.02439
+},
+{
+"ref": "willdfires",
+"hyp": "wildfires",
+"readers": 0.2,
+"severity": 0.371,
+"cer": 0.02439
+},
+{
+"ref": "hirstifi",
+"hyp": "hirstii",
+"readers": 0.65,
+"severity": 0.654,
+"cer": 0.02439
+},
+{
+"ref": "vears",
+"hyp": "years",
+"readers": 0.2,
+"severity": 0.314,
+"cer": 0.025
+},
+{
+"ref": "al",
+"hyp": "at",
+"readers": 0.3,
+"severity": 0.426,
+"cer": 0.025
+},
+{
+"ref": "crochet",
+"hyp": "crocket",
+"readers": 0.55,
+"severity": 0.326,
+"cer": 0.02703
+},
+{
+"ref": "Realtv",
+"hyp": "Realty",
+"readers": 0.25,
+"severity": 0.643,
+"cer": 0.02857
+},
+{
+"ref": "hirstif",
+"hyp": "hirstii",
+"readers": 0.85,
+"severity": 0.515,
+"cer": 0.02941
+},
+{
+"ref": "ever",
+"hyp": "never",
+"readers": 0.7,
+"severity": 0.659,
+"cer": 0.02941
+},
+{
+"ref": "chair",
+"hyp": "hair",
+"readers": 0.75,
+"severity": 0.346,
+"cer": 0.04348
+},
+{
+"ref": "EXPLANATION/RESPONSE:",
+"hyp": "EXPLANATION/RESPONSE",
+"readers": 0.0,
+"severity": 0.374,
+"cer": 0.04762
+},
+{
+"ref": "OV8F",
+"hyp": "0V8F",
+"readers": 0.85,
+"severity": 0.896,
+"cer": 0.01408
+},
+{
+"ref": "had",
+"hyp": "has",
+"readers": 0.65,
+"severity": 0.976,
+"cer": 0.01587
+},
+{
+"ref": "him",
+"hyp": "his",
+"readers": 0.4,
+"severity": 0.832,
+"cer": 0.01639
+},
+{
+"ref": "Poldoody",
+"hyp": "Poldooody",
+"readers": 0.6,
+"severity": 0.718,
+"cer": 0.01724
+},
+{
+"ref": "ruth",
+"hyp": "truth",
+"readers": 0.55,
+"severity": 0.979,
+"cer": 0.01786
+},
+{
+"ref": "1-transistor/l-capacitor",
+"hyp": "1-transistor/1-capacitor",
+"readers": 0.7,
+"severity": 0.939,
+"cer": 0.01887
+},
+{
+"ref": ";",
+"hyp": "i",
+"readers": 0.25,
+"severity": 0.715,
+"cer": 0.02222
+},
+{
+"ref": "1",
+"hyp": "I",
+"readers": 0.5,
+"severity": 0.86,
+"cer": 0.02222
+},
+{
+"ref": "Home",
+"hyp": "Homo",
+"readers": 0.6,
+"severity": 0.709,
+"cer": 0.02222
+},
+{
+"ref": "far",
+"hyp": "for",
+"readers": 0.55,
+"severity": 0.96,
+"cer": 0.02273
+},
+{
+"ref": "projects",
+"hyp": "project",
+"readers": 0.75,
+"severity": 0.712,
+"cer": 0.02326
+},
+{
+"ref": "your",
+"hyp": "you",
+"readers": 0.3,
+"severity": 0.743,
+"cer": 0.02381
+},
+{
+"ref": "www.sciencedirect.com",
+"hyp": "wwwsciencedirect.com",
+"readers": 0.25,
+"severity": 0.75,
+"cer": 0.02439
+},
+{
+"ref": "France",
+"hyp": "trance",
+"readers": 0.65,
+"severity": 0.891,
+"cer": 0.025
+},
+{
+"ref": "al",
+"hyp": "at",
+"readers": 0.45,
+"severity": 0.769,
+"cer": 0.02564
+},
+{
+"ref": "Aet's",
+"hyp": "Act's",
+"readers": 0.4,
+"severity": 0.89,
+"cer": 0.02564
+},
+{
+"ref": "15,695",
+"hyp": "15,655",
+"readers": 1.0,
+"severity": 0.998,
+"cer": 0.02564
+},
+{
+"ref": "Gilberto",
+"hyp": "Gilbert",
+"readers": 0.4,
+"severity": 0.921,
+"cer": 0.02564
+},
+{
+"ref": "Heferelmis",
+"hyp": "Heterelmis",
+"readers": 0.55,
+"severity": 0.923,
+"cer": 0.02703
+},
+{
+"ref": "threals",
+"hyp": "threats",
+"readers": 0.45,
+"severity": 0.895,
+"cer": 0.02703
+},
+{
+"ref": "\"",
+"hyp": "a",
+"readers": 0.6,
+"severity": 0.918,
+"cer": 0.02778
+},
+{
+"ref": "customer",
+"hyp": "customers",
+"readers": 0.5,
+"severity": 0.715,
+"cer": 0.02778
+},
+{
+"ref": "BLA's",
+"hyp": "BIA's",
+"readers": 0.95,
+"severity": 0.998,
+"cer": 0.02857
+},
+{
+"ref": "calcher/",
+"hyp": "catcher/",
+"readers": 0.4,
+"severity": 0.834,
+"cer": 0.02941
+},
+{
+"ref": "¶",
+"hyp": "9",
+"readers": 0.5,
+"severity": 0.882,
+"cer": 0.0303
+},
+{
+"ref": "six",
+"hyp": "2ix",
+"readers": 0.55,
+"severity": 0.805,
+"cer": 0.03125
+},
+{
+"ref": "AGFD",
+"hyp": "ACFD",
+"readers": 0.95,
+"severity": 0.966,
+"cer": 0.03125
+},
+{
+"ref": "pyrid-4-ylmethyl)-1,3,5-benze-",
+"hyp": "pyrid-4-ylmethyl)-1,3,5-benz-",
+"readers": 0.55,
+"severity": 0.763,
+"cer": 0.03226
+},
+{
+"ref": ".5",
+"hyp": "5",
+"readers": 0.6,
+"severity": 0.983,
+"cer": 0.03704
+},
+{
+"ref": "?",
+"hyp": "2",
+"readers": 0.4,
+"severity": 0.967,
+"cer": 0.04762
+}
+],
+"vi": [
+{
+"ref": "đông,",
+"hyp": "đông",
+"readers": 0.0,
+"severity": 0.0,
+"cer": 0.00225
+},
+{
+"ref": "quí",
+"hyp": "quý",
+"readers": 0.188,
+"severity": 0.0,
+"cer": 0.00307
+},
+{
+"ref": "dùng",
+"hyp": "dung",
+"readers": 0.312,
+"severity": 0.22,
+"cer": 0.00313
+},
+{
+"ref": "tỉnh",
+"hyp": "tình",
+"readers": 0.562,
+"severity": 0.191,
+"cer": 0.00546
+},
+{
+"ref": "thục",
+"hyp": "thực",
+"readers": 0.5,
+"severity": 0.171,
+"cer": 0.00559
+},
+{
+"ref": "-",
+"hyp": "—",
+"readers": 0.0,
+"severity": 0.0,
+"cer": 0.0069
+},
+{
+"ref": "-",
+"hyp": "—",
+"readers": 0.0,
+"severity": 0.0,
+"cer": 0.00709
+},
+{
+"ref": "Ánh",
+"hyp": "Anh",
+"readers": 1.0,
+"severity": 0.08,
+"cer": 0.00735
+},
+{
+"ref": "Nhạc-phủ, cho",
+"hyp": "Nhạc-phủ,\ncho",
+"readers": 0.0,
+"severity": 0.001,
+"cer": 0.00775
+},
+{
+"ref": "thằng",
+"hyp": "thẳng",
+"readers": 0.375,
+"severity": 0.248,
+"cer": 0.008
+},
+{
+"ref": "bảo:",
+"hyp": "bảo :",
+"readers": 0.0,
+"severity": 0.0,
+"cer": 0.01031
+},
+{
+"ref": "Hoài-Thanh",
+"hyp": "Hoài Thanh",
+"readers": 0.25,
+"severity": 0.016,
+"cer": 0.01053
+},
+{
+"ref": "Một thẻ",
+"hyp": "Một\nthẻ",
+"readers": 0.0,
+"severity": 0.001,
+"cer": 0.01099
+},
+{
+"ref": "-",
+"hyp": "–",
+"readers": 0.0,
+"severity": 0.0,
+"cer": 0.01149
+},
+{
+"ref": "Chăm",
+"hyp": "Chàm",
+"readers": 0.438,
+"severity": 0.073,
+"cer": 0.01282
+},
+{
+"ref": "trai, Con",
+"hyp": "trai,\nCon",
+"readers": 0.0,
+"severity": 0.0,
+"cer": 0.01667
+},
+{
+"ref": "no, Kẻ",
+"hyp": "no,\nKẻ",
+"readers": 0.0,
+"severity": 0.0,
+"cer": 0.01695
+},
+{
+"ref": "-",
+"hyp": "—",
+"readers": 0.0,
+"severity": 0.0,
+"cer": 0.01887
+},
+{
+"ref": "tín",
+"hyp": "tin",
+"readers": 0.375,
+"severity": 0.3,
+"cer": 0.02041
+},
+{
+"ref": "On",
+"hyp": "Ơn",
+"readers": 1.0,
+"severity": 0.011,
+"cer": 0.02326
+},
+{
+"ref": "tự",
+"hyp": "tụ",
+"readers": 0.375,
+"severity": 0.277,
+"cer": 0.02439
+},
+{
+"ref": "Nghĩa",
+"hyp": "Nghia",
+"readers": 0.25,
+"severity": 0.001,
+"cer": 0.02778
+},
+{
+"ref": "duyên,",
+"hyp": "duyên",
+"readers": 0.0,
+"severity": 0.0,
+"cer": 0.03226
+},
+{
+"ref": "MÌ ĐẠI",
+"hyp": "MÌ\nĐẠI",
+"readers": 0.0,
+"severity": 0.004,
+"cer": 0.03226
+},
+{
+"ref": "TUYỂN",
+"hyp": "TUYÈN",
+"readers": 0.312,
+"severity": 0.09,
+"cer": 0.03448
+},
+{
+"ref": "kém :",
+"hyp": "kém:",
+"readers": 0.0,
+"severity": 0.0,
+"cer": 0.04167
+},
+{
+"ref": "tiếp:",
+"hyp": "tiếp :",
+"readers": 0.0,
+"severity": 0.001,
+"cer": 0.04348
+},
+{
+"ref": "nào ?",
+"hyp": "nào?",
+"readers": 0.0,
+"severity": 0.0,
+"cer": 0.04762
+},
+{
+"ref": "dẫn",
+"hyp": "dân",
+"readers": 0.312,
+"severity": 0.327,
+"cer": 0.00426
+},
+{
+"ref": "cớ",
+"hyp": "có",
+"readers": 0.375,
+"severity": 0.562,
+"cer": 0.00431
+},
+{
+"ref": "giồi",
+"hyp": "giỏi",
+"readers": 0.75,
+"severity": 0.311,
+"cer": 0.00758
+},
+{
+"ref": "đấng",
+"hyp": "đáng",
+"readers": 0.375,
+"severity": 0.542,
+"cer": 0.00781
+},
+{
+"ref": "xuôi",
+"hyp": "xuối",
+"readers": 0.25,
+"severity": 0.312,
+"cer": 0.0084
+},
+{
+"ref": "cái",
+"hyp": "cơi",
+"readers": 0.25,
+"severity": 0.575,
+"cer": 0.00909
+},
+{
+"ref": "kẻ",
+"hyp": "kể",
+"readers": 0.5,
+"severity": 0.46,
+"cer": 0.01136
+},
+{
+"ref": "đòi",
+"hyp": "đời",
+"readers": 0.5,
+"severity": 0.439,
+"cer": 0.01149
+},
+{
+"ref": "thôi",
+"hyp": "thôn",
+"readers": 0.688,
+"severity": 0.42,
+"cer": 0.01205
+},
+{
+"ref": "Trưng-vương",
+"hyp": "Trung-vương",
+"readers": 1.0,
+"severity": 0.518,
+"cer": 0.01235
+},
+{
+"ref": "trên",
+"hyp": "tròn",
+"readers": 1.0,
+"severity": 0.678,
+"cer": 0.0125
+},
+{
+"ref": "tín",
+"hyp": "tin",
+"readers": 0.688,
+"severity": 0.325,
+"cer": 0.01282
+},
+{
+"ref": "đẩy",
+"hyp": "đầy",
+"readers": 0.688,
+"severity": 0.342,
+"cer": 0.01351
+},
+{
+"ref": "NVƠNN",
+"hyp": "NVNN",
+"readers": 0.812,
+"severity": 0.403,
+"cer": 0.0137
+},
+{
+"ref": "mối",
+"hyp": "mồi",
+"readers": 0.625,
+"severity": 0.349,
+"cer": 0.01389
+},
+{
+"ref": "đã",
+"hyp": "đở",
+"readers": 0.438,
+"severity": 0.432,
+"cer": 0.01408
+},
+{
+"ref": "cữu",
+"hyp": "cửu",
+"readers": 0.375,
+"severity": 0.468,
+"cer": 0.01515
+},
+{
+"ref": "quân-tử",
+"hyp": "quần-tử",
+"readers": 0.438,
+"severity": 0.373,
+"cer": 0.01639
+},
+{
+"ref": "đàn",
+"hyp": "đón",
+"readers": 0.875,
+"severity": 0.552,
+"cer": 0.01667
+},
+{
+"ref": "mặt",
+"hyp": "một",
+"readers": 0.625,
+"severity": 0.483,
+"cer": 0.02174
+},
+{
+"ref": "mắt",
+"hyp": "mất",
+"readers": 0.812,
+"severity": 0.691,
+"cer": 0.02564
+},
+{
+"ref": "đứng",
+"hyp": "đừng",
+"readers": 0.75,
+"severity": 0.377,
+"cer": 0.02703
+},
+{
+"ref": "Hàn",
+"hyp": "Hán",
+"readers": 1.0,
+"severity": 0.332,
+"cer": 0.02778
+},
+{
+"ref": "vũ-sĩ",
+"hyp": "vú-sĩ",
+"readers": 0.5,
+"severity": 0.313,
+"cer": 0.02778
+},
+{
+"ref": "hố",
+"hyp": "hồ",
+"readers": 0.875,
+"severity": 0.336,
+"cer": 0.03125
+},
+{
+"ref": "TIỀN-CHIẾN",
+"hyp": "TIÊN-CHIẾN",
+"readers": 0.875,
+"severity": 0.482,
+"cer": 0.03571
+},
+{
+"ref": "coi",
+"hyp": "cai",
+"readers": 0.562,
+"severity": 0.788,
+"cer": 0.00261
+},
+{
+"ref": "Ả",
+"hyp": "Á",
+"readers": 0.312,
+"severity": 0.8,
+"cer": 0.00385
+},
+{
+"ref": "khởi",
+"hyp": "khối",
+"readers": 0.375,
+"severity": 0.87,
+"cer": 0.00481
+},
+{
+"ref": "Nghi-Dân",
+"hyp": "Nghi-Dận",
+"readers": 0.688,
+"severity": 0.847,
+"cer": 0.00485
+},
+{
+"ref": "Tấm",
+"hyp": "Tám",
+"readers": 1.0,
+"severity": 0.873,
+"cer": 0.00498
+},
+{
+"ref": "và",
+"hyp": "mà",
+"readers": 0.812,
+"severity": 0.773,
+"cer": 0.00725
+},
+{
+"ref": "búa",
+"hyp": "bừa",
+"readers": 0.75,
+"severity": 0.823,
+"cer": 0.00758
+},
+{
+"ref": "Chàng",
+"hyp": "Chẳng",
+"readers": 0.875,
+"severity": 0.764,
+"cer": 0.00971
+},
+{
+"ref": "quân",
+"hyp": "quận",
+"readers": 0.438,
+"severity": 0.887,
+"cer": 0.00971
+},
+{
+"ref": "Hưng-nguyện",
+"hyp": "Hưng-nguyên",
+"readers": 0.75,
+"severity": 0.936,
+"cer": 0.0101
+},
+{
+"ref": "chánh",
+"hyp": "chính",
+"readers": 0.438,
+"severity": 0.848,
+"cer": 0.01124
+},
+{
+"ref": "4a",
+"hyp": "34a",
+"readers": 0.812,
+"severity": 0.996,
+"cer": 0.01205
+},
+{
+"ref": "phố",
+"hyp": "phở",
+"readers": 0.625,
+"severity": 0.774,
+"cer": 0.01282
+},
+{
+"ref": "Từ",
+"hyp": "Tự",
+"readers": 0.875,
+"severity": 0.766,
+"cer": 0.0137
+},
+{
+"ref": "Bitocimex",
+"hyp": "Bitacimex",
+"readers": 1.0,
+"severity": 0.99,
+"cer": 0.0137
+},
+{
+"ref": "vũ",
+"hyp": "về",
+"readers": 0.938,
+"severity": 0.881,
+"cer": 0.01515
+},
+{
+"ref": "lập",
+"hyp": "tập",
+"readers": 0.75,
+"severity": 0.756,
+"cer": 0.01515
+},
+{
+"ref": "cất",
+"hyp": "rất",
+"readers": 0.375,
+"severity": 0.716,
+"cer": 0.01587
+},
+{
+"ref": "đã",
+"hyp": "đó",
+"readers": 0.812,
+"severity": 0.929,
+"cer": 0.01587
+},
+{
+"ref": "quẻ",
+"hyp": "quê",
+"readers": 0.625,
+"severity": 0.815,
+"cer": 0.01667
+},
+{
+"ref": "quẻ",
+"hyp": "quê",
+"readers": 0.562,
+"severity": 0.815,
+"cer": 0.01667
+},
+{
+"ref": "nói",
+"hyp": "nó",
+"readers": 0.75,
+"severity": 0.728,
+"cer": 0.01724
+},
+{
+"ref": "TIỀN-CHIẾN",
+"hyp": "TIẾN-CHIẾN",
+"readers": 0.875,
+"severity": 0.913,
+"cer": 0.03571
+},
+{
+"ref": "tấm",
+"hyp": "tám",
+"readers": 0.75,
+"severity": 0.737,
+"cer": 0.03846
+},
+{
+"ref": "ơi",
+"hyp": "đi",
+"readers": 1.0,
+"severity": 0.831,
+"cer": 0.04762
+},
+{
+"ref": "LÊ",
+"hyp": "LỆ",
+"readers": 0.875,
+"severity": 0.891,
+"cer": 0.05
+}
+],
+"zh": [
+{
+"ref": "在5",
+"hyp": "在 5",
+"readers": 0.05,
+"severity": 0.0,
+"cer": 0.02632
+},
+{
+"ref": "日至",
+"hyp": "日 至",
+"readers": 0.0,
+"severity": 0.0,
+"cer": 0.02857
+},
+{
+"ref": ".W",
+"hyp": ". W",
+"readers": 0.0,
+"severity": 0.0,
+"cer": 0.0303
+},
+{
+"ref": "年江",
+"hyp": "年,江",
+"readers": 0.0,
+"severity": 0.007,
+"cer": 0.03125
+},
+{
+"ref": "限,",
+"hyp": "限",
+"readers": 0.0,
+"severity": 0.002,
+"cer": 0.03226
+},
+{
+"ref": "新现",
+"hyp": "新\"现",
+"readers": 0.0,
+"severity": 0.074,
+"cer": 0.03333
+},
+{
+"ref": ". 阅",
+"hyp": ".阅",
+"readers": 0.05,
+"severity": 0.0,
+"cer": 0.03571
+},
+{
+"ref": "立了其",
+"hyp": "立其",
+"readers": 0.3,
+"severity": 0.057,
+"cer": 0.03704
+},
+{
+"ref": "区,",
+"hyp": "区",
+"readers": 0.05,
+"severity": 0.001,
+"cer": 0.03846
+},
+{
+"ref": "蛙、",
+"hyp": "蛙类、",
+"readers": 0.35,
+"severity": 0.077,
+"cer": 0.04
+},
+{
+"ref": "场。同",
+"hyp": "场,同",
+"readers": 0.0,
+"severity": 0.0,
+"cer": 0.04
+},
+{
+"ref": "背影下",
+"hyp": "背景下",
+"readers": 0.5,
+"severity": 0.25,
+"cer": 0.04167
+},
+{
+"ref": "上、沟",
+"hyp": "上,沟",
+"readers": 0.0,
+"severity": 0.0,
+"cer": 0.04167
+},
+{
+"ref": "—清",
+"hyp": "——清",
+"readers": 0.2,
+"severity": 0.002,
+"cer": 0.04167
+},
+{
+"ref": "同 ,",
+"hyp": "同,",
+"readers": 0.0,
+"severity": 0.003,
+"cer": 0.04348
+},
+{
+"ref": "斯.韦",
+"hyp": "斯·韦",
+"readers": 0.0,
+"severity": 0.0,
+"cer": 0.04348
+},
+{
+"ref": ",请",
+"hyp": ", 请",
+"readers": 0.0,
+"severity": 0.0,
+"cer": 0.04545
+},
+{
+"ref": "局,中",
+"hyp": "局、中",
+"readers": 0.0,
+"severity": 0.001,
+"cer": 0.04545
+},
+{
+"ref": "出",
+"hyp": "出来",
+"readers": 0.6,
+"severity": 0.277,
+"cer": 0.04545
+},
+{
+"ref": "素,识",
+"hyp": "素、识",
+"readers": 0.0,
+"severity": 0.002,
+"cer": 0.04545
+},
+{
+"ref": "日投",
+"hyp": "日,投",
+"readers": 0.0,
+"severity": 0.001,
+"cer": 0.04762
+},
+{
+"ref": ". 飞",
+"hyp": ".飞",
+"readers": 0.0,
+"severity": 0.0,
+"cer": 0.04762
+},
+{
+"ref": "家出",
+"hyp": "家、出",
+"readers": 0.05,
+"severity": 0.021,
+"cer": 0.04762
+},
+{
+"ref": "度,",
+"hyp": "度",
+"readers": 0.0,
+"severity": 0.001,
+"cer": 0.05
+},
+{
+"ref": "由、破",
+"hyp": "由,破",
+"readers": 0.0,
+"severity": 0.0,
+"cer": 0.05
+},
+{
+"ref": "0多",
+"hyp": "0 多",
+"readers": 0.0,
+"severity": 0.0,
+"cer": 0.05
+},
+{
+"ref": "暮 何",
+"hyp": "暮闻何",
+"readers": 0.5,
+"severity": 0.681,
+"cer": 0.02439
+},
+{
+"ref": "深的大",
+"hyp": "深心大",
+"readers": 0.55,
+"severity": 0.548,
+"cer": 0.02564
+},
+{
+"ref": "馆门前",
+"hyp": "馆之前",
+"readers": 0.55,
+"severity": 0.615,
+"cer": 0.02703
+},
+{
+"ref": "的长篇",
+"hyp": "的大篇",
+"readers": 0.6,
+"severity": 0.505,
+"cer": 0.0303
+},
+{
+"ref": "克它乌",
+"hyp": "克乌",
+"readers": 0.4,
+"severity": 0.617,
+"cer": 0.0303
+},
+{
+"ref": "个可怪",
+"hyp": "个奇怪",
+"readers": 0.55,
+"severity": 0.486,
+"cer": 0.0303
+},
+{
+"ref": "治",
+"hyp": "理治",
+"readers": 0.5,
+"severity": 0.66,
+"cer": 0.03125
+},
+{
+"ref": "风波。",
+"hyp": "风没。",
+"readers": 0.6,
+"severity": 0.636,
+"cer": 0.03226
+},
+{
+"ref": "把地们",
+"hyp": "把她们",
+"readers": 0.35,
+"severity": 0.369,
+"cer": 0.03333
+},
+{
+"ref": "草原黄",
+"hyp": "草黄",
+"readers": 0.25,
+"severity": 0.572,
+"cer": 0.03571
+},
+{
+"ref": "料袋、",
+"hyp": "料带、",
+"readers": 0.5,
+"severity": 0.668,
+"cer": 0.03704
+},
+{
+"ref": "的话题",
+"hyp": "的议题",
+"readers": 0.65,
+"severity": 0.646,
+"cer": 0.03704
+},
+{
+"ref": "督全",
+"hyp": "督促全",
+"readers": 0.35,
+"severity": 0.554,
+"cer": 0.03704
+},
+{
+"ref": "几 大",
+"hyp": "几个大",
+"readers": 0.25,
+"severity": 0.463,
+"cer": 0.03704
+},
+{
+"ref": "战、开",
+"hyp": "战。开",
+"readers": 0.05,
+"severity": 0.449,
+"cer": 0.04
+},
+{
+"ref": "聚中带",
+"hyp": "聚带",
+"readers": 0.4,
+"severity": 0.525,
+"cer": 0.04
+},
+{
+"ref": "的基",
+"hyp": "仍基",
+"readers": 0.55,
+"severity": 0.467,
+"cer": 0.04
+},
+{
+"ref": "直住河",
+"hyp": "直往河",
+"readers": 0.45,
+"severity": 0.508,
+"cer": 0.04167
+},
+{
+"ref": "臂部",
+"hyp": "臀部",
+"readers": 0.6,
+"severity": 0.681,
+"cer": 0.04167
+},
+{
+"ref": "有待天",
+"hyp": "有得天",
+"readers": 0.3,
+"severity": 0.453,
+"cer": 0.04167
+},
+{
+"ref": "有待天",
+"hyp": "有得天",
+"readers": 0.25,
+"severity": 0.453,
+"cer": 0.04167
+},
+{
+"ref": "组",
+"hyp": "组成",
+"readers": 0.65,
+"severity": 0.497,
+"cer": 0.04348
+},
+{
+"ref": "乐得嘴",
+"hyp": "乐的嘴",
+"readers": 0.3,
+"severity": 0.34,
+"cer": 0.04545
+},
+{
+"ref": "县,北",
+"hyp": "县、北",
+"readers": 0.0,
+"severity": 0.342,
+"cer": 0.04545
+},
+{
+"ref": "收入。",
+"hyp": "收人。",
+"readers": 0.35,
+"severity": 0.438,
+"cer": 0.04545
+},
+{
+"ref": "化程科",
+"hyp": "化科",
+"readers": 0.5,
+"severity": 0.61,
+"cer": 0.04545
+},
+{
+"ref": "免栽的",
+"hyp": "免犁的",
+"readers": 0.6,
+"severity": 0.654,
+"cer": 0.04545
+},
+{
+"ref": "移动视",
+"hyp": "移步视",
+"readers": 0.5,
+"severity": 0.51,
+"cer": 0.04762
+},
+{
+"ref": "发展",
+"hyp": "发发展",
+"readers": 0.3,
+"severity": 0.417,
+"cer": 0.04762
+},
+{
+"ref": "据向",
+"hyp": "握向",
+"readers": 0.7,
+"severity": 0.45,
+"cer": 0.04762
+},
+{
+"ref": "对持色",
+"hyp": "对特色",
+"readers": 0.2,
+"severity": 0.513,
+"cer": 0.05
+},
+{
+"ref": "和廊坊",
+"hyp": "和聊坊",
+"readers": 0.7,
+"severity": 0.977,
+"cer": 0.02083
+},
+{
+"ref": "析等先",
+"hyp": "析先",
+"readers": 0.35,
+"severity": 0.764,
+"cer": 0.03125
+},
+{
+"ref": "部读",
+"hyp": "部阅读",
+"readers": 0.3,
+"severity": 0.771,
+"cer": 0.03125
+},
+{
+"ref": "长邬毅",
+"hyp": "长邹毅",
+"readers": 0.65,
+"severity": 1.0,
+"cer": 0.03125
+},
+{
+"ref": "你饮寿",
+"hyp": "你的寿",
+"readers": 0.6,
+"severity": 0.752,
+"cer": 0.03125
+},
+{
+"ref": "下众",
+"hyp": "下久",
+"readers": 0.65,
+"severity": 0.906,
+"cer": 0.03125
+},
+{
+"ref": "一",
+"hyp": "一系",
+"readers": 0.65,
+"severity": 0.86,
+"cer": 0.03226
+},
+{
+"ref": "这圆",
+"hyp": "这图",
+"readers": 0.6,
+"severity": 0.935,
+"cer": 0.03333
+},
+{
+"ref": "低",
+"hyp": "所",
+"readers": 0.6,
+"severity": 0.762,
+"cer": 0.03448
+},
+{
+"ref": "客流",
+"hyp": "货流",
+"readers": 1.0,
+"severity": 0.999,
+"cer": 0.03448
+},
+{
+"ref": "4日报",
+"hyp": "4月报",
+"readers": 1.0,
+"severity": 0.986,
+"cer": 0.03448
+},
+{
+"ref": "身板",
+"hyp": "身材",
+"readers": 0.55,
+"severity": 0.919,
+"cer": 0.03571
+},
+{
+"ref": "俱杀",
+"hyp": "俱失",
+"readers": 0.65,
+"severity": 0.891,
+"cer": 0.03704
+},
+{
+"ref": "荡的名",
+"hyp": "荡百名",
+"readers": 0.6,
+"severity": 0.947,
+"cer": 0.03704
+},
+{
+"ref": "完养农",
+"hyp": "完善农",
+"readers": 0.3,
+"severity": 0.731,
+"cer": 0.03704
+},
+{
+"ref": "吃。柿",
+"hyp": "吃柿",
+"readers": 0.05,
+"severity": 0.775,
+"cer": 0.03846
+},
+{
+"ref": "长相洪",
+"hyp": "长祖洪",
+"readers": 0.75,
+"severity": 0.995,
+"cer": 0.04
+},
+{
+"ref": "围内",
+"hyp": "国内",
+"readers": 0.75,
+"severity": 0.849,
+"cer": 0.04
+},
+{
+"ref": "了考",
+"hyp": "3考",
+"readers": 0.65,
+"severity": 0.918,
+"cer": 0.04
+},
+{
+"ref": "村道路",
+"hyp": "村公路",
+"readers": 0.6,
+"severity": 0.916,
+"cer": 0.04167
+},
+{
+"ref": "草平",
+"hyp": "草畜平",
+"readers": 0.4,
+"severity": 0.888,
+"cer": 0.04167
+},
+{
+"ref": "花底滑",
+"hyp": "花府滑",
+"readers": 0.6,
+"severity": 0.855,
+"cer": 0.04167
+},
+{
+"ref": "先遗集",
+"hyp": "先进集",
+"readers": 0.45,
+"severity": 0.991,
+"cer": 0.04545
+},
+{
+"ref": "害行",
+"hyp": "害农行",
+"readers": 0.5,
+"severity": 0.951,
+"cer": 0.04762
+},
+{
+"ref": "东来",
+"hyp": "杀来",
+"readers": 0.75,
+"severity": 0.912,
+"cer": 0.04762
+},
+{
+"ref": "分时",
+"hyp": "分的",
+"readers": 0.6,
+"severity": 0.922,
+"cer": 0.04762
+},
+{
+"ref": "肉生产",
+"hyp": "肉牛产",
+"readers": 0.7,
+"severity": 0.995,
+"cer": 0.04762
+},
+{
+"ref": "较多。",
+"hyp": "较少。",
+"readers": 0.95,
+"severity": 1.0,
+"cer": 0.05
+},
+{
+"ref": "微农",
+"hyp": "徽农",
+"readers": 0.65,
+"severity": 0.904,
+"cer": 0.05
+}
+]
+}

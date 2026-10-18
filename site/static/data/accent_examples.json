@@ -1,0 +1,78 @@
+{
+ "de": {
+  "mark": {
+   "ref": "für",
+   "hyp": "fur",
+   "severity": 0.33
+  },
+  "letter": {
+   "ref": "der",
+   "hyp": "des",
+   "severity": 0.7
+  }
+ },
+ "en": {
+  "letter": {
+   "ref": "have",
+   "hyp": "wave",
+   "severity": 0.66
+  }
+ },
+ "es": {
+  "mark": {
+   "ref": "más",
+   "hyp": "mas",
+   "severity": 0.0
+  },
+  "letter": {
+   "ref": "una",
+   "hyp": "une",
+   "severity": 0.7
+  }
+ },
+ "fr": {
+  "mark": {
+   "ref": "était",
+   "hyp": "etait",
+   "severity": 0.24
+  },
+  "letter": {
+   "ref": "les",
+   "hyp": "des",
+   "severity": 0.6
+  }
+ },
+ "kn": {},
+ "pt": {
+  "mark": {
+   "ref": "não",
+   "hyp": "nao",
+   "severity": 0.25
+  },
+  "letter": {
+   "ref": "não",
+   "hyp": "são",
+   "severity": 0.84
+  }
+ },
+ "ru": {
+  "mark": {
+   "ref": "нёс",
+   "hyp": "нес",
+   "severity": 0.25
+  },
+  "letter": {
+   "ref": "стал",
+   "hyp": "став",
+   "severity": 0.7
+  }
+ },
+ "th": {},
+ "ur": {
+  "letter": {
+   "ref": "کوئی",
+   "hyp": "کونی",
+   "severity": 0.7
+  }
+ }
+}

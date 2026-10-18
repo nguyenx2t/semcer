@@ -4,8 +4,9 @@
 Nguyen Nguyen, Yongyi Zang
 
 [![Paper](https://img.shields.io/badge/arXiv-2610.20461-b31b1b)](https://arxiv.org/abs/2610.20461)
+[![Project page](https://img.shields.io/badge/project%20page-try%20it-2a62c4)](https://nguyenx2t.github.io/semcer/)
 [![Model](https://img.shields.io/badge/%F0%9F%A4%97%20Model-semcer--qwen3.5--0.8b-yellow)](https://huggingface.co/nguyenx2t/semcer-qwen3.5-0.8b)
-[![Dataset](https://img.shields.io/badge/%F0%9F%A4%97%20Dataset-61M%20judged%20edits-yellow)](https://huggingface.co/datasets/nguyenx2t/semcer-judged-edits)
+[![Data](https://img.shields.io/badge/%F0%9F%A4%97-Data-yellow)](https://huggingface.co/datasets/nguyenx2t/semcer-judged-edits)
 [![Docs](https://img.shields.io/badge/docs-usage%20guide-blue)](https://github.com/nguyenx2t/semcer/blob/main/docs/USAGE.md)
 [![Open in Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/nguyenx2t/semcer/blob/main/notebooks/quickstart.ipynb)
 

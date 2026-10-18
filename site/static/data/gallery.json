@@ -1,0 +1,1691 @@
+{
+ "meta": {
+  "semcer": "0.1.5",
+  "model": "nguyenx2t/semcer-qwen3.5-0.8b",
+  "revision": "b612a672c2d3f4101a734e64f28370bd7d872f67",
+  "weights": "4a6b7fa5e2fa7154",
+  "precision": "fp32"
+ },
+ "items": [
+  {
+   "lang": "en",
+   "dataset": "retas_lines",
+   "license": "Public domain (US)",
+   "id": "retas_en_vanityfair1908thac_leaf0551_L003",
+   "reference": "subsequently Minister to that monarch. I declare I swell with",
+   "cer": 0.0328,
+   "outputs": [
+    {
+     "system": "easyocr",
+     "text": "subsequently Minister to that monarch:\nI declare I swell with",
+     "semcer": 0.0003,
+     "edits": [
+      {
+       "op": "SUB",
+       "ref": ".",
+       "hyp": ":",
+       "ref_span": [
+        37,
+        38
+       ],
+       "hyp_span": [
+        37,
+        38
+       ],
+       "severity": 0.012
+      },
+      {
+       "op": "SUB",
+       "ref": " ",
+       "hyp": "\n",
+       "ref_span": [
+        38,
+        39
+       ],
+       "hyp_span": [
+        38,
+        39
+       ],
+       "severity": 0.004
+      }
+     ]
+    },
+    {
+     "system": "internvl3_5-38b",
+     "text": "subsequently Minister to that门户 monarch. I declare I swell with",
+     "semcer": 0.0289,
+     "edits": [
+      {
+       "op": "INS",
+       "ref": null,
+       "hyp": "门",
+       "ref_span": [
+        29,
+        29
+       ],
+       "hyp_span": [
+        29,
+        30
+       ],
+       "severity": 0.86
+      },
+      {
+       "op": "INS",
+       "ref": null,
+       "hyp": "户",
+       "ref_span": [
+        29,
+        29
+       ],
+       "hyp_span": [
+        30,
+        31
+       ],
+       "severity": 0.905
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "lang": "en",
+   "dataset": "retas_lines",
+   "license": "Public domain (US)",
+   "id": "retas_en_olivertwist1907dick_leaf0035_L030",
+   "reference": "him a bachelor! There is no saying how many applicants",
+   "cer": 0.037,
+   "outputs": [
+    {
+     "system": "gemma-4-26b-a4b-it",
+     "text": "im a bachelor ! There is no saying how many applicants",
+     "semcer": 0.0054,
+     "edits": [
+      {
+       "op": "DEL",
+       "ref": "h",
+       "hyp": null,
+       "ref_span": [
+        0,
+        1
+       ],
+       "hyp_span": [
+        0,
+        0
+       ],
+       "severity": 0.29
+      },
+      {
+       "op": "INS",
+       "ref": null,
+       "hyp": " ",
+       "ref_span": [
+        14,
+        14
+       ],
+       "hyp_span": [
+        13,
+        14
+       ],
+       "severity": 0.0
+      }
+     ]
+    },
+    {
+     "system": "internvl3_5-38b",
+     "text": "I'm a bachelor! There is no saying how many applicants",
+     "semcer": 0.0305,
+     "edits": [
+      {
+       "op": "SUB",
+       "ref": "h",
+       "hyp": "I",
+       "ref_span": [
+        0,
+        1
+       ],
+       "hyp_span": [
+        0,
+        1
+       ],
+       "severity": 0.8
+      },
+      {
+       "op": "SUB",
+       "ref": "i",
+       "hyp": "'",
+       "ref_span": [
+        1,
+        2
+       ],
+       "hyp_span": [
+        1,
+        2
+       ],
+       "severity": 0.849
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "lang": "en",
+   "dataset": "hiertext_lines",
+   "license": "CC BY-SA 4.0",
+   "id": "hiertext_lines_en_747c7088dedcc8f3_p3_l0",
+   "reference": "Evaluation copy. Build 7068.winmain.090321-1322",
+   "cer": 0.0426,
+   "outputs": [
+    {
+     "system": "qwen3-5-9b",
+     "text": "Evaluation copy. Build 7068_winmain.090321_1322",
+     "semcer": 0.0001,
+     "edits": [
+      {
+       "op": "SUB",
+       "ref": ".",
+       "hyp": "_",
+       "ref_span": [
+        27,
+        28
+       ],
+       "hyp_span": [
+        27,
+        28
+       ],
+       "severity": 0.001
+      },
+      {
+       "op": "SUB",
+       "ref": "-",
+       "hyp": "_",
+       "ref_span": [
+        42,
+        43
+       ],
+       "hyp_span": [
+        42,
+        43
+       ],
+       "severity": 0.003
+      }
+     ]
+    },
+    {
+     "system": "pp-ocrv5",
+     "text": "valuation copy. Build 7068.winmain.090321-1321",
+     "semcer": 0.0253,
+     "edits": [
+      {
+       "op": "DEL",
+       "ref": "E",
+       "hyp": null,
+       "ref_span": [
+        0,
+        1
+       ],
+       "hyp_span": [
+        0,
+        0
+       ],
+       "severity": 0.213
+      },
+      {
+       "op": "SUB",
+       "ref": "2",
+       "hyp": "1",
+       "ref_span": [
+        46,
+        47
+       ],
+       "hyp_span": [
+        45,
+        46
+       ],
+       "severity": 0.974
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "lang": "de",
+   "dataset": "german_hw",
+   "license": "AFL-3.0",
+   "id": "german_hw_de_train_006493",
+   "reference": "Am Anfang bewegt sich das Protein mit 11ms und oft kreuz und quer. Danach",
+   "cer": 0.0274,
+   "outputs": [
+    {
+     "system": "qwen3-6-27b",
+     "text": "Am Anfang bewegt sich das Protein mit 11 ms und oft kreuz und quer . Danach",
+     "semcer": 0.0,
+     "edits": [
+      {
+       "op": "INS",
+       "ref": null,
+       "hyp": " ",
+       "ref_span": [
+        40,
+        40
+       ],
+       "hyp_span": [
+        40,
+        41
+       ],
+       "severity": 0.0
+      },
+      {
+       "op": "INS",
+       "ref": null,
+       "hyp": " ",
+       "ref_span": [
+        65,
+        65
+       ],
+       "hyp_span": [
+        66,
+        67
+       ],
+       "severity": 0.0
+      }
+     ]
+    },
+    {
+     "system": "internvl3_5-38b",
+     "text": "Am Anfang bewegt sich das Protein mit 71 ms und oft kreuz und quer. Danach",
+     "semcer": 0.0258,
+     "edits": [
+      {
+       "op": "INS",
+       "ref": null,
+       "hyp": "7",
+       "ref_span": [
+        38,
+        38
+       ],
+       "hyp_span": [
+        38,
+        39
+       ],
+       "severity": 0.912
+      },
+      {
+       "op": "SUB",
+       "ref": "1",
+       "hyp": " ",
+       "ref_span": [
+        39,
+        40
+       ],
+       "hyp_span": [
+        40,
+        41
+       ],
+       "severity": 0.972
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "lang": "de",
+   "dataset": "german_hw",
+   "license": "AFL-3.0",
+   "id": "german_hw_de_train_005939",
+   "reference": "In dem Gedicht \"Der Lindenbaum\" von Wilhelm Müller aus dem Jahr 1823 geht es",
+   "cer": 0.0263,
+   "outputs": [
+    {
+     "system": "qwen3-6-27b",
+     "text": "In dem Gedicht \" Der Lindenbaum \" von Wilhelm Müller aus dem Jahr 1823 geht es",
+     "semcer": 0.0,
+     "edits": [
+      {
+       "op": "INS",
+       "ref": null,
+       "hyp": " ",
+       "ref_span": [
+        16,
+        16
+       ],
+       "hyp_span": [
+        16,
+        17
+       ],
+       "severity": 0.0
+      },
+      {
+       "op": "INS",
+       "ref": null,
+       "hyp": " ",
+       "ref_span": [
+        30,
+        30
+       ],
+       "hyp_span": [
+        31,
+        32
+       ],
+       "severity": 0.0
+      }
+     ]
+    },
+    {
+     "system": "qianfan-ocr",
+     "text": "In dem Gedicht \"Der Lindenbaum\" von Wilhelm Macler aus dem Jahr 1823 geht es",
+     "semcer": 0.0222,
+     "edits": [
+      {
+       "op": "SUB",
+       "ref": "ü",
+       "hyp": "a",
+       "ref_span": [
+        45,
+        46
+       ],
+       "hyp_span": [
+        45,
+        46
+       ],
+       "severity": 0.898
+      },
+      {
+       "op": "SUB",
+       "ref": "l",
+       "hyp": "c",
+       "ref_span": [
+        46,
+        47
+       ],
+       "hyp_span": [
+        46,
+        47
+       ],
+       "severity": 0.79
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "lang": "de",
+   "dataset": "german_hw",
+   "license": "AFL-3.0",
+   "id": "german_hw_de_train_008912",
+   "reference": "Kurve 3 zeigt ein Riesenaxon in einer Lösung aus 33% Meerwasser und 67% isotoner",
+   "cer": 0.025,
+   "outputs": [
+    {
+     "system": "internvl3_5-38b",
+     "text": "Kurve 3 zeigt ein Riesenaxon in einer Lösung aus 33\\% Meerwasser und 67\\% isotoner",
+     "semcer": 0.0003,
+     "edits": [
+      {
+       "op": "INS",
+       "ref": null,
+       "hyp": "\\",
+       "ref_span": [
+        51,
+        51
+       ],
+       "hyp_span": [
+        51,
+        52
+       ],
+       "severity": 0.007
+      },
+      {
+       "op": "INS",
+       "ref": null,
+       "hyp": "\\",
+       "ref_span": [
+        70,
+        70
+       ],
+       "hyp_span": [
+        71,
+        72
+       ],
+       "severity": 0.015
+      }
+     ]
+    },
+    {
+     "system": "qwen3-5-9b",
+     "text": "Kurve 3 zeigt ein Kieselaxon in einer Lösung aus 33% Meerwasser und 67% isotoner",
+     "semcer": 0.0183,
+     "edits": [
+      {
+       "op": "SUB",
+       "ref": "R",
+       "hyp": "K",
+       "ref_span": [
+        18,
+        19
+       ],
+       "hyp_span": [
+        18,
+        19
+       ],
+       "severity": 0.767
+      },
+      {
+       "op": "SUB",
+       "ref": "n",
+       "hyp": "l",
+       "ref_span": [
+        23,
+        24
+       ],
+       "hyp_span": [
+        23,
+        24
+       ],
+       "severity": 0.696
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "lang": "fr",
+   "dataset": "retas_lines",
+   "license": "Public domain (US)",
+   "id": "retas_fr_sonexcellenceeu00zolagoog_leaf0301_L018",
+   "reference": "Elle éprouvait un besoin mauvais de lui tout conter.",
+   "cer": 0.0385,
+   "outputs": [
+    {
+     "system": "easyocr",
+     "text": "Elle éprouvait un besoin\nmauvais de lui tout conter",
+     "semcer": 0.0006,
+     "edits": [
+      {
+       "op": "SUB",
+       "ref": " ",
+       "hyp": "\n",
+       "ref_span": [
+        24,
+        25
+       ],
+       "hyp_span": [
+        24,
+        25
+       ],
+       "severity": 0.002
+      },
+      {
+       "op": "DEL",
+       "ref": ".",
+       "hyp": null,
+       "ref_span": [
+        51,
+        52
+       ],
+       "hyp_span": [
+        51,
+        51
+       ],
+       "severity": 0.029
+      }
+     ]
+    },
+    {
+     "system": "qianfan-ocr",
+     "text": "Elle éprouvait un besoin mauvais de lui tout contre.",
+     "semcer": 0.0251,
+     "edits": [
+      {
+       "op": "SUB",
+       "ref": "e",
+       "hyp": "r",
+       "ref_span": [
+        49,
+        50
+       ],
+       "hyp_span": [
+        49,
+        50
+       ],
+       "severity": 0.65
+      },
+      {
+       "op": "SUB",
+       "ref": "r",
+       "hyp": "e",
+       "ref_span": [
+        50,
+        51
+       ],
+       "hyp_span": [
+        50,
+        51
+       ],
+       "severity": 0.653
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "lang": "fr",
+   "dataset": "retas_lines",
+   "license": "Public domain (US)",
+   "id": "retas_fr_fablesdelafonta12fontgoog_leaf0146_L018",
+   "reference": "Vous n'auriez pas tant à souffrir:",
+   "cer": 0.0588,
+   "outputs": [
+    {
+     "system": "gemma-4-26b-a4b-it",
+     "text": "Vous n'auriez pas tant à souffrir ;",
+     "semcer": 0.0006,
+     "edits": [
+      {
+       "op": "INS",
+       "ref": null,
+       "hyp": " ",
+       "ref_span": [
+        33,
+        33
+       ],
+       "hyp_span": [
+        33,
+        34
+       ],
+       "severity": 0.002
+      },
+      {
+       "op": "SUB",
+       "ref": ":",
+       "hyp": ";",
+       "ref_span": [
+        33,
+        34
+       ],
+       "hyp_span": [
+        34,
+        35
+       ],
+       "severity": 0.018
+      }
+     ]
+    },
+    {
+     "system": "easyocr",
+     "text": "Vous n'auriez pas tant & souffrir;",
+     "semcer": 0.0344,
+     "edits": [
+      {
+       "op": "SUB",
+       "ref": "à",
+       "hyp": "&",
+       "ref_span": [
+        23,
+        24
+       ],
+       "hyp_span": [
+        23,
+        24
+       ],
+       "severity": 0.639
+      },
+      {
+       "op": "SUB",
+       "ref": ":",
+       "hyp": ";",
+       "ref_span": [
+        33,
+        34
+       ],
+       "hyp_span": [
+        33,
+        34
+       ],
+       "severity": 0.531
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "lang": "fr",
+   "dataset": "retas_lines",
+   "license": "Public domain (US)",
+   "id": "retas_fr_lesmisrables16hugogoog_leaf0016_L081",
+   "reference": "peut à peine porter des charrettes à boeufs.",
+   "cer": 0.0455,
+   "outputs": [
+    {
+     "system": "gemma-4-26b-a4b-it",
+     "text": "peut à peine porter des charrettes à bœufs.",
+     "semcer": 0.0013,
+     "edits": [
+      {
+       "op": "DEL",
+       "ref": "o",
+       "hyp": null,
+       "ref_span": [
+        38,
+        39
+       ],
+       "hyp_span": [
+        38,
+        38
+       ],
+       "severity": 0.045
+      },
+      {
+       "op": "SUB",
+       "ref": "e",
+       "hyp": "œ",
+       "ref_span": [
+        39,
+        40
+       ],
+       "hyp_span": [
+        38,
+        39
+       ],
+       "severity": 0.011
+      }
+     ]
+    },
+    {
+     "system": "qianfan-ocr",
+     "text": "peut à peine porter des charrettes à bouis.",
+     "semcer": 0.0262,
+     "edits": [
+      {
+       "op": "DEL",
+       "ref": "e",
+       "hyp": null,
+       "ref_span": [
+        39,
+        40
+       ],
+       "hyp_span": [
+        39,
+        39
+       ],
+       "severity": 0.595
+      },
+      {
+       "op": "SUB",
+       "ref": "f",
+       "hyp": "i",
+       "ref_span": [
+        41,
+        42
+       ],
+       "hyp_span": [
+        40,
+        41
+       ],
+       "severity": 0.558
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "lang": "es",
+   "dataset": "retas_lines",
+   "license": "Public domain (US)",
+   "id": "retas_es_loscuatrojinetes00blas_leaf0158_L011",
+   "reference": "patrióticas. De pronto se abría el gentío en el centro de",
+   "cer": 0.0351,
+   "outputs": [
+    {
+     "system": "easyocr",
+     "text": "patrióticas .\nDe pronto se abría el gentío en el centro de",
+     "semcer": 0.0004,
+     "edits": [
+      {
+       "op": "INS",
+       "ref": null,
+       "hyp": " ",
+       "ref_span": [
+        11,
+        11
+       ],
+       "hyp_span": [
+        11,
+        12
+       ],
+       "severity": 0.003
+      },
+      {
+       "op": "SUB",
+       "ref": " ",
+       "hyp": "\n",
+       "ref_span": [
+        12,
+        13
+       ],
+       "hyp_span": [
+        13,
+        14
+       ],
+       "severity": 0.022
+      }
+     ]
+    },
+    {
+     "system": "internvl3_5-38b",
+     "text": "patrióticas. De pronto se abriría el gentío en el centro de",
+     "semcer": 0.0223,
+     "edits": [
+      {
+       "op": "INS",
+       "ref": null,
+       "hyp": "r",
+       "ref_span": [
+        28,
+        28
+       ],
+       "hyp_span": [
+        28,
+        29
+       ],
+       "severity": 0.657
+      },
+      {
+       "op": "INS",
+       "ref": null,
+       "hyp": "i",
+       "ref_span": [
+        28,
+        28
+       ],
+       "hyp_span": [
+        29,
+        30
+       ],
+       "severity": 0.615
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "lang": "es",
+   "dataset": "retas_lines",
+   "license": "Public domain (US)",
+   "id": "retas_es_historiadelosju00castgoog_leaf0246_L006",
+   "reference": "lo tienen de disgustar mas á este que á aquel, de",
+   "cer": 0.0408,
+   "outputs": [
+    {
+     "system": "qianfan-ocr",
+     "text": "lo tienen de disgustar mas a este que a aquel, de",
+     "semcer": 0.0,
+     "edits": [
+      {
+       "op": "SUB",
+       "ref": "á",
+       "hyp": "a",
+       "ref_span": [
+        27,
+        28
+       ],
+       "hyp_span": [
+        27,
+        28
+       ],
+       "severity": 0.001
+      },
+      {
+       "op": "SUB",
+       "ref": "á",
+       "hyp": "a",
+       "ref_span": [
+        38,
+        39
+       ],
+       "hyp_span": [
+        38,
+        39
+       ],
+       "severity": 0.001
+      }
+     ]
+    },
+    {
+     "system": "internvl3_5-38b",
+     "text": "to tien en de disgustar mas á este que á aquel, de",
+     "semcer": 0.0254,
+     "edits": [
+      {
+       "op": "SUB",
+       "ref": "l",
+       "hyp": "t",
+       "ref_span": [
+        0,
+        1
+       ],
+       "hyp_span": [
+        0,
+        1
+       ],
+       "severity": 0.677
+      },
+      {
+       "op": "INS",
+       "ref": null,
+       "hyp": " ",
+       "ref_span": [
+        7,
+        7
+       ],
+       "hyp_span": [
+        7,
+        8
+       ],
+       "severity": 0.566
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "lang": "es",
+   "dataset": "retas_lines",
+   "license": "Public domain (US)",
+   "id": "retas_es_unviajedenovios00degoog_leaf0101_L010",
+   "reference": "agradecidos sin causa!--respondió Artegui en el",
+   "cer": 0.0426,
+   "outputs": [
+    {
+     "system": "qwen3-6-27b",
+     "text": "agradecidos sin causa! —respondió Artegui en el",
+     "semcer": 0.0002,
+     "edits": [
+      {
+       "op": "SUB",
+       "ref": "-",
+       "hyp": " ",
+       "ref_span": [
+        22,
+        23
+       ],
+       "hyp_span": [
+        22,
+        23
+       ],
+       "severity": 0.001
+      },
+      {
+       "op": "SUB",
+       "ref": "-",
+       "hyp": "—",
+       "ref_span": [
+        23,
+        24
+       ],
+       "hyp_span": [
+        23,
+        24
+       ],
+       "severity": 0.009
+      }
+     ]
+    },
+    {
+     "system": "easyocr",
+     "text": "agradecidos sin causal-respondió Artegui en el",
+     "semcer": 0.0251,
+     "edits": [
+      {
+       "op": "DEL",
+       "ref": "!",
+       "hyp": null,
+       "ref_span": [
+        21,
+        22
+       ],
+       "hyp_span": [
+        21,
+        21
+       ],
+       "severity": 0.593
+      },
+      {
+       "op": "SUB",
+       "ref": "-",
+       "hyp": "l",
+       "ref_span": [
+        22,
+        23
+       ],
+       "hyp_span": [
+        21,
+        22
+       ],
+       "severity": 0.588
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "lang": "pt",
+   "dataset": "bressay",
+   "license": "CC BY 4.0",
+   "id": "bressay_pt_9426-007-04-09",
+   "reference": "de Saúde oferece os meios para garantir o avanço da ciência devido ao seu",
+   "cer": 0.0274,
+   "outputs": [
+    {
+     "system": "qianfan-ocr",
+     "text": "de Saude oferece os meios para garantir o avanco da ciência devido ao seu",
+     "semcer": 0.0005,
+     "edits": [
+      {
+       "op": "SUB",
+       "ref": "ú",
+       "hyp": "u",
+       "ref_span": [
+        5,
+        6
+       ],
+       "hyp_span": [
+        5,
+        6
+       ],
+       "severity": 0.001
+      },
+      {
+       "op": "SUB",
+       "ref": "ç",
+       "hyp": "c",
+       "ref_span": [
+        46,
+        47
+       ],
+       "hyp_span": [
+        46,
+        47
+       ],
+       "severity": 0.034
+      }
+     ]
+    },
+    {
+     "system": "internvl3_5-38b",
+     "text": "de Saúde oferece os meios para garantir o avanço da ciência divida ao seu",
+     "semcer": 0.0173,
+     "edits": [
+      {
+       "op": "SUB",
+       "ref": "e",
+       "hyp": "i",
+       "ref_span": [
+        61,
+        62
+       ],
+       "hyp_span": [
+        61,
+        62
+       ],
+       "severity": 0.585
+      },
+      {
+       "op": "SUB",
+       "ref": "o",
+       "hyp": "a",
+       "ref_span": [
+        65,
+        66
+       ],
+       "hyp_span": [
+        65,
+        66
+       ],
+       "severity": 0.677
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "lang": "pt",
+   "dataset": "bressay",
+   "license": "CC BY 4.0",
+   "id": "bressay_pt_1498-043-03-01",
+   "reference": "Além disso, a comercialização ilegal de filmes é consequência da baixa aces-",
+   "cer": 0.0263,
+   "outputs": [
+    {
+     "system": "internvl3_5-38b",
+     "text": "Além disso, a comercialização ilegal de filmes é conseqüência da baixa acs-",
+     "semcer": 0.0039,
+     "edits": [
+      {
+       "op": "SUB",
+       "ref": "u",
+       "hyp": "ü",
+       "ref_span": [
+        55,
+        56
+       ],
+       "hyp_span": [
+        55,
+        56
+       ],
+       "severity": 0.0
+      },
+      {
+       "op": "DEL",
+       "ref": "e",
+       "hyp": null,
+       "ref_span": [
+        73,
+        74
+       ],
+       "hyp_span": [
+        73,
+        73
+       ],
+       "severity": 0.296
+      }
+     ]
+    },
+    {
+     "system": "qwen3-5-9b",
+     "text": "Além disso, a comercialização ilegal de filmes é consequência da baixa ques-",
+     "semcer": 0.0178,
+     "edits": [
+      {
+       "op": "SUB",
+       "ref": "a",
+       "hyp": "q",
+       "ref_span": [
+        71,
+        72
+       ],
+       "hyp_span": [
+        71,
+        72
+       ],
+       "severity": 0.689
+      },
+      {
+       "op": "SUB",
+       "ref": "c",
+       "hyp": "u",
+       "ref_span": [
+        72,
+        73
+       ],
+       "hyp_span": [
+        72,
+        73
+       ],
+       "severity": 0.667
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "lang": "pt",
+   "dataset": "bressay",
+   "license": "CC BY 4.0",
+   "id": "bressay_pt_4123-041-04-05",
+   "reference": "tividade popular nas telonas (para atrair o público de baixa renda",
+   "cer": 0.0303,
+   "outputs": [
+    {
+     "system": "gemma-4-26b-a4b-it",
+     "text": "atividade popular nas telonas (para atrair o público de baixa renda)",
+     "semcer": 0.0017,
+     "edits": [
+      {
+       "op": "INS",
+       "ref": null,
+       "hyp": "a",
+       "ref_span": [
+        0,
+        0
+       ],
+       "hyp_span": [
+        0,
+        1
+       ],
+       "severity": 0.1
+      },
+      {
+       "op": "INS",
+       "ref": null,
+       "hyp": ")",
+       "ref_span": [
+        66,
+        66
+       ],
+       "hyp_span": [
+        67,
+        68
+       ],
+       "severity": 0.015
+      }
+     ]
+    },
+    {
+     "system": "qwen3-6-27b",
+     "text": "finidade popular nas telonas (para atrair o público de baixa renda",
+     "semcer": 0.0142,
+     "edits": [
+      {
+       "op": "SUB",
+       "ref": "t",
+       "hyp": "f",
+       "ref_span": [
+        0,
+        1
+       ],
+       "hyp_span": [
+        0,
+        1
+       ],
+       "severity": 0.443
+      },
+      {
+       "op": "SUB",
+       "ref": "v",
+       "hyp": "n",
+       "ref_span": [
+        2,
+        3
+       ],
+       "hyp_span": [
+        2,
+        3
+       ],
+       "severity": 0.494
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "lang": "ru",
+   "dataset": "school_notebooks_ru",
+   "license": "MIT",
+   "id": "school_notebooks_ru_ru_train_596_2",
+   "reference": "Я бы хотела остановиться на стихотворении А. А. Фета",
+   "cer": 0.0385,
+   "outputs": [
+    {
+     "system": "qwen3-6-27b",
+     "text": "Я бы хотела остановиться на стихотворении А.А.Фета",
+     "semcer": 0.0,
+     "edits": [
+      {
+       "op": "DEL",
+       "ref": " ",
+       "hyp": null,
+       "ref_span": [
+        44,
+        45
+       ],
+       "hyp_span": [
+        44,
+        44
+       ],
+       "severity": 0.001
+      },
+      {
+       "op": "DEL",
+       "ref": " ",
+       "hyp": null,
+       "ref_span": [
+        47,
+        48
+       ],
+       "hyp_span": [
+        46,
+        46
+       ],
+       "severity": 0.002
+      }
+     ]
+    },
+    {
+     "system": "gemma-4-26b-a4b-it",
+     "text": "Я бы хотела остановиться на стихотворении А. А. Рема",
+     "semcer": 0.0378,
+     "edits": [
+      {
+       "op": "SUB",
+       "ref": "Ф",
+       "hyp": "Р",
+       "ref_span": [
+        48,
+        49
+       ],
+       "hyp_span": [
+        48,
+        49
+       ],
+       "severity": 0.984
+      },
+      {
+       "op": "SUB",
+       "ref": "т",
+       "hyp": "м",
+       "ref_span": [
+        50,
+        51
+       ],
+       "hyp_span": [
+        50,
+        51
+       ],
+       "severity": 0.984
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "lang": "ru",
+   "dataset": "school_notebooks_ru",
+   "license": "MIT",
+   "id": "school_notebooks_ru_ru_train_405_1",
+   "reference": "ветка ели. На землю упал ком снега.",
+   "cer": 0.0571,
+   "outputs": [
+    {
+     "system": "gemma-4-26b-a4b-it",
+     "text": "ветка ели, на землю упал ком снега.",
+     "semcer": 0.0001,
+     "edits": [
+      {
+       "op": "SUB",
+       "ref": ".",
+       "hyp": ",",
+       "ref_span": [
+        9,
+        10
+       ],
+       "hyp_span": [
+        9,
+        10
+       ],
+       "severity": 0.0
+      },
+      {
+       "op": "SUB",
+       "ref": "Н",
+       "hyp": "н",
+       "ref_span": [
+        11,
+        12
+       ],
+       "hyp_span": [
+        11,
+        12
+       ],
+       "severity": 0.005
+      }
+     ]
+    },
+    {
+     "system": "qwen3-5-9b",
+     "text": "ветка ели. На землю упал как снега.",
+     "semcer": 0.034,
+     "edits": [
+      {
+       "op": "SUB",
+       "ref": "о",
+       "hyp": "а",
+       "ref_span": [
+        26,
+        27
+       ],
+       "hyp_span": [
+        26,
+        27
+       ],
+       "severity": 0.583
+      },
+      {
+       "op": "SUB",
+       "ref": "м",
+       "hyp": "к",
+       "ref_span": [
+        27,
+        28
+       ],
+       "hyp_span": [
+        27,
+        28
+       ],
+       "severity": 0.606
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "lang": "ru",
+   "dataset": "school_notebooks_ru",
+   "license": "MIT",
+   "id": "school_notebooks_ru_ru_train_229_9",
+   "reference": "нет. Вокруг кипея стоит тёплый воздух.",
+   "cer": 0.0526,
+   "outputs": [
+    {
+     "system": "gemma-4-26b-a4b-it",
+     "text": "нет, вокруг кипея стоит тёплый воздух.",
+     "semcer": 0.0008,
+     "edits": [
+      {
+       "op": "SUB",
+       "ref": ".",
+       "hyp": ",",
+       "ref_span": [
+        3,
+        4
+       ],
+       "hyp_span": [
+        3,
+        4
+       ],
+       "severity": 0.018
+      },
+      {
+       "op": "SUB",
+       "ref": "В",
+       "hyp": "в",
+       "ref_span": [
+        5,
+        6
+       ],
+       "hyp_span": [
+        5,
+        6
+       ],
+       "severity": 0.013
+      }
+     ]
+    },
+    {
+     "system": "qwen3-6-27b",
+     "text": "нет. Вокруг китая стоит тёплый воздух.",
+     "semcer": 0.0287,
+     "edits": [
+      {
+       "op": "SUB",
+       "ref": "п",
+       "hyp": "т",
+       "ref_span": [
+        14,
+        15
+       ],
+       "hyp_span": [
+        14,
+        15
+       ],
+       "severity": 0.522
+      },
+      {
+       "op": "SUB",
+       "ref": "е",
+       "hyp": "а",
+       "ref_span": [
+        15,
+        16
+       ],
+       "hyp_span": [
+        15,
+        16
+       ],
+       "severity": 0.571
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "lang": "ur",
+   "dataset": "mozhi",
+   "license": "CC BY 4.0",
+   "id": "mozhi_ur_0000231",
+   "reference": "یہ ظُلم ہے ، یہ ظُلم ہے انصاف نہیں ہے",
+   "cer": 0.0571,
+   "outputs": [
+    {
+     "system": "gemma-4-26b-a4b-it",
+     "text": "یہ ظلم ہے ، یہ ظلم ہے انصاف نہیں ہے",
+     "semcer": 0.0005,
+     "edits": [
+      {
+       "op": "SUB",
+       "ref": "ظُ",
+       "hyp": "ظ",
+       "ref_span": [
+        3,
+        5
+       ],
+       "hyp_span": [
+        3,
+        4
+       ],
+       "severity": 0.007
+      },
+      {
+       "op": "SUB",
+       "ref": "ظُ",
+       "hyp": "ظ",
+       "ref_span": [
+        16,
+        18
+       ],
+       "hyp_span": [
+        15,
+        16
+       ],
+       "severity": 0.012
+      }
+     ]
+    },
+    {
+     "system": "qwen3-6-27b",
+     "text": "یہ علم ہے ، یہ علم ہے انصاف نہیں ہے",
+     "semcer": 0.0416,
+     "edits": [
+      {
+       "op": "SUB",
+       "ref": "ظُ",
+       "hyp": "ع",
+       "ref_span": [
+        3,
+        5
+       ],
+       "hyp_span": [
+        3,
+        4
+       ],
+       "severity": 0.702
+      },
+      {
+       "op": "SUB",
+       "ref": "ظُ",
+       "hyp": "ع",
+       "ref_span": [
+        16,
+        18
+       ],
+       "hyp_span": [
+        15,
+        16
+       ],
+       "severity": 0.754
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "lang": "ur",
+   "dataset": "mozhi",
+   "license": "CC BY 4.0",
+   "id": "mozhi_ur_0002901",
+   "reference": "مِرے ندیم مِری بات کا یقین نہ کر",
+   "cer": 0.0667,
+   "outputs": [
+    {
+     "system": "gemma-4-26b-a4b-it",
+     "text": "مرے ندیم مری بات کا یقین نہ کر",
+     "semcer": 0.0044,
+     "edits": [
+      {
+       "op": "SUB",
+       "ref": "مِ",
+       "hyp": "م",
+       "ref_span": [
+        0,
+        2
+       ],
+       "hyp_span": [
+        0,
+        1
+       ],
+       "severity": 0.032
+      },
+      {
+       "op": "SUB",
+       "ref": "مِ",
+       "hyp": "م",
+       "ref_span": [
+        10,
+        12
+       ],
+       "hyp_span": [
+        9,
+        10
+       ],
+       "severity": 0.101
+      }
+     ]
+    },
+    {
+     "system": "qwen3-6-27b",
+     "text": "ہرے ندیم ہری بات کا یقین نہ کر",
+     "semcer": 0.0464,
+     "edits": [
+      {
+       "op": "SUB",
+       "ref": "مِ",
+       "hyp": "ہ",
+       "ref_span": [
+        0,
+        2
+       ],
+       "hyp_span": [
+        0,
+        1
+       ],
+       "severity": 0.679
+      },
+      {
+       "op": "SUB",
+       "ref": "مِ",
+       "hyp": "ہ",
+       "ref_span": [
+        10,
+        12
+       ],
+       "hyp_span": [
+        9,
+        10
+       ],
+       "severity": 0.711
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "lang": "ur",
+   "dataset": "mozhi",
+   "license": "CC BY 4.0",
+   "id": "mozhi_ur_0007772",
+   "reference": "\"افتتاح کے دن سے ہی تجارت نے مجھے دل برداشتہ کرنا شروع کردیا",
+   "cer": 0.0333,
+   "outputs": [
+    {
+     "system": "gemma-4-26b-a4b-it",
+     "text": "'افتتاح کے دن سے ہی تجارت نے مجھے دل برداشتہ کرنا شروع کر دیا",
+     "semcer": 0.0,
+     "edits": [
+      {
+       "op": "SUB",
+       "ref": "\"",
+       "hyp": "'",
+       "ref_span": [
+        0,
+        1
+       ],
+       "hyp_span": [
+        0,
+        1
+       ],
+       "severity": 0.0
+      },
+      {
+       "op": "INS",
+       "ref": null,
+       "hyp": " ",
+       "ref_span": [
+        57,
+        57
+       ],
+       "hyp_span": [
+        57,
+        58
+       ],
+       "severity": 0.003
+      }
+     ]
+    },
+    {
+     "system": "qwen3-5-9b",
+     "text": "\"افتتاح کے دون سے ہی تجارت نے بجھے دل برداشتہ کرنا شروع کردیا",
+     "semcer": 0.0188,
+     "edits": [
+      {
+       "op": "INS",
+       "ref": null,
+       "hyp": "و",
+       "ref_span": [
+        12,
+        12
+       ],
+       "hyp_span": [
+        12,
+        13
+       ],
+       "severity": 0.543
+      },
+      {
+       "op": "SUB",
+       "ref": "م",
+       "hyp": "ب",
+       "ref_span": [
+        29,
+        30
+       ],
+       "hyp_span": [
+        30,
+        31
+       ],
+       "severity": 0.584
+      }
+     ]
+    }
+   ]
+  }
+ ]
+}

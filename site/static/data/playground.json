@@ -1,0 +1,1678 @@
+{
+ "meta": {
+  "semcer": "0.1.5",
+  "model": "nguyenx2t/semcer-qwen3.5-0.8b",
+  "revision": "b612a672c2d3f4101a734e64f28370bd7d872f67",
+  "weights": "4a6b7fa5e2fa7154",
+  "precision": "fp32"
+ },
+ "sentences": [
+  {
+   "lang": "en",
+   "name": "English",
+   "reference": "Take 2 tablets at 8:30, not after meals.",
+   "gloss": null,
+   "graphemes": [
+    "T",
+    "a",
+    "k",
+    "e",
+    " ",
+    "2",
+    " ",
+    "t",
+    "a",
+    "b",
+    "l",
+    "e",
+    "t",
+    "s",
+    " ",
+    "a",
+    "t",
+    " ",
+    "8",
+    ":",
+    "3",
+    "0",
+    ",",
+    " ",
+    "n",
+    "o",
+    "t",
+    " ",
+    "a",
+    "f",
+    "t",
+    "e",
+    "r",
+    " ",
+    "m",
+    "e",
+    "a",
+    "l",
+    "s",
+    "."
+   ],
+   "options": [
+    [
+     {
+      "to": "F",
+      "severity": 0.491
+     },
+     {
+      "to": "L",
+      "severity": 0.573
+     },
+     {
+      "to": "t",
+      "severity": 0.0
+     },
+     {
+      "to": "",
+      "severity": 0.145
+     }
+    ],
+    [
+     {
+      "to": "o",
+      "severity": 0.304
+     },
+     {
+      "to": "e",
+      "severity": 0.274
+     },
+     {
+      "to": "A",
+      "severity": 0.0
+     },
+     {
+      "to": "",
+      "severity": 0.241
+     }
+    ],
+    [
+     {
+      "to": "h",
+      "severity": 0.27
+     },
+     {
+      "to": "K",
+      "severity": 0.0
+     },
+     {
+      "to": "",
+      "severity": 0.258
+     }
+    ],
+    [
+     {
+      "to": "c",
+      "severity": 0.258
+     },
+     {
+      "to": "o",
+      "severity": 0.309
+     },
+     {
+      "to": "E",
+      "severity": 0.0
+     },
+     {
+      "to": "",
+      "severity": 0.271
+     }
+    ],
+    [
+     {
+      "to": "",
+      "severity": 0.0
+     }
+    ],
+    [
+     {
+      "to": "Z",
+      "severity": 0.773
+     },
+     {
+      "to": "7",
+      "severity": 0.984
+     },
+     {
+      "to": "",
+      "severity": 0.484
+     }
+    ],
+    [
+     {
+      "to": "",
+      "severity": 0.001
+     }
+    ],
+    [
+     {
+      "to": "f",
+      "severity": 0.295
+     },
+     {
+      "to": "l",
+      "severity": 0.289
+     },
+     {
+      "to": "T",
+      "severity": 0.0
+     },
+     {
+      "to": "",
+      "severity": 0.298
+     }
+    ],
+    [
+     {
+      "to": "o",
+      "severity": 0.323
+     },
+     {
+      "to": "e",
+      "severity": 0.279
+     },
+     {
+      "to": "A",
+      "severity": 0.0
+     },
+     {
+      "to": "",
+      "severity": 0.267
+     }
+    ],
+    [
+     {
+      "to": "h",
+      "severity": 0.258
+     },
+     {
+      "to": "6",
+      "severity": 0.297
+     },
+     {
+      "to": "B",
+      "severity": 0.0
+     },
+     {
+      "to": "",
+      "severity": 0.263
+     }
+    ],
+    [
+     {
+      "to": "1",
+      "severity": 0.242
+     },
+     {
+      "to": "I",
+      "severity": 0.065
+     },
+     {
+      "to": "L",
+      "severity": 0.0
+     },
+     {
+      "to": "",
+      "severity": 0.245
+     }
+    ],
+    [
+     {
+      "to": "c",
+      "severity": 0.256
+     },
+     {
+      "to": "o",
+      "severity": 0.36
+     },
+     {
+      "to": "E",
+      "severity": 0.0
+     },
+     {
+      "to": "",
+      "severity": 0.261
+     }
+    ],
+    [
+     {
+      "to": "f",
+      "severity": 0.263
+     },
+     {
+      "to": "l",
+      "severity": 0.307
+     },
+     {
+      "to": "T",
+      "severity": 0.0
+     },
+     {
+      "to": "",
+      "severity": 0.414
+     }
+    ],
+    [
+     {
+      "to": "5",
+      "severity": 0.43
+     },
+     {
+      "to": "S",
+      "severity": 0.0
+     },
+     {
+      "to": "",
+      "severity": 0.422
+     }
+    ],
+    [
+     {
+      "to": "",
+      "severity": 0.01
+     }
+    ],
+    [
+     {
+      "to": "o",
+      "severity": 0.306
+     },
+     {
+      "to": "e",
+      "severity": 0.297
+     },
+     {
+      "to": "A",
+      "severity": 0.0
+     },
+     {
+      "to": "",
+      "severity": 0.317
+     }
+    ],
+    [
+     {
+      "to": "f",
+      "severity": 0.269
+     },
+     {
+      "to": "l",
+      "severity": 0.324
+     },
+     {
+      "to": "T",
+      "severity": 0.0
+     },
+     {
+      "to": "",
+      "severity": 0.31
+     }
+    ],
+    [
+     {
+      "to": "",
+      "severity": 0.0
+     }
+    ],
+    [
+     {
+      "to": "3",
+      "severity": 0.981
+     },
+     {
+      "to": "B",
+      "severity": 0.968
+     },
+     {
+      "to": "0",
+      "severity": 0.942
+     },
+     {
+      "to": "",
+      "severity": 0.324
+     }
+    ],
+    [
+     {
+      "to": ";",
+      "severity": 0.004
+     },
+     {
+      "to": ".",
+      "severity": 0.002
+     },
+     {
+      "to": "",
+      "severity": 0.256
+     }
+    ],
+    [
+     {
+      "to": "8",
+      "severity": 0.977
+     },
+     {
+      "to": "5",
+      "severity": 0.982
+     },
+     {
+      "to": "",
+      "severity": 0.894
+     }
+    ],
+    [
+     {
+      "to": "O",
+      "severity": 0.125
+     },
+     {
+      "to": "8",
+      "severity": 0.978
+     },
+     {
+      "to": "6",
+      "severity": 0.983
+     },
+     {
+      "to": "",
+      "severity": 0.786
+     }
+    ],
+    [
+     {
+      "to": ".",
+      "severity": 0.007
+     },
+     {
+      "to": ";",
+      "severity": 0.002
+     },
+     {
+      "to": "",
+      "severity": 0.068
+     }
+    ],
+    [
+     {
+      "to": "",
+      "severity": 0.001
+     }
+    ],
+    [
+     {
+      "to": "m",
+      "severity": 0.313
+     },
+     {
+      "to": "h",
+      "severity": 0.454
+     },
+     {
+      "to": "N",
+      "severity": 0.0
+     },
+     {
+      "to": "",
+      "severity": 0.282
+     }
+    ],
+    [
+     {
+      "to": "0",
+      "severity": 0.168
+     },
+     {
+      "to": "a",
+      "severity": 0.288
+     },
+     {
+      "to": "O",
+      "severity": 0.0
+     },
+     {
+      "to": "",
+      "severity": 0.269
+     }
+    ],
+    [
+     {
+      "to": "f",
+      "severity": 0.267
+     },
+     {
+      "to": "l",
+      "severity": 0.285
+     },
+     {
+      "to": "T",
+      "severity": 0.001
+     },
+     {
+      "to": "",
+      "severity": 0.398
+     }
+    ],
+    [
+     {
+      "to": "",
+      "severity": 0.038
+     }
+    ],
+    [
+     {
+      "to": "o",
+      "severity": 0.272
+     },
+     {
+      "to": "e",
+      "severity": 0.275
+     },
+     {
+      "to": "A",
+      "severity": 0.0
+     },
+     {
+      "to": "",
+      "severity": 0.268
+     }
+    ],
+    [
+     {
+      "to": "t",
+      "severity": 0.278
+     },
+     {
+      "to": "F",
+      "severity": 0.002
+     },
+     {
+      "to": "",
+      "severity": 0.265
+     }
+    ],
+    [
+     {
+      "to": "f",
+      "severity": 0.258
+     },
+     {
+      "to": "l",
+      "severity": 0.257
+     },
+     {
+      "to": "T",
+      "severity": 0.0
+     },
+     {
+      "to": "",
+      "severity": 0.261
+     }
+    ],
+    [
+     {
+      "to": "c",
+      "severity": 0.256
+     },
+     {
+      "to": "o",
+      "severity": 0.279
+     },
+     {
+      "to": "E",
+      "severity": 0.0
+     },
+     {
+      "to": "",
+      "severity": 0.259
+     }
+    ],
+    [
+     {
+      "to": "n",
+      "severity": 0.277
+     },
+     {
+      "to": "R",
+      "severity": 0.002
+     },
+     {
+      "to": "",
+      "severity": 0.277
+     }
+    ],
+    [
+     {
+      "to": "",
+      "severity": 0.035
+     }
+    ],
+    [
+     {
+      "to": "n",
+      "severity": 0.269
+     },
+     {
+      "to": "M",
+      "severity": 0.0
+     },
+     {
+      "to": "",
+      "severity": 0.279
+     }
+    ],
+    [
+     {
+      "to": "c",
+      "severity": 0.263
+     },
+     {
+      "to": "o",
+      "severity": 0.305
+     },
+     {
+      "to": "E",
+      "severity": 0.0
+     },
+     {
+      "to": "",
+      "severity": 0.274
+     }
+    ],
+    [
+     {
+      "to": "o",
+      "severity": 0.31
+     },
+     {
+      "to": "e",
+      "severity": 0.288
+     },
+     {
+      "to": "A",
+      "severity": 0.001
+     },
+     {
+      "to": "",
+      "severity": 0.298
+     }
+    ],
+    [
+     {
+      "to": "1",
+      "severity": 0.277
+     },
+     {
+      "to": "I",
+      "severity": 0.202
+     },
+     {
+      "to": "L",
+      "severity": 0.0
+     },
+     {
+      "to": "",
+      "severity": 0.297
+     }
+    ],
+    [
+     {
+      "to": "5",
+      "severity": 0.556
+     },
+     {
+      "to": "S",
+      "severity": 0.001
+     },
+     {
+      "to": "",
+      "severity": 0.467
+     }
+    ],
+    [
+     {
+      "to": ",",
+      "severity": 0.0
+     },
+     {
+      "to": ":",
+      "severity": 0.0
+     },
+     {
+      "to": "",
+      "severity": 0.001
+     }
+    ]
+   ],
+   "cer": 0.025
+  },
+  {
+   "lang": "vi",
+   "name": "Vietnamese",
+   "reference": "Bệnh nhân uống 2 viên thuốc lúc 8 giờ sáng.",
+   "gloss": "The patient takes 2 pills at 8 in the morning.",
+   "graphemes": [
+    "B",
+    "ệ",
+    "n",
+    "h",
+    " ",
+    "n",
+    "h",
+    "â",
+    "n",
+    " ",
+    "u",
+    "ố",
+    "n",
+    "g",
+    " ",
+    "2",
+    " ",
+    "v",
+    "i",
+    "ê",
+    "n",
+    " ",
+    "t",
+    "h",
+    "u",
+    "ố",
+    "c",
+    " ",
+    "l",
+    "ú",
+    "c",
+    " ",
+    "8",
+    " ",
+    "g",
+    "i",
+    "ờ",
+    " ",
+    "s",
+    "á",
+    "n",
+    "g",
+    "."
+   ],
+   "options": [
+    [
+     {
+      "to": "H",
+      "severity": 0.275
+     },
+     {
+      "to": "6",
+      "severity": 0.316
+     },
+     {
+      "to": "b",
+      "severity": 0.0
+     },
+     {
+      "to": "",
+      "severity": 0.208
+     }
+    ],
+    [
+     {
+      "to": "ê",
+      "severity": 0.225
+     },
+     {
+      "to": "ề",
+      "severity": 0.232
+     },
+     {
+      "to": "ế",
+      "severity": 0.15
+     },
+     {
+      "to": "e",
+      "severity": 0.176
+     },
+     {
+      "to": "",
+      "severity": 0.253
+     }
+    ],
+    [
+     {
+      "to": "m",
+      "severity": 0.256
+     },
+     {
+      "to": "h",
+      "severity": 0.255
+     },
+     {
+      "to": "N",
+      "severity": 0.0
+     },
+     {
+      "to": "",
+      "severity": 0.249
+     }
+    ],
+    [
+     {
+      "to": "b",
+      "severity": 0.254
+     },
+     {
+      "to": "n",
+      "severity": 0.258
+     },
+     {
+      "to": "H",
+      "severity": 0.002
+     },
+     {
+      "to": "",
+      "severity": 0.252
+     }
+    ],
+    [
+     {
+      "to": "",
+      "severity": 0.004
+     }
+    ],
+    [
+     {
+      "to": "m",
+      "severity": 0.263
+     },
+     {
+      "to": "h",
+      "severity": 0.258
+     },
+     {
+      "to": "N",
+      "severity": 0.0
+     },
+     {
+      "to": "",
+      "severity": 0.256
+     }
+    ],
+    [
+     {
+      "to": "b",
+      "severity": 0.252
+     },
+     {
+      "to": "n",
+      "severity": 0.257
+     },
+     {
+      "to": "H",
+      "severity": 0.0
+     },
+     {
+      "to": "",
+      "severity": 0.25
+     }
+    ],
+    [
+     {
+      "to": "ấ",
+      "severity": 0.296
+     },
+     {
+      "to": "a",
+      "severity": 0.26
+     },
+     {
+      "to": "o",
+      "severity": 0.271
+     },
+     {
+      "to": "e",
+      "severity": 0.257
+     },
+     {
+      "to": "",
+      "severity": 0.262
+     }
+    ],
+    [
+     {
+      "to": "m",
+      "severity": 0.268
+     },
+     {
+      "to": "h",
+      "severity": 0.257
+     },
+     {
+      "to": "N",
+      "severity": 0.0
+     },
+     {
+      "to": "",
+      "severity": 0.271
+     }
+    ],
+    [
+     {
+      "to": "",
+      "severity": 0.101
+     }
+    ],
+    [
+     {
+      "to": "v",
+      "severity": 0.405
+     },
+     {
+      "to": "n",
+      "severity": 0.302
+     },
+     {
+      "to": "U",
+      "severity": 0.0
+     },
+     {
+      "to": "",
+      "severity": 0.281
+     }
+    ],
+    [
+     {
+      "to": "ô",
+      "severity": 0.241
+     },
+     {
+      "to": "ồ",
+      "severity": 0.208
+     },
+     {
+      "to": "ỗ",
+      "severity": 0.273
+     },
+     {
+      "to": "o",
+      "severity": 0.144
+     },
+     {
+      "to": "",
+      "severity": 0.284
+     }
+    ],
+    [
+     {
+      "to": "m",
+      "severity": 0.256
+     },
+     {
+      "to": "h",
+      "severity": 0.257
+     },
+     {
+      "to": "N",
+      "severity": 0.003
+     },
+     {
+      "to": "",
+      "severity": 0.262
+     }
+    ],
+    [
+     {
+      "to": "9",
+      "severity": 0.354
+     },
+     {
+      "to": "q",
+      "severity": 0.266
+     },
+     {
+      "to": "G",
+      "severity": 0.001
+     },
+     {
+      "to": "",
+      "severity": 0.325
+     }
+    ],
+    [
+     {
+      "to": "",
+      "severity": 0.0
+     }
+    ],
+    [
+     {
+      "to": "Z",
+      "severity": 0.479
+     },
+     {
+      "to": "7",
+      "severity": 0.973
+     },
+     {
+      "to": "",
+      "severity": 0.54
+     }
+    ],
+    [
+     {
+      "to": "",
+      "severity": 0.007
+     }
+    ],
+    [
+     {
+      "to": "y",
+      "severity": 0.29
+     },
+     {
+      "to": "V",
+      "severity": 0.0
+     },
+     {
+      "to": "",
+      "severity": 0.297
+     }
+    ],
+    [
+     {
+      "to": "l",
+      "severity": 0.275
+     },
+     {
+      "to": "1",
+      "severity": 0.277
+     },
+     {
+      "to": "I",
+      "severity": 0.001
+     },
+     {
+      "to": "",
+      "severity": 0.271
+     }
+    ],
+    [
+     {
+      "to": "ế",
+      "severity": 0.249
+     },
+     {
+      "to": "e",
+      "severity": 0.246
+     },
+     {
+      "to": "c",
+      "severity": 0.276
+     },
+     {
+      "to": "o",
+      "severity": 0.271
+     },
+     {
+      "to": "",
+      "severity": 0.338
+     }
+    ],
+    [
+     {
+      "to": "m",
+      "severity": 0.31
+     },
+     {
+      "to": "h",
+      "severity": 0.266
+     },
+     {
+      "to": "N",
+      "severity": 0.001
+     },
+     {
+      "to": "",
+      "severity": 0.289
+     }
+    ],
+    [
+     {
+      "to": "",
+      "severity": 0.001
+     }
+    ],
+    [
+     {
+      "to": "f",
+      "severity": 0.265
+     },
+     {
+      "to": "l",
+      "severity": 0.274
+     },
+     {
+      "to": "T",
+      "severity": 0.0
+     },
+     {
+      "to": "",
+      "severity": 0.31
+     }
+    ],
+    [
+     {
+      "to": "b",
+      "severity": 0.256
+     },
+     {
+      "to": "n",
+      "severity": 0.267
+     },
+     {
+      "to": "H",
+      "severity": 0.005
+     },
+     {
+      "to": "",
+      "severity": 0.273
+     }
+    ],
+    [
+     {
+      "to": "v",
+      "severity": 0.258
+     },
+     {
+      "to": "n",
+      "severity": 0.262
+     },
+     {
+      "to": "U",
+      "severity": 0.0
+     },
+     {
+      "to": "",
+      "severity": 0.281
+     }
+    ],
+    [
+     {
+      "to": "ô",
+      "severity": 0.174
+     },
+     {
+      "to": "ồ",
+      "severity": 0.13
+     },
+     {
+      "to": "ỗ",
+      "severity": 0.224
+     },
+     {
+      "to": "o",
+      "severity": 0.078
+     },
+     {
+      "to": "",
+      "severity": 0.277
+     }
+    ],
+    [
+     {
+      "to": "e",
+      "severity": 0.269
+     },
+     {
+      "to": "o",
+      "severity": 0.283
+     },
+     {
+      "to": "C",
+      "severity": 0.0
+     },
+     {
+      "to": "",
+      "severity": 0.277
+     }
+    ],
+    [
+     {
+      "to": "",
+      "severity": 0.069
+     }
+    ],
+    [
+     {
+      "to": "1",
+      "severity": 0.349
+     },
+     {
+      "to": "I",
+      "severity": 0.15
+     },
+     {
+      "to": "L",
+      "severity": 0.0
+     },
+     {
+      "to": "",
+      "severity": 0.294
+     }
+    ],
+    [
+     {
+      "to": "u",
+      "severity": 0.229
+     },
+     {
+      "to": "ù",
+      "severity": 0.252
+     },
+     {
+      "to": "ũ",
+      "severity": 0.23
+     },
+     {
+      "to": "v",
+      "severity": 0.284
+     },
+     {
+      "to": "",
+      "severity": 0.292
+     }
+    ],
+    [
+     {
+      "to": "e",
+      "severity": 0.279
+     },
+     {
+      "to": "o",
+      "severity": 0.315
+     },
+     {
+      "to": "C",
+      "severity": 0.0
+     },
+     {
+      "to": "",
+      "severity": 0.289
+     }
+    ],
+    [
+     {
+      "to": "",
+      "severity": 0.0
+     }
+    ],
+    [
+     {
+      "to": "3",
+      "severity": 0.938
+     },
+     {
+      "to": "B",
+      "severity": 0.608
+     },
+     {
+      "to": "0",
+      "severity": 0.854
+     },
+     {
+      "to": "",
+      "severity": 0.609
+     }
+    ],
+    [
+     {
+      "to": "",
+      "severity": 0.006
+     }
+    ],
+    [
+     {
+      "to": "9",
+      "severity": 0.404
+     },
+     {
+      "to": "q",
+      "severity": 0.277
+     },
+     {
+      "to": "G",
+      "severity": 0.0
+     },
+     {
+      "to": "",
+      "severity": 0.259
+     }
+    ],
+    [
+     {
+      "to": "l",
+      "severity": 0.269
+     },
+     {
+      "to": "1",
+      "severity": 0.259
+     },
+     {
+      "to": "I",
+      "severity": 0.003
+     },
+     {
+      "to": "",
+      "severity": 0.275
+     }
+    ],
+    [
+     {
+      "to": "ơ",
+      "severity": 0.263
+     },
+     {
+      "to": "ớ",
+      "severity": 0.263
+     },
+     {
+      "to": "ỡ",
+      "severity": 0.276
+     },
+     {
+      "to": "o",
+      "severity": 0.27
+     },
+     {
+      "to": "",
+      "severity": 0.294
+     }
+    ],
+    [
+     {
+      "to": "",
+      "severity": 0.005
+     }
+    ],
+    [
+     {
+      "to": "5",
+      "severity": 0.576
+     },
+     {
+      "to": "S",
+      "severity": 0.0
+     },
+     {
+      "to": "",
+      "severity": 0.365
+     }
+    ],
+    [
+     {
+      "to": "a",
+      "severity": 0.332
+     },
+     {
+      "to": "à",
+      "severity": 0.291
+     },
+     {
+      "to": "ã",
+      "severity": 0.223
+     },
+     {
+      "to": "o",
+      "severity": 0.423
+     },
+     {
+      "to": "",
+      "severity": 0.303
+     }
+    ],
+    [
+     {
+      "to": "m",
+      "severity": 0.269
+     },
+     {
+      "to": "h",
+      "severity": 0.269
+     },
+     {
+      "to": "N",
+      "severity": 0.0
+     },
+     {
+      "to": "",
+      "severity": 0.282
+     }
+    ],
+    [
+     {
+      "to": "9",
+      "severity": 0.482
+     },
+     {
+      "to": "q",
+      "severity": 0.301
+     },
+     {
+      "to": "G",
+      "severity": 0.001
+     },
+     {
+      "to": "",
+      "severity": 0.296
+     }
+    ],
+    [
+     {
+      "to": ",",
+      "severity": 0.0
+     },
+     {
+      "to": ":",
+      "severity": 0.0
+     },
+     {
+      "to": "",
+      "severity": 0.0
+     }
+    ]
+   ],
+   "cer": 0.0233
+  },
+  {
+   "lang": "zh",
+   "name": "Chinese",
+   "reference": "本月收入已达8600元，比上月多一倍。",
+   "gloss": "This month's income reached 8,600 yuan, double last month's.",
+   "graphemes": [
+    "本",
+    "月",
+    "收",
+    "入",
+    "已",
+    "达",
+    "8",
+    "6",
+    "0",
+    "0",
+    "元",
+    "，",
+    "比",
+    "上",
+    "月",
+    "多",
+    "一",
+    "倍",
+    "。"
+   ],
+   "options": [
+    [
+     {
+      "to": "木",
+      "severity": 0.372
+     },
+     {
+      "to": "末",
+      "severity": 0.624
+     },
+     {
+      "to": "",
+      "severity": 0.43
+     }
+    ],
+    [
+     {
+      "to": "目",
+      "severity": 0.329
+     },
+     {
+      "to": "日",
+      "severity": 0.764
+     },
+     {
+      "to": "",
+      "severity": 0.387
+     }
+    ],
+    [
+     {
+      "to": "牧",
+      "severity": 0.346
+     },
+     {
+      "to": "",
+      "severity": 0.325
+     }
+    ],
+    [
+     {
+      "to": "人",
+      "severity": 0.291
+     },
+     {
+      "to": "八",
+      "severity": 0.622
+     },
+     {
+      "to": "",
+      "severity": 0.374
+     }
+    ],
+    [
+     {
+      "to": "己",
+      "severity": 0.248
+     },
+     {
+      "to": "巳",
+      "severity": 0.142
+     },
+     {
+      "to": "",
+      "severity": 0.356
+     }
+    ],
+    [
+     {
+      "to": "这",
+      "severity": 0.514
+     },
+     {
+      "to": "",
+      "severity": 0.411
+     }
+    ],
+    [
+     {
+      "to": "3",
+      "severity": 0.982
+     },
+     {
+      "to": "B",
+      "severity": 0.953
+     },
+     {
+      "to": "0",
+      "severity": 0.927
+     },
+     {
+      "to": "",
+      "severity": 0.903
+     }
+    ],
+    [
+     {
+      "to": "5",
+      "severity": 0.975
+     },
+     {
+      "to": "8",
+      "severity": 0.978
+     },
+     {
+      "to": "b",
+      "severity": 0.677
+     },
+     {
+      "to": "",
+      "severity": 0.92
+     }
+    ],
+    [
+     {
+      "to": "O",
+      "severity": 0.196
+     },
+     {
+      "to": "8",
+      "severity": 0.98
+     },
+     {
+      "to": "6",
+      "severity": 0.981
+     },
+     {
+      "to": "",
+      "severity": 0.768
+     }
+    ],
+    [
+     {
+      "to": "O",
+      "severity": 0.143
+     },
+     {
+      "to": "8",
+      "severity": 0.969
+     },
+     {
+      "to": "6",
+      "severity": 0.982
+     },
+     {
+      "to": "",
+      "severity": 0.768
+     }
+    ],
+    [
+     {
+      "to": "无",
+      "severity": 0.593
+     },
+     {
+      "to": "兀",
+      "severity": 0.065
+     },
+     {
+      "to": "",
+      "severity": 0.136
+     }
+    ],
+    [
+     {
+      "to": "、",
+      "severity": 0.0
+     },
+     {
+      "to": "。",
+      "severity": 0.008
+     },
+     {
+      "to": "",
+      "severity": 0.002
+     }
+    ],
+    [
+     {
+      "to": "此",
+      "severity": 0.661
+     },
+     {
+      "to": "",
+      "severity": 0.636
+     }
+    ],
+    [
+     {
+      "to": "土",
+      "severity": 0.511
+     },
+     {
+      "to": "止",
+      "severity": 0.559
+     },
+     {
+      "to": "",
+      "severity": 0.473
+     }
+    ],
+    [
+     {
+      "to": "目",
+      "severity": 0.355
+     },
+     {
+      "to": "日",
+      "severity": 0.464
+     },
+     {
+      "to": "",
+      "severity": 0.488
+     }
+    ],
+    [
+     {
+      "to": "夕",
+      "severity": 0.387
+     },
+     {
+      "to": "",
+      "severity": 0.526
+     }
+    ],
+    [
+     {
+      "to": "二",
+      "severity": 0.835
+     },
+     {
+      "to": "",
+      "severity": 0.451
+     }
+    ],
+    [
+     {
+      "to": "培",
+      "severity": 0.411
+     },
+     {
+      "to": "",
+      "severity": 0.518
+     }
+    ],
+    [
+     {
+      "to": "，",
+      "severity": 0.0
+     },
+     {
+      "to": ".",
+      "severity": 0.0
+     },
+     {
+      "to": "",
+      "severity": 0.001
+     }
+    ]
+   ],
+   "cer": 0.0526
+  }
+ ]
+}

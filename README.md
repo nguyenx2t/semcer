@@ -1,4 +1,4 @@
-# semcer
+# semCER: severity-weighted CER for OCR
 
 **Equal CER, Unequal Damage: Severity-Weighted Character Error Rate for OCR**<br>
 Nguyen Nguyen, Yongyi Zang
